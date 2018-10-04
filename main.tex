@@ -10,7 +10,6 @@
 
 \maketitle
 
-
 \section{Ausgangslage, Forschungsproblem und -frage}
 
 % In der Ausgangslage wird das Thema zuerst allgemein vorgestellt, dann wird auf einen bestimmten Teilaspekt des Themengebiets fokussiert. 
@@ -18,16 +17,86 @@
 % Die Forschungsfrage schliesslich bündelt die zentralen Aspekte des Forschungsproblems als zugespitzte Frage. Die Frage sollte bereits so konkret sein, dass sie in einer Thesis untersucht werden kann.
 % (Bitte diesen Text jeweils nicht löschen. Er dient als Information für die Betreuungsperson.)
 
+
+Ausgangslage Rechnungsverarbeitung im Krankenkassen Umfeld
+
+- Input Kanäle sind divers
+
+  -- Post [ca. 40\%] (Scanning)
+  
+  -- Direkt [sehr wenig] (Arzt -> KK)
+  
+  -- E-Mail [wenig, soll vermieden werden] (PDF / Foto)
+  
+  -- Kundenportal [ca. 60\%] (PDF / Foto)
+
+- Qualität ist je nach Input Kanal sehr schlecht
+
+  -- Fotos sind unscharf, verzerrt, abgeschnitten, unvollständig, papier in schlechtem zustand (gefaltet, "verchrugeled", kaffee flecken)
+
+- Rechnungen müssen einzeln Verarbeitet werden (Da jede Rechnung einzeln geprüft werden muss)
+
+  -- Oft werden mehrere Rechnungen gesendet/hochgeladen
+
+- TG vs TP
+
+- Digitalisierungsvorhaben des Bundes nicht sehr erfolgreich
+
+  -- swissmedic plante ursprüngliche digitalisierung, daraus entstand TARMED dokumente
+
+  -- Patientendossier steht seit Jahren in den Kinderschuhen
+
+  -- medidata.ch -> erfolgreich? Getrieben vom Bund oder privat?
+
+- TARMED kann durch standardisierung durch herkämmliche Zonal OCR verfahren verarbeitet werden
+
+- Nicht TARMED belege sind unstrukturiert und können aktuell noch nicht automatisiert verarbeitet werden
+
+- Im Bereich VVG ist TARMED nur ca. 50\%
+
+- AXA bietet nur VVG
+
+- Grosse Krankenkassen stellen sehr viele Personen an, um die Dokumente zu indexieren
+
+Aktuelle Ansätze in der Branche
+- App-Lösungen zur Einreichung der Rechnungen auf sehr unterschiedlichem Niveau
+  - Saniats cooles app
+  - Sympany nur Web Portal ohne Bild optimierung
+
+Problematik in anderen Branchen
+- Wo gibt es automatisierte Rechnungsverarbeitung?
+- ESR Scanning vom e-Banking
+- DropBox macht automatische indexierung von dokumenten
+- MS OfficeLens macht gute rectification
+
+Machine Learning bietet immer mehr Möglichkeit, IT Systeme intelligent zu machen und eröffnet neue chancen, bla bla bla
+
+\textbf{Forschungsfrage}: Kann die Leistungsverarbeitung im für Krankenversicherer mit Hilfe von Artificial Intelligence automatisiert werden?
+
 \section{Zielsetzungen, inhaltliche Abgrenzung}
 
 % In der Zielsetzung werden neben der Beantwortung der Forschungsfrage die darüber hinausgehenden Ziele benennt, die mit der Thesis verfolgt werden (was soll mit der Untersuchung erreicht werden, wer kann welchen Nutzen aus der Thesis ziehen?). 
 % Indem angegeben wird, was (Forschungsfrage) warum (Zielsetzung) untersucht werden soll, kann auch definiert werden, welche Fragen, Inhalte und Ziele in der Thesis nicht verfolgt, also bewusst ausgeklammert werden.
 
+Forschungsfrage (Möglichkeit der Automatisierung, wie stark? Ist AI ein guter Ansatz? Soll hier weiter investiert werden?) ist interessant für AXA, da AXA wächst und im Bereich des Schadensprozess durch die Automatisierung nicht so viele Personen eingestellt werden müssen -> Es kann ein enormer Wettbewerbsvorteil entstehen. Vergleich mit 200 indexierern der CSS und 500 von Assura...
+
+TODO: Abgrenzung
+
+- Arbeit bezieht sich nur bis und mit Aufbereitung der Daten, damit diese dann weiter verarbeitet werden können
+
+- Business Rules sind nicht teil der Arbeit
+
+- TODO: Definition, welche Attribute für die Verarbeitung interessant sind
 
 \section{Methodische Vorgehensweise}
 
 % Hier wird die methodische Vorgehensweise zur Beantwortung der Forschungsfrage erläutert. Die Vorgehensweise bezieht sich auf die Art der empirischen Datenerhebung (qualitativ, quantitativ oder eine Mischform) wie auch auf die geplante Auswertung der erhobenen Daten. Methoden der Datenerhebung sind beispielsweise eine Umfrage oder Interviews, Methoden der Datenanalyse sind beispielsweise statistische Tests oder eine Inhaltsanalyse. Es wird beschrieben, wie bei der Datenerhebung und -analyse vorgegangen werden soll (wer soll wie befragt werden, wie werden die Daten analysiert) und welche kritischen Aspekte in der Erhebung und Analyse zu erkennen sind
  
+Vorgehen:
+- Erarbeitung eines Prototypen
+- Testen der einzelnen Schirtten inklusive Bewertung
+- Test des Prototyp mit realen Daten
+- Bewertung durch SpezialistIn im Bereich Leistungsverarbeitung??
  
 \section{Provisorisches Inhaltsverzeichnis} 
 
@@ -43,17 +112,55 @@
 %
 %
  
-Hello, here is some text without a meaning.  This text should 
-show what aprinted text will look like at this place.  If you 
-read this text, you will get noinformation.  Really?  Is there no information?  Is there a dience betweenthis text and some 
-nonsense like d
-
-a
-wd
-awd
-
-awd
-a
-wdgefburn"?  Kjift { not at all!...
+\begin{center}
+    \begin{tabular}{ | p{7cm} | l |}
+    \hline
+    Was? & Wann? \\ \hline
+    1. Besprechungstermin auf Basis des ersten Entwurfs des Grobkonzeptes. & TODO \\ \hline
+    
+    Literaturrecherche zum gewählten Thema fortführen und Grobkonzept finalisieren. & TODO \\ \hline
+    
+    Eingabe des Namens der Betreuungsperson, des Grobkonzeptes, des Titels, und gegebenenfalls der Angaben zur externen Fachperson & 2. Dezember 2018 \\ \hline
+    
+    Prüfung der Betreuungsanfrage, des Titels und des Grobkonzeptes durch die Betreuungsperson & 17. Dezember 2018 \\ \hline
+    
+    Theorieteil verfassen und empirische Untersuchung vorbereiten & TODO \\ \hline
+    
+    2. Besprechungstermin nach Fertigstellung des Theorieteils und zur Gestaltung des Messinstrumentes zwecks Datenerhebung & TODO \\ \hline
+    
+    Empirische Untersuchung und erste Datenanalyse durchführen & TODO \\ \hline
+    
+    3. Besprechungstermin zur vorläufigen Beantwortung der Forschungsfrage & TODO \\ \hline
+    
+    Datenanalyse und empirischer Teil finalisieren & TODO \\ \hline
+    
+    Fertigstellung der gesamten Thesis & TODO \\ \hline
+    
+    Korrektorat der Thesis durchführen und Feedback einarbeiten, Thesis drucken und binden lassen & TODO \\ \hline
+    
+    Frist zur Abgabe und Hochladen der Bachelor Thesis & 3. Mai 2019 18:00 Uhr \\ \hline
+    
+    \end{tabular}
+\end{center}
+ 
+ 
+ 
+Lösungsansatz "Input Pipeline"
+- Erste Pptimierung bereits beim Kunden, da dort "Crowd Sourcing" betrieben werden kann
+  - Image rectification mit anpassungsmöglichkeit durch Enduser (analog OfficeLens)
+  - Quality Checking
+- Optimierung auf der Service Seite
+  - Gray Scale
+  - 
+- OCR
+  - LSTM basierter Ansatz
+    - Vergleich zur feature detection basierten vorgehensweise (Stats, warum was besser ist)
+  - 
+- Machine Learning ist sehr breit
+  - Text Mining
+  - Deep Learning
+  - OCR
+  - Classification
+  - Image optimization
  
 \end{document}
