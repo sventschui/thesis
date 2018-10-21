@@ -1,0 +1,190 @@
+% font-size as in "Richtlinien Semesterarbeit"
+\documentclass[12pt, twoside]{extarticle}
+% \usepackage{showframe}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage{lipsum}
+% \usepackage{graphicx}
+\usepackage[german]{babel}
+% Set margin analogous to word template
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2cm]{geometry}
+% sans-serif font
+%% \renewcommand{\familydefault}{\sfdefault}
+% line-height as in "Richtilinien Semesterarbeit"
+\renewcommand{\baselinestretch}{1.15}
+% custom paragraph spacing
+\setlength{\parskip}{0.25em}
+
+\newcommand{\sectionUnnumbered}[1] {
+  \section*{#1}
+  \addcontentsline{toc}{section}{#1}
+}
+
+% header / footer
+\usepackage{fancyhdr}
+
+\title{Grobkonzept}
+\author{Sven Tschui}
+\date{October 2018}
+
+\begin{document}
+
+
+\begin{titlepage}
+    {
+    	\centering
+    	\vspace*{2cm}
+    	% \includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
+    	{\LARGE\bfseries\fontfamily{ppl}\selectfont Automatisierte Rechnungsverarbeitung in der Krankenversicherung mittels Deep Learning \par}
+    	\vspace{1cm}
+    	{\large Bachelor Thesis\par}
+    	\vspace{1.5cm}
+    	{Zürcher Fachhochschule\par}
+    	{\bfseries\large\fontfamily{ppl}\selectfont HWZ Hochschule für Wirtschaft Zürich\par}
+    	\vfill
+    	{Eingereicht bei\par}
+    	\vspace{0.1cm}
+    	{\large Dr. Oliver Zenklusen\par}
+    	\vfill
+    }
+    {
+        \renewcommand{\arraystretch}{1.5}
+        \setlength{\tabcolsep}{0pt}
+        \begin{flushleft}
+    	\begin{tabular}{ l@{\hspace{1.5cm}} l }
+         vorgelegt von: & Sven Tschui \\
+         Matrikelnummer: & 00-000-000 \\
+         Studiengang: & BWI-A15 \\
+         Ort, Datum & Winterthur, 2. Mai 2019 \\
+        \end{tabular}
+        \end{flushleft}
+    }
+\end{titlepage}
+
+\pagenumbering{Roman} 
+
+\sectionUnnumbered{Management Summary}
+
+% TODO: Text here
+\lipsum[2]
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\sectionUnnumbered{Ehrenwörtliche Erklärung}
+
+\vfill
+
+Ich bestätige hiermit, dass ich
+\begin{itemize}
+    \item die vorliegende Thesis selbständig und ohne Benützung anderer als der angegebenen Quellen und Hilfsmittel anfertigte,
+    \item die benutzten Quellen wörtlich oder inhaltlich als solche kenntlich machte,
+    \item diese Arbeit in gleicher oder ähnlicher Form noch keiner Prüfungskommission vorlegte.
+\end{itemize}
+
+\vspace{2cm}
+
+
+\begin{flushleft}
+Winterthur, 2. Mai 2019
+
+\vspace{1cm}
+
+{.................................................\par}
+{Sven Tschui\par}
+
+\end{flushleft}
+
+\vfill
+\vfill
+
+\newpage
+
+\sectionUnnumbered{Abkürzungsverzeichnis}
+{
+    \definecolor{ccc}{rgb}{0.8,0.8,0.8}
+
+    \renewcommand{\arraystretch}{1.5}
+
+    \begin{flushleft}
+    \begin{table}[ht]
+    \begin{tabular}{|l|l|}
+     \rowcolor{ccc}
+     \hline
+     \textbf{Abkürzung}&\textbf{Erklärung} \\
+     \hline
+     CNN & Convolutional Neuronal Network \\
+     \hline
+     RNN & Recurrent Neuronal Network \\
+     \hline
+     LSTM & Long-Short Term Memory \\
+     \hline
+    \end{tabular}
+    \caption{Abkürzungsverzeichnis}
+    \end{table}
+    \end{flushleft}
+}
+\newpage
+
+\pagenumbering{arabic} 
+
+\section{Einleitung}
+
+% TODO: Text here
+\lipsum[2]
+
+\newpage
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{#1}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}}
+\fancyhf{}
+\fancyhead[RE,LO]{\nouppercase{\leftmark}}
+\fancyfoot[LE,RO]{\thepage}
+
+\section{Lorem ipsum}
+
+% TODO: Text here
+\lipsum[2]
+
+\newpage
+
+\subsection{Sub-section Lorem ipsum}
+
+% TODO: Text here
+\lipsum[2]
+
+\newpage
+
+\section{Lorem ipsum 2}
+
+% TODO: Text here
+\lipsum[2]
+
+\section{Anhang}
+
+\subsection{Literaturverzeichnis}
+
+...
+
+\newpage
+
+\subsection{Abbildungsverzeichnis}
+
+\listoffigures
+
+\newpage
+
+\subsection{Tabellenverzeichnis}
+
+\listoftables
+
+\newpage
+
+
+\end{document}

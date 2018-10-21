@@ -1,6 +1,17 @@
-\documentclass{article}
+% font-size as in "Richtlinien Semesterarbeit"
+\documentclass[12pt]{extarticle}
+\usepackage{showframe}
 \usepackage[utf8]{inputenc}
+% \usepackage{graphicx}
 \usepackage[german]{babel}
+% Set margin analogous to word template
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2cm]{geometry}
+% sans-serif font
+%% \renewcommand{\familydefault}{\sfdefault}
+% line-height as in "Richtilinien Semesterarbeit"
+\renewcommand{\baselinestretch}{1.15}
+% custom paragraph spacing
+\setlength{\parskip}{0.25em}
 
 \title{Grobkonzept}
 \author{sventschui }
@@ -8,7 +19,36 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    {
+    	\centering
+    	\vspace*{2cm}
+    	% \includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
+    	{\LARGE\bfseries\fontfamily{ppl}\selectfont Grobkonzept: Automatisierte Rechnungsverarbeitung in der Krankenversicherung mittels Deep Learning \par}
+    	\vspace{1cm}
+    	{\large Bachelor Thesis\par}
+    	\vspace{1.5cm}
+    	{Zürcher Fachhochschule\par}
+    	{\bfseries\large\fontfamily{ppl}\selectfont HWZ Hochschule für Wirtschaft Zürich\par}
+    	\vfill
+    	{Eingereicht bei\par}
+    	\vspace{0.1cm}
+    	{\large Dr. Oliver Zenklusen\par}
+    	\vfill
+    }
+    {
+        \renewcommand{\arraystretch}{1.5}
+        \setlength{\tabcolsep}{0pt}
+        \begin{flushleft}
+    	\begin{tabular}{ l@{\hspace{1.5cm}} l }
+         vorgelegt von: & Sven Tschui \\
+         Matrikelnummer: & 00-000-000 \\
+         Studiengang: & BWI-A15 \\
+         Ort, Datum & Winterthur, 2. Mai 2019 \\
+        \end{tabular}
+        \end{flushleft}
+    }
+\end{titlepage}
 
 \section{Ausgangslage, Forschungsproblem und -frage}
 
@@ -28,7 +68,7 @@ Die Kosten des Gesundheitswesen steigen stetig an, so weisen die provisorischen 
 % TODO: Quelle / Zitieren
 Die Kosten, welche durch die Krankenversicherer getragen werden, werden mit einem der zwei Modis Tiers payant oder Tiers garant abgerechnet. 
 
-Bei Tier payant belastet der Leistungserbringenr (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, in dem der Patient mit seiner Krankenversicherungs-Karte bezahlt. Anhand dieser Karte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Versichrer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt und der Krankenversichrer kann mit dem entsprechenden Regelwerk die Rechnung automatisch verarbeiten. Werden Kosten nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Versicherer die Kosten dem Patienten weiter.
+Bei Tier payant belastet der Leistungserbringenr (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, in dem der Patient mit seiner Kranken\-versicherungs-Karte bezahlt. Anhand dieser Karte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Versichrer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt und der Krankenversichrer kann mit dem entsprechenden Regelwerk die Rechnung automatisch verarbeiten. Werden Kosten nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Versicherer die Kosten dem Patienten weiter.
 
 Häufig wird Tier payant in Apotheken verwendet, wenn beispielsweise Medikamente, mit oder ohne Ärztlichem Rezept, gekauft werden. Auch Ärzte verwenden teilweise diese Methode.
 
