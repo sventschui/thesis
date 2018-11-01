@@ -22,6 +22,8 @@
   \section*{#1}
   \addcontentsline{toc}{section}{#1}
 }
+% custom colors
+\definecolor{ccc}{rgb}{0.8,0.8,0.8}
 
 \title{Grobkonzept}
 \author{Sven Tschui}
@@ -66,8 +68,6 @@
 \newpage
 \sectionUnnumbered{Abkürzungsverzeichnis}
 {
-    \definecolor{ccc}{rgb}{0.8,0.8,0.8}
-
     \renewcommand{\arraystretch}{1.5}
 
     \begin{flushleft}
@@ -197,15 +197,23 @@ In der Zielsetzung werden neben der Beantwortung der Forschungsfrage die darübe
 Indem angegeben wird, was (Forschungsfrage) warum (Zielsetzung) untersucht werden soll, kann auch definiert werden, welche Fragen, Inhalte und Ziele in der Thesis nicht verfolgt, also bewusst ausgeklammert werden.
 }
 
-Forschungsfrage (Möglichkeit der Automatisierung, wie stark? Ist AI ein guter Ansatz? Soll hier weiter investiert werden?) ist interessant für AXA, da AXA wächst und im Bereich des Schadensprozess durch die Automatisierung nicht so viele Personen eingestellt werden müssen -> Es kann ein enormer Wettbewerbsvorteil entstehen. Vergleich mit 200 indexierern der CSS und 500 von Assura...
+In dieser Thesis wird die Forschungsfrage, ob Künstliche Intelligenz zur Automatisierung von administrativen Aufgaben verwendet werden kann, beantwortet. Dies wird anhand einem konkretem Fallbeispiel geklärt. Die Diskussion dieses Fallbeispiels soll für die AXA ausserdem klären, ob weitere Investitionen in die Automatisierung des dargelegten Prozesses durch Künstliche Intelligenz gemacht werden sollen.
 
-TODO: Abgrenzung
+Die Forschungsfrage ist für die AXA von hächstem interesse, da ein starkes Wachstum angestrebt wird und somit geplant werden muss, ob in Zukunft die Anzahl der Mitarbeiter für diese Aufgaben erhöht werden muss oder nicht. Auch würde eine solche Automatisierung ein erheblicher Wettbewerbsvorteil darstellen.
 
-- Arbeit bezieht sich nur bis und mit Aufbereitung der Daten, damit diese dann weiter verarbeitet werden können
 
-- Business Rules sind nicht teil der Arbeit
+\todo[inline]{
+    Abgrenzung
+    
+    \begin{itemize}
+        \item Arbeit bezieht sich nur bis und mit Aufbereitung der Daten, damit diese dann weiter verarbeitet werden können
+        \item Business Rules sind nicht teil der Arbeit
+    \end{itemize}
+}
 
-- TODO: Definition, welche Attribute für die Verarbeitung interessant sind
+\todo[inline]{
+    Definition, welche Attribute für die Verarbeitung interessant sind
+}
 
 \newpage
 \section{Methodische Vorgehensweise}
@@ -242,14 +250,17 @@ Siehe Vorlage Grobkonzept!!!
 }
  
 \begin{center}
-    \begin{tabular}{ | p{7cm} | l |}
+    \todo[inline]{make global table styles}
+    \renewcommand{\arraystretch}{1.5}
+    \setlength{\tabcolsep}{15pt}
+    \begin{tabular}{ | p{8cm} | l |}
     \hline
-    Was? & Wann? \\ \hline
-    1. Besprechungstermin auf Basis des ersten Entwurfs des Grobkonzeptes. & TODO \\ \hline
+    \rowcolor{ccc} Was? & Wann? \\ \hline
+    1. Besprechungstermin auf Basis des ersten Entwurfs des Grobkonzeptes. & 13. November 2018 \\ \hline
     
-    Literaturrecherche zum gewählten Thema fortführen und Grobkonzept finalisieren. & TODO \\ \hline
+    Literaturrecherche zum gewählten Thema fortführen und Grobkonzept finalisieren. & 28. November 2018 \\ \hline
     
-    Eingabe des Namens der Betreuungsperson, des Grobkonzeptes, des Titels, und gegebenenfalls der Angaben zur externen Fachperson & 2. Dezember 2018 \\ \hline
+    \rowcolor{orange} Eingabe des Namens der Betreuungsperson, des Grobkonzeptes, des Titels, und gegebenenfalls der Angaben zur externen Fachperson & 2. Dezember 2018 \\ \hline
     
     Prüfung der Betreuungsanfrage, des Titels und des Grobkonzeptes durch die Betreuungsperson & 17. Dezember 2018 \\ \hline
     
@@ -257,17 +268,17 @@ Siehe Vorlage Grobkonzept!!!
     
     2. Besprechungstermin nach Fertigstellung des Theorieteils und zur Gestaltung des Messinstrumentes zwecks Datenerhebung & TODO \\ \hline
     
-    Empirische Untersuchung und erste Datenanalyse durchführen & TODO \\ \hline
+    Empirische Untersuchung durchführen & TODO \\ \hline
     
     3. Besprechungstermin zur vorläufigen Beantwortung der Forschungsfrage & TODO \\ \hline
     
-    Datenanalyse und empirischer Teil finalisieren & TODO \\ \hline
+    Empirischer Teil finalisieren & 29. März 2019 \\ \hline
     
-    Fertigstellung der gesamten Thesis & TODO \\ \hline
+    Fertigstellung der gesamten Thesis & 1. April 2019 \\ \hline
     
-    Korrektorat der Thesis durchführen und Feedback einarbeiten, Thesis drucken und binden lassen & TODO \\ \hline
+    Korrektorat der Thesis durchführen und Feedback einarbeiten, Thesis drucken und binden lassen & 26. April 2019 \\ \hline
     
-    Frist zur Abgabe und Hochladen der Bachelor Thesis & 3. Mai 2019 18:00 Uhr \\ \hline
+    \rowcolor{orange} Frist zur Abgabe und Hochladen der Bachelor Thesis & 3. Mai 2019 18:00 Uhr \\ \hline
     
     \end{tabular}
 \end{center}
