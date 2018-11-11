@@ -34,18 +34,19 @@
 \begin{titlepage}
     {
     	\centering
+    	
     	\vspace*{2cm}
     	% \includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
-    	{\LARGE\bfseries\fontfamily{ppl}\selectfont Grobkonzept: Automatisierte Rechnungsverarbeitung in der Krankenversicherung mittels Deep Learning \par}
-    	\vspace{1cm}
-    	{\large Bachelor Thesis\par}
-    	\vspace{1.5cm}
+    	{\Large\fontfamily{ppl}\selectfont Grobkonzept zur Bachelor Thesis}
+    	
+    	{\LARGE\bfseries\fontfamily{ppl}\selectfont Automatisierte Rechnungsverarbeitung in der Krankenversicherung mittels Deep Learning \par}
+    	
+    	\vspace{3cm}
+    	
     	{Zürcher Fachhochschule\par}
+    	
     	{\bfseries\large\fontfamily{ppl}\selectfont HWZ Hochschule für Wirtschaft Zürich\par}
-    	\vfill
-    	{Eingereicht bei\par}
-    	\vspace{0.1cm}
-    	{\large Dr. Oliver Zenklusen\par}
+    	
     	\vfill
     }
     {
@@ -53,10 +54,10 @@
         \setlength{\tabcolsep}{0pt}
         \begin{flushleft}
     	\begin{tabular}{ l@{\hspace{1.5cm}} l }
-         vorgelegt von: & Sven Tschui \\
-         Matrikelnummer: & 15-522-345 \\
-         Studiengang: & BWI-A15 \\
-         Ort, Datum & Winterthur, 2. Mai 2019 \\
+         Student: & Sven Tschui \\
+         Studiengruppe: & BWI-A15 \\
+         Betreuungsperson: & Dr. Oliver Zenklusen \\
+         Datum & 1. Dezember 2018 \\
         \end{tabular}
         \end{flushleft}
     }
@@ -64,37 +65,6 @@
 
 \newpage
 \tableofcontents
-
-\newpage
-\sectionUnnumbered{Abkürzungsverzeichnis}
-{
-    \renewcommand{\arraystretch}{1.5}
-
-    \begin{flushleft}
-    \begin{table}[ht]
-    \begin{tabular}{|l|p{10cm}|}
-        \rowcolor{ccc}
-        \hline
-        \textbf{Abkürzung}&\textbf{Erklärung} \\
-        \hline
-        CNN & Convolutional Neuronal Network
-        
-        \todo[inline]{describe} \\
-        \hline
-        RNN & Recurrent Neuronal Network
-        
-        \todo[inline]{describe} \\
-        \hline
-        LSTM & Long-Short Term Memory
-        
-        \todo[inline]{describe} \\
-        \hline
-    \end{tabular}
-    \caption{Abkürzungsverzeichnis}
-    \end{table}
-    \end{flushleft}
-}
-\newpage
 
 \section{Ausgangslage, Forschungsproblem und -frage}
 
@@ -104,6 +74,8 @@ In der Ausgangslage wird das Thema zuerst allgemein vorgestellt, dann wird auf e
 Diese Fokussierung führt zum Forschungsproblem und damit zu den Erkenntnissen, die gewonnen werden sollen. Gründe werden aufgeführt, weshalb es relevant ist, das gewählte Problem zu untersuchen. Ausserdem wird der Wissensstand im Bereich des Forschungsproblems (was weiss man bereits, was noch nicht) knapp beschrieben. 
 
 Die Forschungsfrage schliesslich bündelt die zentralen Aspekte des Forschungsproblems als zugespitzte Frage. Die Frage sollte bereits so konkret sein, dass sie in einer Thesis untersucht werden kann.
+
+\textit{(Bitte diesen Text jeweils nicht löschen. Er dient als Information für die Betreuungsperson.)}
 }
 
 \todo[inline, color=red]{
@@ -118,9 +90,9 @@ Die Forschungsfrage schliesslich bündelt die zentralen Aspekte des Forschungspr
     - Forschungsfrage schliesslich bündelt die zentralen Aspekte des Forschungsproblems
 }
 
-Schneller und guter Kundenservice ist wichtig um Kunden halten zu können, dies ist längst bekannt \todo{CITE}. Auch die Auswirkungen einer hohen Kundenzufriedenheit auf die Kundenloyalität werden als sehr stark anerkannt \todo{CITE}. Aus diesen Gründen investieren Unternehmen immer stärken in diese Services und versuchen sich so von der Konkurrenz zu differenzieren \todo{CITE}. Diese Services bereitzustellen kann für ein Unternehmen sehr Kostenintensiv sein \todo{CITE}. \todo[inline, color=orange]{ Fakten würden dieseZahlen und} Services sermauern und die Forschungsfrage spannender machenollen he Aussage untutzutage mit geeigneter Soft- und Hardware automatisiert werden, um die Kosten so gering wie möglich zu halten \todo{CITE}. Die Automatisierung hat ausserdem den Effekt, dass Services schneller abgewickelt werden können, was im Zeitalter der ungeduldigen Kunden ein wichtiger Differenzierungsfaktor ist \todo{CITE}. Die Automatisierung durch klasssiche Software stösst aber teilweise \todo{konrekt sagen, wann diese Grenzen auftreten} an Grenzen. Die klassische, strukturierte Programmierweise bildet Logik ab, welche durch Ursache-Wirkung klar definierbar ist: Wenn eine Bedingung eintrifft, wird etwas ausgeführt \todo{QUOTE}. Eine Lösung für diese Limitierung bietet die Künstliche Intelligenz: Der Computer wird nicht mehr angewiesen was zu tun ist, sondern was das Ziel ist. Der Computer wird dann darauf trainiert, dieses Ziel zu erreichen \todo{QUOTE}.
+Schneller und guter Kundenservice ist wichtig um Kunden halten zu können, dies ist längst bekannt \todo{CITE}. Auch die Auswirkungen einer hohen Kundenzufriedenheit auf die Kundenloyalität werden als sehr stark anerkannt \todo{CITE}. Aus diesen Gründen investieren Unternehmen immer stärker in diese Services und versuchen sich so von der Konkurrenz zu differenzieren \todo{CITE}. Diese Services bereitzustellen kann für ein Unternehmen sehr Kostenintensiv sein \todo{CITE}. \todo[inline, color=orange]{ Fakten und Zahlen würden diese Aussage nicht nur untermauern sondern auch spannender machen} Kundenservices sollen heutzutage mit geeigneter Soft- und Hardware automatisiert werden, um die Kosten so gering wie möglich zu halten \todo{CITE}. Die Automatisierung hat ausserdem den Effekt, dass Services schneller abgewickelt werden können, was im Zeitalter der ungeduldigen Kunden ein wichtiger Differenzierungsfaktor sein kann \todo{CITE}. Die Automatisierung durch klasssiche Software stösst aber teilweise \todo{konkrekt sagen, wann diese Grenzen auftreten} an Grenzen. Die klassische, strukturierte Programmierweise bildet Logik ab, welche durch Ursache-Wirkung klar definierbar ist: Wenn eine Bedingung eintrifft, wird etwas ausgeführt \todo{QUOTE}. Ein Abwägen von Fall zu fall, wie dies ein Angestellter im Kundenservice machen könnte, ist mit solcher Software nicht möglich. Eine Lösung für diese Limitierung bietet die Künstliche Intelligenz: Der Computer wird nicht mehr angewiesen was zu tun ist, sondern was das Ziel ist. Der Computer wird dann auf die erreichung dieses Ziels trainiert \todo{QUOTE}.
 
-In dieser Arbeit werden die Möglichkeiten diskutiert, welche die Künstliche Intelligenz für die Automatisierung von Kundenservices bietet. Im ersten Teil werden die grundlegenden Elemente der Künstlichen Intelligenz erläutert und Herausforderungen in der Automatisierung der Kundenservices aufegezeigt. \todo[inline]{weiterer Inhalt, e.g. theoretische erfahrung, praxis beispiele} Der zweite Teil widmet sich einem Fallbeispiel eines Kundenservices, welcher in einem Prototypen durch den Einsatz von Künstlicher Intelligenz automatisiert werden soll. Der Erfolg des Experiments wird anhand zuvor definierten Erfolgskriterien diskutiert.
+In dieser Arbeit werden die Möglichkeiten diskutiert, welche die Künstliche Intelligenz für die Automatisierung von Kundenservices bietet. Im ersten Teil werden die grundlegenden Elemente der Künstlichen Intelligenz erläutert und Herausforderungen in der Automatisierung der Kundenservices aufgezeigt. \todo[inline]{weiterer Inhalt, e.g. theoretische erfahrung, Praxisbeispiele} Der zweite Teil widmet sich einem Fallbeispiel eines Kundenservices, welcher in einem Prototypen durch den Einsatz von Künstlicher Intelligenz automatisiert werden soll. Der Erfolg des Experiments wird anhand zuvor definierten Erfolgskriterien diskutiert.
 
 \subsection{Fallbeispiel}
 
@@ -151,13 +123,31 @@ Um Rechnungen zu verarbeiten, egal ob diese von der AXA selbst bezahlt oder an d
     \item Der hohe Anteil an manueller Arbeit verursacht einerseits hohe Kosten und ist andererseits nicht schnell genug oder gar nicht skalierbar.
 \end{itemize}
 
-Die Indexierung der eingehenden Rechnung soll nun nicht nur automatisiert sondern Qualitativ verbessert werden. Eine Automatisierung dieses Prozessen mit hoher Qualität würde ein extremer Wettbewerbsvorteil für die AXA bedeuten, da gegenüber der Konkurrenz Kosten gesparrt werden könnten.  
+Die Indexierung der eingehenden Rechnung soll nun nicht nur automatisiert sondern Qualitativ verbessert werden. Eine Automatisierung dieses Prozessen mit hoher Qualität würde ein extremer Wettbewerbsvorteil für die AXA bedeuten, da, gegenüber der Konkurrenz, Kosten gespart werden könnten.  
 
 In dieser Arbeit wird ein Prototyp entwickelt, welcher die Indexierung der Rechnungen mittels Künstlicher Intelligenz übernimmt. Anhand des Prototypen wird diskutiert, ob die Indexierung in dieser Art möglich und die resultierende Qualität ausreichend ist.
 
 \subsection{Forschungsfrage}
 
-\todo[inline, color=red]{TODO}
+Aus dem beschriebenen Forschungsproblem und Fallbeispiel wird folgende Forschungsfrage definiert.
+
+{
+    \medskip
+    \setlength{\fboxsep}{1em}
+    \noindent\fcolorbox{red}{yellow}{%
+        \minipage[t]{\linewidth-2\fboxsep-2\fboxrule\relax}
+            Können komplexe Kundenservices durch Künstliche Intelligenz automatisiert und dadurch ein Wettbewerbsvorteil erzielt werden?
+        \endminipage}
+    \medskip
+}
+
+Weiter werden folgende Unterfragen abgeleitet.
+
+\begin{itemize}
+    \item \todo[inline, color=red]{TODO}
+    \item \todo[inline, color=red]{TODO}
+    \item \todo[inline, color=red]{TODO}
+\end{itemize}
 
 \newpage
 
@@ -267,21 +257,48 @@ Die Resultate aus dem Prototypen werden diskutiert und Verbesserungspotential wi
 Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Thesis und welche wissenschaftlichen Theorien und Erklärungsansätze zur Beantwortung der Forschungsfrage herangezogen werden, definiert. Die Überschriften der Hauptkapitel der Thesis lassen die relevanten Teilaspekte des Themas und das methodische Vorgehen erkennen. Weitere Hinweise zum Aufbau der Thesis befinden sich in den Richtlinien für die Erstellung von Bachelor und Master Theses, Punkt 5.
 }
 
+{
+    \renewcommand{\labelenumii}{\labelenumi\arabic{enumii}}
+    \begin{itemize}
+        \item Management Summary
+        \item Ehrenwörtliche Erklärung
+        \item Abkürzungsverzeichnis
+        \item Einleitung
+    \end{itemize}
+    \begin{enumerate}
+        \item Künstliche Intelligenz
+        \begin{enumerate}
+            \item Neuronale Netzwerke
+            \item ...
+        \end{enumerate}
+        \item Automatisierung von Kundenservices
+        \item Prototyp Rechnungseinreichung
+        \begin{enumerate}
+            \item Rahmenbedingungen
+            \item Texterkennung
+            \item Ergebnisverbesserung der Texterkennung
+            \item Klassifizierung von Rechnungstypen
+            \item Strukturierung der Rohdaten
+            \item Erfolgscheck
+        \end{enumerate}
+        \item Anhang
+        \begin{enumerate}
+            \item Literaturverzeichnis
+            \item Abbildungsverzeichnis
+            \item Tabellenverzeichnis
+        \end{enumerate}
+    \end{enumerate}
+}
+
 \newpage
 \section{Meilensteine}
 
 \todo[inline]{
 Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis zur Abgabe der Bachelor Thesis als Meilensteine wiedergegeben und der Betreuungsperson 3 Besprechungstermine vorgeschlagen (siehe Punkt 2 der Spezifischen Regelungen für Bachelor Theses). Die Betreuungsperson bestätigt bei der Prüfung des Grobkonzeptes die Terminvorschläge oder schlägt andere Termine vor.
 }
-
-
-\todo[inline]{
-Siehe Vorlage Grobkonzept!!!
-}
  
 \begin{center}
-    \todo[inline]{make global table styles}
-    \renewcommand{\arraystretch}{1.5}
+    \renewcommand{\arraystretch}{1.25}
     \setlength{\tabcolsep}{15pt}
     \begin{tabular}{ | p{8cm} | l |}
     \hline
@@ -320,10 +337,9 @@ Siehe Vorlage Grobkonzept!!!
 Hier werden bereits gelesene Quellen angeführt und auf weiterführende Literatur verwiesen, die noch ausgewertet wird.
 }
 
-\todo[inline]{
-Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis zur Abgabe der Bachelor Thesis als Meilensteine wiedergegeben und der Betreuungsperson 3 Besprechungstermine vorgeschlagen (siehe Punkt 2 der Spezifischen Regelungen für Bachelor Theses). Die Betreuungsperson bestätigt bei der Prüfung des Grobkonzeptes die Terminvorschläge oder schlägt andere Termine vor.
-}
+\todo[inline, color=red]{TODO}
 
+\newpage
 
 \section{Notizen - Outline}
 
