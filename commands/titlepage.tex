@@ -1,0 +1,31 @@
+\newcommand{\makeTitlepage}[6]{
+    \begin{titlepage}
+        {
+        	\centering
+        	\vspace*{2cm}
+        	{\LARGE\bfseries\fontfamily{ppl}\selectfont #1 \par}
+        	\vspace{1cm}
+        	{\large Bachelor Thesis\par}
+        	\vspace{1.5cm}
+        	{Zürcher Fachhochschule\par}
+        	{\bfseries\large\fontfamily{ppl}\selectfont HWZ Hochschule für Wirtschaft Zürich\par}
+        	\vfill
+        	{Eingereicht bei\par}
+        	\vspace{0.1cm}
+        	{\large #2\par}
+        	\vfill
+        }
+        {
+            \renewcommand{\arraystretch}{1.5}
+            \setlength{\tabcolsep}{0pt}
+            \begin{flushleft}
+        	\begin{tabular}{ l@{\hspace{1.5cm}} l }
+             vorgelegt von: & #3 \\
+             Matrikelnummer: & #4 \\
+             Studiengang: & #5 \\
+             Ort, Datum & #6 \\
+            \end{tabular}
+            \end{flushleft}
+        }
+    \end{titlepage}
+}

@@ -1,0 +1,9 @@
+\newcommand{\makeListOfTablesAndFigures}[1]{
+    % braces to scope the \renewcommand directive
+    {
+        % Use subsection instead of section and custom title
+        \renewcommand{\section}[2]{\subsection{#1}}%
+        
+        \listoffigures
+    }
+}

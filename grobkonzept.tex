@@ -1,40 +1,12 @@
-% font-size as in "Richtlinien Semesterarbeit"
-\documentclass[12pt, twoside, table]{extarticle}
-% TODOs
-\usepackage[color=lightgray]{todonotes}
-% colored tables
-\usepackage{colortbl}
-\usepackage{xcolor}
-% Set margin analogous to word template
-\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2cm]{geometry}
-% line-height as in "Richtilinien Semesterarbeit"
-\renewcommand{\baselinestretch}{1.15}
-% custom paragraph spacing
-\setlength{\parskip}{0.25em}
-% citation style
-\usepackage{apacite}
-\bibliographystyle{apacite}
-% plumbing...
-\usepackage[utf8]{inputenc}
-\usepackage[german]{babel}
-% unnumbered sections 
-\newcommand{\sectionUnnumbered}[1] {
-  \section*{#1}
-  \addcontentsline{toc}{section}{#1}
-}
-% custom list spacings
-\usepackage{enumitem}
-% custom colors
-\definecolor{ccc}{rgb}{0.8,0.8,0.8}
-\definecolor{igloo}{rgb}{0.7,0.81,0.93}
-\definecolor{igloo-darker}{rgb}{0.2,0.3,0.43}
-
-\title{Grobkonzept}
-\author{Sven Tschui}
-\date{October 2018}
+\documentclass{hwz}
+\input{colors.tex}
+% \usepackage{showframe}
 
 \begin{document}
 
+%#############################
+% Title page
+%#############################
 \begin{titlepage}
     {
     	\centering
@@ -68,8 +40,19 @@
 \end{titlepage}
 
 \newpage
+
+%#############################
+% TOC
+%#############################
 \tableofcontents
 
+\newpage
+
+\makeBeginMain
+
+%#############################
+% Ausgangslage
+%#############################
 \section{Ausgangslage, Forschungsproblem und -frage}
 
 \todo[inline]{
@@ -617,30 +600,9 @@ Machine Learning ist sehr breit
 \newpage
 \section{Anhang}
 
-\subsection{Literaturverzeichnis}
-\todo[inline]{Add "Abgerufen am ... von ..." to web page citations}
-{
-    % This renewcommand hides the title of the bibliography
-    \renewcommand{\section}[2]{}%
-    \bibliography{references}
-}
-
-\todo[inline]{Why the heck is there a "Literatur" heading in the toc}
+\makeBibliography{Anhang}{Literaturverzeichnis}
 
 \newpage
-\subsection{Abbildungsverzeichnis}
-{
-    % This renewcommand hides the title of the listoffigures
-    \renewcommand{\section}[2]{}%
-    \listoffigures
-}
-
-\newpage
-\subsection{Tabellenverzeichnis}
-{
-    % This renewcommand hides the title of the listoftables
-    \renewcommand{\section}[2]{}%
-    \listoftables
-}
+\makeListOfTablesAndFigures{Tabellen- und Abbildungsverzeichnis}
 
 \end{document}
