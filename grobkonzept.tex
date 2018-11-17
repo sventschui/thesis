@@ -15,7 +15,7 @@
     	% \includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
     	{\Large\fontfamily{ppl}\selectfont Grobkonzept zur Bachelor Thesis}
     	
-    	{\LARGE\bfseries\fontfamily{ppl}\selectfont Automatisierung von Kundenservices durch künstliche Intelligenz am Beispiel der Rückforderungseinreichung in der Krankenversicherung \par}
+    	{\LARGE\bfseries\fontfamily{ppl}\selectfont Automatisierung von Kundenservices durch künstliche Intelligenz am Beispiel der Rechnungseinreichung in der Krankenversicherung \par}
     	
     	\vspace{3cm}
     	
@@ -130,15 +130,35 @@ Da die Problematik auch für andere Branchen interessant ist, wird in dieser Arb
 
 \subsection{Forschungsstand}
 
-\todo[inline]{
-der Wissensstand im Bereich des Forschungsproblems (was weiss man bereits, was nochnicht) knapp beschrieben
-}
+\subsubsection{Definition der künstlichen Intelligenz}
 
-Bereits bei der Definition von Intelligenz ist Vorsicht geboten, denn es mangelt hier an einem Einheitlichen Verständnis~\autocite{Warner2002Wanted:Intelligence}. In seinem Artikel \enquote{Wanted: A Definition of Intelligence} sammelt \textcite{Warner2002Wanted:Intelligence} \todo{proper latex cite} mehrere, in seinen Augen konzise, Definitionen von Intelligenz und fügt dem ganzen noch seine persönliche hinzu.
-\todo[inline]{Seine definition von intelligenz}
+% der Wissensstand im Bereich des Forschungsproblems (was weiss man bereits, was nochnicht) knapp beschrieben
 
-Trotz des fehlendem einheitlichem Verständnis des Begriffs Intelligenz wird der Begriff der künstlichen Intelligenz rege verwendet und in der Literatur sind auch verschiedenste Definitionen zu finden. So definieren \textcite{Legg2007UniversalIntelligence} die künstliche Intelligenz mit Hilfe von übereinstimmenden Merkmalen aus verschiedenen Definitionen des Begriffs Intelligenz. 
+Bereits die Definition der künstlichen Intelligenz bietet erste Herausforderungen. Das Grundlegende Problem dabei ist das fehlende Verständnis des Begriffs Intelligenz, obwohl wir diesen in unserem Alltag selbstverständlich verwenden. Wir bezeichnen jemanden, der eine gute schulische Leistung erbringt als intelligent, doch auch unsere Katze, die sich versteckt, sobald sie das Wort Tierarzt hört, bezeichnen wir als intelligent~\autocite{Legg2007UniversalIntelligence}.
+
+Die Diskussionen um die Definition des Begriffs Intelligenz sind sehr angeregt, denn sie ist nicht nur für die Definition der künstlichen Intelligenz interessant sondern hat auch einen grossen Einfluss auf die Wertung von Menschen - anhand welcher Kriterien messen wir, ob jemand intelligenter ist als jemand anderes?~\autocite{Legg2007UniversalIntelligence}
+
+Intelligenz ist für viele Wissenschaftliche Bereiche interessant und so gibt es diverse Definitionen von Intelligenz aus der Philosophie, Psychologie, Biologie und aufgrund der steigenden Popularität der künstlichen Intelligenz auch aus der Informatik. Die einzige Gemeinsamkeit von vielen dieser Definitionen ist die Aussage, dass die Intelligenz eine Fähigkeit ist ~\autocite{Minaya-Collado1998AComplexity}.
+
+\textcite{Minaya-Collado1998AComplexity} benennen die Definition von \textcite{Sternberg1977IntelligenceAbilities.}, aus der psychologie, als die praktischste: \enquote{intelligence is the ability measured by the IQ (Intelligence Quotient) test, known as the g factor} (\cite{Sternberg1977IntelligenceAbilities.} in \cite{ Minaya-Collado1998AComplexity} \todo{invalid citation format}). Bei dieser Definition stellen die beiden aber gleichzeitig die Frage, was denn der IQ Test überhaupt misst und ob wir mit der Definition "intelligence is what is measured by IQ" \autocite{Minaya-Collado1998AComplexity} zufrieden sein sollen. Ihre Antwort lautet ganz klar nein. Die beiden erarbeiten folgend eine formale Definition von Intelligenz anhand von absichtlichen Abweichungen von Algorithmischer Komplexität. Trotz Ihrer sehr spannenden und ausführlichen Diskussion bleiben am Ende noch immer etliche Fragen offen. In Ihrer Arbeit konkludieren die beiden, dass Ihr Werk den IQ Test bestätigen und die Definition von Intelligenz als das, was der IQ Test misst, gar nicht so falsch ist ~\autocite{Minaya-Collado1998AComplexity}.
+
+Nach \textcite{Legg2007UniversalIntelligence} ist die Unwissenheit über die klare Definition der Intelligenz auch gar nicht so schlimm, wie sie oft diskutiert wird. So kommt \textcite{Gottfredson1997MainstreamBibliography} zum Schluss, dass viele Intelligenztests, sofern sie korrekt angewendet werden, das gleiche Messen (\cite{Gottfredson1997MainstreamBibliography} in \cite{Legg2007UniversalIntelligence}, \cite{Legg2007UniversalIntelligence}) \todo{Korrekte Zitationsform}.
+
+Obwohl der Begriff Intelligenz nicht klar definiert ist, benennen wir Maschinen als intelligent - als künstlich intelligent. Dies geschieht immer dann, wenn eine Maschine etwas macht, was wir mit menschlicher Intelligenz in Verbindung bringen. Ein Intelligenztest für Maschinen zu erstellen ist aber nicht zielführend, so ist es für eine Maschine mittlerweile einfach Schach zu spielen, während dies früher noch undenkbar war. Eine Definition der künstlichen Intelligenz muss also so gewählt werden, dass sie auch zukünftig noch auf eine weiterentwickelte Art von Maschinen anwendbar ist~\autocite{Legg2007UniversalIntelligence}.
+
+% Der Begriff künstliche Intelligenz wird in der Literatur oft diskutiert. So definieren \textcite{Legg2007UniversalIntelligence} die künstliche Intelligenz mit Hilfe von übereinstimmenden Merkmalen aus verschiedenen Definitionen des Begriffs Intelligenz. 
 \todo[inline]{Ihre definition von KI}
+
+\subsubsection{Texterkennung dank künstlicher Intelligenz}
+
+Weit weniger Waage als die Definition der künstlichen Intelligenz ist ihre Anwendung. Wurde die Erkennung von Texten in einem Bild früher noch mit Feature-Detection ermöglicht, so werden heute Neuronale Netzwerke, in den meisten fällen Long-Short-Term-Memory (LSTM) Netzwerke, eine spezialisierung der Recurrent Neuronal Networks, verwendet. So beschreibt \textcite{Neuberg2017CreatingLearning}, wie Dropbox künstliche Intelligenz zur Texterkennung anwendet, um Photos von Dokumenten durchsuchbar zu machen.
+
+Tesseract ist eine Engine zur Texterkennung, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht~\autocite{Smith2007AnEngine}. Seit Version 4 verwendet Tesseract ein LSTM Netzwerk mit mehr als 100 Schichten. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen von Fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
+% TODO: QUelle für anzahl layers
+% v4 with LSTM: https://github.com/tesseract-ocr/tesseract/wiki/4.0-with-LSTM
+% Perf: https://github.com/tesseract-ocr/tesseract/wiki/4.0-Accuracy-and-Performance
+
+\subsubsection{Rechtschreibe- und Grammatikprüfung mit künstlicher Intelligenz}
 
 \todo[inline]{KI ist sehr weites gebiet
 
@@ -158,7 +178,7 @@ NLP
 
 Auf diese Themengebiete / ihren Wissensstand eingehen}
 
-Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}. \todo[inline]{aussage darüber, ob hier erfolg erziehlt werden konnten}
+Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicxher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}. \todo[inline]{aussage darüber, ob hier erfolg erziehlt werden konnten}
 
 \subsection{Forschungsfrage}
 
