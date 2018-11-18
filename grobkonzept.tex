@@ -87,7 +87,7 @@ Die Verarbeitung von Rechnungen, welche über das System Tier payant abgerechnet
 
 Im Fall von Tiers garant stellt der Leistungserbringer die Rechnung direkt dem Patienten aus, welcher diese dann seinem Krankenversicherer zur Rückvergütung weiterleitet. Die Rechnung kann bei allen Krankenversicherern per Post und bei den meisten auch digital, im Kundenportal oder in der App, eingereicht werden \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
 
-Rechnungen, welche per Post oder digital beim Versicherer zur Rückvergütung eingereicht werden, erreichen diesen in unterschiedlichster Qualität. Bei der Einreichung per Post kann die Qualität durch Kaffee-Flecken oder sonstige Beeinträchtigungen gemindert werden, der Versicherer kann aber viele andere Faktoren selbst beeinflussen. So kann er beispielsweise hochauflösende Scanner und optimale Beleuchtung einsetzen \todo{Zu beginn des Absatzes etwas viel "einreichen"} \todo{CITE, Experten-Interview? Persönliches Gespräch?}.
+Rechnungen, welche per Post oder digital beim Versicherer zur Rückvergütung eingereicht werden, erreichen diesen in unterschiedlichster Qualität. Bei der Einreichung per Post kann die Qualität durch Kaffee-Flecken oder sonstige Beeinträchtigungen gemindert werden, der Versicherer kann aber viele andere Faktoren selbst beeinflussen. So kann er beispielsweise hochauflösende Scanner und optimale Beleuchtung einsetzen \todo{Zu beginn des Absatzes etwas viel ``einreichen``} \todo{CITE, Experten-Interview? Persönliches Gespräch?}.
 
 \todo[inline]{
 Frage an Herrn Zenklusen:
@@ -130,55 +130,90 @@ Da die Problematik auch für andere Branchen interessant ist, wird in dieser Arb
 
 \subsection{Forschungsstand}
 
-\subsubsection{Definition der künstlichen Intelligenz}
+\subsubsection{Künstliche Intelligenz}
+
+Die künstliche Intelligenz ist ein sehr aktuelles Thema und deshalb auch in der Literatur oft aufzufinden. \textcite{Russell2009ArtificialEdition} geben auf über 1000 Seiten nicht nur einen sehr umfangreichen Überblick über das Thema sondern vertiefen die angesprochenen Themen auch.
+
+Einen etwas mathematischeren Überblick über das Thema künstliche Intelligenz geben \textcite{Goodfellow2016DeepLearning}. Die Dikussion reicht von den absoluten Grundlagen, der linearen Algebra, bis hin zu Deep Generative Models, eine fortgeschrittene Anwendung der künstlichen Intelligenz~\autocite{Goodfellow2016DeepLearning}.
+
+\subsubsection{Texterkennung durch künstliche Intelligenz}
+
+Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Photos von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich künstliche Intelligenz: Long-Short-Term-Memory (LSTM) Netzwerke, Connectionist Temporal Classification (CTC), Convolutional Neural Network (CNNs) und mehr~\autocite{Neuberg2017CreatingLearning}.
+
+Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007AnEngine, o.V.20184.0LSTM}. So wurde die feature detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
+
+\subsubsection{Korrektur von Rechtschreibung und Grammatik}
+
+LSTM Modelle wurde im Bereich des Natural Language Processing bereits erfolgreich auch angewendet um Rechtschreibung und Grammatik zu korrigieren. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
+
+Nicht nur für Rechtschreibefehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung verwendet wird. Die Resultate dabei sind erstaunlich, obwohl DeepGrammar erst seit einem Jahr existiert und dabei nur von einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie Word oder Language Tool 3.1 und sogar besser als Grammarly und Google~\autocite{MuganEvaluationComparison}.
+
+\subsubsection{Informationsextraktion aus natürlichen Texten}
+
+% https://en.wikipedia.org/wiki/Named-entity_recognition
+% https://en.wikipedia.org/wiki/Medical_classification
+
+Informationsextraktion breschreibt das Themengebiet rund um die Extraktion von strukturierten Informationen aus unstrukturiertem oder halb-strukturiertem Text. Named Entity Recognition and Classification, ein Teilgebiet der Informationsextraktion, beschreibt dabei das erkennen und kategorisieren von Entitäten, sprich Wörter oder Wortgruppen aus natürlichen Texten~\autocite{Nadeau2007AClassification}.
+
+Der Begriff Named Entity wurde bei der Formulierung der Aufgabenstellung der sechsten Message Understanding Conference im Jahre 1995 definiert (\cite{Borthwick1998NYU:MUC-7} in \cite{Nadeau2007AClassification}). So wurde bereits damals erkannt, dass die Extraktion von Namen, von Personen, Organisationen oder Lokationen,  nummerischen Ausdrücken und Prozent-Ausdrücken wichtig ist~\autocite{Nadeau2007AClassification}.
+
+Für die Named Entity Recognition and CLassification stehen einige freie Softwarelösungen zur Verfügung. So veröffentlicht beispielsweise Stanford eine Java Implementierung und auch SpaCy, eine Sammlung von Natural Language Processing Software, beinhaltet eine Implementierung in python~\autocite{StanfordNLPGroupStanfordNER, ExplosionAIIndustrial-StrengthProcessing}.
+
+\subsubsection{Künstliche Intelligenz zur Automatisierung}
+
+Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicxher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}. \todo[inline]{Aussage darüber, ob hier erfolg erziehlt werden konnten}
+
+
+
+% \subsubsection{Definition der künstlichen Intelligenz}
 
 % der Wissensstand im Bereich des Forschungsproblems (was weiss man bereits, was nochnicht) knapp beschrieben
 
-Bereits die Definition der künstlichen Intelligenz bietet erste Herausforderungen. Das Grundlegende Problem dabei ist das fehlende Verständnis des Begriffs Intelligenz, obwohl wir diesen in unserem Alltag selbstverständlich verwenden. Wir bezeichnen jemanden, der eine gute schulische Leistung erbringt als intelligent, doch auch unsere Katze, die sich versteckt, sobald sie das Wort Tierarzt hört, bezeichnen wir als intelligent~\autocite{Legg2007UniversalIntelligence}.
+% Bereits die Definition der künstlichen Intelligenz bietet erste Herausforderungen. Das Grundlegende Problem dabei ist das fehlende Verständnis des Begriffs Intelligenz, obwohl wir diesen in unserem Alltag selbstverständlich verwenden. Wir bezeichnen jemanden, der eine gute schulische Leistung erbringt als intelligent, doch auch unsere Katze, die sich versteckt, sobald sie das Wort Tierarzt hört, bezeichnen wir als intelligent~\autocite{Legg2007UniversalIntelligence}.
 
-Die Diskussionen um die Definition des Begriffs Intelligenz sind sehr angeregt, denn sie ist nicht nur für die Definition der künstlichen Intelligenz interessant sondern hat auch einen grossen Einfluss auf die Wertung von Menschen - anhand welcher Kriterien messen wir, ob jemand intelligenter ist als jemand anderes?~\autocite{Legg2007UniversalIntelligence}
+% Die Diskussionen um die Definition des Begriffs Intelligenz sind sehr angeregt, denn sie ist nicht nur für die Definition der künstlichen Intelligenz interessant sondern hat auch einen grossen Einfluss auf die Wertung von Menschen - anhand welcher Kriterien messen wir, ob jemand intelligenter ist als jemand anderes~\autocite{Legg2007UniversalIntelligence}?
 
-Intelligenz ist für viele Wissenschaftliche Bereiche interessant und so gibt es diverse Definitionen von Intelligenz aus der Philosophie, Psychologie, Biologie und aufgrund der steigenden Popularität der künstlichen Intelligenz auch aus der Informatik. Die einzige Gemeinsamkeit von vielen dieser Definitionen ist die Aussage, dass die Intelligenz eine Fähigkeit ist ~\autocite{Minaya-Collado1998AComplexity}.
+% \todo{Hier noch Russel, & Norvig einbringen: Homo Sapiens - men the wise, 8 definitionen von AI}
 
-\textcite{Minaya-Collado1998AComplexity} benennen die Definition von \textcite{Sternberg1977IntelligenceAbilities.}, aus der psychologie, als die praktischste: \enquote{intelligence is the ability measured by the IQ (Intelligence Quotient) test, known as the g factor} (\cite{Sternberg1977IntelligenceAbilities.} in \cite{ Minaya-Collado1998AComplexity} \todo{invalid citation format}). Bei dieser Definition stellen die beiden aber gleichzeitig die Frage, was denn der IQ Test überhaupt misst und ob wir mit der Definition "intelligence is what is measured by IQ" \autocite{Minaya-Collado1998AComplexity} zufrieden sein sollen. Ihre Antwort lautet ganz klar nein. Die beiden erarbeiten folgend eine formale Definition von Intelligenz anhand von absichtlichen Abweichungen von Algorithmischer Komplexität. Trotz Ihrer sehr spannenden und ausführlichen Diskussion bleiben am Ende noch immer etliche Fragen offen. In Ihrer Arbeit konkludieren die beiden, dass Ihr Werk den IQ Test bestätigen und die Definition von Intelligenz als das, was der IQ Test misst, gar nicht so falsch ist ~\autocite{Minaya-Collado1998AComplexity}.
+% Intelligenz ist für viele Wissenschaftliche Bereiche interessant und so gibt es diverse Definitionen von Intelligenz aus der Philosophie, Psychologie, Biologie und aufgrund der steigenden Popularität der künstlichen Intelligenz auch aus der Informatik. Die einzige Gemeinsamkeit von vielen dieser Definitionen ist die Aussage, dass die Intelligenz eine Fähigkeit ist ~\autocite{Minaya-Collado1998AComplexity}.
 
-Nach \textcite{Legg2007UniversalIntelligence} ist die Unwissenheit über die klare Definition der Intelligenz auch gar nicht so schlimm, wie sie oft diskutiert wird. So kommt \textcite{Gottfredson1997MainstreamBibliography} zum Schluss, dass viele Intelligenztests, sofern sie korrekt angewendet werden, das gleiche Messen (\cite{Gottfredson1997MainstreamBibliography} in \cite{Legg2007UniversalIntelligence}, \cite{Legg2007UniversalIntelligence}) \todo{Korrekte Zitationsform}.
+% \textcite{Minaya-Collado1998AComplexity} benennen die Definition von \textcite{Sternberg1977IntelligenceAbilities.}, aus der psychologie, als die praktischste: \enquote{intelligence is the ability measured by the IQ (Intelligence Quotient) test, known as the g factor} (\cite{Sternberg1977IntelligenceAbilities.} in \cite{ Minaya-Collado1998AComplexity} \todo{invalid citation format}). Bei dieser Definition stellen die beiden aber gleichzeitig die Frage, was denn der IQ Test überhaupt misst und ob wir mit der Definition "intelligence is what is measured by IQ" \autocite{Minaya-Collado1998AComplexity} zufrieden sein sollen. Ihre Antwort lautet ganz klar nein. Die beiden erarbeiten folgend eine formale Definition von Intelligenz anhand von absichtlichen Abweichungen von Algorithmischer Komplexität. Trotz Ihrer sehr spannenden und ausführlichen Diskussion bleiben am Ende noch immer etliche Fragen offen. In Ihrer Arbeit konkludieren die beiden, dass Ihr Werk den IQ Test bestätigen und die Definition von Intelligenz als das, was der IQ Test misst, gar nicht so falsch ist ~\autocite{Minaya-Collado1998AComplexity}.
 
-Obwohl der Begriff Intelligenz nicht klar definiert ist, benennen wir Maschinen als intelligent - als künstlich intelligent. Dies geschieht immer dann, wenn eine Maschine etwas macht, was wir mit menschlicher Intelligenz in Verbindung bringen. Ein Intelligenztest für Maschinen zu erstellen ist aber nicht zielführend, so ist es für eine Maschine mittlerweile einfach Schach zu spielen, während dies früher noch undenkbar war. Eine Definition der künstlichen Intelligenz muss also so gewählt werden, dass sie auch zukünftig noch auf eine weiterentwickelte Art von Maschinen anwendbar ist~\autocite{Legg2007UniversalIntelligence}.
+% Nach \textcite{Legg2007UniversalIntelligence} ist die Unwissenheit über die klare Definition der Intelligenz auch gar nicht so schlimm, wie sie oft diskutiert wird. So kommt \textcite{Gottfredson1997MainstreamBibliography} zum Schluss, dass viele Intelligenztests, sofern sie korrekt angewendet werden, das gleiche Messen (\cite{Gottfredson1997MainstreamBibliography} in \cite{Legg2007UniversalIntelligence}, \cite{Legg2007UniversalIntelligence}) \todo{Korrekte Zitationsform}.
+
+% Obwohl der Begriff Intelligenz nicht klar definiert ist, benennen wir Maschinen als intelligent - als künstlich intelligent. Dies geschieht immer dann, wenn eine Maschine etwas macht, was wir mit menschlicher Intelligenz in Verbindung bringen. Ein Intelligenztest für Maschinen zu erstellen ist aber nicht zielführend, so ist es für eine Maschine mittlerweile einfach Schach zu spielen, während dies früher noch undenkbar war. Eine Definition der künstlichen Intelligenz muss also so gewählt werden, dass sie auch zukünftig noch auf eine weiterentwickelte Art von Maschinen anwendbar ist~\autocite{Legg2007UniversalIntelligence}.
 
 % Der Begriff künstliche Intelligenz wird in der Literatur oft diskutiert. So definieren \textcite{Legg2007UniversalIntelligence} die künstliche Intelligenz mit Hilfe von übereinstimmenden Merkmalen aus verschiedenen Definitionen des Begriffs Intelligenz. 
-\todo[inline]{Ihre definition von KI}
+% \todo[inline]{Ihre definition von KI}
 
-\subsubsection{Texterkennung dank künstlicher Intelligenz}
+% \subsubsection{Texterkennung dank künstlicher Intelligenz}
 
-Weit weniger Waage als die Definition der künstlichen Intelligenz ist ihre Anwendung. Wurde die Erkennung von Texten in einem Bild früher noch mit Feature-Detection ermöglicht, so werden heute Neuronale Netzwerke, in den meisten fällen Long-Short-Term-Memory (LSTM) Netzwerke, eine spezialisierung der Recurrent Neuronal Networks, verwendet. So beschreibt \textcite{Neuberg2017CreatingLearning}, wie Dropbox künstliche Intelligenz zur Texterkennung anwendet, um Photos von Dokumenten durchsuchbar zu machen.
+% Weit weniger Waage als die Definition der künstlichen Intelligenz ist ihre Anwendung. Wurde die Erkennung von Texten in einem Bild früher noch mit Feature-Detection ermöglicht, so werden heute Neuronale Netzwerke, in den meisten fällen Long-Short-Term-Memory (LSTM) Netzwerke, eine spezialisierung der Recurrent Neuronal Networks, verwendet. So beschreibt \textcite{Neuberg2017CreatingLearning}, wie Dropbox künstliche Intelligenz zur Texterkennung anwendet, um Photos von Dokumenten durchsuchbar zu machen.
 
-Tesseract ist eine Engine zur Texterkennung, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht~\autocite{Smith2007AnEngine}. Seit Version 4 verwendet Tesseract ein LSTM Netzwerk mit mehr als 100 Schichten. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen von Fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
+% Tesseract ist eine Engine zur Texterkennung, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht~\autocite{Smith2007AnEngine}. Seit Version 4 verwendet Tesseract ein LSTM Netzwerk mit mehr als 100 Schichten. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen von Fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
 % TODO: QUelle für anzahl layers
 % v4 with LSTM: https://github.com/tesseract-ocr/tesseract/wiki/4.0-with-LSTM
 % Perf: https://github.com/tesseract-ocr/tesseract/wiki/4.0-Accuracy-and-Performance
 
-\subsubsection{Rechtschreibe- und Grammatikprüfung mit künstlicher Intelligenz}
+% \subsubsection{Rechtschreibe- und Grammatikprüfung mit künstlicher Intelligenz}
 
-\todo[inline]{KI ist sehr weites gebiet
-
-Wird immer populärer
-
-Wird schon rege verwendet
-
-Verwendung in Bilderkennung (Hauptverwendung von RNN/LSTM)
-
-Verwendung in OCR (Relevant für Fallbeispiel)
-
-Verwendung in Rechtschreibeprüfung (Relevant für Fallbeispiel)
-
-Neuronale Netzwerke
-
-NLP
-
-Auf diese Themengebiete / ihren Wissensstand eingehen}
-
-Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicxher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}. \todo[inline]{aussage darüber, ob hier erfolg erziehlt werden konnten}
+%\todo[inline]{KI ist sehr weites gebiet
+%
+%Wird immer populärer
+%
+%Wird schon rege verwendet
+%
+%Verwendung in Bilderkennung (Hauptverwendung von RNN/LSTM)
+%
+%Verwendung in OCR (Relevant für Fallbeispiel)
+%
+%Verwendung in Rechtschreibeprüfung (Relevant für Fallbeispiel)
+%
+%Neuronale Netzwerke
+%
+%NLP
+%
+%uf diese Themengebiete / ihren Wissensstand eingehen}
 
 \subsection{Forschungsfrage}
 
@@ -197,16 +232,15 @@ Aufgrund der aktuellen Problematik der Indexierung von Rechnungen bei der AXA en
     \medskip
 }
 
-Weiter werden folgende Unterfragen abgeleitet.
+% Weiter werden folgende Unterfragen abgeleitet.
 
-\todo[inline]{
-Unterfragen ausarbeiten...
-}
+%\todo[inline]{Unterfragen ausarbeiten...}
 
-\begin{itemize}
-    \item Lohnt es sich für die AXA in die Automatisierung durch die Anwendung von künstlicher Intelligenz zu investieren? \todo{Müsste zur Beantwortung nicht eine ganze Kosten-Nutzen Rechnung gemacht werden?}
-    \item Wäre eine Investition im Fallbeispiel durch etwaige Digitalisierungsvorhaben des Bundes gefährdet? \todo{relevant? sinnvoll?}
-\end{itemize}
+%\begin{itemize}
+%    \item Kann die Rechnungseinreich
+%    \item Lohnt es sich für die AXA in die Automatisierung durch die Anwendung von künstlicher Intelligenz zu investieren? \todo{Müsste zur Beantwortung nicht eine ganze Kosten-Nutzen Rechnung gemacht werden?}
+%    \item Wäre eine Investition im Fallbeispiel durch etwaige Digitalisierungsvorhaben des Bundes gefährdet? \todo{relevant? sinnvoll?}
+%\end{itemize}
 
 \newpage
 \section{Zielsetzungen, inhaltliche Abgrenzung}
@@ -300,11 +334,11 @@ Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Th
             \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
                 \item Named Entity Recognition
                 \item Text classificiation
-                \item Standardisierte Formate \todo{Besserer Titel, extraktion ohne AI durch bekannte Formate (E.g. TARMED)}
+                \item Extraktion aus standardisierten, semi-strukturierten Formaten
             \end{enumerate}
             \item Zusammenfassung der Resultate
         \end{enumerate}
-        \item Diskussion
+        \item Diskussion der Resultate aus dem Prototypen
         \item Anhang
         \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
             \item Literaturverzeichnis
@@ -338,15 +372,15 @@ Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis 
     
     Prüfung der Betreuungsanfrage, des Titels und des Grobkonzeptes durch die Betreuungsperson & 17. Dezember 2018 \\ \hline
     
-    Theorieteil verfassen und empirische Untersuchung vorbereiten & TODO \\ \hline
+    Theorieteil verfassen und empirische Untersuchung vorbereiten & 15.1.2019 \\ \hline
     
     2. Besprechungstermin nach Fertigstellung des Theorieteils und zur Gestaltung des Messinstrumentes zwecks Datenerhebung & TODO \\ \hline
     
-    Empirische Untersuchung durchführen & TODO \\ \hline
+    Erstellung und Auswertung des Prototypen & 15.3.2019 \\ \hline
     
     3. Besprechungstermin zur vorläufigen Beantwortung der Forschungsfrage & TODO \\ \hline
     
-    Empirischer Teil finalisieren & 29. März 2019 \\ \hline
+    Arbeit finalisieren & 29. März 2019 \\ \hline
     
     Fertigstellung der gesamten Thesis & 1. April 2019 \\ \hline
     
@@ -364,260 +398,17 @@ Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis 
 Hier werden bereits gelesene Quellen angeführt und auf weiterführende Literatur verwiesen, die noch ausgewertet wird.
 }
 
-\todo[inline, color=red]{TODO}
+{
+    \nocite{Brynjolfsson2017Artificial}
+    \nocite{BughinARTIFICIALFRONTIER}
+    \nocite{ChuiFourAutomation}
+    \nocite{Kolbjrnsrud2016HowManagement}
+    \nocite{Tredinnick2017ArtificialRoles}
+    \printbibliography[heading=none]
+}
 
 \newpage
 
-\section{Notizen - Outline}
-
-\subsection{Einleitung}
-\begin{itemize}
-    \item Gesundheitssystem ist grosser Kostenverursacher
-    \item TG vs TP
-    \begin{itemize}
-         \item KVG vs. VVG
-    \end{itemize}
-	 \item Krankenkassen tragen mehr als 1/3 der Kosten
-	 \item Grosser Verwaltungsaufwand bei den Krankenkassen
-     \begin{itemize}
-        \item Dadurch auch aktuelle Diskussion über Einführung Einheitskasse (relevant?)
-        \item Aufzeigen der entstehenden Kosten?!
-    \end{itemize}
-	\item Grundversicherung stark reglementiert
-    \begin{itemize}
-        \item wenig Innovationsdruck/-potential
-        \item Wenig Abhebung von der Konkurrenz
-        \begin{itemize}
-			\item Keiner macht Zusatzleistung, höchstens Abstriche (e.g. Apotheken der Assura)
-        \end{itemize}
-        \item Schleichender Wettbewerb
-        \item Preisdifferenzierung ist enorm wichtig -> Begründung warum Forschungsfrage interessant
-    \end{itemize}
-	\item Digitalisierungsvorhaben des Bundes nicht erfolgreich -> Begründung warum Forschungsfrage interessant
-    \begin{itemize}
-        \item TARMED, SwissMedic, PatientenDossier, …
-    \end{itemize}
-    \item Kunde erwartet sein Geld möglichst schnell zurück
-    \begin{itemize}
-        \item Automatisierte verarbeitung der Rechnung erlaubt dies  -> Begründung warum Forschungsfrage interessant
-    \end{itemize}
-    \item Forschungsfrage
-    \begin{itemize}
-        \item Abgrenzung
-    \end{itemize}
-\end{itemize}
-	
-	
-\subsection{Theoretischer Teil}
-Was ist Machine Learning/Deep Learning?
-
-Supervised vs Un-supervised learning?
-
-Welche Anwendungsbereiche gibt es aktuell?
-
-\begin{itemize}
-    \item LSTM
-    \begin{itemize}
-        \item Einführung in Neuronale Netzwerke
-        \item Was ist ein RNN/LSTM und wie funktioniert diese Art von NN
-        \item Vergleich mit CNN
-        \item Faktoren für den Erfolg eines NN
-        \item Training
-        \begin{itemize}
-            \item Merkmale geeigneter Trainingsdaten
-            \item Problemstellungen
-            \begin{itemize}
-                \item Over-fitting
-            \end{itemize}
-        \end{itemize}
-        \end{itemize}
-		\item Anwendungsgebiete für LSTM Modelle
-        \begin{itemize}
-	        \item OCR
-            \begin{itemize}
-			    \item Pre-condition für erfolgreiches OCR
-                \begin{itemize}
-				    \item Gute Bildqualität
-                    %\begin{itemize}
-					    \item Aktuell nicht gegeben
-						\item Input Kanal optimieren
-                        %\begin{itemize}
-							\item Verbesserung des Upload Prozess des im Kundenportal
-                            %\begin{itemize}
-								\item Wie viele Rechnungen werden Digital eingereicht? (aktuell ca. 2/3 digital)
-                            %\end{itemize}
-                        %\end{itemize}
-						\item Image rectification
-                        %\begin{itemize}
-							 \item leptonica
-							 \item OpenCV
-                        %\end{itemize}
-                    %\end{itemize}
-					\item Eine Rechnung pro Upload
-                    %\begin{itemize}
-						\item Aktuell nicht gegeben
-						\item TARMED einfach erkennbar
-                    %\end{itemize}
-                \end{itemize}				
-			\item Machine translation
-			\item Grammatikprüfung
-			\item Image recognition
-        \begin{itemize}
-            \item Nicht wirklich relevant für diese Arbeit
-        \end{itemize}
-		\item Text Classification
-        \begin{itemize}
-			\item Vergleich mit klassischem NLP?
-			\item Warum LSTM und nicht klassisches NLP?
-        \end{itemize}
-        \end{itemize}
-		    \item Named Entity Recognition (NER)
-        \begin{itemize}
-			\item Erkennung von Namen
-			\item NLP vs Machine Learning basiert
-        \end{itemize}
-    \end{itemize}
-	\item Struktur-Anforderungen der Daten für die Weiterverarbeitung
-    \begin{itemize}
-		\item Syrius requirements
-		\item Fachliche Anforderungen
-        \begin{itemize}
-    		\item KVG vs. VVG beachten
-        \end{itemize}
-    \end{itemize}
-    \item Lösungen in anderen Branchen
-    \item Lösungen von anderen Unternehmen
-    \begin{itemize}
-		\item Man-power
-        \begin{itemize}
-		    \item Assura 500 / CSS 300
-            \begin{itemize}
-			    \item TODO: Diese Daten sind nur "Hörensagen"
-            \end{itemize}
-        \end{itemize}
-    \end{itemize}
-\end{itemize}
-
-
-\subsection{Empirischer Teil}
-\begin{itemize}
-    \item Methodik
-    \begin{itemize}
-		\item Prototyping
-		\item Messkriterien des Prototypen
-		\item Begrüdnung des Vorgehens
-    \end{itemize}
-	\item Prototyp
-    \begin{itemize}
-		\item OCR mittels Tesseract
-        \begin{itemize}
-			\item Trainieren der LSTM engine mittels artificial training data aus TARMED datenbank
-			\item Artificial data wird analog eingereichter Rechnungen gemacht
-            \begin{itemize}
-				\item Schrfitart
-				\item Noise
-				\item Verzerrung
-            \end{itemize}
-        \end{itemize}
-	    \item Spell Checking mittels eigenem LSTM Modell
-        \begin{itemize}
-		    \item Inspiration an DeepSpell, etc.
-		    \item Training des Modells anhand artificial spelling errors basierend auf
-            \begin{itemize}
-				\item Google Training Datasets
-				\item TARMED tarifen
-				\item SYR Codes
-				\item EMR Methods
-				\item Other Methods
-				\item Custom Tarifziffern
-				\item Care Providers (Names, Addresses, …)
-				\item Real Invoices
-				\item Medizinischen Texten / Anamnese
-            \end{itemize}
-        \end{itemize}
-    \end{itemize}
-    \item Noise reduction
-    \begin{itemize}
-	    \item Pre and/or Post OCR
-        \item Post OCR
-        \begin{itemize}
-	    	\item NN with input word + confidence -> output: noise | no-noise
-        \end{itemize}
-    \end{itemize}
-    \item Erkennung von mehreren Rechnungen in einem Upload
-    \begin{itemize}
-	    \item Mehrere auf einem Bild
-	    \item Mehrere auf mehreren Bildern
-    \end{itemize}
-    \item Klassifizierung von Rechnungen
-    \begin{itemize}
-		\item Traditioneller Ansatz für TARMED ja/nein
-		\item LSTM Text Classification für "Prosa" (non-TARMED) Rechnungen
-    \end{itemize}
-    \item Strukturieren von Daten
-    \begin{itemize}
-		\item TARMED gut strukturierbar
-		\item Für andere Rechnungen wird’s etwas schwieriger
-        \begin{itemize}
-			\item Patienten Erkennung
-			\item Care Provider Erkennung
-			\item Tabellen Erkennung
-            \begin{itemize}
-			    \item Erkennung der einzelnen Positionen
-            \end{itemize}
-        \end{itemize}
-        \item Business Rules zur automatisierten Verarbeitung    
-    \end{itemize}  
-\end{itemize}
-
-\subsection{Schlussfolgerungen und Empfehlungen}
-\begin{itemize}
-	\item Bewertung des Prototypen
-	\item Beantwortung der Forschungsfrage
-	\item Reflexion
-	\item Empfehlungen / Zukunft
-  \begin{itemize}
-		\item Erweitern der Pipeline für andere Rechnungstypen (e.g. Fitnessabos)
-		\item Erweitern der Business Rules
-		\item On-Device OCR/NER um den upload Prozess zu verbessern
-    \begin{itemize}
-			\item Benutzer soll den Patientennamen nicht eingeben müssen, er soll erkannt werden
-			\item Benutzer kann die erhobenen Daten direkt gegenprüfen
-Bspw. Behandlungsdatum, etc.
-    \end{itemize}
-  \end{itemize}
-\end{itemize}
- 
-\section{Notizen - sonstiges}
- 
-\subsection{Lösungsansatz ``Input Pipeline''}
-\begin{itemize}
-    \item Erste Optimierung bereits beim Kunden, da dort ``Crowd Sourcing'' betrieben werden kann
-    \begin{itemize}
-        \item Image rectification mit anpassungsmöglichkeit durch Enduser (analog OfficeLens)
-        \item Quality Checking
-    \end{itemize}
-    \item Optimierung auf der Service Seite
-    \begin{itemize}
-        \item Gray Scale
-    \end{itemize}
-    \item OCR
-    \begin{itemize}
-        \item LSTM basierter Ansatz
-        \begin{itemize}
-            \item Vergleich zur feature detection basierten vorgehensweise (Stats, warum was besser ist)
-        \end{itemize}
-    \end{itemize}
-\end{itemize}
-
-Machine Learning ist sehr breit
-  - Text Mining
-  - Deep Learning
-  - OCR
-  - Classification
-  - Image optimization
-  
-\newpage
 \section{Anhang}
 
 \makeBibliography{Anhang}{Literaturverzeichnis}
