@@ -84,6 +84,12 @@
 \usepackage{caption}
 
 %#############################
+% Keep paragraphs together
+%#############################
+\widowpenalties 1 10000
+\raggedbottom
+
+%#############################
 % Commands
 %#############################
 \input{commands/abstract.tex}
