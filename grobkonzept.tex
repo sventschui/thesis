@@ -1,6 +1,7 @@
 \documentclass{hwz}
 \input{colors.tex}
 % \usepackage{showframe}
+\usepackage{wrapfig}
 
 \begin{document}
 
@@ -92,15 +93,24 @@ Auch im \textcite{TheEconomist2018TheAI} wird der mögliche Wettbewerbsvorteil d
 
 In der Schweiz beliefen sich die Kosten für das Gesundheitswesen im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden von den Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz \autocite{BundesamtfurStatistik2018Finanzierung, BundesamtfurStatistik2017KostenDaten}.
 
-\todo[inline, color=igloo]{Argumentation für die steigenden Kosten}
+Die Kosten des Gesundheitswesen steigen stetig an, so weisen die Zahlen vom Jahr 2016 bereits Kosten von über 80 Milliarden Franken nach. Auch in den folgenden Jahren sollen die Kosten weiter steigen. \textcite{Kirchgassner2009DasKostenentwicklung} begründet diesen Anstieg unter anderem mit der Veränderung der Altersstruktur, dem steigenden Wohlstand sowie den neuen Möglichkeiten in der Diagnose und Behandlung durch technischen Fortschritt~\autocite{BundesamtfurStatistik2018Finanzierung, Kirchgassner2009DasKostenentwicklung}.
 
-Die Kosten des Gesundheitswesen steigen stetig an, so weisen die Zahlen vom Jahr 2016 bereits Kosten von über 80 Milliarden Franken nach. Auch in den folgenden Jahren sollen die Kosten weiter steigen~\autocite{BundesamtfurStatistik2018Finanzierung, Hehli2017GesundheitskostenWeiter}.
+\todo[inline, color=green]{Der vollständigkeitshalber das dritte Tier auch aufzählen?}
 
-\todo[inline, color=igloo]{Hinweis/Vorschlag: Bei "neu eingeführten" Begriffen, die nicht jeder Mensch alltäglich verwendet, sollten formal beim ersten Mal hervorgehoben werden (z.B. in Anführungszeichen oder kursiv schreiben). Das hilft dem Leser zu erkennen, dass diese Begriffe neu und wichtig sind und dann gleich eingeführt werden (kleiner Trick beim Schreiben ;)). Ab dem zweiten Gebrauch werden sie normal geschrieben, wie der Fliesstext. }
+Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, \textit{Tiers payant} oder \textit{Tiers garant}, vergütet \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}. 
 
-Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, Tiers payant oder Tiers garant, vergütet \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}. 
-
-\todo[inline, color=igloo]{Vorschlag: In einer Thesis ist es wichtig, Abwechslung zu bringen, bspw. mit Tabellen oder Bildern. Hier würde es die Möglichkeit geben, eine kleine Tabelle zu machen mit den beiden Begriffen "tiers payant" und "tiers garant", bspw. 4 Kacheln (2 Zeilen, 2 Spalten). Oberste Zeile Tiers payant, Tiers garant und unterste Zeile in kurzen Worten eine Definition. Dann folgt die Erläuterung per Fliesstext.}
+\begin{wraptable}{l}{0.55\textwidth}
+    \renewcommand{\arraystretch}{1.25}
+    \setlength{\tabcolsep}{5pt}
+    \caption{Vergütungsmodelle im schweizer Gesundheitswesen}
+    \begin{tabular}{| p{0.15\textwidth} | p{0.32\textwidth} |}
+        \hline
+         Tier payant & Kosten werden vom Leistungserbringer direkt dem Krankenversicherer in Rechnung gestellt. \\
+        \hline
+         Tier garant & Kosten werden vom Leistungserbringer dem Patienten in Rechnunge gestellt, welcher die Rechnung dem Krankenversicherer zur Rückvergütung weiterleitet. \\
+        \hline
+    \end{tabular}
+\end{wraptable}
 
 Beim System Tier payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, in dem der Patient mit seiner Kranken\-versicherungskarte bezahlt. Anhand dieser Karte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt und der Krankenversicherer kann mit einem entsprechenden Regelwerk die Rechnung automatisch verarbeiten. 
 
