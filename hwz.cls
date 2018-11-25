@@ -1,5 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{hwz}[2018/11/15 HWZ Latex class]
+
+%#############################
+% Color all the things!
+%#############################
+% This needs to stay up here to prevent option clash warning
+\usepackage[table]{xcolor}
  
 %#############################
 % Base class
@@ -17,11 +23,6 @@
 % TODO Notes
 %#############################
 \usepackage[color=lightgray]{todonotes}
-
-%#############################
-% Color all the things!
-%#############################
-\usepackage[table]{xcolor}
 
 %#############################
 % Merge list of figures and list of tables
@@ -46,10 +47,11 @@
 %#############################
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\sectionmark}[1]{\markboth{#1}{#1}}
 \renewcommand{\subsectionmark}[1]{\markright{#1}}
+\setlength{\headheight}{15pt}
 \fancyhf{}
 \fancyfoot[LE,RO]{\thepage}
 

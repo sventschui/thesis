@@ -15,7 +15,7 @@
     	% \includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
     	{\Large\fontfamily{ppl}\selectfont Grobkonzept zur Bachelor Thesis}
     	
-    	{\LARGE\bfseries\fontfamily{ppl}\selectfont Automatisierung von Kundenservices durch künstliche Intelligenz am Beispiel der Rechnungseinreichung in der Krankenversicherung \par}
+    	{\LARGE\bfseries\fontfamily{ppl}\selectfont Automatisierung von Geschäftsprozessen durch künstliche Intelligenz am Beispiel der Rechnungsindexierung in der Krankenversicherung \par}
     	
     	\vspace{3cm}
     	
@@ -65,101 +65,213 @@ Die Forschungsfrage schliesslich bündelt die zentralen Aspekte des Forschungspr
 \textit{(Bitte diesen Text jeweils nicht löschen. Er dient als Information für die Betreuungsperson.)}
 }
 
+\todo[inline, color=green]{
+Was Sie vor der Eingabe noch tun könnten:
+- Rolle der AXA? Wo sind Sie auf Ihren Projektpartner angewiesen, der ja auch Ihr Arbeitgeber ist? Siehe oben.
+}
+
 % Schneller und guter Kundenservice ist wichtig um Kunden halten zu können, dies ist längst bekannt \todo{CITE}. Auch die Auswirkungen einer hohen Kundenzufriedenheit auf die Kundenloyalität werden als sehr stark anerkannt \todo{CITE}. Aus diesen Gründen investieren Unternehmen immer stärker in diese Services und versuchen sich damit von der Konkurrenz zu differenzieren \todo{CITE}. Diese Services bereitzustellen kann für ein Unternehmen sehr kostenintensiv sein \todo{CITE}. \todo[inline, color=orange]{ Fakten und Zahlen würden diese Aussage nicht nur untermauern sondern auch spannender machen} Kundenservices sollen heutzutage mit geeigneter Soft- und Hardware automatisiert werden, um die Kosten so gering wie möglich zu halten \todo{CITE}. Die Automatisierung hat ausserdem den Effekt, dass Services schneller abgewickelt werden können, was im Zeitalter der ungeduldigen Kunden ein wichtiger Differenzierungsfaktor sein kann \todo{CITE}. Die Automatisierung durch klassische Software stösst aber teilweise \todo{konkrekt sagen, wann diese Grenzen auftreten} an ihre Grenzen. Die klassische, strukturierte Programmierweise bildet Logik ab, welche durch Ursache-Wirkung klar definierbar ist: Wenn eine Bedingung eintrifft, wird etwas ausgeführt \todo{QUOTE}. Ein Abwägen von Fall zu Fall, wie dies ein Angestellter im Kundenservice machen könnte, ist mit solcher Software nicht möglich. Eine Lösung für diese Limitierung bietet die künstliche Intelligenz: Der Computer wird nicht mehr angewiesen was zu tun ist, sondern was das Ziel ist. Der Computer wird dann auf die erreichung dieses Ziels trainiert \todo{QUOTE}.
 
 % In dieser Arbeit werden die Möglichkeiten diskutiert, welche die künstliche Intelligenz für die Automatisierung von Kundenservices bietet. Im ersten Teil werden die grundlegenden Elemente der Künstlichen Intelligenz erläutert und Herausforderungen in der Automatisierung der Kundenservices aufgezeigt. \todo[inline]{weiterer Inhalt, e.g. theoretische erfahrung, Praxisbeispiele} Der zweite Teil widmet sich einem Fallbeispiel eines Kundenservices, welcher in einem Prototypen durch den Einsatz von Künstlicher Intelligenz automatisiert werden soll. Der Erfolg des Experiments wird anhand zuvor definierten Erfolgskriterien diskutiert.
 
 % \subsection{Fallbeispiel}
 
-In der Schweiz beliefen sich die Kosten für das Gesundheitswesen im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden durch Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz \autocite{BundesamtfurStatistik2018Finanzierung, BundesamtfurStatistik2017KostenDaten}.
+Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}\todo{Satz etwas lang/komplex}. 
+
+Um die Produktion des neuen Airbus A350 schnellstmöglich auf Hochtouren zu bringen wurde künstliche Intelligenz angewendet. Ein System, welches von Airbus entwickelt wurde, ermöglicht dank künstlicher Intelligenz, in 70\% aller Unterbrüche der Produktion in kürzester Zeit eine Lösung auszuarbeiten~\autocite{Ransbotham2017ReshapingIntelligence}.
+
+Auch Ping An Insurance Co. of China Ltd., eine der grössten Versicherungsgesellschaften von China, verwendet bereits künstliche Intelligenz zur Automatisierung von diversen Kundenservices~\autocite{Ransbotham2017ReshapingIntelligence}.
+
+Neben diesen Pionieren erwähnen \textcite{Ransbotham2017ReshapingIntelligence} in Ihrer Untersuchung aber auch, dass nur 14\% der Befragten denken, dass künstliche Intelligenz aktuell einen hohen Einfluss auf Ihre Angebote und Dienstleistungen haben. Jedoch denken 63\%, dass sich dies in den nächsten 5 Jahren ändern wird und die künstliche Intelligenz ein entscheidender Wettbewerbsvorteil bieten kann. Trotz des Verständnis der künstlichen Intelligenz und des Potential einen Wettbewerbsvorteil zu schaffen, wird diese noch zu wenig angewendet\autocite{Ransbotham2017ReshapingIntelligence}.
+
+Auch im \textcite{TheEconomist2018TheAI} wird der mögliche Wettbewerbsvorteil durch die Anwendung von künstlicher Intelligenz angesprochen. Auch ausserhalb des Technologie-Sketors, in Branchen, welche aktuell durch den Konkurrenzkampf geprägt sind, werden grosse Firmen durch die anwendung künstliche Intelligenz noch grösser und entwickeln sich zu Monopolen~\autocite{TheEconomist2018TheAI}.
+
+\subsection{Potential der künstlichen Intelligenz bei der AXA Gesundheitsvorsorge}
+
+\todo[inline, color=green]{In diesem Kapitel fehlen einige Zitate. Hier sollte ein Gespräch mit einem AXA Mitarbeiter zitiert werden oder das Wissen durch meine Tätigkeit bei der AXA vermerkt werden.}
+
+In der Schweiz beliefen sich die Kosten für das Gesundheitswesen im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden von den Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz \autocite{BundesamtfurStatistik2018Finanzierung, BundesamtfurStatistik2017KostenDaten}.
+
+\todo[inline, color=igloo]{Argumentation für die steigenden Kosten}
 
 Die Kosten des Gesundheitswesen steigen stetig an, so weisen die Zahlen vom Jahr 2016 bereits Kosten von über 80 Milliarden Franken nach. Auch in den folgenden Jahren sollen die Kosten weiter steigen~\autocite{BundesamtfurStatistik2018Finanzierung, Hehli2017GesundheitskostenWeiter}.
 
+\todo[inline, color=igloo]{Hinweis/Vorschlag: Bei "neu eingeführten" Begriffen, die nicht jeder Mensch alltäglich verwendet, sollten formal beim ersten Mal hervorgehoben werden (z.B. in Anführungszeichen oder kursiv schreiben). Das hilft dem Leser zu erkennen, dass diese Begriffe neu und wichtig sind und dann gleich eingeführt werden (kleiner Trick beim Schreiben ;)). Ab dem zweiten Gebrauch werden sie normal geschrieben, wie der Fliesstext. }
+
 Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, Tiers payant oder Tiers garant, vergütet \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}. 
 
-Beim System Tier payant belastet der Leistungserbringenr (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, in dem der Patient mit seiner Kranken\-versicherungs-Karte bezahlt. Anhand dieser Karte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Versicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt und der Krankenversicherer kann mit einem entsprechenden Regelwerk die Rechnung automatisch verarbeiten. 
+\todo[inline, color=igloo]{Vorschlag: In einer Thesis ist es wichtig, Abwechslung zu bringen, bspw. mit Tabellen oder Bildern. Hier würde es die Möglichkeit geben, eine kleine Tabelle zu machen mit den beiden Begriffen "tiers payant" und "tiers garant", bspw. 4 Kacheln (2 Zeilen, 2 Spalten). Oberste Zeile Tiers payant, Tiers garant und unterste Zeile in kurzen Worten eine Definition. Dann folgt die Erläuterung per Fliesstext.}
 
-Werden Kosten, welche über Tier payant abgerechnet wurden, nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Versicherer die Kosten dem Patienten weiter \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
+Beim System Tier payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, in dem der Patient mit seiner Kranken\-versicherungskarte bezahlt. Anhand dieser Karte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt und der Krankenversicherer kann mit einem entsprechenden Regelwerk die Rechnung automatisch verarbeiten. 
+
+Werden Kosten, welche über Tier payant abgerechnet wurden, nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Krankenversicherer die Kosten dem Patienten weiter \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
 
 Das System Tier payant wird häufig in Apotheken, beim Kauf von Medikamenten mit oder ohne ärztlichem Rezept, sowie bei allen stationären Behandlungen, gemäss Art. 42 Abs. 2 KVG, verwendet \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
 
-Die Verarbeitung von Rechnungen, welche über das System Tier payant abgerechnet werden, kann der Versicherer, aufgrund der digitalen, strukturierten Daten, vollautomatisch gestalten.
+Die Verarbeitung von Rechnungen, welche über das System Tier payant abgerechnet werden, kann der Krankenversicherer, aufgrund der digitalen, strukturierten Daten, automatisiert gestalten.
 
-Im Fall von Tiers garant stellt der Leistungserbringer die Rechnung direkt dem Patienten aus, welcher diese dann seinem Krankenversicherer zur Rückvergütung weiterleitet. Die Rechnung kann bei allen Krankenversicherern per Post und bei den meisten auch digital, im Kundenportal oder in der App, eingereicht werden \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
+Im Fall von Tiers garant stellt der Leistungserbringer die Rechnung direkt dem Patienten aus, welcher diese dann seinem Krankenversicherer zur Rückerstattung weiterleitet. Die Rechnung kann bei allen Krankenversicherern per Post und bei den meisten auch digital, im Kundenportal oder in der App, eingereicht werden \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
 
-Rechnungen, welche per Post oder digital beim Versicherer zur Rückvergütung eingehen, erreichen diesen in unterschiedlichster Qualität. Bei der Einreichung per Post kann die Qualität durch Kaffee-Flecken oder sonstige Beeinträchtigungen gemindert werden, der Versicherer kann aber viele andere Faktoren selbst beeinflussen. So kann er beispielsweise hochauflösende Scanner und optimale Beleuchtung einsetzen.
+Rechnungen, welche per Post oder digital beim Krankenversicherer zur Rückvergütung eingehen, erreichen diesen in verschiedenen Formen und unterschiedlichster Qualität. 
 
-\todo[inline]{
-Frage an Herrn Zenklusen:
+Während einige Rechnungen nach dem TARMED Standard für Rückforderungsbelege strukturiert sind, sind andere formlos. Die Bandbreite an Formen ist hier gross: Von handgeschriebenen Rechnungen eines örtlichen Leistungserbringer bis hin zu strukturierten Rechnungen von Fitnessparks.
 
-Der obige Absatz wurde aufgrund meinem Wissen durch meine Arbeit bei der AXA verfasst. Wie kann ich diesen mit einem Zitat untermauern? Ein Klassenkamerade hat mir gesagt, ich könne ein "Persönliches Gespräch" mit einer Fachperson "zitieren", ohne dieses im Anhang transkribieren zu müssen, stimmt das?
+Bei der Einreichung per Post kann die Qualität durch Kaffee-Flecken, Verbleichung der Belege oder sonstige Beeinträchtigungen gemindert werden, der Krankenversicherer kann aber einiges dazu beitragen die Rechnung in hoher Qualität einzulesen. So kann er beispielsweise hochauflösende Scanner und eine optimale Beleuchtung einsetzen.
+
+Problematischer sind Rechnungen, welche von Kund/-innen digital, sprich als Photo, an den Krankenversicherer übermittelt werden. Wird ein Foto einer Rechnung über das Kundenportal eingereicht, so hat der Krankenversicherer nur noch sehr wenig Einfluss auf die Qualität der Aufnahme. Schlechte Belichtung, kleine Auflösung und abgeschnittene Rechnungen sind nur wenige der Probleme, mit welchen der Krankenversicherer zu kämpfen hat.
+
+Egal wie und in welcher Qualität eine Rechnung einen Krankenversicherer erreicht hat, muss dieser die Rechnung in eine elektronische, strukturierte Form bringen, damit diese dann durch ein Regelwerk verarbeitet werden kann. Dieser Vorgang wird Indexieren genannt. Viele Krankenversicherer haben für die Indexierung bereits in Optical Character Recognition (OCR) Technologie investiert oder die Indexierung an eine externe Firma ausgelagert. 
+
+\todo[inline, color=igloo]{Hinweis: Daraufhin sollte eine "generelle" Definition über Indexierung kommen. Max. 1-2 Sätze (mit Literaturangabe).
+Begründung: Geh davon aus, dass der Leser keine Ahnung hat, was das bedeutet (auch wenn der Experte darüber Bescheid weiss). Deshalb wichtig: Neue Begriffe immer kurz einführen. (Indexieren sowie OCR}
+
+\todo[inline, color=green]{Wie macht das die Post? Postfinance? Dort ist das Problem vermutlich etwas einfacher aber Lösungen gibt es schon länger?}
+Es gibt diverse Anbieter, wie beispielsweise die Tessi document solutions (Switzerland) GmbH oder die Cent Systems AG, welche diese Technologien oder die gesamte Indexierung als Service anbieten. Ein grosser Teil der Rechnungen muss aber, aus verschiedenen Gründen, nach wie vor manuell bearbeitet werden \todo{Quelle für manuelle arbeiten}. Dies beinhaltet sowohl die Nachbearbeitung nach der elektronischen Indexierung als auch die komplett manuelle Indexierung. % Die CSS Krankenkasse beschäftigt beispielsweise rund 200 Personen für diese manuelle Indexierung. Bei der Assura sind es rund 500 Personen \todo{Quelle für die Anzahl personen}.
+
+\todo[inline, color=igloo]{
+Begründung für manuelle arbeiten
+
+2. Frage: Mir ist nicht ganz klar, ob entweder Nachbearbeitung oder komplette Indexierung zum Zug kommt. Ist das korrekt, dass eines der beiden angewendet wird? Ohne manuelle Überarbeitung geht gar nichts?
 }
-
-Problematischer sind Rechnungen, welche digital an den Versicherer übermittelt werden. Wird ein Foto einer Rechnung über das Kundenportal eingereicht, so hat der Versicherer nur noch sehr wenig Einfluss auf die Qualität der Aufnahme. Schlechte Belichtung, kleine Auflösung und abgeschnittene Rechnungen sind nur wenige der Probleme, mit welchen der Versicherer zu kämpfen hat.
-
-Egal wie und in welcher Qualität eine Rechnung einen Versicherer erreicht hat, muss dieser die Rechnung in eine elektronische, strukturierte Form bringen, damit diese dann durch ein Regelwerk verarbeitet werden kann. Dieser Vorgang wird Indexieren genannt. Viele Versicherer haben für die Indexierung bereits in Optical Character Recognition (OCR) Technologie investiert oder die Indexierung an eine externe Firma ausgelagert. 
-
-Es gibt diverse Anbieter, wie beispielsweise die Tessi document solutions (Switzerland) GmbH oder die Cent Systems AG, welche diese Technologien oder die gesamte Indexierung als Service anbieten. Ein grosser Teil der Rechnungen muss aber, aus verschiedenen Gründen, nach wie vor manuell bearbeitet werden \todo{Quelle für manuelle arbeiten}. Dies beinhaltet sowohl die Nachbearbeitung nach der elektronischen Indexierung sowohl auch die komplett manuelle Indexierung. % Die CSS Krankenkasse beschäftigt beispielsweise rund 200 Personen für diese manuelle Indexierung. Bei der Assura sind es rund 500 Personen \todo{Quelle für die Anzahl personen}.
 
 % Im Jahr 2016 wiesen die Grundversicherer einen durchschnittlichen Verwaltungskostensatz von 4.7\% aus. Dies bedeutet  Ein guter Verwaltungskostensatz konnte die CSS Kranken-Versicherung AG im Jahr 2017 ausweisen weist im Jahr Die Indexierung dieser Rechnungen ist einer der Faktoren, welche auf die hohen Verwaltungskosten der Krankenversicherer schlägt. Es müssen 
 
-Auch die AXA, eine internationale Versicherungsgesellschaft, sieht sich vor der Herausforderung der Indexierung von Rechnungen. Im Jahr 2017 lancierte die AXA eine Kranken-Zusatzversicherung. Neben der Zusatzversicherungen selbst bietet die AXA ihren Kunden einen Rechnungs-Weiterleitungs-Service. Das bedeutet, alle Rechnungen können der AXA gesendet werden. Rechnungen beziehungsweise Rechnungspoisitionen, welche die Zusatzversicherung betreffen, werden von der AXA vergütet und Rechnungspositionen, welche die Grundversicherung betreffen, werden zur Vergütung an den Grundversicherer weitergeleitet \autocite{finanzen.ch2017AxaGewinnen}.
+\todo[inline, color=igloo]{Vorschlag: Evtl. bereits hier erwähnen, dass AXA als Beispielunternehmen für die Thesis verwendet wird. So wird klar, warum dann nur noch von der AXA gesprochen wird.}
 
-Ziel der AXA ist es, bis im Jahr 2020 insgesamt 100'000 Kunden zu gewinnen \autocite{finanzen.ch2017AxaGewinnen}. Neben den Rechnungen, welche diese Kunden für Ihre AXA Zusatzversicherung einreichen, werden auch Rechnungen eingereicht, welche an den Grundversicherer weitergeleitet werden müssen. Die Anzahl an Rechnungen, welche die AXA verarbeiten muss, wird sich mit jedem gewonnen Kunden erhöhen.
+Die AXA, eine internationale Versicherungsgesellschaft, sieht sich, genau wie alle anderen Krankenversicherer, ebenfalls vor der Herausforderung der Indexierung von Rechnungen. Im Jahr 2017 lancierte die AXA eine Zusatzversicherung in der Gesundheitsvorsorge. Neben der Zusatzversicherungen selbst bietet die AXA ihren Kunden einen Rechnungs-Weiterleitungs-Service. Das bedeutet, alle Rechnungen können der AXA gesendet werden. Rechnungen beziehungsweise Rechnungspositionen, welche die Zusatzversicherung betreffen, werden von der AXA vergütet und Rechnungspositionen, welche die Grundversicherung betreffen, werden zur Vergütung an den Grundversicherer weitergeleitet \autocite{finanzen.ch2017AxaGewinnen}.
 
-\todo[inline]{
+\todo[inline, color=igloo]{Frage: Was ist der Nutzen daraus? Einerseits für den Kunden andererseits für AXA? 
+Hinweis: Ich würde noch ein bisschen mehr auf die Thematik "Rechnungs-Weiterleitungs-Service" eingehen, da dieser der Use Case der Arbeit wird.}
+
+\todo[inline, color=igloo]{Vorschlag: Ich würde dieses Argument anders einführen. Der Übergang wirkt aus meiner Sicht noch nicht flüssig. Z.B. ``Jeder Kunde der AXA reicht somit Rechnungen ein, die entweder die AXA Zusatzversicherung betreffen oder an die Grundversicherung weitergeleitet werden müssen.``}
+
+Ziel der AXA ist es, bis im Jahr 2020 insgesamt 100'000 Kunden zu gewinnen \autocite{finanzen.ch2017AxaGewinnen}. Neben den Rechnungen, welche Kunden für Ihre AXA Zusatzversicherung einreichen, werden auch Rechnungen eingereicht, welche an den Grundversicherer weitergeleitet werden müssen. Die Anzahl an Rechnungen, welche die AXA vtäglich erarbeiten muss, wird sich mit jedem gewonnen Kunden erhöhen.
+
+\todo[inline, color=igloo]{1. Frage: Gibt es Zahlen, wie es heute aussieht? Wie viele Kunden hat AXA zurzeit? Darf das gesagt werden?
+2. Frage: Warum ist die Zielgrösse 100'000? Gibt es dazu Informationen? }
+
+\todo[inline, color=green]{
 Aus vorhergehendem Paragraphen noch eine bessere Aussage zur Masse der Rechnungen machen. Gibt es Branchen-Durchschnitts-Werte an Anzahl Rechnungen pro Person?
-}
 
-Um die eingereichten Rechnungen zu verarbeiten, egal ob diese von der AXA selbst bezahlt oder an den Grundversicherer weitergeleitet werden, müssen diese Indexiert werden. Die Indexierung wird aktuell von einem externen Provider übernommen und ist eine Blackbox. Es ist allerdings bekannt, dass ein grosser Teil der Arbeiten, nach einem automatisierten OCR Schritt, manuell gemacht werden. Die aktuelle Indexierung birgt folgende zwei Probleme. 
+Gute Frage. Zudem: was wissen Sie über die Kosten, die dabei entstehen? Das würde Ihr Problem, respektive das Potential Ihres Lösungsansatzes illustrieren. Erfolgsrechnungen von Krankenkassen? Falls man dazu nichts weiss, können Sie es hier sagen. }
+
+Rechnungen, egal ob diese von der AXA selbst bezahlt oder an den Grundversicherer weitergeleitet werden, müssen indexiert werden um verarbeitet werden zu können. Die Indexierung wird aktuell von einem externen Provider übernommen und ist eine \todo[color=yellow]{erläutern}Blackbox. Es ist allerdings bekannt, dass ein grosser Teil der Arbeiten, nach einem automatisierten OCR Schritt, manuell gemacht werden. Die aktuelle Indexierung birgt folgende zwei Probleme:
+
+\todo[inline, color=igloo]{Hinweis: Ich weiss, ist eine provokative Frage. Aber ich frage mich, ob es Sinn macht, dies so zu erwähnen, weil daraus entstehen Fragen -> Warum dieser Provider, wenn nicht klar ist, was er macht? Oder warum wird nicht das Know-how akquiriert?}
+
+\todo[inline, color=igloo]{Frage: Warum müssen die Rechnungen indexiert werden? Bitte kurz erklären, warum dies Unternehmen machen. }
 
 \begin{itemize}
-    \item Die Qualität der Indexierten Daten ist ungenügend. Fehler in der Indexierung, ein Medikament wurde beispielsweise als 1g anstelle 500mg Tablette indexiert, führen zu Fehlern in den Abrechnungen, welche im schlimmsten Fall eine Benachteiligung des Kunden und somit eine Reklamation verursachen. 
-    \item Der hohe Anteil an manueller Arbeit verursacht einerseits hohe Kosten und ist andererseits nicht schnell genug oder gar nicht skalierbar.
+    \item Qualität der Indexierten Daten: Fehler in der Indexierung (z.B. 1g anstelle 500mg Tabletten) führen zu Fehlern in den Abrechnungen, welche im schlimmsten Fall eine Benachteiligung des Kunden verursachen und somit das Vertrauen des Kunden beeinträchtigen.
+    \item Manueller Aufwand: Der hohe Anteil an manueller Arbeit verursacht hohe Kosten, ist nicht effizient, birgt viel Potential für Fehler und kann nicht schnell skaliert werden.
 \end{itemize}
+
+\todo[inline, color=green]{Problematik von Anfang an prägnanter darstellen? (Der aufwändige Schritt „Indexierung“ im erwähnten Prozess? Was ist das Problem? Warum braucht es 
+Ihr Projekt?)}
 
 In dieser Arbeit wird diskutiert, ob die Indexierung der eingehenden Rechnungen durch die Anwendung von künstlicher Intelligenz automatisiert werden kann.
 
-Für die Problemstellung ist es nicht nur von relevant ob sondern auch in welcher Qualität dieser Arbeitsschritt automatisiert werden kann. Die Qualität stellt ein wichtiger Punkt dar, da schlechte Qualität ein Image-Schaden und somit ein Wettbewerbsnachteil nach sich ziehen könnte.
+Für die Problemstellung ist es nicht nur relevant ob sondern auch in welcher Qualität dieser Arbeitsschritt automatisiert werden kann. Die Qualität stellt ein wichtiger Punkt dar, da schlechte Qualität ein Image-Schaden und somit ein Wettbewerbsnachteil nach sich ziehen könnte.
 
-Da die Problematik auch für andere Branchen interessant ist, wird in dieser Arbeit diskutiert, ob Kundenservices generell durch die Anwendung von künstlicher Intelligenz automatisiert werden können.
+Aufgrund der geschilderten Problematik der Indexierung von Rechnungen bei der AXA entstand die Idee, diese mit neuen Technologien zu lösen. Aus dem beschriebenen Fallbeispiel und dem branchenübergreifenden Interesse an der Anwendung der künstliche Intelligenz zur Automatisierung von Geschäftsprozessen wird für diese Arbeit folgende Forschungsfrage definiert.\newline\newline
+% Using newline instead of paragraph to prevent these two paragraphs to fall apart
+{
+    \medskip
+    \setlength{\fboxsep}{1em}
+    \noindent\fcolorbox{igloo-darker}{igloo}{%
+        \minipage[t]{\linewidth-2\fboxsep-2\fboxrule\relax}
+            \begin{flushleft}
+                \centering
+                Können Geschäftsprozesse durch Künstliche Intelligenz automatisiert werden?
+            \end{flushleft}
+        \endminipage}
+    \medskip
+}
+
+\todo[inline, color=igloo]{Hinweis: Ich würde die Frage konkretisieren. Aus meiner Sicht ist sie noch zu vage formuliert.
+
+Irgendetwas wie: Können durch Machine Learning automatisierte Indexierungsprozesse effizientere Kundenservices angeboten werden?
+
+Unterfragen:
+
+- Was ist eine Indexierung und wie relevant ist sie für das Versicherungswesen?
+
+- Was ist ML?
+
+- Welche ML-Ansätze können für automatisierte Indexierungen angewendet werden? 
+
+- Inwiefern verbessert eine automatische Indexierung den Kundenservice...
+
+- etc.}
+
+% Weiter werden folgende Unterfragen abgeleitet.
+
+%\todo[inline]{Unterfragen ausarbeiten...}
+
+%\begin{itemize}
+%    \item Kann die Rechnungseinreich
+%    \item Lohnt es sich für die AXA in die Automatisierung durch die Anwendung von künstlicher Intelligenz zu investieren? \todo{Müsste zur Beantwortung nicht eine ganze Kosten-Nutzen Rechnung gemacht werden?}
+%    \item Wäre eine Investition im Fallbeispiel durch etwaige Digitalisierungsvorhaben des Bundes gefährdet? \todo{relevant? sinnvoll?}
+%\end{itemize}
+
 
 \subsection{Forschungsstand}
 
-\subsubsection{Künstliche Intelligenz}
+\todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff "KI" beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
 
-Die künstliche Intelligenz ist ein sehr aktuelles Thema und deshalb auch in der Literatur oft aufzufinden. \textcite{Russell2009ArtificialEdition} geben auf über 1000 Seiten nicht nur einen sehr umfangreichen Überblick über das Thema sondern vertiefen die angesprochenen Themen auch.
+\todo[inline, color=green]{Überall Bezug zu Ihrer Problematik und zur Forschungsfrage herstellen? }
+
+Die künstliche Intelligenz ist ein sehr aktuelles und deshalb auch in der Literatur oft diskutiertes Themengebiet. Bereits 2009 geben \textcite{Russell2009ArtificialEdition} auf über 1000 Seiten einen noch immer aktuellen und sehr umfangreichen Überblick über das Themengebiet. Weiter vertiefen die beiden Autoren viele Teilgebiete der künstlichen Intelligenz und erläutern Grundlegende Konzepte ausführlich.
 
 Einen etwas mathematischeren Überblick über das Thema künstliche Intelligenz geben \textcite{Goodfellow2016DeepLearning}. Die Dikussion reicht von den absoluten Grundlagen, der linearen Algebra, bis hin zu Deep Generative Models, eine fortgeschrittene Anwendung der künstlichen Intelligenz~\autocite{Goodfellow2016DeepLearning}.
 
+Zusammenfassend kann gesagt werden, dass in der Grundlagenforschung zur künstlichen Intelligenz bereits viele Forschungsergebnisse vorliegen. Es werden etliche, etablierte und experimentelle, Techniken diskutiert. Für die Entwicklung des Prototypen für die AXA stehen somit viele Möglichkeiten zur Verfügung.
+
+Um einen ersten Überblick über die Problemstellung zu erhalten, werden einige Techniken im Bereich der künstlichen Intelligenz, welche für die Beantwortung der Forschungsfrage sowie für die Entwicklung des Prototypen relevant sind, in den folgenden Kapiteln erkundet. 
+
 \subsubsection{Texterkennung durch künstliche Intelligenz}
 
-Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Photos von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich künstliche Intelligenz: Long-Short-Term-Memory (LSTM) Netzwerke, Connectionist Temporal Classification (CTC), Convolutional Neural Network (CNNs) und mehr~\autocite{Neuberg2017CreatingLearning}.
+Ein wichtiger Bestandteil des Prototypen zur Indexierung von Rechnungen ist die Erkennung von Texten, ob Druckbuchstaben oder Handschrift, auf den Rechnungen. Die erkannten Texte bilden die Grundlage für jegliche digitale Verarbeitung der Rechnungen.
+
+Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Photographien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich künstliche Intelligenz: Long-Short-Term-Memory (LSTM) Netzwerke, Connectionist Temporal Classification (CTC), Convolutional Neural Network (CNNs) und mehr~\autocite{Neuberg2017CreatingLearning}.
 
 Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007AnEngine, o.V.20184.0LSTM}. So wurde die feature detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
 
 \subsubsection{Korrektur von Rechtschreibung und Grammatik}
 
-LSTM Modelle wurde im Bereich des Natural Language Processing bereits erfolgreich auch angewendet um Rechtschreibung und Grammatik zu korrigieren. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
+Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Text nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt. 
 
-Nicht nur für Rechtschreibefehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung verwendet wird. Die Resultate dabei sind erstaunlich, obwohl DeepGrammar erst seit einem Jahr existiert und dabei nur von einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie Word oder Language Tool 3.1 und sogar besser als Grammarly und Google~\autocite{MuganEvaluationComparison}.
+LSTM Modelle wurde im Bereich des Natural Language Processing\todo{Begriff NLP erklären}\todo{Abkürzung NLP einführen} bereits erfolgreich angewendet um Rechtschreibung und Grammatik zu korrigieren. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen \todo[color=yellow]{Für die Thesis
+: Glossar? Und/oder ausführliches Begriffskapitel (vielleicht fast besser).}Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
+
+Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate dabei sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Word} oder \textit{Language Tool 3.1} und sogar besser als \textit{Grammarly} und \textit{Google Docs}~\autocite{MuganEvaluationComparison}\todo[color=yellow]{Jahr dieser Untersuchung?}.
 
 \subsubsection{Informationsextraktion aus natürlichen Texten}
+
+\todo[inline, color=yellow]{
+HIER STEHEN GEBLIEBEN
+
+HIER STEHEN GEBLIEBEN
+
+HIER STEHEN GEBLIEBEN
+
+HIER STEHEN GEBLIEBEN
+}
 
 % https://en.wikipedia.org/wiki/Named-entity_recognition
 % https://en.wikipedia.org/wiki/Medical_classification
 
 Informationsextraktion breschreibt das Themengebiet rund um die Extraktion von strukturierten Informationen aus unstrukturiertem oder halb-strukturiertem Text. Named Entity Recognition and Classification, ein Teilgebiet der Informationsextraktion, beschreibt dabei das erkennen und kategorisieren von Entitäten, sprich Wörter oder Wortgruppen aus natürlichen Texten~\autocite{Nadeau2007AClassification}.
 
-Der Begriff Named Entity wurde bei der Formulierung der Aufgabenstellung der sechsten Message Understanding Conference im Jahre 1995 definiert (\cite{Borthwick1998NYU:MUC-7} in \cite{Nadeau2007AClassification}). So wurde bereits damals erkannt, dass die Extraktion von Namen, von Personen, Organisationen oder Lokationen,  nummerischen Ausdrücken und Prozent-Ausdrücken wichtig ist~\autocite{Nadeau2007AClassification}.
+Der Begriff Named Entity wurde bei der Formulierung der Aufgabenstellung der sechsten Message Understanding Conference im Jahre 1995 definiert (\cite{Borthwick1998NYU:MUC-7} in \cite{Nadeau2007AClassification}). So wurde bereits damals erkannt, dass die Extraktion von Namen, von Personen, Organisationen oder Lokationen, nummerischen Ausdrücken und Prozent-Ausdrücken wichtig ist~\autocite{Nadeau2007AClassification}.
 
-Für die Named Entity Recognition and CLassification stehen einige freie Softwarelösungen zur Verfügung. So veröffentlicht beispielsweise Stanford eine Java Implementierung und auch SpaCy, eine Sammlung von Natural Language Processing Software, beinhaltet eine Implementierung in python~\autocite{StanfordNLPGroupStanfordNER, ExplosionAIIndustrial-StrengthProcessing}.
+Für die Named Entity Recognition and Classification stehen einige freie Softwarelösungen zur Verfügung. So veröffentlicht beispielsweise Stanford eine Java Implementierung und SpaCy, eine Sammlung von Natural Language Processing Software, beinhaltet eine Implementierung in Python~\autocite{StanfordNLPGroupStanfordNER, ExplosionAIIndustrial-StrengthProcessing}.
 
-\subsubsection{Künstliche Intelligenz zur Automatisierung}
+\todo[inline]{
+Relevant für diese Arbeit ausführen
 
-Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicxher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}. 
-
-\todo[inline]{Aussage darüber, ob hier Erfolg erziehlt werden konnte}
+Aussage darüber, ob hier Erfolg erzielt werden konnte
+}
 
 
 
@@ -213,33 +325,6 @@ Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird
 %
 %uf diese Themengebiete / ihren Wissensstand eingehen}
 
-\subsection{Forschungsfrage}
-
-Aufgrund der aktuellen Problematik der Indexierung von Rechnungen bei der AXA entstand die Idee diese mit neuen Technologien anzugehen. Aus dem beschriebenen Fallbeispiel und der angesprochenen Ausweitung auf andere Anwendungsfälle und Branchen wird folgende Forschungsfrage abgeleitet.\newline\newline
-% Using newline instead of paragraph to prevent these two paragraphs to fall apart
-{
-    \medskip
-    \setlength{\fboxsep}{1em}
-    \noindent\fcolorbox{igloo-darker}{igloo}{%
-        \minipage[t]{\linewidth-2\fboxsep-2\fboxrule\relax}
-            \begin{flushleft}
-                \centering
-                Können Kundenservices durch Künstliche Intelligenz automatisiert werden?
-            \end{flushleft}
-        \endminipage}
-    \medskip
-}
-
-% Weiter werden folgende Unterfragen abgeleitet.
-
-%\todo[inline]{Unterfragen ausarbeiten...}
-
-%\begin{itemize}
-%    \item Kann die Rechnungseinreich
-%    \item Lohnt es sich für die AXA in die Automatisierung durch die Anwendung von künstlicher Intelligenz zu investieren? \todo{Müsste zur Beantwortung nicht eine ganze Kosten-Nutzen Rechnung gemacht werden?}
-%    \item Wäre eine Investition im Fallbeispiel durch etwaige Digitalisierungsvorhaben des Bundes gefährdet? \todo{relevant? sinnvoll?}
-%\end{itemize}
-
 \newpage
 \section{Zielsetzungen, inhaltliche Abgrenzung}
 
@@ -249,20 +334,55 @@ In der Zielsetzung werden neben der Beantwortung der Forschungsfrage die darübe
 Indem angegeben wird, was (Forschungsfrage) warum (Zielsetzung) untersucht werden soll, kann auch definiert werden, welche Fragen, Inhalte und Ziele in der Thesis nicht verfolgt, also bewusst ausgeklammert werden.
 }
 
-Neben der Beantwortung der Forschungsfrage anhand des beschriebenen Fallbeispiels soll für die AXA geklärt werden, ob Investitionen in die Automatisierung des dargelegten Prozesses durch Künstliche Intelligenz gemacht werden sollen.
+Neben der Beantwortung der Forschungsfrage anhand des beschriebenen Fallbeispiels soll geklärt werden, ob Investitionen in die Automatisierung des dargelegten Prozesses durch Künstliche Intelligenz gemacht werden sollen.
 
 \todo[inline]{
 Etwas mehr schreibe... Nur was?
 }
 
+\todo[inline, color=yellow]{Das Grobkonzept braucht insgesamt keineswegs länger zu werden. (Sie können allerdings alle Inhalte in einen ersten Entwurf der Einleitung Ihrer Thesis übernehmen.)
+
+Die Forschungsfrage würde ich allgemein stellen (Potential von KI in der Automatisierung von …).
+
+Diese können Sie am Beispiel AXA etc. untersuchen, wobei Sie das in einem klassischen Format „Kosten/Nutzen, respektive Risiken/Chancen abwägen“ tun könnten. }
+
 \subsection{Abgrenzung Fallbeispiel}
 
-Für das Fallbeispiel wird ein Prototyp entwickelt, welcher die Indexierung der Rechnungen abdeckt. Für den Prototypen ist es als Ausgangslage wichtig, in welcher Form und Qualität die Rechnungen bei der AXA ankommen. Weiter ist es für die Zielsetzung wichtig, in welches Format die Rechnungen gebracht werden müssen, damit diese anschliessend weiterverarbeitet werden können. Diese beiden Aspekte sollen als Rahmenbedingungen für den Prototypen gelten.
+\todo[inline, color=igloo]{Vorschlag/Hinweis: Ich finde die Abgrenzung gut. Ich würde aber als Startpunkt ein Grobkonzept einführen, in welchem der ganze Prozess zu sehen ist. Dann würde ich definieren, welchen Teil des Grobkonzepts von Dir genauer angeschaut wird und aus welchen Gründen. Die Dinge, die Du nicht anschaust, kannst Du dann gut in der Diskussion am Ende der Arbeit wieder aufgreifen und als weitere "Forschungsarbeit" empfehlen. 
+}
+
+\todo[inline, color=yellow]{Das wäre eher das Vorgehen?
+
+„Fallbeispiel und Abgrenzung“
+AXA, worauf konzentrieren Sie sich, was klammern Sie aus? (Für Details zum Vorgehen auf ein nächstes Kapitel verweisen.)
+}
+
+Für das Fallbeispiel wird ein Prototyp entwickelt, welcher die Indexierung der Rechnungen abdeckt. Für den Prototypen ist es als Ausgangslage wichtig, in welcher Form und Qualität die Rechnungen beim Krankenversicherer ankommen. Weiter ist es für die Zielsetzung wichtig, in welches Format die Rechnungen gebracht werden müssen, damit diese anschliessend weiterverarbeitet werden können. Diese beiden Aspekte sollen als Rahmenbedingungen für den Prototypen gelten.
 
 Die Weiterverarbeitung der Rechnungen nach der Indexierung, sprich die Auswertung, ob und wie eine bestimmte Rechnungsposition versichert ist, ist nicht Teil des Prototypen.
 
 \newpage
 \section{Methodische Vorgehensweise}
+
+\todo[inline, color=yellow]{Vorgehen klarer strukturiert und detaillierter beschreiben? (Verschiedene 
+Zugänge zur Forschungsfrage? Wie genau entwickeln Sieden Prototyp? Wie
+testen Sie Ihn? Wie erheben Sie welche Daten? Wie werten Sie die gewonnenen 
+Daten aus? (Siehe Kommentare im pdf. Im Kapitel Vorgehen sehe ich den 
+einzigen grösseren Optimierungsbedarf.)}
+
+\todo[inline, color=igloo]{Hinweis: Ich würde das hier noch ein bisschen ausbauen. Nebst Literatur, schaust Du dir wohl auch noch "best practices" an. Das heisst, die Internetrecherche sollte ebenfalls erwähnt werden. }
+
+- Literatur
+-- Was macht eine erfolgreiche automatisierung eines Geschäftsprozesses aus?
+-- 
+-- Beispiele aus der Automatisierung mit künstlicher Intelligenz
+- Prototyp
+-- Definition der Rahmenbedingungen
+--- Input
+---- Formen (TARMED vs. Apotheke vs. Fitness vs. Hinterland Therapeut vs. Handschrift)
+--- Output
+---- 
+-- Iterative Entwicklung des P
 
 \todo[inline]{
 Hier wird die methodische Vorgehensweise zur Beantwortung der Forschungsfrage erläutert. Die Vorgehensweise bezieht sich auf die Art der empirischen Datenerhebung (qualitativ, quantitativ oder eine Mischform) wie auch auf die geplante Auswertung der erhobenen Daten. Methoden der Datenerhebung sind beispielsweise eine Umfrage oder Interviews, Methoden der Datenanalyse sind beispielsweise statistische Tests oder eine Inhaltsanalyse. Es wird beschrieben, wie bei der Datenerhebung und -analyse vorgegangen werden soll (wer soll wie befragt werden, wie werden die Daten analysiert) und welche kritischen Aspekte in der Erhebung und Analyse zu erkennen sind
@@ -270,17 +390,60 @@ Hier wird die methodische Vorgehensweise zur Beantwortung der Forschungsfrage er
 
 Während die Forschungsfrage aufgrund existierender Literatur diskutiert wird, bildet der Prototyp, welcher zur Diskussion des Fallbeispiels entwickelt wird, eine zentrale Rolle bei der Beantwortung der Forschungsfrage.
 
-Damit der Prototyp und dessen Erfolg bewertet werden kann, werden zuerst die Rahmenbedingungen und Erfolgskriterien definiert. Es wird definiert welche Kriterien die einzulesenden Rechnungen erfüllen und in welchen Variationen diese daher kommen. Weiter wird definiert welche Daten in welcher Qualität für die Weiterverarbeitung der Rechnungen durch den Prototypen gewonnen werden müssen. Zur Messung der Qualität wird ein klares Vorgehen bestimmt.
+\todo[inline, color=igloo]{Vorschlag: Vielleicht den Aspekt "learning by doing" erwähnen.}
 
-Sind die Rahmenbedingungen geklärt, wird der Prototyp mit einem Set an Trainings-Rechnungen trainiert und mit einem Set an Test-Rechnungen getestet. Mit den Test-Rechnungen wird ermittelt, wieviele Fehler der Prototyp macht und ob dies im erwarteten Rahmen ist.
+\todo[inline, color=yellow]{Hier dürfen Sie etwas expliziter werden. „Die Forschungsfrage wird aus X Perspektiven diskutiert …“
 
-Die Resultate aus dem Prototypen werden diskutiert und Verbesserungspotential wird aufgezeigt. Es wird weiter erarbeitet, ob der Prototyp zu einer praktikablen Lösung weiterentwickelt werden soll oder nicht.
+- Literatur und bisherige Fallbeispiele
+- Interviews? Falls Sie solche machen? 
+- Entwicklung und Test eines Prototyps?
+
+Zu jedem Element Ihres Forschungsdesigns kurz etwas sagen? 
+
+In welchem Format präsentieren Sie die Schlussfolgerungen (Empfehlungen? Gut. SWOT-Analyse?)}
+
+Damit der Prototyp und dessen Erfolg bewertet werden kann, werden zuerst die Rahmenbedingungen und Erfolgskriterien definiert. Es wird definiert welche Kriterien die einzulesenden Rechnungen erfüllen und in welchen Variationen diese vorliegen. Weiter wird definiert welche Daten in welcher Qualität für die Weiterverarbeitung der Rechnungen durch den Prototypen gewonnen werden müssen. Zur Messung der Qualität wird ein klares Vorgehen bestimmt.
+
+\todo[inline, color=igloo]{Frage: Wer definiert diese? Machst Du das alleine? 
+
+Hinweis: Bitte achte darauf, dass Du das Ganze objektiv machen kannst und dass diese Rahmenbedingungen und Erfolgskriterien valide sind. 
+
+-> eine Möglichkeit: basierend auf Literatur (1:1)
+
+- > andere Möglichkeit: adaptiert von Literatur, dann aber besprochen mit Experten}
+
+Sind die Rahmenbedingungen geklärt, wird der Prototyp mit einem Set an Trainings-Rechnungen trainiert und mit einem Set an Test-Rechnungen getestet. Mit den Test-Rechnungen wird ermittelt, wie viele Fehler der Prototyp macht und ob dies im erwarteten Rahmen ist.
+
+Die Resultate aus dem Prototypen werden diskutiert und Verbesserungspotential wird aufgezeigt. Es wird weiter erarbeitet, ob der Prototyp zu einer praktikablen Lösung weiterentwickelt werden soll oder nicht \todo[color=yellow]{Könnte? Kosten/Nutzen? }.
+
+\todo[inline, color=igloo]{Vorschlag: Evtl. wäre das Design Science Research Modell etwas für Dich? Siehe Anhang im Mail. Ich weiss aber nicht, ob ihr in der Schule etwas in diese Richtung schon angeschaut habt. :)}
+
+Anhand der Literaturrecherche und den Resultaten des Praktischen Teils wird die Forschungsfrage beantwortet. Weiter wird eine Handlungsempfehlung für die Krankenversicherer abgegeben.
  
 \newpage
 \section{Provisorisches Inhaltsverzeichnis} 
 
 \todo[inline]{
 Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Thesis und welche wissenschaftlichen Theorien und Erklärungsansätze zur Beantwortung der Forschungsfrage herangezogen werden, definiert. Die Überschriften der Hauptkapitel der Thesis lassen die relevanten Teilaspekte des Themas und das methodische Vorgehen erkennen. Weitere Hinweise zum Aufbau der Thesis befinden sich in den Richtlinien für die Erstellung von Bachelor und Master Theses, Punkt 5.
+}
+
+\todo[inline,color=igloo]{Ich würde zusätzlich noch folgende Unterkapiteln vorschlagen:
+
+- Lernstrategien/-mechanismen des Machine Learning (da kannst Du auf supervised, semi-supervised und unsupervised learning) eingehen
+
+- Indexierung (Indexierung sollte generell im theoretischen Teil eingeführt werden -> ist ein Teil deines Hauptthemas)}
+
+\todo[inline,color=igloo]{Frage: Wie hast Du die Methoden/Techniken von NLP kategorisiert? Siehe Dokumente angehängt im Mail. Ich würde versuchen, andere Untertitel zu wählen, bzw. anders die Thematik einzuführen.
+
+Ausserdem gehört hierhin OCR, etc. Also mein Vorschlag: Unterscheide in Textual processing und Visual Processing. Und dann in den jeweiligen Kapiteln kannst Du auf die einzelnen Techniken eingehen, die Dir wichtig erscheinen. Ansonsten wirkt es unvollständig.}
+
+\todo[inline,color=igloo]{Frage: Warum möchtest Du dies als Vergleich zu LSTM einführen?
+Ich selbst hatte mit CNN zu tun, und das ist ein Thema für sich. 
+Vorschlag: Fokussiere dich nur auf die NN, die Du dann auch im Prototyp anwendest.}
+
+\todo[inline, color=igloo]{Vorschlag: Das dritte Kapitel könnte der Use Case darstellen. So kannst Du AXA einführen und den Anwendungsfall. Erläutern in welcher Qualität die Rechnungen reinkommen und welche Faktoren eine Rolle spielen, etc. Dann quasi den Prototypen vorstellen, bspw. als Kapitel 4.
+
+Hinweis: Irgendwo muss noch eine Beschreibung des Unternehmens kommen, in welchem erklärt wird, dass der Prototyp im Umfeld einer Versicherung gebaut wird, mit folgenden Faktoren und folgenden Zielen. Je nach Anwendungsfeld können unterschiedliche Modelle zum Zug kommen. Deshalb sicherstellen, dass Kontext definiert wurde.
 }
 
 {
@@ -292,11 +455,12 @@ Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Th
         \item Management Summary
         \item Ehrenwörtliche Erklärung
         \item Abkürzungsverzeichnis
-        \item Einleitung
     \end{itemize}
     \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
+        \item Einleitung
         \item Künstliche Intelligenz in der Automatisierung \textit{(Literatur)}
         \item Grundlagen der künstlichen Intelligenz
+        \todo[inline, color=yellow]{Das wäre theoretische Literatur zur Problematik? Gut. Vor oder nach der Literatur zu „KI in der Automatisierung“? }
         \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
             \item Neuronale Netzwerke
             \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
@@ -314,15 +478,13 @@ Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Th
         \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
             \item Vorgehen
             \item Rahmenbedingungen
+            \todo[inline, color=igloo]{Hinweis: Wie weiter oben erwähnt, würde ich mit einem Grobkonzept (bspw. in Form eines Flussdiagramm) starten und dann fokussiert einen Teil daraus nehmen und diesen prototypen. }
             \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
                 \item Format und Qualität der Rechnungen
                 \item Erwartetes Format und Qualität der Resultate
             \end{enumerate}
             \item Texterkennung durch LSTM Netzwerk
             \item Optimierung der Resultate der Texterkennung
-            \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
-                \item Fehlerkorrektur durch Rechtschreib- und Grammatikprüfung mit einem LSTM Netzwerk
-            \end{enumerate}
             \item Informationsextraktion aus den OCR Resultaten
             \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
                 \item Named Entity Recognition and Classification
@@ -331,10 +493,16 @@ Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Th
             \end{enumerate}
             \item Zusammenfassung der Resultate
         \end{enumerate}
-        \item Diskussion der Resultate aus dem Prototypen
+        \item Diskussion
+        \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
+            \item Beantwortung der Forschungsfrage
+            \todo[inline,color=yellow]{Das machen Sie eher in den Schlussfolgerungen. 
+
+Die Diskussion könnten Sie mit 3.6 zusammenlegen. }
+        \end{enumerate}
         \item Schlussfolgerungen
         \begin{enumerate}[topsep=0pt,itemsep=2pt,partopsep=4pt, parsep=4pt]
-            \item Empfehlungen
+            \item Handlungsempfehlungen
             \item Offene Fragen
             \item Ausblick
         \end{enumerate}
@@ -351,12 +519,18 @@ Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Th
 
 \todo[inline]{Titel sind etwas langweilig}
 
+\todo[inline, color=yellow]{Für ein Grobkonzept ein brauchbarer Start! Überdenken Sie nochmals, ob dieser Aufbau Ihr Vorgehen abbildet und Sie mit so einer Studie Ihre Ziele erreichen. 
+
+Es handelt sich hier um einen Plan. Aus dessen Umsetzung werden sich dann noch einige Änderungen ergeben …}
+
 \newpage
 \section{Meilensteine}
 
 \todo[inline]{
 Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis zur Abgabe der Bachelor Thesis als Meilensteine wiedergegeben und der Betreuungsperson 3 Besprechungstermine vorgeschlagen (siehe Punkt 2 der Spezifischen Regelungen für Bachelor Theses). Die Betreuungsperson bestätigt bei der Prüfung des Grobkonzeptes die Terminvorschläge oder schlägt andere Termine vor.
 }
+
+\todo[inline, color=yellow]{Scheint mir im Groben und Ganzen OK. Nochmals überdenken, wenn Sie Ihr Vorgehen und das Inhaltsverzeichnis überdacht haben? Besprechungstermine können wir flexibel handhaben. Ich würde, wie Sie vorschlagen, sicher einen machen um a) Ihr Experiment zu diskutieren und c) Ihre Schlussfolgerungen zu diskutieren. Dazwischen können wir einen dritten Termin einschieben. }
  
 \begin{center}
     \renewcommand{\arraystretch}{1.25}
@@ -364,7 +538,7 @@ Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis 
     \begin{tabular}{ | p{8cm} | l |}
     \hline
     \rowcolor{ccc} Was? & Wann? \\ \hline
-    1. Besprechungstermin auf Basis des ersten Entwurfs des Grobkonzeptes. & 13. November 2018 \\ \hline
+    Erster Besprechungstermin auf Basis des ersten Entwurfs des Grobkonzeptes. & 13. November 2018 \\ \hline
     
     Literaturrecherche zum gewählten Thema fortführen und Grobkonzept finalisieren. & 28. November 2018 \\ \hline
     
@@ -372,15 +546,13 @@ Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis 
     
     Prüfung der Betreuungsanfrage, des Titels und des Grobkonzeptes durch die Betreuungsperson & 17. Dezember 2018 \\ \hline
     
-    Theorieteil verfassen und empirische Untersuchung vorbereiten & 15.1.2019 \\ \hline
+    Theorieteil verfassen und empirische Untersuchung vorbereiten & 15. Januar 2019 \\ \hline
     
-    2. Besprechungstermin nach Fertigstellung des Theorieteils und zur Gestaltung des Messinstrumentes zwecks Datenerhebung & TODO \\ \hline
+    Zweiter Besprechungstermin nach Fertigstellung des Theorieteils und zur Gestaltung des Experimentes & TODO \\ \hline
     
-    Erstellung und Auswertung des Prototypen & 15.3.2019 \\ \hline
+    Erstellung und Auswertung des Prototypen & 15. März 2019 \\ \hline
     
-    3. Besprechungstermin zur vorläufigen Beantwortung der Forschungsfrage & TODO \\ \hline
-    
-    Arbeit finalisieren & 29. März 2019 \\ \hline
+    Dritter Besprechungstermin zur vorläufigen Beantwortung der Forschungsfrage & TODO \\ \hline
     
     Fertigstellung der gesamten Thesis & 1. April 2019 \\ \hline
     
@@ -397,6 +569,10 @@ Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis 
 \todo[inline]{
 Hier werden bereits gelesene Quellen angeführt und auf weiterführende Literatur verwiesen, die noch ausgewertet wird.
 }
+
+\todo[inline, color=yellow]{Schon recht ausführlich …
+
+Keine Quelle von AXA?}
 
 {
     \nocite{Brynjolfsson2017Artificial}
