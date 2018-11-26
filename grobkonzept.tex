@@ -1,7 +1,19 @@
 \documentclass{hwz}
 \input{colors.tex}
 % \usepackage{showframe}
+
+% floating figures/tables
 \usepackage{wrapfig}
+
+% charts (e.g. flowcharts)
+\usepackage{tikz}
+\usetikzlibrary{positioning} % for right=of ... syntax
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
 \begin{document}
 
@@ -366,6 +378,52 @@ Diese können Sie am Beispiel AXA etc. untersuchen, wobei Sie das in einem klass
 „Fallbeispiel und Abgrenzung“
 AXA, worauf konzentrieren Sie sich, was klammern Sie aus? (Für Details zum Vorgehen auf ein nächstes Kapitel verweisen.)
 }
+
+\newpage
+
+\begin{tikzpicture}[
+  node distance=2cm and 15cm
+]
+
+\node (startPost) [startstop] {Einreichung per Post};
+\node (startWeb) [startstop, right=of startPost] {Einreichung per Kundenportal};
+\node (startApp) [startstop, right=of startWeb] {Einreichung per App};
+\node (in1) [io, below of=startPost=] {Test Input};
+\node (pro1) [process, below of=in1] {Process 1};
+\node (dec1) [decision, below of=pro1, yshift=-0.5cm] {Decision 1};
+\node (pro2a) [process, below of=dec1, yshift=-0.5cm] {Process 2a};
+\node (pro2b) [process, right of=dec1, xshift=2cm] {Process 2b};
+\node (out1) [io, below of=pro2a] {Output};
+\node (stop) [startstop, below of=out1] {Stop};
+
+\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1) -- (pro1);
+\draw [arrow] (pro1) -- (dec1);
+\draw [arrow] (dec1) -- node[anchor=east] {yes} (pro2a);
+\draw [arrow] (dec1) -- node[anchor=south] {no} (pro2b);
+\end{tikzpicture}
+
+\newpage
+
+- Einreichung per Post
+
+-- Scanning der Dokumente
+
+--- Rectification & optimization
+
+-- Digitale weiterleitung
+
+- Einreichung per Portal
+
+-- Photo in der App / Photo im Kundenportal hochladen
+
+-- Rectification & optimization
+
+- Text recognition & optimization
+
+- Information Extraction
+
+- Weiterverarbeitung der Rechnungen
 
 Für das Fallbeispiel wird ein Prototyp entwickelt, welcher die Indexierung der Rechnungen abdeckt. Für den Prototypen ist es als Ausgangslage wichtig, in welcher Form und Qualität die Rechnungen beim Krankenversicherer ankommen. Weiter ist es für die Zielsetzung wichtig, in welches Format die Rechnungen gebracht werden müssen, damit diese anschliessend weiterverarbeitet werden können. Diese beiden Aspekte sollen als Rahmenbedingungen für den Prototypen gelten.
 
