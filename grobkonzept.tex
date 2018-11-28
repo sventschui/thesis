@@ -11,7 +11,8 @@
 \usetikzlibrary{shapes.geometric, arrows}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
 \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
-\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=igloo-darker, fill=igloo!50]
+\tikzstyle{process2} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=igloo-darker, fill=igloo!100]
 \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
@@ -78,18 +79,13 @@ Die Forschungsfrage schliesslich bündelt die zentralen Aspekte des Forschungspr
 \textit{(Bitte diesen Text jeweils nicht löschen. Er dient als Information für die Betreuungsperson.)}
 }
 
-\todo[inline, color=green]{
-Was Sie vor der Eingabe noch tun könnten:
-- Rolle der AXA? Wo sind Sie auf Ihren Projektpartner angewiesen, der ja auch Ihr Arbeitgeber ist? Siehe oben.
-}
-
 % Schneller und guter Kundenservice ist wichtig um Kunden halten zu können, dies ist längst bekannt \todo{CITE}. Auch die Auswirkungen einer hohen Kundenzufriedenheit auf die Kundenloyalität werden als sehr stark anerkannt \todo{CITE}. Aus diesen Gründen investieren Unternehmen immer stärker in diese Services und versuchen sich damit von der Konkurrenz zu differenzieren \todo{CITE}. Diese Services bereitzustellen kann für ein Unternehmen sehr kostenintensiv sein \todo{CITE}. \todo[inline, color=orange]{ Fakten und Zahlen würden diese Aussage nicht nur untermauern sondern auch spannender machen} Kundenservices sollen heutzutage mit geeigneter Soft- und Hardware automatisiert werden, um die Kosten so gering wie möglich zu halten \todo{CITE}. Die Automatisierung hat ausserdem den Effekt, dass Services schneller abgewickelt werden können, was im Zeitalter der ungeduldigen Kunden ein wichtiger Differenzierungsfaktor sein kann \todo{CITE}. Die Automatisierung durch klassische Software stösst aber teilweise \todo{konkrekt sagen, wann diese Grenzen auftreten} an ihre Grenzen. Die klassische, strukturierte Programmierweise bildet Logik ab, welche durch Ursache-Wirkung klar definierbar ist: Wenn eine Bedingung eintrifft, wird etwas ausgeführt \todo{QUOTE}. Ein Abwägen von Fall zu Fall, wie dies ein Angestellter im Kundenservice machen könnte, ist mit solcher Software nicht möglich. Eine Lösung für diese Limitierung bietet die künstliche Intelligenz: Der Computer wird nicht mehr angewiesen was zu tun ist, sondern was das Ziel ist. Der Computer wird dann auf die erreichung dieses Ziels trainiert \todo{QUOTE}.
 
 % In dieser Arbeit werden die Möglichkeiten diskutiert, welche die künstliche Intelligenz für die Automatisierung von Kundenservices bietet. Im ersten Teil werden die grundlegenden Elemente der Künstlichen Intelligenz erläutert und Herausforderungen in der Automatisierung der Kundenservices aufgezeigt. \todo[inline]{weiterer Inhalt, e.g. theoretische erfahrung, Praxisbeispiele} Der zweite Teil widmet sich einem Fallbeispiel eines Kundenservices, welcher in einem Prototypen durch den Einsatz von Künstlicher Intelligenz automatisiert werden soll. Der Erfolg des Experiments wird anhand zuvor definierten Erfolgskriterien diskutiert.
 
 % \subsection{Fallbeispiel}
 
-Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}\todo{Satz etwas lang/komplex}. 
+Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}. 
 
 Um die Produktion des neuen Airbus A350 schnellstmöglich auf Hochtouren zu bringen wurde künstliche Intelligenz angewendet. Ein System, welches von Airbus entwickelt wurde, ermöglicht dank künstlicher Intelligenz, in 70\% aller Unterbrüche der Produktion in kürzester Zeit eine Lösung auszuarbeiten~\autocite{Ransbotham2017ReshapingIntelligence}.
 
@@ -101,20 +97,18 @@ Auch im \textcite{TheEconomist2018TheAI} wird der mögliche Wettbewerbsvorteil d
 
 \subsection{Potential der künstlichen Intelligenz bei der AXA Gesundheitsvorsorge}
 
-\todo[inline, color=green]{In diesem Kapitel fehlen einige Zitate. Hier sollte ein Gespräch mit einem AXA Mitarbeiter zitiert werden oder das Wissen durch meine Tätigkeit bei der AXA vermerkt werden.}
+In diesem Kapitel wird ein Fallbeispiel beschrieben, in welchem die Anwendung künstlicher Intelligenz einen Wettbewerbsvorteil haben könnte. Dieser Fall wird für den Arbeitgeber des Autor, die AXA Gesundheitsvorsorge, untersucht. Einige der Aussagen in diesem Kapitel werden basieren auf der Berufserfahrung des Autoren getroffen.
 
-In der Schweiz beliefen sich die Kosten für das Gesundheitswesen im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden von den Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz \autocite{BundesamtfurStatistik2018Finanzierung, BundesamtfurStatistik2017KostenDaten}.
+In der Schweiz beliefen sich die Kosten für das Gesundheitswesen im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden von den Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz \autocite{BfS2018Finanzierung, BfS2017KostenDaten}.
 
-Die Kosten des Gesundheitswesen steigen stetig an, so weisen die Zahlen vom Jahr 2016 bereits Kosten von über 80 Milliarden Franken nach. Auch in den folgenden Jahren sollen die Kosten weiter steigen. \textcite{Kirchgassner2009DasKostenentwicklung} begründet diesen Anstieg unter anderem mit der Veränderung der Altersstruktur, dem steigenden Wohlstand sowie den neuen Möglichkeiten in der Diagnose und Behandlung durch technischen Fortschritt~\autocite{BundesamtfurStatistik2018Finanzierung, Kirchgassner2009DasKostenentwicklung}.
+Die Kosten des Gesundheitswesen steigen stetig an, so weisen die Zahlen vom Jahr 2016 bereits Kosten von über 80 Milliarden Franken nach. Auch in den folgenden Jahren sollen die Kosten weiter steigen. \textcite{Kirchgassner2009DasKostenentwicklung} begründet diesen Anstieg unter anderem mit der Veränderung der Altersstruktur, dem steigenden Wohlstand sowie den neuen Möglichkeiten in der Diagnose und Behandlung durch technischen Fortschritt~\autocite{BfS2018Finanzierung, Kirchgassner2009DasKostenentwicklung}.
 
-\todo[inline, color=green]{Der vollständigkeitshalber das dritte Tier auch aufzählen?}
+Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, \textit{Tiers payant} oder \textit{Tiers garant}, vergütet \autocite{EDI2017FaktenblattVergutungssysteme}. 
 
-Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, \textit{Tiers payant} oder \textit{Tiers garant}, vergütet \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}. 
-
-\begin{wraptable}{l}{0.55\textwidth}
+\begin{wraptable}{l}{0.53\textwidth}
     \renewcommand{\arraystretch}{1.25}
     \setlength{\tabcolsep}{5pt}
-    \caption{Vergütungsmodelle im schweizer Gesundheitswesen}
+    \caption{Vergütungsmodelle bei den schweizer Krankenversicherern}
     \begin{tabular}{| p{0.15\textwidth} | p{0.32\textwidth} |}
         \hline
          Tier payant & Kosten werden vom Leistungserbringer direkt dem Krankenversicherer in Rechnung gestellt. \\
@@ -124,79 +118,62 @@ Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Syst
     \end{tabular}
 \end{wraptable}
 
-Beim System Tier payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, in dem der Patient mit seiner Kranken\-versicherungskarte bezahlt. Anhand dieser Karte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt und der Krankenversicherer kann mit einem entsprechenden Regelwerk die Rechnung automatisch verarbeiten. 
+Beim System Tier payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, in dem der Patient mit seiner Versichertenkarte bezahlt. Anhand dieser Versichertenkarte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt und der Krankenversicherer kann mit einem entsprechenden Regelwerk die Rechnung automatisch verarbeiten~\autocite{EDI2017FaktenblattVergutungssysteme, BAG2016AntwortenVersichertenkarte}. 
 
-Werden Kosten, welche über Tier payant abgerechnet wurden, nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Krankenversicherer die Kosten dem Patienten weiter \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
+Werden Kosten, welche über Tier payant abgerechnet wurden, nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Krankenversicherer die Kosten dem Patienten weiter \autocite{EDI2017FaktenblattVergutungssysteme}.
 
-Das System Tier payant wird häufig in Apotheken, beim Kauf von Medikamenten mit oder ohne ärztlichem Rezept, sowie bei allen stationären Behandlungen, gemäss Art. 42 Abs. 2 KVG, verwendet \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
+Das System Tier payant wird häufig in Apotheken, beim Kauf von Medikamenten mit oder ohne ärztlichem Rezept, sowie bei allen stationären Behandlungen, gemäss Art. 42 Abs. 2 KVG, verwendet \autocite{EDI2017FaktenblattVergutungssysteme}.
 
-Die Verarbeitung von Rechnungen, welche über das System Tier payant abgerechnet werden, kann der Krankenversicherer, aufgrund der digitalen, strukturierten Daten, automatisiert gestalten.
+Die Verarbeitung von Rechnungen, welche über das System Tier payant abgerechnet werden, kann der Krankenversicherer, aufgrund der digitalen, strukturierten Daten, automatisiert gestalten~\autocite{BAG2016AntwortenVersichertenkarte}.
 
-Im Fall von Tiers garant stellt der Leistungserbringer die Rechnung direkt dem Patienten aus, welcher diese dann seinem Krankenversicherer zur Rückerstattung weiterleitet. Die Rechnung kann bei allen Krankenversicherern per Post und bei den meisten auch digital, im Kundenportal oder in der App, eingereicht werden \autocite{EidgenossischesDepartementdesInnern2017FaktenblattVergutungssysteme}.
+Im Fall von Tiers garant stellt der Leistungserbringer die Rechnung direkt dem Patienten aus, welcher diese dann seinem Krankenversicherer zur Rückerstattung weiterleitet. Die Rechnung kann bei allen Krankenversicherern per Post und bei den meisten auch digital, im Kundenportal oder in der App, eingereicht werden \autocite{EDI2017FaktenblattVergutungssysteme}.
 
 Rechnungen, welche per Post oder digital beim Krankenversicherer zur Rückvergütung eingehen, erreichen diesen in verschiedenen Formen und unterschiedlichster Qualität. 
 
-Während einige Rechnungen nach dem TARMED Standard für Rückforderungsbelege strukturiert sind, sind andere formlos. Die Bandbreite an Formen ist hier gross: Von handgeschriebenen Rechnungen eines örtlichen Leistungserbringer bis hin zu strukturierten Rechnungen von Fitnessparks.
+Während einige Rechnungen nach dem TARMED Standard für Rückforderungsbelege strukturiert sind, sind andere formlos. Die Bandbreite an Formen ist hier gross: Von handgeschriebenen Rechnungen eines örtlichen Leistungserbringer bis hin zu strukturierten Rechnungen von Fitnessketten.
 
 Bei der Einreichung per Post kann die Qualität durch Kaffee-Flecken, Verbleichung der Belege oder sonstige Beeinträchtigungen gemindert werden, der Krankenversicherer kann aber einiges dazu beitragen die Rechnung in hoher Qualität einzulesen. So kann er beispielsweise hochauflösende Scanner und eine optimale Beleuchtung einsetzen.
 
 Problematischer sind Rechnungen, welche von Kund/-innen digital, sprich als Photo, an den Krankenversicherer übermittelt werden. Wird ein Foto einer Rechnung über das Kundenportal eingereicht, so hat der Krankenversicherer nur noch sehr wenig Einfluss auf die Qualität der Aufnahme. Schlechte Belichtung, kleine Auflösung und abgeschnittene Rechnungen sind nur wenige der Probleme, mit welchen der Krankenversicherer zu kämpfen hat.
 
-Egal wie und in welcher Qualität eine Rechnung einen Krankenversicherer erreicht hat, muss dieser die Rechnung in eine elektronische, strukturierte Form bringen, damit diese dann durch ein Regelwerk verarbeitet werden kann. Dieser Vorgang wird Indexieren genannt. Viele Krankenversicherer haben für die Indexierung bereits in Optical Character Recognition (OCR) Technologie investiert oder die Indexierung an eine externe Firma ausgelagert. 
+Egal wie und in welcher Qualität eine Rechnung einen Krankenversicherer erreicht hat, muss dieser die Rechnung in eine elektronische, strukturierte Form bringen, damit diese dann durch ein Regelwerk verarbeitet werden kann. Dieser Vorgang wird durch verschiedenste Techniken aus den Bereich der Texterkennung und der Informationsextraktion ermöglicht. Als Texterkennung oder auch Optical Character Recongition (kurz OCR) wird ein Vorgang bezeichnet, bei welchem Handschrift oder Druckbuchstaben in eine Form gebracht werden, welche von Maschinen verstanden und bearbeitet werden kann~\autocite{Xue2014OpticalRecognition}. Unter dem Begriff Informationsextraktion oder Information extraction (kurz IE) wird der Prozess verstanden, bei welchem relevante Fakten aus einem Text gewonnen werden~\autocite{Piskorski2012InformationFuture}.
 
-\todo[inline, color=igloo]{Hinweis: Daraufhin sollte eine "generelle" Definition über Indexierung kommen. Max. 1-2 Sätze (mit Literaturangabe).
-Begründung: Geh davon aus, dass der Leser keine Ahnung hat, was das bedeutet (auch wenn der Experte darüber Bescheid weiss). Deshalb wichtig: Neue Begriffe immer kurz einführen. (Indexieren sowie OCR}
+% \todo[inline, color=green]{Wie macht das die Post? Postfinance? Dort ist das Problem vermutlich etwas einfacher aber Lösungen gibt es schon länger?}
 
-\todo[inline, color=green]{Wie macht das die Post? Postfinance? Dort ist das Problem vermutlich etwas einfacher aber Lösungen gibt es schon länger?}
-Es gibt diverse Anbieter, wie beispielsweise die Tessi document solutions (Switzerland) GmbH oder die Cent Systems AG, welche diese Technologien oder die gesamte Indexierung als Service anbieten. Ein grosser Teil der Rechnungen muss aber, aus verschiedenen Gründen, nach wie vor manuell bearbeitet werden \todo{Quelle für manuelle arbeiten}. Dies beinhaltet sowohl die Nachbearbeitung nach der elektronischen Indexierung als auch die komplett manuelle Indexierung. % Die CSS Krankenkasse beschäftigt beispielsweise rund 200 Personen für diese manuelle Indexierung. Bei der Assura sind es rund 500 Personen \todo{Quelle für die Anzahl personen}.
+% Viele Krankenkassen haben diese Technologien bereits im Einsatz. Auch gibt es diverse Anbieter, wie beispielsweise die Tessi document solutions (Switzerland) GmbH oder die Cent Systems AG, welche diese Technologien oder gar umfangreiche Services in diesem Bereich anbieten. Die Erfahrung mit diesen Technologien und Providern bei der AXA Ein grosser Teil der Rechnungen muss aber, aus verschiedenen Gründen, nach wie vor manuell bearbeitet werden \todo{Quelle für manuelle arbeiten}. Dies beinhaltet sowohl die Nachbearbeitung nach der elektronischen Indexierung als auch die komplett manuelle Indexierung\todo{CITE}. 
+% Die CSS Krankenkasse beschäftigt beispielsweise rund 200 Personen für diese manuelle Indexierung. Bei der Assura sind es rund 500 Personen \todo{Quelle für die Anzahl personen}.
 
-\todo[inline, color=igloo]{
-Begründung für manuelle arbeiten
+% Im Jahr 2016 wiesen die Grundversicherer einen durchschnittlichen Verwaltungskostensatz von 4.7\% aus. Dies bedeutet  Ein guter Verwaltungskostensatz konnte die CSS Kranken-Versicherung AG im Jahr 2017 ausweisen weist im Jahr Die Indexierung dieser Rechnungen ist einer der Faktoren, welche auf die hohen Verwaltungskosten der Krankenversicherer schlägt.
 
-2. Frage: Mir ist nicht ganz klar, ob entweder Nachbearbeitung oder komplette Indexierung zum Zug kommt. Ist das korrekt, dass eines der beiden angewendet wird? Ohne manuelle Überarbeitung geht gar nichts?
-}
+Die AXA, eine internationale Versicherungsgesellschaft, sieht sich, genau wie alle anderen Krankenversicherer, ebenfalls vor der Herausforderung der Indexierung von Rechnungen. Im Jahr 2017 lancierte die AXA eine Zusatzversicherung in der Gesundheitsvorsorge im Schweizer Markt. Neben der Zusatzversicherungen selbst bietet die AXA ihren Kunden einen Rechnungs-Weiterleitungs-Service. Das bedeutet, alle Rechnungen können der AXA gesendet werden. Rechnungen beziehungsweise Rechnungspositionen, welche die Zusatzversicherung betreffen, werden von der AXA vergütet und Rechnungspositionen, welche die Grundversicherung betreffen, werden zur Vergütung an den Grundversicherer weitergeleitet \autocite{finanzen.ch2017AxaGewinnen}.
 
-% Im Jahr 2016 wiesen die Grundversicherer einen durchschnittlichen Verwaltungskostensatz von 4.7\% aus. Dies bedeutet  Ein guter Verwaltungskostensatz konnte die CSS Kranken-Versicherung AG im Jahr 2017 ausweisen weist im Jahr Die Indexierung dieser Rechnungen ist einer der Faktoren, welche auf die hohen Verwaltungskosten der Krankenversicherer schlägt. Es müssen 
+Gemäss einem Beitrag auf \textcite{finanzen.ch2017AxaGewinnen} ist es das Ziel der AXA, bis im Jahr 2020 insgesamt 100'000 Kunden für die Gesundheitsvorsorge zu gewinnen. Aus dem Geschäftsbericht der CSS Gruppe für das Jahr 2017 geht hervor, dass für knapp 1.7 Millionen Kunden 16 Millionen Rechnungen geprüft wurden~ \autocite{CSSGruppe2018Geschaftsbericht2017}. Werden die durchschnittlich 9.5 Rechnungen pro Kunde auf die Zielgrösse 100'000 Kunden der AXA hochgerechnet, so muss die AXA im Jahr 2020 knapp 1 Million Rechnungen prüfen. Damit diese Menge an Rechnungen effizient verarbeitet werden kann, ist es für die AXA wichtig, den Prozess der Indexierung möglichst automatisiert zu gestalten.
 
-\todo[inline, color=igloo]{Vorschlag: Evtl. bereits hier erwähnen, dass AXA als Beispielunternehmen für die Thesis verwendet wird. So wird klar, warum dann nur noch von der AXA gesprochen wird.}
+Um die Verwaltungskosten der Zusatzversicherung aufzuzeigen wird wiederum der Ge\-schäfts\-be\-richt der CSS Gruppe für das Jahr 2017 herangezogen. Der Kostensatz, welcher der Anteil der Gemeinkosten am Umsatz misst, für die Grundversicherung betrug lediglich 4\%. Im Geschäftsbereich der Zusatzverischerung liegt dieser Kostensatz allerdings viel höher, nämlich bei 21\%. Welcher Anteil an diesen Kosten nun der Prüfung respektive der Indexierung eingehender Rechnungen zuzuschreiben ist, bleibt ein Betriebsgeheimnis. Da die Rechnungen, welche die Zusatzversicherungen betreffen, aufgrund der unterschiedlichen Leistungserbringer (Alternativmedizin, Fitness, Sportvrein) viel diverser sind als jene die die Grundversicherung (Ärzte und Spitäler nach TARMED standard) betreffen, liegt die Vermutung nahe, dass im Bereich der Zusatzversicherung ein hoher Anteil der Verwaltungskosten der Rechnungsprüfung zugeschrieben werden kann.
 
-Die AXA, eine internationale Versicherungsgesellschaft, sieht sich, genau wie alle anderen Krankenversicherer, ebenfalls vor der Herausforderung der Indexierung von Rechnungen. Im Jahr 2017 lancierte die AXA eine Zusatzversicherung in der Gesundheitsvorsorge. Neben der Zusatzversicherungen selbst bietet die AXA ihren Kunden einen Rechnungs-Weiterleitungs-Service. Das bedeutet, alle Rechnungen können der AXA gesendet werden. Rechnungen beziehungsweise Rechnungspositionen, welche die Zusatzversicherung betreffen, werden von der AXA vergütet und Rechnungspositionen, welche die Grundversicherung betreffen, werden zur Vergütung an den Grundversicherer weitergeleitet \autocite{finanzen.ch2017AxaGewinnen}.
+Die AXA profitiert aber bei einer automatisierten Indexierung von Rechnungen nicht nur von einer Kostensenkung sondern kann damit auch einen Vorteil für Ihre Kunden generieren: Die Kunden erhalten durch die automatisierte Verarbeitung der eingereichten Rechnungen viel schneller das geforderte Geld.
 
-\todo[inline, color=igloo]{Frage: Was ist der Nutzen daraus? Einerseits für den Kunden andererseits für AXA? 
-Hinweis: Ich würde noch ein bisschen mehr auf die Thematik "Rechnungs-Weiterleitungs-Service" eingehen, da dieser der Use Case der Arbeit wird.}
+%Rechnungen, egal ob diese von der AXA selbst bezahlt oder an den Grundversicherer weitergeleitet werden, müssen indexiert werden um verarbeitet werden zu können. Die Indexierung wird aktuell von einem externen Provider übernommen und ist eine \todo[color=yellow]{erläutern}Blackbox. Es ist allerdings bekannt, dass ein grosser Teil der Arbeiten, nach einem automatisierten OCR Schritt, manuell gemacht werden. Die aktuelle Indexierung birgt folgende zwei Probleme:
 
-\todo[inline, color=igloo]{Vorschlag: Ich würde dieses Argument anders einführen. Der Übergang wirkt aus meiner Sicht noch nicht flüssig. Z.B. ``Jeder Kunde der AXA reicht somit Rechnungen ein, die entweder die AXA Zusatzversicherung betreffen oder an die Grundversicherung weitergeleitet werden müssen.``}
+%\todo[inline, color=igloo]{Hinweis: Ich weiss, ist eine provokative Frage. Aber ich frage mich, ob es Sinn macht, dies so zu erwähnen, weil daraus entstehen Fragen -> Warum dieser Provider, wenn nicht klar ist, was er macht? Oder warum wird nicht das Know-how akquiriert?}
 
-Ziel der AXA ist es, bis im Jahr 2020 insgesamt 100'000 Kunden zu gewinnen \autocite{finanzen.ch2017AxaGewinnen}. Neben den Rechnungen, welche Kunden für Ihre AXA Zusatzversicherung einreichen, werden auch Rechnungen eingereicht, welche an den Grundversicherer weitergeleitet werden müssen. Die Anzahl an Rechnungen, welche die AXA vtäglich erarbeiten muss, wird sich mit jedem gewonnen Kunden erhöhen.
+%\todo[inline, color=igloo]{Frage: Warum müssen die Rechnungen indexiert werden? Bitte kurz erklären, warum dies Unternehmen machen. }
 
-\todo[inline, color=igloo]{1. Frage: Gibt es Zahlen, wie es heute aussieht? Wie viele Kunden hat AXA zurzeit? Darf das gesagt werden?
-2. Frage: Warum ist die Zielgrösse 100'000? Gibt es dazu Informationen? }
-
-\todo[inline, color=green]{
-Aus vorhergehendem Paragraphen noch eine bessere Aussage zur Masse der Rechnungen machen. Gibt es Branchen-Durchschnitts-Werte an Anzahl Rechnungen pro Person?
-
-Gute Frage. Zudem: was wissen Sie über die Kosten, die dabei entstehen? Das würde Ihr Problem, respektive das Potential Ihres Lösungsansatzes illustrieren. Erfolgsrechnungen von Krankenkassen? Falls man dazu nichts weiss, können Sie es hier sagen. }
-
-Rechnungen, egal ob diese von der AXA selbst bezahlt oder an den Grundversicherer weitergeleitet werden, müssen indexiert werden um verarbeitet werden zu können. Die Indexierung wird aktuell von einem externen Provider übernommen und ist eine \todo[color=yellow]{erläutern}Blackbox. Es ist allerdings bekannt, dass ein grosser Teil der Arbeiten, nach einem automatisierten OCR Schritt, manuell gemacht werden. Die aktuelle Indexierung birgt folgende zwei Probleme:
-
-\todo[inline, color=igloo]{Hinweis: Ich weiss, ist eine provokative Frage. Aber ich frage mich, ob es Sinn macht, dies so zu erwähnen, weil daraus entstehen Fragen -> Warum dieser Provider, wenn nicht klar ist, was er macht? Oder warum wird nicht das Know-how akquiriert?}
-
-\todo[inline, color=igloo]{Frage: Warum müssen die Rechnungen indexiert werden? Bitte kurz erklären, warum dies Unternehmen machen. }
+Aus der aktuell halb-automatisierten Indexierung von Rechnungen bei der AXA kann gesagt werden, dass für die Automatisierung auf folgende zwei Punkte geachtet werden muss:
 
 \begin{itemize}
     \item Qualität der Indexierten Daten: Fehler in der Indexierung (z.B. 1g anstelle 500mg Tabletten) führen zu Fehlern in den Abrechnungen, welche im schlimmsten Fall eine Benachteiligung des Kunden verursachen und somit das Vertrauen des Kunden beeinträchtigen.
-    \item Manueller Aufwand: Der hohe Anteil an manueller Arbeit verursacht hohe Kosten, ist nicht effizient, birgt viel Potential für Fehler und kann nicht schnell skaliert werden.
+    \item Manueller Aufwand: Ein hoher Anteil an manueller Arbeit verursacht hohe Kosten, ist nicht effizient, birgt viel Potential für Fehler und kann nicht schnell skaliert werden.
 \end{itemize}
 
-\todo[inline, color=green]{Problematik von Anfang an prägnanter darstellen? (Der aufwändige Schritt „Indexierung“ im erwähnten Prozess? Was ist das Problem? Warum braucht es 
-Ihr Projekt?)}
+% \todo[inline, color=green]{Problematik von Anfang an prägnanter darstellen? (Der aufwändige Schritt „Indexierung“ im erwähnten Prozess? Was ist das Problem? Warum braucht es Ihr Projekt?)}
 
 In dieser Arbeit wird diskutiert, ob die Indexierung der eingehenden Rechnungen durch die Anwendung von künstlicher Intelligenz automatisiert werden kann.
 
 Für die Problemstellung ist es nicht nur relevant ob sondern auch in welcher Qualität dieser Arbeitsschritt automatisiert werden kann. Die Qualität stellt ein wichtiger Punkt dar, da schlechte Qualität ein Image-Schaden und somit ein Wettbewerbsnachteil nach sich ziehen könnte.
 
-Aufgrund der geschilderten Problematik der Indexierung von Rechnungen bei der AXA entstand die Idee, diese mit neuen Technologien zu lösen. Aus dem beschriebenen Fallbeispiel und dem branchenübergreifenden Interesse an der Anwendung der künstliche Intelligenz zur Automatisierung von Geschäftsprozessen wird für diese Arbeit folgende Forschungsfrage definiert.\newline\newline
-% Using newline instead of paragraph to prevent these two paragraphs to fall apart
+Aufgrund der geschilderten Problematik der Indexierung von Rechnungen bei der AXA entstand die Idee, diese mit neuen Technologien zu lösen. Aus dem beschriebenen Fallbeispiel und dem branchenübergreifenden Interesse an der Anwendung der künstliche Intelligenz zur Automatisierung von Geschäftsprozessen wird für diese Arbeit folgende Forschungsfrage definiert.
+
 {
     \medskip
     \setlength{\fboxsep}{1em}
@@ -210,38 +187,30 @@ Aufgrund der geschilderten Problematik der Indexierung von Rechnungen bei der AX
     \medskip
 }
 
-\todo[inline, color=igloo]{Hinweis: Ich würde die Frage konkretisieren. Aus meiner Sicht ist sie noch zu vage formuliert.
+Um die Beantwortung dieser Forschungsfrage zu untersützen, werden folgende Unterfragen abgeleitet:
 
-Irgendetwas wie: Können durch Machine Learning automatisierte Indexierungsprozesse effizientere Kundenservices angeboten werden?
+\begin{itemize}
+    \item Was wird unter künstlicher Intelligenz verstanden?
+    \item Was ist die Rechnnungsindexierung und welche Rolle spielt diese für einen Krankenversicherer?
+    \item Welche Ansätze aus dem Bereich der künstlichen Intelligenz können für die Rechnungsindexierung angewendet werden?
+\end{itemize}
 
-Unterfragen:
-
-- Was ist eine Indexierung und wie relevant ist sie für das Versicherungswesen?
-
-- Was ist ML?
-
-- Welche ML-Ansätze können für automatisierte Indexierungen angewendet werden? 
-
-- Inwiefern verbessert eine automatische Indexierung den Kundenservice...
-
-- etc.}
-
-% Weiter werden folgende Unterfragen abgeleitet.
-
-%\todo[inline]{Unterfragen ausarbeiten...}
-
-%\begin{itemize}
-%    \item Kann die Rechnungseinreich
-%    \item Lohnt es sich für die AXA in die Automatisierung durch die Anwendung von künstlicher Intelligenz zu investieren? \todo{Müsste zur Beantwortung nicht eine ganze Kosten-Nutzen Rechnung gemacht werden?}
-%    \item Wäre eine Investition im Fallbeispiel durch etwaige Digitalisierungsvorhaben des Bundes gefährdet? \todo{relevant? sinnvoll?}
-%\end{itemize}
-
+%
+%
+%
+%
+%
+% TODO: Diskussion für KI vs ML
+%
+%
+%
+%
+%
+%
 
 \subsection{Forschungsstand}
 
-\todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff "KI" beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
-
-\todo[inline, color=green]{Überall Bezug zu Ihrer Problematik und zur Forschungsfrage herstellen? }
+% \todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff "KI" beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
 
 Die künstliche Intelligenz ist ein sehr aktuelles und deshalb auch in der Literatur oft diskutiertes Themengebiet. Bereits 2009 geben \textcite{Russell2009ArtificialEdition} auf über 1000 Seiten einen noch immer aktuellen und sehr umfangreichen Überblick über das Themengebiet. Weiter vertiefen die beiden Autoren viele Teilgebiete der künstlichen Intelligenz und erläutern Grundlegende Konzepte ausführlich.
 
@@ -251,51 +220,63 @@ Zusammenfassend kann gesagt werden, dass in der Grundlagenforschung zur künstli
 
 Um einen ersten Überblick über die Problemstellung zu erhalten, werden einige Techniken im Bereich der künstlichen Intelligenz, welche für die Beantwortung der Forschungsfrage sowie für die Entwicklung des Prototypen relevant sind, in den folgenden Kapiteln erkundet. 
 
-\subsubsection{Texterkennung durch künstliche Intelligenz}
+\subsubsection{Texterkennung}
 
 Ein wichtiger Bestandteil des Prototypen zur Indexierung von Rechnungen ist die Erkennung von Texten, ob Druckbuchstaben oder Handschrift, auf den Rechnungen. Die erkannten Texte bilden die Grundlage für jegliche digitale Verarbeitung der Rechnungen.
 
-Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Photographien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich künstliche Intelligenz: Long-Short-Term-Memory (LSTM) Netzwerke, Connectionist Temporal Classification (CTC), Convolutional Neural Network (CNNs) und mehr~\autocite{Neuberg2017CreatingLearning}.
+Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Photographien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Long-Short-Term-Memory} (LSTM) Netzwerke, \textit{Connectionist Temporal Classification} (CTC), \textit{Convolutional Neural Network} (CNNs) und mehr~\autocite{Neuberg2017CreatingLearning}.
+
+\todo[inline, color=red]{Beschreibung von LSTM, CTC und CNN
+
+Inline etwas ungünstig für den lesefluss... "Tabelle" sinnvoll?}
 
 Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007AnEngine, o.V.20184.0LSTM}. So wurde die feature detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
 
 \subsubsection{Korrektur von Rechtschreibung und Grammatik}
 
 Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Text nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt. 
+LSTM Modelle wurden im Bereich des \textit{Natural Language Processing} (kurz NLP)\todo[color=red,inline]{Begriff NLP erklären} bereits erfolgreich angewendet um Rechtschreibung und Grammatik zu korrigieren. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
 
-LSTM Modelle wurde im Bereich des Natural Language Processing\todo{Begriff NLP erklären}\todo{Abkürzung NLP einführen} bereits erfolgreich angewendet um Rechtschreibung und Grammatik zu korrigieren. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen \todo[color=yellow]{Für die Thesis
-: Glossar? Und/oder ausführliches Begriffskapitel (vielleicht fast besser).}Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
+Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate dabei sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Microsoft Word}\footnote{Microsoft Word ist ein Programm zur Textverarbeitung und Dokumenterstellung von Microsoft~\autocite{MicrosoftCorporation2018MicrosoftOffice}.} oder \textit{Language Tool 3.1}\footnote{\enquote{LanguageTool ist eine Software zur Textprüfung [...]}~ \autocite{LanguageTool2018LanguageToolGrammatik}}. und sogar besser als \textit{Grammarly}\footnote{Grammarly verspricht präzise, kontextabhängige Korrekturen von Texten~\autocite{GramarlyInc.2018Grammarly:Checker}} und \textit{Google Docs}\footnote{Google Docs ist eine Online-Lösung zur Textverarbeitung von Google~\autocite{GoogleLLC2018GoogleBearbeiten}}~\autocite{MuganEvaluationComparison}.
 
-Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate dabei sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Word} oder \textit{Language Tool 3.1} und sogar besser als \textit{Grammarly} und \textit{Google Docs}~\autocite{MuganEvaluationComparison}\todo[color=yellow]{Jahr dieser Untersuchung?}.
+\todo[inline,color=red]{Grafik aus deepgrammer website hier einfügen...}
+
+%\todo[color=yellow]{Jahr dieser Untersuchung?}
 
 \subsubsection{Informationsextraktion aus natürlichen Texten}
-
-\todo[inline, color=yellow]{
-HIER STEHEN GEBLIEBEN
-
-HIER STEHEN GEBLIEBEN
-
-HIER STEHEN GEBLIEBEN
-
-HIER STEHEN GEBLIEBEN
-}
 
 % https://en.wikipedia.org/wiki/Named-entity_recognition
 % https://en.wikipedia.org/wiki/Medical_classification
 
-Informationsextraktion breschreibt das Themengebiet rund um die Extraktion von strukturierten Informationen aus unstrukturiertem oder halb-strukturiertem Text. Named Entity Recognition and Classification, ein Teilgebiet der Informationsextraktion, beschreibt dabei das erkennen und kategorisieren von Entitäten, sprich Wörter oder Wortgruppen aus natürlichen Texten~\autocite{Nadeau2007AClassification}.
+Informationsextraktion breschreibt das Themengebiet rund um die Extraktion von strukturierten Informationen aus unstrukturiertem oder halb-strukturiertem Text. In diesem Kapitel werden einige Techniken aus diesem Themengebiet kurz erläutert und deren Ein\-satz\-mög\-lich\-keit für die Entwicklung des Prototypen diskutiert.
 
-Der Begriff Named Entity wurde bei der Formulierung der Aufgabenstellung der sechsten Message Understanding Conference im Jahre 1995 definiert (\cite{Borthwick1998NYU:MUC-7} in \cite{Nadeau2007AClassification}). So wurde bereits damals erkannt, dass die Extraktion von Namen, von Personen, Organisationen oder Lokationen, nummerischen Ausdrücken und Prozent-Ausdrücken wichtig ist~\autocite{Nadeau2007AClassification}.
+Eine \textit{Regular Expression} (kurz RegEx) ist ein Ausdruck, welcher eine Zeichenkette beschreibt. Diese Ausdrücke funktionieren ähnlich wie arithmetische Ausdrücke: Es werden Operatoren verwendet, um mehrere Ausdrücke zu einem komplexeren Ausdruck zusammenzufassen\autocite{Xiao2004InformationApplications}.
+
+\textcite{Xiao2004InformationApplications} beschreibt als einfaches Beispiel den Ausdruck \texttt{[a,p]m [0-9]+:[0-9]+} um Zeitangaben wie AM 12:45 zu extrahieren. Dieses Beispiel zeigt einerseits die Einfachheit dieser Technik aber auch die Grenzen. 12:45 AM wird beispielsweise nicht erkannt, da AM hier nach anstelle vor der Uhrzeit steht. 
+
+Ein weiterer Nachteil von Regular Expressions ist, dass Kontextinformationen nicht be\-rück\-sich\-tigt werden. Folgendes Beispiel von \textcite{Xiao2004InformationApplications} zeigt dies auf: Der Ausdruck \texttt{[0-9]+} ist zwar in der Lage aus dem Text \texttt{100\$} die Zahl \texttt{100} zu extrahieren, allerdings geht die Information, dass es sich hier um einen Geldbetrag handelt, verloren.
+
+Um eine hohe Präzision bei der Informationsextraktion zu ermöglichen, sollten Regular Expressions also nur mit Vorsicht und in Kombination mit anderen Techniken verwendet werden~\autocite{Xiao2004InformationApplications};
+
+Trotz der Nachteile der Regular Expressions können diese in der Entwicklung des Prototypen hilfreich sein. In Rechnungen werden viele Beträge, Daten und ähnliche Ausdrücke verwendet, welche mit Regular Expressions erkannt werden können.
+
+\textit{Named Entity Recognition and Classification} (kurz NERC oder NER), beschreibt das erkennen und kategorisieren von Entitäten, sprich Wörter oder Wortgruppen aus natürlichen Texten~\autocite{Nadeau2007AClassification}.
+
+Der Begriff \textit{Named Entity} wurde bei der Formulierung der Aufgabenstellung der sechsten Message Understanding Conference im Jahre 1995 definiert~\autocite{Borthwick1998NYU:MUC-7}. So wurde bereits damals erkannt, dass die Extraktion von Namen, von Personen, Organisationen oder Lokationen, nummerischen Ausdrücken, Daten und Prozent-Ausdrücken wichtig ist~\autocite{Nadeau2007AClassification}.
 
 Für die Named Entity Recognition and Classification stehen einige freie Softwarelösungen zur Verfügung. So veröffentlicht beispielsweise Stanford eine Java Implementierung und SpaCy, eine Sammlung von Natural Language Processing Software, beinhaltet eine Implementierung in Python~\autocite{StanfordNLPGroupStanfordNER, ExplosionAIIndustrial-StrengthProcessing}.
 
-\todo[inline]{
-Relevant für diese Arbeit ausführen
+Die Anwendung von NERC ist für das Fallbeispiel äusserst Interessant. Die Erkennung von Namen von Personen ist hilfreich zur Erkennung des Patienten und des Leistungserbringers. Weiter hilft die Erkennung von Daten der ermittlung des Behandlungsdatums und nicht zuletzt kann durch die Erkennung und Klassifizierung von nummerischen Ausdrücken der Gesamtbetrag sowie die Beträge einzelner Positionen ermittelt werden.
 
-Aussage darüber, ob hier Erfolg erzielt werden konnte
-}
+Die letzte Technik welche in diesem Kapitel erläutert wird, ist das \textit{Part of Speech Tagging} (kurz PoS-Tagging). Beim PoS-Tagging werden Wörter und Satzzeichen ihren Wortarten (Nomen, Adjektive, etc.) zugewiesen~\autocite{Xiao2004InformationApplications}.
 
+Die grösste Herausforderung beim PoS-Tagging sind Wörter welche verschiedenen Wortgruppen zugewiesen werden könnten. Beispielsweise kann das Wort \textit{widerwillig} im Satz \textit{Sie nannten den Täter widerwillig.} als Adjektiv oder Adverb aufgefasst werden und somit die Bedeutung des Satzes vollkommen verändern~\autocite{VolkFormaleMehrdeutigkeiten}.
 
+% Es gibt diverse Arten von Implementierung des PoS-Tagging, welche in regelbasierte, stochastische und neuronale Verfahren unterteilt werden können. Ein weit verbreiteter Ansatz ist die Verwendung von Hidden Markov Modellen. Ein Hidden Markov Modell ist ein stochastisches Modell, welches Zustände mit übergangswahrscheinlichkeiten modelliert.
+
+Die Verwendung von PoS-Tagging kann bei Rechnungen mit einem Prosa Text von Vorteil sein. Wieviele relvante Informationen in Prosa Texten von Rechnungen verborgen sind, muss sich aber erst noch zeigen.
+
+Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Implementierung eines Prototypen zur Rechnungsindexierung zu beginnen.
 
 % \subsubsection{Definition der künstlichen Intelligenz}
 
@@ -362,72 +343,47 @@ Neben der Beantwortung der Forschungsfrage anhand des beschriebenen Fallbeispiel
 Etwas mehr schreibe... Nur was?
 }
 
-\todo[inline, color=yellow]{Das Grobkonzept braucht insgesamt keineswegs länger zu werden. (Sie können allerdings alle Inhalte in einen ersten Entwurf der Einleitung Ihrer Thesis übernehmen.)
-
-Die Forschungsfrage würde ich allgemein stellen (Potential von KI in der Automatisierung von …).
-
-Diese können Sie am Beispiel AXA etc. untersuchen, wobei Sie das in einem klassischen Format „Kosten/Nutzen, respektive Risiken/Chancen abwägen“ tun könnten. }
+%\todo[inline, color=yellow]{Diese [Forschungsfrage] können Sie am Beispiel AXA etc. untersuchen, wobei Sie das in einem klassischen Format „Kosten/Nutzen, respektive Risiken/Chancen abwägen“ tun könnten. }
 
 \subsection{Abgrenzung Fallbeispiel}
 
-\todo[inline, color=igloo]{Vorschlag/Hinweis: Ich finde die Abgrenzung gut. Ich würde aber als Startpunkt ein Grobkonzept einführen, in welchem der ganze Prozess zu sehen ist. Dann würde ich definieren, welchen Teil des Grobkonzepts von Dir genauer angeschaut wird und aus welchen Gründen. Die Dinge, die Du nicht anschaust, kannst Du dann gut in der Diskussion am Ende der Arbeit wieder aufgreifen und als weitere "Forschungsarbeit" empfehlen. 
-}
+Der Prozess der Rechnungseinreichung (vgl. Abbildung \ref{prozessaxa}) der AXA umfasst den Rechnungseingang, ob digital oder per Post, eine erste Qualitätskontrolle, die Indexierung, die fachliche Prüfung, die Abrechnung und falls notwendig die Weiterleitung an den Grundversicherer.
 
-\todo[inline, color=yellow]{Das wäre eher das Vorgehen?
+\begin{figure}[h]
+\caption{Rechnungseinreichungsprozess bei der AXA}
+\label{prozessaxa}
+\centering
+%\iffalse
+    \begin{tikzpicture}[
+      node distance=1.5cm and 15cm
+    ]
+        \node (startPost) [process] {Einreichung per Post};
+        \node (scanning) [process, below of=startPost] {Scanning};
+        \node (startPortal) [process, right=1cm of startPost] {Einreichung per Kundenportal/App};
+        \node (rectification) [process, below of=startPortal] {Automatische Qualitätsprüfung und Optimierung};
+        \node (qualityGate) [process, below of=rectification] {Manuelle Qualitätsprüfung};
+        \node (indexing) [process2, below of=scanning] {Indexierung};
+        \node (check) [process, below of=indexing] {Prüfung};
+        \node (settlement) [process, below of=check] {Abrechnung};
+        \node (communication) [process, below of=settlement] {Kundenkommunikation};
+        \node (okp) [process, below of=check, right=1cm of settlement] {Weiterleitung an Grundversicherung};
+        
+        \draw [arrow] (startPost) -- (scanning);
+        \draw [arrow] (scanning) -- (indexing);
+        \draw [arrow] (startPortal) -- (rectification);
+        \draw [arrow] (rectification) -- (qualityGate);
+        \draw [arrow] (qualityGate) -- (indexing);
+        \draw [arrow] (indexing) -- (check);
+        \draw [arrow] (check) -- (settlement);
+        \draw [arrow] (settlement) -- (communication);
+        \draw [arrow] (check) -| (okp);
+    \end{tikzpicture}
+%\fi
+\end{figure}
 
-„Fallbeispiel und Abgrenzung“
-AXA, worauf konzentrieren Sie sich, was klammern Sie aus? (Für Details zum Vorgehen auf ein nächstes Kapitel verweisen.)
-}
+Die Entwicklung des Prototypen beschränkt sich auf den Prozessschritt der Indexierung. Die Einreichung sowie die Weiterverarbeitung der Rechnungen nach der Indexierung, sprich die Auswertung, ob und wie eine bestimmte Rechnungsposition versichert ist, ist nicht Teil des Prototypen.
 
-\newpage
-
-\begin{tikzpicture}[
-  node distance=2cm and 15cm
-]
-
-\node (startPost) [startstop] {Einreichung per Post};
-\node (startWeb) [startstop, right=of startPost] {Einreichung per Kundenportal};
-\node (startApp) [startstop, right=of startWeb] {Einreichung per App};
-\node (in1) [io, below of=startPost=] {Test Input};
-\node (pro1) [process, below of=in1] {Process 1};
-\node (dec1) [decision, below of=pro1, yshift=-0.5cm] {Decision 1};
-\node (pro2a) [process, below of=dec1, yshift=-0.5cm] {Process 2a};
-\node (pro2b) [process, right of=dec1, xshift=2cm] {Process 2b};
-\node (out1) [io, below of=pro2a] {Output};
-\node (stop) [startstop, below of=out1] {Stop};
-
-\draw [arrow] (start) -- (in1);
-\draw [arrow] (in1) -- (pro1);
-\draw [arrow] (pro1) -- (dec1);
-\draw [arrow] (dec1) -- node[anchor=east] {yes} (pro2a);
-\draw [arrow] (dec1) -- node[anchor=south] {no} (pro2b);
-\end{tikzpicture}
-
-\newpage
-
-- Einreichung per Post
-
--- Scanning der Dokumente
-
---- Rectification & optimization
-
--- Digitale weiterleitung
-
-- Einreichung per Portal
-
--- Photo in der App / Photo im Kundenportal hochladen
-
--- Rectification & optimization
-
-- Text recognition & optimization
-
-- Information Extraction
-
-- Weiterverarbeitung der Rechnungen
-
-Für das Fallbeispiel wird ein Prototyp entwickelt, welcher die Indexierung der Rechnungen abdeckt. Für den Prototypen ist es als Ausgangslage wichtig, in welcher Form und Qualität die Rechnungen beim Krankenversicherer ankommen. Weiter ist es für die Zielsetzung wichtig, in welches Format die Rechnungen gebracht werden müssen, damit diese anschliessend weiterverarbeitet werden können. Diese beiden Aspekte sollen als Rahmenbedingungen für den Prototypen gelten.
-
-Die Weiterverarbeitung der Rechnungen nach der Indexierung, sprich die Auswertung, ob und wie eine bestimmte Rechnungsposition versichert ist, ist nicht Teil des Prototypen.
+% Für das Fallbeispiel wird ein Prototyp entwickelt, welcher die Indexierung der Rechnungen abdeckt. Für den Prototypen ist es als Ausgangslage wichtig, in welcher Form und Qualität die Rechnungen beim Krankenversicherer ankommen. Weiter ist es für die Zielsetzung wichtig, in welches Format die Rechnungen gebracht werden müssen, damit diese anschliessend weiterverarbeitet werden können. Diese beiden Aspekte sollen als Rahmenbedingungen für den Prototypen gelten.
 
 \newpage
 \section{Methodische Vorgehensweise}
