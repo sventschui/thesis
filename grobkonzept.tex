@@ -2,11 +2,23 @@
 \input{colors.tex}
 % \usepackage{showframe}
 
+% heading
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+
+\titlespacing*{\section}{0pt}{*130}{50pt}
+
+\newcommand{\sectionbreak}{\clearpage\vspace{30pt}}
+
+\definecolor{coloraaa}{HTML}{AAAAAA}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\vsp}{\vspace{200pt}}
+\titleformat{\section}[hang]{\LARGE\bfseries}{\thesection\hsp\textcolor{coloraaa}{|}\hsp}{0pt}{\LARGE\bfseries}
+\newcommand{\mysection}[1]{\vspace*{200pt}\section{#1}}
+
 % charts 
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
-\usetikzlibrary{external}
-\tikzexternalize[prefix=tikz/]
+\pgfplotsset{compat=1.13}
 
 % floating figures/tables
 \usepackage{wrapfig}
@@ -73,7 +85,7 @@
 %#############################
 % Ausgangslage
 %#############################
-\section{Ausgangslage, Forschungsproblem und -frage}
+\mysection{Ausgangslage, Forschungsproblem und -frage}
 
 \todo[inline]{
 In der Ausgangslage wird das Thema zuerst allgemein vorgestellt, dann wird auf einen bestimmten Teilaspekt des Themengebiets fokussiert. 
@@ -226,6 +238,10 @@ Zusammenfassend kann gesagt werden, dass in der Grundlagenforschung zur künstli
 
 Um einen ersten Überblick über die Problemstellung zu erhalten, werden einige Techniken im Bereich der künstlichen Intelligenz, welche für die Beantwortung der Forschungsfrage sowie für die Entwicklung des Prototypen relevant sind, in den folgenden Kapiteln erkundet.
 
+\subsubsection{Natural Language Processing}
+
+\todo[inline, color=red]{TODO}
+
 \subsubsection{Neuronale Netzwerke}
 
 Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des Menschlichen Gehirns zu einem Computer ist allerdings der Fakt, dass unser Gehirn lernt ohne ein Software-Update zu erhalten. Wir brauchen nicht erst eine neue Software um das Fahrradfahren zu erlernen. Doch wie funktioniert das~\autocite{Krogh2008WhatNetworks}?
@@ -240,19 +256,34 @@ Seit mehreren Jahren liefern Neuronale Netzwerke bessere Resultate als andere Te
 
 \todo[inline]{Say something about learning strategies (supervised / unsupervised)}
 
-\subsubsection{LSTM Netzwerke}
+\subsubsection{Long-Short-Term-Memory Netzwerke}
 
-\todo[inline,color=red]{Bla bla...}
+Menschen starten ihren Denkprozess nicht jede Sekunde von neuem. Beim wird jedes Wort aufgrund des Verständnis des vorherigen Wortes verstanden. Gedanken sind persistent. Genau solche persistenten Gedanken sind mit dem bisherigen Ansätzen für Neuronale Netze nicht modellierbar. Hier kommen Recurrent Neural Networks (kurz RNN) ins Spiel. Recurrent Neural Networks sind Neuronale Netzwerke mit integrierten Schlaufen. 
+
+In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist das selbe Netzwerk in einer anderen, ausgerollten Weise zu sehen. Die Abbildung verdeutlicht, wie Informationen von einem Neuron zum anderen fliessen können~\autocite{Olah2015UnderstandingNetworks}.
+\begin{figure}[h]
+    \caption{Veranschaulichung des Infromationsfluss durch ein Recurrent Neural Network auf zwei verschiedene Weisen abgebildet}
+    \label{rnn1}
+    \centering
+    \includegraphics[width=0.48\textwidth]{graphics/rnn1.png}
+    \caption*{Quelle: \textcite{Olah2015UnderstandingNetworks}}
+\end{figure}
+
+Ein Problem von RNNs ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen etwas länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, so gehen die diese verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese spezialform von Recurrent Neural Networks die auf vier, anstelle einer einzelnen, internen Schicht basieren~\autocite{Olah2015UnderstandingNetworks}.
+\todo[inline,color=red]{HIER NOCH WEITER SCHREIBEN}
+\begin{figure}[h]
+    \caption{Veranschaulichung des Informationsfluss eines LSTM Netzwerk mit seinen vier internen Schichten}
+    \label{lstm1}
+    \centering
+    \includegraphics[width=0.48\textwidth]{graphics/lstm.png}
+    \caption*{Quelle: \textcite{Olah2015UnderstandingNetworks}}
+\end{figure}
 
 \subsubsection{Texterkennung}
 
 Ein wichtiger Bestandteil des Prototypen zur Indexierung von Rechnungen ist die Erkennung von Texten, ob Druckbuchstaben oder Handschrift, auf den Rechnungen. Die erkannten Texte bilden die Grundlage für jegliche digitale Verarbeitung der Rechnungen.
 
-Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Photographien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Convolutional Neural Network} (CNNs),  \textit{Long-Short-Term-Memory} (LSTM) Netzwerke, \textit{Connectionist Temporal Classification} (CTC) und mehr~\autocite{Neuberg2017CreatingLearning}.
-
-\todo[inline, color=red]{Beschreibung von LSTM, CTC und CNN
-
-Inline etwas ungünstig für den lesefluss... "Tabelle" sinnvoll?}
+Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Photographien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Convolutional Neural Network}\footnote{Ein Convolutional Neural Network ist eine spezialform eines Neuronalen Netzwerks bei welchen, etwas vereinfacht ausgedrückt, viele Kopien des gleichen Neurons zum Einsatz kommen\autocite{Olah2014ConvPerspective}.} (CNNs),  \textit{Long-Short-Term-Memory} (LSTM) Netzwerke, \textit{Connectionist Temporal Classification}\footnote{CTC ist ein Konzept aus dem Training von Neuronalen Netzwerken, welches vor allem in der Handschrifterkennung Verwendung findet. Dabei wird eine spezielle Trainingsfunktion verwendet, durch welche die Positionierung von Buchstaben generalisiert und somit der Lernprozess des Neuronalen Netzwerks vereinfacht werden kann~\autocite{Scheidl2018AnClassification}} (CTC) und mehr~\autocite{Neuberg2017CreatingLearning}.
 
 Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007AnEngine, o.V.20184.0LSTM}. So wurde die feature detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
 
@@ -271,9 +302,9 @@ Die ersten Word embeddings wurden von \textcite{Bengio2001Advances13} eingeführ
 \end{wrapfigure}
 Technisch gesehen ist ein Word embedding eine parametrierte Funktion, die Wörter einer bestimmten Sprache in einen hoch-dimensionalen Vektor (typischerweise 200-500 Dimensionen) transformiert. Um diese hoch komplexe Funktion zu definieren, kommt, wie bei den Neuronalen Netzwerken, Machine Learning zum Einsatz. \textcite{Olah2014NeuralTopology} beschreibt in seinem Artikel ein Beispiel, bei welchem eine solche Word embedding Funktion trainiert wird, indem die Resultate aus dem Word embedding in ein Neuronales Netzwerk zur Prüfung eines 5-Grammes (Satz mit 5 Wrötern) gespiesen werden und dann das Gesamtkonstrukt trainiert wird (vgl. Abbildung \ref{wordembeddingtraining})~\autocite{Olah2014NeuralTopology}.
 
-Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014DeepRepresentations} zwei verschiedene Visualisierungsmöglichkeiten heran~\autocite{Olah2014DeepRepresentations}.
+Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014DeepRepresentations} zwei verschiedene Visualisierungsmöglichkeiten heran.
 
-Die erste Visualisierung bedient sich dem t-SNE Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In diesem Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne}~\autocite{Olah2014DeepRepresentations}.
+Die erste Visualisierung bedient sich dem t-SNE Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In diesem Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014DeepRepresentations}.
 \begin{figure}[h]
     \centering
     \caption{t-SNE Darstellung eines Word embeddings, die verdeutlicht, dass ähnliche Wörter ähnliche Vekotren aufweisen}
@@ -282,7 +313,7 @@ Die erste Visualisierung bedient sich dem t-SNE Algorithmus um die hoch-dimensio
     \label{wordembeddingtsne}
 \end{figure}
 
-Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddingtable}) für sechs Wörter die nächsten Embeddings, sprich mit den mathematisch nächsten Vektoren, auf. So werden beispielsweise unter dem Titel \enquote{FRANCE} neben \textit{EUROPA} diverse weitere Länder aufgelistet.
+Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddingtable}) für sechs Wörter die nächsten Embeddings, sprich mit den mathematisch nächsten Vektoren, auf. So werden beispielsweise unter dem Titel \textit{FRANCE} neben \textit{EUROPA} diverse weitere Länder aufgelistet.
 \begin{table}[h]
 \centering
     \caption{Sechs Ausgangswörter mit den ihnen ähnlichsten Word embeddings, sprich mit den mathematisch nächsten Vektoren}
@@ -319,9 +350,11 @@ Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher In
 
 Mit Hilfe der in einem vorherigen Kapiteln eingeführten Technik des Word embeddings und von LSTM Netzwerken lässt sich diese Problematik angehen. So kann ein Modulares Netzwerk aus Word embeddings und mehreren LSTM Schichten verwendet werden, um eine Rechtschreibkorrektur vorzunehmen. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
 
-Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate dabei sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Microsoft Word}\footnote{Microsoft Word ist ein Programm zur Textverarbeitung und Dokumenterstellung von Microsoft~\autocite{MicrosoftCorporation2018MicrosoftOffice}.} oder \textit{Language Tool 3.1}\footnote{\enquote{LanguageTool ist eine Software zur Textprüfung [...]}~ \autocite{LanguageTool2018LanguageToolGrammatik}}. und sogar besser als \textit{Grammarly}\footnote{Grammarly verspricht präzise, kontextabhängige Korrekturen von Texten~\autocite{GramarlyInc.2018Grammarly:Checker}} und \textit{Google Docs}\footnote{Google Docs ist eine Online-Lösung zur Textverarbeitung von Google~\autocite{GoogleLLC2018GoogleBearbeiten}}~\autocite{MuganEvaluationComparison}.
-\begin{figure}
+% can't use wrapfigure here as otherwise the next sections wraps too
+\begin{figure} % wrapfigure}{l}{0.5\textwidth}
     \centering
+    \caption{Vergleich der Erfolgsrate bei der Prüfung von 418 Textsnippets}
+    \label{deepgrammar}
     \begin{tikzpicture}
         \begin{axis}[
             ytick={0,10,20,30,40,50,60,70},
@@ -329,7 +362,7 @@ Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwen
             ymax=70,
             xticklabels=\empty,
             xtick style={draw=none},
-        	ylabel={Erfolgsrate bei der Prüfung von 418 Textsnippets [\%]},
+        	ylabel={Erfolgsrate [\%]},
         	enlargelimits=0.05,
         	ybar={10pt},
             bar width=20pt,
@@ -346,14 +379,16 @@ Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwen
             	coordinates {(0,65)};
             \addplot[fill=cChart5]
             	coordinates {(0, 58)};
-            \legend{Word,Grammarly,Google,LanguageTool 3.1,Deepgrammar}
+            \legend{Word,Grammarly,Google,LanguageTool,Deepgrammar}
         \end{axis}
     \end{tikzpicture}
-\end{figure}
+    \caption*{Quelle: In Anlehnung an \textcite{MuganEvaluationComparison}}
+\end{figure} %wrapfigure}
+Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate, welche in der Tabelle \ref{deepgrammar} zu sehen sind, sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Microsoft Word}\footnote{Microsoft Word ist ein Programm zur Textverarbeitung und Dokumenterstellung von Microsoft~\autocite{MicrosoftCorporation2018MicrosoftOffice}.} oder \textit{Language Tool 3.1}\footnote{\enquote{LanguageTool ist eine Software zur Textprüfung [...]}~ \autocite{LanguageTool2018LanguageToolGrammatik}}. und sogar besser als \textit{Grammarly}\footnote{Grammarly verspricht präzise, kontextabhängige Korrekturen von Texten~\autocite{GramarlyInc.2018Grammarly:Checker}} und \textit{Google Docs}\footnote{Google Docs ist eine Online-Lösung zur Textverarbeitung von Google~\autocite{GoogleLLC2018GoogleBearbeiten}}~\autocite{MuganEvaluationComparison}.
 
-\todo[inline,color=red]{Grafik aus deepgrammer website hier einfügen...}
+% TODO: Mugan erwähnt eine bessere Studie. In der Thesis diese verwenden, da Zahlen aus DeepGrammar nicht 100% korrekt sind https://arxiv.org/pdf/1807.01270.pdf
 
-%\todo[color=yellow]{Jahr dieser Untersuchung?}
+Ein weiterer grosser Vorteil von Neuronalen Netzwerken zur Fehlerkorrektur erwähnt \textcite{Mugan2018PersonlicheE-Mail} in einer persönlichen Kommunikation: Das Neuronale Netzwerk kann auf das Domänenspezifische Lexikon trainiert werden. Das Netzwerk kann beispielsweise mit medizinischen Begriffen aus den Rechnungen trainiert werden, so dass die Resultate noch besser sind~\autocite{Mugan2018PersonlicheE-Mail}.
 
 \subsubsection{Informationsextraktion aus natürlichen Texten}
 
@@ -440,8 +475,7 @@ Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Imple
 %
 %uf diese Themengebiete / ihren Wissensstand eingehen}
 
-\newpage
-\section{Zielsetzungen, inhaltliche Abgrenzung}
+\mysection{Zielsetzungen, inhaltliche Abgrenzung}
 
 \todo[inline]{
 In der Zielsetzung werden neben der Beantwortung der Forschungsfrage die darüber hinausgehenden Ziele benennt, die mit der Thesis verfolgt werden (was soll mit der Untersuchung erreicht werden, wer kann welchen Nutzen aus der Thesis ziehen?). 
@@ -449,14 +483,11 @@ In der Zielsetzung werden neben der Beantwortung der Forschungsfrage die darübe
 Indem angegeben wird, was (Forschungsfrage) warum (Zielsetzung) untersucht werden soll, kann auch definiert werden, welche Fragen, Inhalte und Ziele in der Thesis nicht verfolgt, also bewusst ausgeklammert werden.
 }
 
+Diese Arbeit hat zum Ziel, die Grundlagen der künstlichen Intelligenz und des Machine Learnings in einer kompakten Form darzulegen, damit auf diesem Wissen aufgebaut werden kann.
+
 Neben der Beantwortung der Forschungsfrage anhand des beschriebenen Fallbeispiels soll geklärt werden, ob Investitionen in die Automatisierung des dargelegten Prozesses durch Künstliche Intelligenz gemacht werden sollen.
 
-\todo[inline]{
-Etwas mehr schreibe... Nur was?
-}
-
-%\todo[inline, color=yellow]{Diese [Forschungsfrage] können Sie am Beispiel AXA etc. untersuchen, wobei Sie das in einem klassischen Format „Kosten/Nutzen, respektive Risiken/Chancen abwägen“ tun könnten. }
-
+\newpage % because of graphic...
 \subsection{Abgrenzung Fallbeispiel}
 
 Der Prozess der Rechnungseinreichung (vgl. Abbildung \ref{prozessaxa}) der AXA umfasst den Rechnungseingang, ob digital oder per Post, eine erste Qualitätskontrolle, die Indexierung, die fachliche Prüfung, die Abrechnung und falls notwendig die Weiterleitung an den Grundversicherer.
@@ -497,48 +528,38 @@ Die Entwicklung des Prototypen beschränkt sich auf den Prozessschritt der Index
 
 % Für das Fallbeispiel wird ein Prototyp entwickelt, welcher die Indexierung der Rechnungen abdeckt. Für den Prototypen ist es als Ausgangslage wichtig, in welcher Form und Qualität die Rechnungen beim Krankenversicherer ankommen. Weiter ist es für die Zielsetzung wichtig, in welches Format die Rechnungen gebracht werden müssen, damit diese anschliessend weiterverarbeitet werden können. Diese beiden Aspekte sollen als Rahmenbedingungen für den Prototypen gelten.
 
-\newpage
-\section{Methodische Vorgehensweise}
+\mysection{Methodische Vorgehensweise}
 
 \todo[inline]{
 Hier wird die methodische Vorgehensweise zur Beantwortung der Forschungsfrage erläutert. Die Vorgehensweise bezieht sich auf die Art der empirischen Datenerhebung (qualitativ, quantitativ oder eine Mischform) wie auch auf die geplante Auswertung der erhobenen Daten. Methoden der Datenerhebung sind beispielsweise eine Umfrage oder Interviews, Methoden der Datenanalyse sind beispielsweise statistische Tests oder eine Inhaltsanalyse. Es wird beschrieben, wie bei der Datenerhebung und -analyse vorgegangen werden soll (wer soll wie befragt werden, wie werden die Daten analysiert) und welche kritischen Aspekte in der Erhebung und Analyse zu erkennen sind
 }
 
-\todo[inline, color=red]{Vorgehen klarer strukturiert und detaillierter beschreiben? (Verschiedene 
-Zugänge zur Forschungsfrage? Wie genau entwickeln Sieden Prototyp? Wie
-testen Sie Ihn? Wie erheben Sie welche Daten? Wie werten Sie die gewonnenen 
-Daten aus? (Siehe Kommentare im pdf. Im Kapitel Vorgehen sehe ich den 
-einzigen grösseren Optimierungsbedarf.)}
-
-\todo[inline,color=green]{Modell mit Stufen (Texterkennung (OCR, Korrektur), Informationsextraktion (IE, Strukturierung) und "Selbstcheck" (prüfung ob ergebnis ok oder ob auslenken)
-
-Kriterien/Erwartungen für einzelne Schritte definieren}
-
 Kapitel 2 bietet einen literaturbasierten Zugang zur Forschungsfrage. Dabei wird erläutert, was eine erfolgreiche Automatisierung eines Geschäftsprozesses ausmacht. Weiter werden Versuche der Automatisierung, bei welchen künstliche Intelligenz zur Anwendung gekommen ist, diskutiert.
 
-Im Kapitel 3 wird der aktuelle Forschungsstand im Gebiet der künstlichen Intelligenz präsentiert und Techniken aus diesem Bereich erläutert.
+Im Kapitel 3 wird der aktuelle Forschungsstand im Gebiet der künstlichen Intelligenz präsentiert und Techniken aus diesem Bereich erläutert. Ziel dieses Kapitel ist es, die notwendigen Grundlagen zu erarbeiten, die für die Entwicklung des Prototypen benötigt werden.
 % Grobkzept: Forschungsstand
 
-Der Hauptteil der Arbeit wird in Kapitel 4 abgehandelt. Es werden erst die Rahmenbedingungen für den Prototypen definiert und erläutert. Zu diesen Rahmenbedingungen gehören sowohl das Format und die Qualität der Rechnungen als auch die Erwartungen hinsichtlich Form und Qualität der Resultate. Damit der Prototyp bewertet werden kann, wird ein Set an Tests definiert. Folgend wird der Prototyp entwickelt. Dabei wird der Entwicklungsprozess dokumentiert. Der Abschluss bildet das Testen des Prototypen anhand der zuvor definierten Tests.
+Der Hauptteil der Arbeit wird in Kapitel 4 abgehandelt. Es werden erst die Rahmenbedingungen für den Prototypen definiert und erläutert. Zu diesen Rahmenbedingungen gehören sowohl das Format und die Qualität der Rechnungen als auch die Erwartungen hinsichtlich Form und Qualität der Resultate. Damit der Prototyp bewertet werden kann, wird ein Set an Tests definiert. Folgend wird der Prototyp in einem iterativen und explorativen Prozess entwickelt. Damit die komplexe Problemstellung bewätltigt werden kann, wird der Prototyp zwei Hauptaspekte, die Texterkennung und die Informationsextraktion aufgeteilt.
 
-Schlussendlich wird anhand der Resultate aus der Literaturrecherche sowie dem Test des Prototypen die Forschungsfrage beantwortet. Weiter werden Empfehlungen abgeleitet.
+Als erstes wird der Aspekt der Texterkennung bearbeitet. Dafür wird eine Texterkennung, mit einem LSTM Netzwerk, sowie eine Rechtschreibekorrektur, ebenfalls mit einem LSTM Netzwerk, angewendet.
 
-Während die Forschungsfrage aufgrund existierender Literatur diskutiert wird, bildet der Prototyp, welcher zur Diskussion des Fallbeispiels entwickelt wird, eine zentrale Rolle bei der Beantwortung der Forschungsfrage.
+In einem zweiten Schritt wird die Informationsextraktion in Angriff genommen. Dieser komplexe Teilbereich wird wiederum in verschiedene Experimente aufgeteilt. Es werden diverse Experiment mit Named Entity Recognition and Classification, Text Classification und weiteren Techniken aus dem Gebiet der Information Extraction gemacht. Welche dieser Experimente erfolgreich sein werden kann zu diesem Zeitpunkt noch nicht abgeschätzt werden.
 
-\todo[inline, color=red]{Vorschlag: Vielleicht den Aspekt \enquote{learning by doing} erwähnen.}
+Zum Schluss werden die einzelnen Bausteine des Prototypen zu einem grossen ganzen zusammengesetzt und es werden End-to-End Tests mit Beispielrechnungen gemacht. Testdaten werden dabei aus verschiedenen Quellen, wie Beispielsweise vom Forum Datenaustausch und von der AXA, bezogen.
 
-\todo[inline, color=red]{Frage: Wer definiert die Erfolgskriterien? Machst Du das alleine? 
+Schlussendlich wird anhand der Resultate aus der Literaturrecherche, den Ergebnissen der einzelnen Schritte des Prototypen sowie dem Test des gesamten Prototypen die Forschungsfrage beantwortet. Weiter werden Empfehlungen für die AXA abgeleitet, wie im konkreten Fallbeispiel verfahren werden soll.
 
-Hinweis: Bitte achte darauf, dass Du das Ganze objektiv machen kannst und dass diese Rahmenbedingungen und Erfolgskriterien valide sind. 
-
--> eine Möglichkeit: basierend auf Literatur (1:1)
-
-- > andere Möglichkeit: adaptiert von Literatur, dann aber besprochen mit Experten}
-
-\todo[inline, color=red]{Vorschlag: Evtl. wäre das Design Science Research Modell etwas für Dich? Siehe Anhang im Mail. Ich weiss aber nicht, ob ihr in der Schule etwas in diese Richtung schon angeschaut habt. :)}
+%\todo[inline, color=red]{Frage: Wer definiert die Erfolgskriterien? Machst Du das alleine? 
+%
+%Hinweis: Bitte achte darauf, dass Du das Ganze objektiv machen kannst und dass diese Rahmenbedingungen und Erfolgskriterien valide sind. 
+%
+%-> eine Möglichkeit: basierend auf Literatur (1:1)
+%
+%- > andere Möglichkeit: adaptiert von Literatur, dann aber besprochen mit Experten}
+%
+%\todo[inline, color=red]{Vorschlag: Evtl. wäre das Design Science Research Modell etwas für Dich? Siehe Anhang im Mail. Ich weiss aber nicht, ob ihr in der Schule etwas in diese Richtung schon angeschaut habt. :)}
  
-\newpage
-\section{Provisorisches Inhaltsverzeichnis} 
+\mysection{Provisorisches Inhaltsverzeichnis} 
 
 \todo[inline]{
 Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Thesis und welche wissenschaftlichen Theorien und Erklärungsansätze zur Beantwortung der Forschungsfrage herangezogen werden, definiert. Die Überschriften der Hauptkapitel der Thesis lassen die relevanten Teilaspekte des Themas und das methodische Vorgehen erkennen. Weitere Hinweise zum Aufbau der Thesis befinden sich in den Richtlinien für die Erstellung von Bachelor und Master Theses, Punkt 5.
@@ -597,8 +618,7 @@ Im provisorischen Inhaltsverzeichnis werden die thematischen Schwerpunkte der Th
     \end{enumerate}
 }
 
-\newpage
-\section{Meilensteine}
+\mysection{Meilensteine}
 
 \todo[inline]{
 Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis zur Abgabe der Bachelor Thesis als Meilensteine wiedergegeben und der Betreuungsperson 3 Besprechungstermine vorgeschlagen (siehe Punkt 2 der Spezifischen Regelungen für Bachelor Theses). Die Betreuungsperson bestätigt bei der Prüfung des Grobkonzeptes die Terminvorschläge oder schlägt andere Termine vor.
@@ -638,8 +658,7 @@ Hier werden die wichtigsten Arbeitsschritte vom Erstellen des Grobkonzeptes bis 
 \end{table}
 
 
-\newpage
-\section{Erste Quellenverweise zum Thema}
+\mysection{Erste Quellenverweise zum Thema}
 \todo[inline]{
 Hier werden bereits gelesene Quellen angeführt und auf weiterführende Literatur verwiesen, die noch ausgewertet wird.
 }
@@ -652,8 +671,6 @@ Hier werden bereits gelesene Quellen angeführt und auf weiterführende Literatu
     \nocite{Tredinnick2017ArtificialRoles}
     \printbibliography[heading=none]
 }
-
-\newpage
 
 \section{Anhang}
 
