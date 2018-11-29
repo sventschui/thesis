@@ -6,9 +6,9 @@
 \usepackage{titlesec}
 \usepackage[T1]{fontenc}
 
-\titlespacing*{\section}{0pt}{*130}{50pt}
+% \titlespacing*{\section}{0pt}{*130}{50pt}
 
-\newcommand{\sectionbreak}{\clearpage\vspace{30pt}}
+% \newcommand{\sectionbreak}{\clearpage\vspace{30pt}}
 
 \definecolor{coloraaa}{HTML}{AAAAAA}
 \newcommand{\hsp}{\hspace{20pt}}
@@ -269,7 +269,7 @@ In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist
     \caption*{Quelle: \textcite{Olah2015UnderstandingNetworks}}
 \end{figure}
 
-Ein Problem von RNNs ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen etwas länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, so gehen die diese verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese spezialform von Recurrent Neural Networks die auf vier, anstelle einer einzelnen, internen Schicht basieren~\autocite{Olah2015UnderstandingNetworks}.
+Ein Problem von RNNs ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen etwas länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, so gehen diese verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese spezialform von Recurrent Neural Networks die auf vier, anstelle einer einzelnen, internen Schicht basieren~\autocite{Olah2015UnderstandingNetworks}.
 \todo[inline,color=red]{HIER NOCH WEITER SCHREIBEN}
 \begin{figure}[h]
     \caption{Veranschaulichung des Informationsfluss eines LSTM Netzwerk mit seinen vier internen Schichten}
@@ -278,6 +278,7 @@ Ein Problem von RNNs ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht.
     \includegraphics[width=0.48\textwidth]{graphics/lstm.png}
     \caption*{Quelle: \textcite{Olah2015UnderstandingNetworks}}
 \end{figure}
+\todo[inline,color=red]{Legende für diese Grafik (NN, Pointwise, Copy, Concat, ...)}
 
 \subsubsection{Texterkennung}
 
