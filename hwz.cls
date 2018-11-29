@@ -22,7 +22,8 @@
 %#############################
 % TODO Notes
 %#############################
-\usepackage[color=lightgray]{todonotes}
+\definecolor{todocolor}{HTML}{CCCCCC}
+\usepackage[color=todocolor]{todonotes}
 
 %#############################
 % Merge list of figures and list of tables

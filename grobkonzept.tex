@@ -14,7 +14,15 @@
 \newcommand{\hsp}{\hspace{20pt}}
 \newcommand{\vsp}{\vspace{200pt}}
 \titleformat{\section}[hang]{\LARGE\bfseries}{\thesection\hsp\textcolor{coloraaa}{|}\hsp}{0pt}{\LARGE\bfseries}
-\newcommand{\mysection}[1]{\vspace*{200pt}\section{#1}}
+\titleformat{\subsection}[hang]{\LARGE\bfseries}{\thesection}{0pt}{\Large\bfseries}
+% This command would work but still has ugly page header
+\newcommand{\mysection}[1]{
+    % \thispagestyle{plain}
+    \newpage
+    % \vspace*{100pt}
+    \section{#1}
+    % \vspace{40pt}
+}
 
 % charts 
 \usepackage{pgfplots}
