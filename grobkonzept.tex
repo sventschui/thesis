@@ -2,6 +2,11 @@
 \input{colors.tex}
 % \usepackage{showframe}
 
+% charts 
+\usepackage{pgfplots}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/]
+
 % floating figures/tables
 \usepackage{wrapfig}
 
@@ -218,13 +223,31 @@ Einen etwas mathematischeren Überblick über das Thema künstliche Intelligenz 
 
 Zusammenfassend kann gesagt werden, dass in der Grundlagenforschung zur künstlichen Intelligenz bereits viele Forschungsergebnisse vorliegen. Es werden etliche, etablierte und experimentelle, Techniken diskutiert. Für die Entwicklung des Prototypen für die AXA stehen somit viele Möglichkeiten zur Verfügung.
 
-Um einen ersten Überblick über die Problemstellung zu erhalten, werden einige Techniken im Bereich der künstlichen Intelligenz, welche für die Beantwortung der Forschungsfrage sowie für die Entwicklung des Prototypen relevant sind, in den folgenden Kapiteln erkundet. 
+Um einen ersten Überblick über die Problemstellung zu erhalten, werden einige Techniken im Bereich der künstlichen Intelligenz, welche für die Beantwortung der Forschungsfrage sowie für die Entwicklung des Prototypen relevant sind, in den folgenden Kapiteln erkundet.
+
+\subsubsection{Neuronale Netzwerke}
+
+Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des Menschlichen Gehirns zu einem Computer ist allerdings der Fakt, dass unser Gehirn lernt ohne ein Software-Update zu erhalten. Wir brauchen nicht erst eine neue Software um das Fahrradfahren zu erlernen. Doch wie funktioniert das~\autocite{Krogh2008WhatNetworks}?
+
+Die Berechnungen unseres Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die Neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 Modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale Ein- oder Ausgeschaltet sind. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Neuronale Netzwerke sind also inspiriert von den ersten Modellen des menschlichen Gehirns~\autocite{Krogh2008WhatNetworks}.
+
+Damit ein Neuronales Netzwerk Leistungsfähig werden kann, muss es ähnlich wie ein Mensch, aber erst lernen. Das computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die stärke der Synpasen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Beispielaufgabe vom Netzwerk gelöst. Das Resultate des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Beispielaufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert~\autocite{Krogh2008WhatNetworks}.
+
+Seit mehreren Jahren liefern Neuronale Netzwerke bessere Resultate als andere Techniken. Dabei werden Neuronale Netzwerk vorwiegend für visuelle Tasks und immer häufiger auch zur Verarbeitung Natürlicher Sprache verwendet~\autocite{Olah2014DeepRepresentations}.
+
+\todo[inline]{Say a word on overfitting}
+
+\todo[inline]{Say something about learning strategies (supervised / unsupervised)}
+
+\subsubsection{LSTM Netzwerke}
+
+\todo[inline,color=red]{Bla bla...}
 
 \subsubsection{Texterkennung}
 
 Ein wichtiger Bestandteil des Prototypen zur Indexierung von Rechnungen ist die Erkennung von Texten, ob Druckbuchstaben oder Handschrift, auf den Rechnungen. Die erkannten Texte bilden die Grundlage für jegliche digitale Verarbeitung der Rechnungen.
 
-Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Photographien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Long-Short-Term-Memory} (LSTM) Netzwerke, \textit{Connectionist Temporal Classification} (CTC), \textit{Convolutional Neural Network} (CNNs) und mehr~\autocite{Neuberg2017CreatingLearning}.
+Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Photographien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Convolutional Neural Network} (CNNs),  \textit{Long-Short-Term-Memory} (LSTM) Netzwerke, \textit{Connectionist Temporal Classification} (CTC) und mehr~\autocite{Neuberg2017CreatingLearning}.
 
 \todo[inline, color=red]{Beschreibung von LSTM, CTC und CNN
 
@@ -232,12 +255,100 @@ Inline etwas ungünstig für den lesefluss... "Tabelle" sinnvoll?}
 
 Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007AnEngine, o.V.20184.0LSTM}. So wurde die feature detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
 
+\subsubsection{Word embedding}
+
+Neuronale Netzwerke funktionieren mit Zahlen, damit auch Wörter und ganze Sätze von solchen Netzwerken verarbeitet werden können, muss eine geeignete Repräsentation von Wörtern mit Zahlen gefunden werden. Der Prozess, mit welchem ein Wort in eine zahlen basierte Repräsentation gebracht wird, nennt sicht Word empedding~\autocite{Olah2014DeepRepresentations}.
+
+Die ersten Word embeddings wurden von \textcite{Bengio2001Advances13} eingeführt. Trotz des schon fortgeschrittenen Alter dieses Forschungsgebiet ist es noch immer hoch interessant und in voller Fahrt~\autocite{Olah2014DeepRepresentations}.
+
+\begin{wrapfigure}{r}{0.5\textwidth} 
+    \caption{Modulares Netzwerk zur Validierung von 5-Grammen mit einer Word embedding Funktion ($W$) und einem Neuronal Netzwerk ($R$)}
+    \label{wordembeddingtraining}
+    \centering
+    \includegraphics[width=0.48\textwidth]{graphics/wordembeddingtraining.png}
+    \caption*{Quelle: \textcite{Olah2014DeepRepresentations}}
+\end{wrapfigure}
+Technisch gesehen ist ein Word embedding eine parametrierte Funktion, die Wörter einer bestimmten Sprache in einen hoch-dimensionalen Vektor (typischerweise 200-500 Dimensionen) transformiert. Um diese hoch komplexe Funktion zu definieren, kommt, wie bei den Neuronalen Netzwerken, Machine Learning zum Einsatz. \textcite{Olah2014NeuralTopology} beschreibt in seinem Artikel ein Beispiel, bei welchem eine solche Word embedding Funktion trainiert wird, indem die Resultate aus dem Word embedding in ein Neuronales Netzwerk zur Prüfung eines 5-Grammes (Satz mit 5 Wrötern) gespiesen werden und dann das Gesamtkonstrukt trainiert wird (vgl. Abbildung \ref{wordembeddingtraining})~\autocite{Olah2014NeuralTopology}.
+
+Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014DeepRepresentations} zwei verschiedene Visualisierungsmöglichkeiten heran~\autocite{Olah2014DeepRepresentations}.
+
+Die erste Visualisierung bedient sich dem t-SNE Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In diesem Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne}~\autocite{Olah2014DeepRepresentations}.
+\begin{figure}[h]
+    \centering
+    \caption{t-SNE Darstellung eines Word embeddings, die verdeutlicht, dass ähnliche Wörter ähnliche Vekotren aufweisen}
+    \includegraphics[width=\textwidth]{graphics/wordmebeddingtsne.png}
+    \caption*{Quelle: \textcite{Turian2010WordLearning} in \textcite{Olah2014DeepRepresentations}}
+    \label{wordembeddingtsne}
+\end{figure}
+
+Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddingtable}) für sechs Wörter die nächsten Embeddings, sprich mit den mathematisch nächsten Vektoren, auf. So werden beispielsweise unter dem Titel \enquote{FRANCE} neben \textit{EUROPA} diverse weitere Länder aufgelistet.
+\begin{table}[h]
+\centering
+    \caption{Sechs Ausgangswörter mit den ihnen ähnlichsten Word embeddings, sprich mit den mathematisch nächsten Vektoren}
+    \label{wordembeddingtable}
+    \renewcommand{\arraystretch}{1.25}
+    \setlength{\tabcolsep}{3pt}
+    \small
+    \begin{tabular}{ | l | l | l | l | l | l |}
+    \hline
+    \rowcolor{ccc} FRANCE & JESUS & XBOX & REDDISH & SCRATCHED & MEGABITS \\ \hline
+    AUSTRIA & GOD & AMIGA & GREENISH & NAILED & OCTETS \\ \hline
+    BELGIUM & SATI & PLAYSTATION & BLUISH & SMASHED & MB/S \\ \hline
+    GERMNAY& CHRIST & MSX & PINKISH & PUNCHED & BIT/S \\ \hline
+    ITALY & SATAN & IPOD & PRUPLISH & POPPED & BAUD \\ \hline
+    GREECE & KALI & SEGA & BROWNISH & CRIMPED & CARATS \\ \hline
+    SWEDEN & INDRA & PS\textit{NUMBER} & GREYISH & SCRAPED & KBIT/S \\ \hline
+    NORWAY & VISHNU & HD & GRAYISH & SCREWED & MEGAHERTZ \\ \hline
+    EUROPE & ANANDA & DRAMCAST & WHITISH & SECTIONED & MEGAPIXELS \\ \hline
+    HUNGARY & PARVATI & GEFORCE & SILVERY & SLASHED & GBIT/S \\ \hline
+    SWITZERLAND & GRACE & CAPCOM & YELLOWISH & RIPPED & AMPERES \\ \hline
+    \end{tabular}
+    \caption*{Quelle: \textcite{Collobert2011NaturalScratch} in \textcite{Olah2014DeepRepresentations}}
+\end{table}
+
+Sowohl Abbildung \ref{wordembeddingtsne} als auch Tabelle \ref{wordembeddingtable}, zeigen die Stärke von Word embeddings auf: Ähnliche Wörter werden mit ähnlichen Vektoren versehen und somit wird eine komplexe Landschaft von Zusammengehörigen Wörtern gebildet. Aufgrund dieser Eigenschaft verändert sich durch den Austausch eines Wortes mit einem Synonym der Input Vektor für ein nachfolgendes Neuronale Netzwerk nur geringfügig, da die Word embeddings der beiden Synonyme sehr ähnlich sind. Somit muss dieses nachfolgende Neuronale Netzwerk nicht für alle Wörter der Welt trainiert werden, sondern kann auf die Generalisierung durch das Word embedding aufbauen~\autocite{Olah2014DeepRepresentations}.
+
+Word embeddings sind zu einem extrem wichtigen Baustein bei der Verarbeitung von Natürlichen Texten geworden. Neben Input und Output Repräsentationen bei NLP Tasks können Word embeddings auch Output Repräsentationen in der Bilderkennung sein~\autocite{Olah2014DeepRepresentations}. 
+
+Für den Prototypen bilden Word embeddings eine wichtige Grundlage, da durch diese Tehcnik die in den Rechnungen enthaltenen Wröter und Sätze in eine generalisierte, durch Neuronale Netzwerke verarbeitbare Form gebracht werden können.
+
 \subsubsection{Korrektur von Rechtschreibung und Grammatik}
 
-Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Text nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt. 
-LSTM Modelle wurden im Bereich des \textit{Natural Language Processing} (kurz NLP)\todo[color=red,inline]{Begriff NLP erklären} bereits erfolgreich angewendet um Rechtschreibung und Grammatik zu korrigieren. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
+Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Texte nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt.
+
+Mit Hilfe der in einem vorherigen Kapiteln eingeführten Technik des Word embeddings und von LSTM Netzwerken lässt sich diese Problematik angehen. So kann ein Modulares Netzwerk aus Word embeddings und mehreren LSTM Schichten verwendet werden, um eine Rechtschreibkorrektur vorzunehmen. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
 
 Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate dabei sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Microsoft Word}\footnote{Microsoft Word ist ein Programm zur Textverarbeitung und Dokumenterstellung von Microsoft~\autocite{MicrosoftCorporation2018MicrosoftOffice}.} oder \textit{Language Tool 3.1}\footnote{\enquote{LanguageTool ist eine Software zur Textprüfung [...]}~ \autocite{LanguageTool2018LanguageToolGrammatik}}. und sogar besser als \textit{Grammarly}\footnote{Grammarly verspricht präzise, kontextabhängige Korrekturen von Texten~\autocite{GramarlyInc.2018Grammarly:Checker}} und \textit{Google Docs}\footnote{Google Docs ist eine Online-Lösung zur Textverarbeitung von Google~\autocite{GoogleLLC2018GoogleBearbeiten}}~\autocite{MuganEvaluationComparison}.
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ytick={0,10,20,30,40,50,60,70},
+            ymin=0,
+            ymax=70,
+            xticklabels=\empty,
+            xtick style={draw=none},
+        	ylabel={Erfolgsrate bei der Prüfung von 418 Textsnippets [\%]},
+        	enlargelimits=0.05,
+        	ybar={10pt},
+            bar width=20pt,
+            legend style={cells={anchor=west},at={(1,-0.02)}, legend columns=2}, 
+            area legend,
+        ]
+            \addplot[fill=cChart1]
+            	coordinates {(0,61)};
+            \addplot[fill=cChart2]
+            	coordinates {(0,54)};
+            \addplot[fill=cChart3]
+            	coordinates {(0,54)};
+            \addplot[fill=cChart4]
+            	coordinates {(0,65)};
+            \addplot[fill=cChart5]
+            	coordinates {(0, 58)};
+            \legend{Word,Grammarly,Google,LanguageTool 3.1,Deepgrammar}
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
 
 \todo[inline,color=red]{Grafik aus deepgrammer website hier einfügen...}
 
@@ -397,6 +508,10 @@ Zugänge zur Forschungsfrage? Wie genau entwickeln Sieden Prototyp? Wie
 testen Sie Ihn? Wie erheben Sie welche Daten? Wie werten Sie die gewonnenen 
 Daten aus? (Siehe Kommentare im pdf. Im Kapitel Vorgehen sehe ich den 
 einzigen grösseren Optimierungsbedarf.)}
+
+\todo[inline,color=green]{Modell mit Stufen (Texterkennung (OCR, Korrektur), Informationsextraktion (IE, Strukturierung) und "Selbstcheck" (prüfung ob ergebnis ok oder ob auslenken)
+
+Kriterien/Erwartungen für einzelne Schritte definieren}
 
 Kapitel 2 bietet einen literaturbasierten Zugang zur Forschungsfrage. Dabei wird erläutert, was eine erfolgreiche Automatisierung eines Geschäftsprozesses ausmacht. Weiter werden Versuche der Automatisierung, bei welchen künstliche Intelligenz zur Anwendung gekommen ist, diskutiert.
 
