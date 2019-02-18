@@ -1,46 +1,5 @@
 \documentclass{hwz}
-\input{colors.tex}
 % \usepackage{showframe}
-
-% heading
-\usepackage{titlesec}
-\usepackage[T1]{fontenc}
-
-% \titlespacing*{\section}{0pt}{*130}{50pt}
-
-% \newcommand{\sectionbreak}{\clearpage\vspace{30pt}}
-
-\definecolor{coloraaa}{HTML}{AAAAAA}
-\newcommand{\hsp}{\hspace{20pt}}
-\newcommand{\vsp}{\vspace{200pt}}
-\titleformat{\section}[hang]{\LARGE\bfseries}{\thesection\hsp\textcolor{coloraaa}{|}\hsp}{0pt}{\LARGE\bfseries}
-\titleformat{\subsection}[hang]{\LARGE\bfseries}{\thesection}{0pt}{\Large\bfseries}
-% This command would work but still has ugly page header
-\newcommand{\mysection}[1]{
-    % \thispagestyle{plain}
-    \newpage
-    % \vspace*{100pt}
-    \section{#1}
-    % \vspace{40pt}
-}
-
-% charts 
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.13}
-
-% floating figures/tables
-\usepackage{wrapfig}
-
-% charts (e.g. flowcharts)
-\usepackage{tikz}
-\usetikzlibrary{positioning} % for right=of ... syntax
-\usetikzlibrary{shapes.geometric, arrows}
-\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
-\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=igloo-darker, fill=igloo!50]
-\tikzstyle{process2} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=igloo-darker, fill=igloo!100]
-\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
-\tikzstyle{arrow} = [thick,->,>=stealth]
 
 \begin{document}
 
@@ -111,58 +70,59 @@ Die Forschungsfrage schliesslich bündelt die zentralen Aspekte des Forschungspr
 
 % \subsection{Fallbeispiel}
 
-Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Landwirtschaft gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicher Intelligenz in der Produktion von Saatgut, diskutieren~\autocite{Patricio2018ComputerReview}. 
+Die Anwendung der künstlichen Intelligenz zur Automatisierung von Aufgaben wird in einigen Branchen bereits diskutiert. Im Bereich der Produktion von Saatgut gibt es bereits mehrere Studien, welche die Lösung der Problematiken der Krankheitserkennung, Saatgutqualität sowie der Phänotypisierung unter Anwendung von computergestützter Bildverarbeitung mit künstlicher Intelligenz diskutieren~\autocite{Patricio2018}. 
 
-Um die Produktion des neuen Airbus A350 schnellstmöglich auf Hochtouren zu bringen wurde künstliche Intelligenz angewendet. Ein System, welches von Airbus entwickelt wurde, ermöglicht dank künstlicher Intelligenz, in 70\% aller Unterbrüche der Produktion in kürzester Zeit eine Lösung auszuarbeiten~\autocite{Ransbotham2017ReshapingIntelligence}.
+Um die Produktion des neuen Airbus A350 schnellstmöglich auf Hochtouren zu bringen wurde künstliche Intelligenz angewendet. Ein System, welches von Airbus entwickelt wurde, ermöglicht dank künstlicher Intelligenz, in 70\% aller Unterbrüche der Produktion in kürzester Zeit eine Lösung auszuarbeiten~\autocite{Ransbotham2017}.
 
-Auch Ping An Insurance Co. of China Ltd., eine der grössten Versicherungsgesellschaften von China, verwendet bereits künstliche Intelligenz zur Automatisierung von diversen Kundenservices~\autocite{Ransbotham2017ReshapingIntelligence}.
+Auch Ping An Insurance Co. of China Ltd., eine der grössten Versicherungsgesellschaften von China, verwendet bereits künstliche Intelligenz zur Automatisierung von diversen Kundenservices. Die Versicherung beschäftigt 110 Datascientists die bereits etliche Initiativen im Bereich der künstlichen Intelligenz umgesetzt haben~\autocite{Ransbotham2017}.
 
-Neben diesen Pionieren erwähnen \textcite{Ransbotham2017ReshapingIntelligence} in Ihrer Untersuchung aber auch, dass nur 14\% der Befragten denken, dass künstliche Intelligenz aktuell einen hohen Einfluss auf Ihre Angebote und Dienstleistungen haben. Jedoch denken 63\%, dass sich dies in den nächsten 5 Jahren ändern wird und die künstliche Intelligenz ein entscheidender Wettbewerbsvorteil bieten kann. Trotz des Verständnis der künstlichen Intelligenz und des Potential einen Wettbewerbsvorteil zu schaffen, wird diese noch zu wenig angewendet\autocite{Ransbotham2017ReshapingIntelligence}.
+Neben diesen Pionieren erwähnen \textcite{Ransbotham2017} in Ihrer Untersuchung aber auch, dass nur 14\% der Befragten denken, dass künstliche Intelligenz aktuell einen hohen Einfluss auf Ihre Angebote und Dienstleistungen haben. Jedoch denken 63\%, dass sich dies in den nächsten 5 Jahren ändern wird und die künstliche Intelligenz ein entscheidender Wettbewerbsvorteil bieten kann. Trotz des Verständnis der künstlichen Intelligenz und des Potential einen Wettbewerbsvorteil zu schaffen, wird diese noch zu wenig angewendet~\autocite{Ransbotham2017}.
 
-Auch im \textcite{TheEconomist2018TheAI} wird der mögliche Wettbewerbsvorteil durch die Anwendung von künstlicher Intelligenz angesprochen. Auch ausserhalb des Technologie-Sketors, in Branchen, welche aktuell durch den Konkurrenzkampf geprägt sind, werden grosse Firmen durch die anwendung künstliche Intelligenz noch grösser und entwickeln sich zu Monopolen~\autocite{TheEconomist2018TheAI}.
+Auch im \textcite{TheEconomist2018} wird der mögliche Wettbewerbsvorteil durch die Anwendung von künstlicher Intelligenz angesprochen. Auch ausserhalb des Technologie-Sketors, in Branchen, welche aktuell durch den Konkurrenzkampf geprägt sind, werden grosse Firmen durch die Anwendung künstliche Intelligenz noch grösser und entwickeln sich zu Monopolen.
 
 \subsection{Potential der künstlichen Intelligenz bei der AXA Gesundheitsvorsorge}
 
-In diesem Kapitel wird ein Fallbeispiel beschrieben, in welchem die Anwendung künstlicher Intelligenz einen Wettbewerbsvorteil haben könnte. Dieser Fall wird für den Arbeitgeber des Autor, die AXA Gesundheitsvorsorge, untersucht. Einige der Aussagen in diesem Kapitel werden basieren auf der Berufserfahrung des Autoren getroffen.
+In diesem Kapitel wird ein Fallbeispiel beschrieben, in welchem die Anwendung künstlicher Intelligenz einen Wettbewerbsvorteil haben könnte. Dieser Fall wird für den Arbeitgeber des Autor, die AXA Gesundheitsvorsorge, untersucht. Einige der Aussagen in diesem Kapitel basieren auf der Berufserfahrung des Autoren.
 
-In der Schweiz beliefen sich die Kosten für das Gesundheitswesen im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden von den Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz \autocite{BfS2018Finanzierung, BfS2017KostenDaten}.
+In der Schweiz beliefen sich die Kosten für das Gesundheitswesen im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden von den Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz~\autocite{BfS2018}.
 
-Die Kosten des Gesundheitswesen steigen stetig an, so weisen die Zahlen vom Jahr 2016 bereits Kosten von über 80 Milliarden Franken nach. Auch in den folgenden Jahren sollen die Kosten weiter steigen. \textcite{Kirchgassner2009DasKostenentwicklung} begründet diesen Anstieg unter anderem mit der Veränderung der Altersstruktur, dem steigenden Wohlstand sowie den neuen Möglichkeiten in der Diagnose und Behandlung durch technischen Fortschritt~\autocite{BfS2018Finanzierung, Kirchgassner2009DasKostenentwicklung}.
+Die Kosten des Gesundheitswesen steigen stetig an, so weisen die Zahlen vom Jahr 2016 bereits Kosten von über 80 Milliarden Franken nach~\autocite{BfS2018}. Auch in den folgenden Jahren sollen die Kosten weiter steigen. \textcite{Kirchgassner2009} begründet diesen Anstieg unter anderem mit der Veränderung der Altersstruktur, dem steigenden Wohlstand sowie den neuen Möglichkeiten in der Diagnose und Behandlung durch technischen Fortschritt.
 
-Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, \textit{Tiers payant} oder \textit{Tiers garant}, vergütet \autocite{EDI2017FaktenblattVergutungssysteme}. 
+Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, \textit{Tiers payant} oder \textit{Tiers garant}, vergütet (vgl. Tabelle \ref{tiers}~\autocite{EDI2017}. 
 
 \begin{wraptable}{l}{0.53\textwidth}
     \renewcommand{\arraystretch}{1.25}
     \setlength{\tabcolsep}{5pt}
     \caption{Vergütungsmodelle bei den schweizer Krankenversicherern}
+    \label{tiers}
     \begin{tabular}{| p{0.15\textwidth} | p{0.32\textwidth} |}
         \hline
-         Tier payant & Kosten werden vom Leistungserbringer direkt dem Krankenversicherer in Rechnung gestellt. \\
+         Tiers payant & Kosten werden vom Leistungserbringer direkt dem Krankenversicherer in Rechnung gestellt. \\
         \hline
-         Tier garant & Kosten werden vom Leistungserbringer dem Patienten in Rechnunge gestellt, welcher die Rechnung dem Krankenversicherer zur Rückvergütung weiterleitet. \\
+         Tiers garant & Kosten werden vom Leistungserbringer dem Patienten in Rechnung gestellt, welcher die Rechnung dem Krankenversicherer zur Rückvergütung weiterleitet. \\
         \hline
     \end{tabular}
 \end{wraptable}
 
-Beim System Tier payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, in dem der Patient mit seiner Versichertenkarte bezahlt. Anhand dieser Versichertenkarte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt und der Krankenversicherer kann mit einem entsprechenden Regelwerk die Rechnung automatisch verarbeiten~\autocite{EDI2017FaktenblattVergutungssysteme, BAG2016AntwortenVersichertenkarte}. 
+Beim System Tiers payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, indem der Patient mit seiner Versichertenkarte bezahlt. Anhand dieser Versichertenkarte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt~\autocite{EDI2017}. 
 
-Werden Kosten, welche über Tier payant abgerechnet wurden, nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Krankenversicherer die Kosten dem Patienten weiter \autocite{EDI2017FaktenblattVergutungssysteme}.
+Werden Kosten, welche über Tiers payant abgerechnet wurden, nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Krankenversicherer die Kosten dem Patienten weiter \autocite{EDI2017}.
 
-Das System Tier payant wird häufig in Apotheken, beim Kauf von Medikamenten mit oder ohne ärztlichem Rezept, sowie bei allen stationären Behandlungen, gemäss Art. 42 Abs. 2 KVG, verwendet \autocite{EDI2017FaktenblattVergutungssysteme}.
+Das System Tiers payant wird häufig in Apotheken, beim Kauf von Medikamenten mit oder ohne ärztlichem Rezept, sowie bei allen stationären Behandlungen, gemäss Art. 42 Abs. 2 KVG, verwendet \autocite{EDI2017}.
 
-Die Verarbeitung von Rechnungen, welche über das System Tier payant abgerechnet werden, kann der Krankenversicherer, aufgrund der digitalen, strukturierten Daten, automatisiert gestalten~\autocite{BAG2016AntwortenVersichertenkarte}.
+Die Verarbeitung von Rechnungen, welche über das System Tiers payant abgerechnet werden, kann der Krankenversicherer, aufgrund der digitalen, strukturierten Daten, automatisiert gestalten~\autocite{BAG2016}.
 
-Im Fall von Tiers garant stellt der Leistungserbringer die Rechnung direkt dem Patienten aus, welcher diese dann seinem Krankenversicherer zur Rückerstattung weiterleitet. Die Rechnung kann bei allen Krankenversicherern per Post und bei den meisten auch digital, im Kundenportal oder in der App, eingereicht werden \autocite{EDI2017FaktenblattVergutungssysteme}.
+Im Fall von Tiers garant stellt der Leistungserbringer die Rechnung direkt dem Patienten aus, welcher diese dann seinem Krankenversicherer zur Rückerstattung weiterleitet. Die Rechnung kann bei allen Krankenversicherern per Post und bei den meisten auch digital, im Kundenportal oder in der App, eingereicht werden \autocite{EDI2017}.
 
 Rechnungen, welche per Post oder digital beim Krankenversicherer zur Rückvergütung eingehen, erreichen diesen in verschiedenen Formen und unterschiedlichster Qualität. 
 
-Während einige Rechnungen nach dem TARMED Standard für Rückforderungsbelege strukturiert sind, sind andere formlos. Die Bandbreite an Formen ist hier gross: Von handgeschriebenen Rechnungen eines örtlichen Leistungserbringer bis hin zu strukturierten Rechnungen von Fitnessketten.
+Während einige Rechnungen nach dem TARMED Standard für Rückforderungsbelege strukturiert sind, sind andere formlos. Die Bandbreite dieser Formlosen Rechnungen ist gross: Von handgeschriebenen Rechnungen eines örtlichen Leistungserbringer bis hin zu strukturierten Rechnungen von Fitnessketten.
 
 Bei der Einreichung per Post kann die Qualität durch Kaffee-Flecken, Verbleichung der Belege oder sonstige Beeinträchtigungen gemindert werden, der Krankenversicherer kann aber einiges dazu beitragen die Rechnung in hoher Qualität einzulesen. So kann er beispielsweise hochauflösende Scanner und eine optimale Beleuchtung einsetzen.
 
-Problematischer sind Rechnungen, welche von Kund/-innen digital, sprich als Photo, an den Krankenversicherer übermittelt werden. Wird ein Foto einer Rechnung über das Kundenportal eingereicht, so hat der Krankenversicherer nur noch sehr wenig Einfluss auf die Qualität der Aufnahme. Schlechte Belichtung, kleine Auflösung und abgeschnittene Rechnungen sind nur wenige der Probleme, mit welchen der Krankenversicherer zu kämpfen hat.
+Problematischer sind Rechnungen, welche von Kund/-innen digital, sprich als Foto , an den Krankenversicherer übermittelt werden. Wird ein Foto einer Rechnung über das Kundenportal eingereicht, so hat der Krankenversicherer nur noch sehr wenig Einfluss auf die Qualität der Aufnahme. Schlechte Belichtung, kleine Auflösung und abgeschnittene Rechnungen sind nur wenige der Probleme, mit welchen der Krankenversicherer zu kämpfen hat.
 
-Egal wie und in welcher Qualität eine Rechnung einen Krankenversicherer erreicht hat, muss dieser die Rechnung in eine elektronische, strukturierte Form bringen, damit diese dann durch ein Regelwerk verarbeitet werden kann. Dieser Vorgang wird durch verschiedenste Techniken aus den Bereich der Texterkennung und der Informationsextraktion ermöglicht. Als Texterkennung oder auch Optical Character Recongition (kurz OCR) wird ein Vorgang bezeichnet, bei welchem Handschrift oder Druckbuchstaben in eine Form gebracht werden, welche von Maschinen verstanden und bearbeitet werden kann~\autocite{Xue2014OpticalRecognition}. Unter dem Begriff Informationsextraktion oder Information extraction (kurz IE) wird der Prozess verstanden, bei welchem relevante Fakten aus einem Text gewonnen werden~\autocite{Piskorski2012InformationFuture}.
+Egal wie und in welcher Qualität eine Rechnung einen Krankenversicherer erreicht hat, muss dieser die Rechnung in eine elektronische, strukturierte Form bringen, damit diese dann durch ein Regelwerk verarbeitet werden kann. Dieser Vorgang wird durch verschiedenste Techniken aus den Bereich der Texterkennung und der Informationsextraktion ermöglicht. Als Texterkennung oder auch Optical Character Recongition (kurz OCR) wird ein Vorgang bezeichnet, bei welchem Handschrift oder Druckbuchstaben in eine Form gebracht werden, welche von Maschinen verstanden und bearbeitet werden kann~\autocite{Xue2014}. Unter dem Begriff Informationsextraktion oder Information extraction (kurz IE) wird der Prozess verstanden, bei welchem relevante Fakten aus einem Text gewonnen werden~\autocite{Piskorski2012}.
 
 % \todo[inline, color=green]{Wie macht das die Post? Postfinance? Dort ist das Problem vermutlich etwas einfacher aber Lösungen gibt es schon länger?}
 
@@ -171,11 +131,11 @@ Egal wie und in welcher Qualität eine Rechnung einen Krankenversicherer erreich
 
 % Im Jahr 2016 wiesen die Grundversicherer einen durchschnittlichen Verwaltungskostensatz von 4.7\% aus. Dies bedeutet  Ein guter Verwaltungskostensatz konnte die CSS Kranken-Versicherung AG im Jahr 2017 ausweisen weist im Jahr Die Indexierung dieser Rechnungen ist einer der Faktoren, welche auf die hohen Verwaltungskosten der Krankenversicherer schlägt.
 
-Die AXA, eine internationale Versicherungsgesellschaft, sieht sich, genau wie alle anderen Krankenversicherer, ebenfalls vor der Herausforderung der Indexierung von Rechnungen. Im Jahr 2017 lancierte die AXA eine Zusatzversicherung in der Gesundheitsvorsorge im Schweizer Markt. Neben der Zusatzversicherungen selbst bietet die AXA ihren Kunden einen Rechnungs-Weiterleitungs-Service. Das bedeutet, alle Rechnungen können der AXA gesendet werden. Rechnungen beziehungsweise Rechnungspositionen, welche die Zusatzversicherung betreffen, werden von der AXA vergütet und Rechnungspositionen, welche die Grundversicherung betreffen, werden zur Vergütung an den Grundversicherer weitergeleitet \autocite{finanzen.ch2017AxaGewinnen}.
+Die AXA, eine internationale Versicherungsgesellschaft, sieht sich, genau wie alle anderen Krankenversicherer, ebenfalls vor der Herausforderung der Indexierung von Rechnungen. Im Jahr 2017 lancierte die AXA eine Zusatzversicherung in der Gesundheitsvorsorge im Schweizer Markt. Neben der Zusatzversicherungen selbst bietet die AXA ihren Kunden einen Rechnungs-Weiterleitungs-Service an. Das bedeutet, alle Rechnungen können der AXA gesendet werden, auch wenn diese die Grundversicherung betreffen. Rechnungen beziehungsweise Rechnungspositionen, welche die Zusatzversicherung betreffen, werden von der AXA vergütet. Rechnungspositionen, welche die Grundversicherung betreffen, werden zur Vergütung an den Grundversicherer weitergeleitet \autocite{Finanzen.ch2017}.
 
-Gemäss einem Beitrag auf \textcite{finanzen.ch2017AxaGewinnen} ist es das Ziel der AXA, bis im Jahr 2020 insgesamt 100'000 Kunden für die Gesundheitsvorsorge zu gewinnen. Aus dem Geschäftsbericht der CSS Gruppe für das Jahr 2017 geht hervor, dass für knapp 1.7 Millionen Kunden 16 Millionen Rechnungen geprüft wurden~ \autocite{CSSGruppe2018Geschaftsbericht2017}. Werden die durchschnittlich 9.5 Rechnungen pro Kunde auf die Zielgrösse 100'000 Kunden der AXA hochgerechnet, so muss die AXA im Jahr 2020 knapp 1 Million Rechnungen prüfen. Damit diese Menge an Rechnungen effizient verarbeitet werden kann, ist es für die AXA wichtig, den Prozess der Indexierung möglichst automatisiert zu gestalten.
+Gemäss einem Beitrag auf \textcite{Finanzen.ch2017} ist es das Ziel der AXA, bis im Jahr 2020 insgesamt 100'000 Kunden für die Gesundheitsvorsorge zu gewinnen. Aus dem Geschäftsbericht der CSS Gruppe für das Jahr 2017 geht hervor, dass für knapp 1.7 Millionen Kunden 16 Millionen Rechnungen geprüft wurden~\autocite{CSSGruppe2018}. Werden die durchschnittlich 9.5 Rechnungen pro Kunde der CSS Gruppe auf die Zielgrösse 100'000 Kunden der AXA hochgerechnet, so muss die AXA im Jahr 2020 knapp 1 Million Rechnungen prüfen. Damit diese Menge an Rechnungen effizient verarbeitet werden kann, ist es für die AXA wichtig, den Prozess der Indexierung möglichst automatisiert zu gestalten.
 
-Um die Verwaltungskosten der Zusatzversicherung aufzuzeigen wird wiederum der Ge\-schäfts\-be\-richt der CSS Gruppe für das Jahr 2017 herangezogen. Der Kostensatz, welcher der Anteil der Gemeinkosten am Umsatz misst, für die Grundversicherung betrug lediglich 4\%. Im Geschäftsbereich der Zusatzverischerung liegt dieser Kostensatz allerdings viel höher, nämlich bei 21\%. Welcher Anteil an diesen Kosten nun der Prüfung respektive der Indexierung eingehender Rechnungen zuzuschreiben ist, bleibt ein Betriebsgeheimnis. Da die Rechnungen, welche die Zusatzversicherungen betreffen, aufgrund der unterschiedlichen Leistungserbringer (Alternativmedizin, Fitness, Sportvrein) viel diverser sind als jene die die Grundversicherung (Ärzte und Spitäler nach TARMED standard) betreffen, liegt die Vermutung nahe, dass im Bereich der Zusatzversicherung ein hoher Anteil der Verwaltungskosten der Rechnungsprüfung zugeschrieben werden kann.
+Um die Verwaltungskosten der Zusatzversicherung aufzuzeigen wird wiederum der Ge\-schäfts\-be\-richt der CSS Gruppe für das Jahr 2017 herangezogen. Der Kostensatz, welcher den Anteil der Gemeinkosten am Umsatz misst, betrug für die Grundversicherung lediglich 4\%. Im Geschäftsbereich der Zusatzverischerungen liegt dieser Kostensatz allerdings viel höher, nämlich bei 21\%~\autocite{CSSGruppe2018}. Welcher Anteil an diesen Kosten nun der Prüfung respektive der Indexierung eingehender Rechnungen zuzuschreiben ist, bleibt ein Betriebsgeheimnis. Da die Rechnungen, welche die Zusatzversicherungen betreffen, aufgrund der unterschiedlichen Leistungserbringer (Alternativmedizin, Fitness, Sportverein) viel diverser sind als jene die die Grundversicherung (meist ausgestellt durch Ärzte und Spitäler nach TARMED standard) betreffen, liegt die Vermutung nahe, dass im Bereich der Zusatzversicherung ein hoher Anteil der Verwaltungskosten der Rechnungsprüfung zugeschrieben werden kann.
 
 Die AXA profitiert aber bei einer automatisierten Indexierung von Rechnungen nicht nur von einer Kostensenkung sondern kann damit auch einen Vorteil für Ihre Kunden generieren: Die Kunden erhalten durch die automatisierte Verarbeitung der eingereichten Rechnungen viel schneller das geforderte Geld.
 
@@ -185,7 +145,7 @@ Die AXA profitiert aber bei einer automatisierten Indexierung von Rechnungen nic
 
 %\todo[inline, color=igloo]{Frage: Warum müssen die Rechnungen indexiert werden? Bitte kurz erklären, warum dies Unternehmen machen. }
 
-Aus der aktuell halb-automatisierten Indexierung von Rechnungen bei der AXA kann gesagt werden, dass für die Automatisierung auf folgende zwei Punkte geachtet werden muss:
+Aus der aktuell halb-automatisierten Indexierung von Rechnungen bei der AXA kann gesagt werden, dass für die Automatisierung auf folgende zwei Faktoren geachtet werden muss:
 
 \begin{itemize}
     \item Qualität der Indexierten Daten: Fehler in der Indexierung (z.B. 1g anstelle 500mg Tabletten) führen zu Fehlern in den Abrechnungen, welche im schlimmsten Fall eine Benachteiligung des Kunden verursachen und somit das Vertrauen des Kunden beeinträchtigen.
@@ -196,9 +156,9 @@ Aus der aktuell halb-automatisierten Indexierung von Rechnungen bei der AXA kann
 
 In dieser Arbeit wird diskutiert, ob die Indexierung der eingehenden Rechnungen durch die Anwendung von künstlicher Intelligenz automatisiert werden kann.
 
-Für die Problemstellung ist es nicht nur relevant ob sondern auch in welcher Qualität dieser Arbeitsschritt automatisiert werden kann. Die Qualität stellt ein wichtiger Punkt dar, da schlechte Qualität ein Image-Schaden und somit ein Wettbewerbsnachteil nach sich ziehen könnte.
+Für die Problemstellung ist es nicht nur relevant ob sondern auch in welcher Qualität dieser Arbeitsschritt automatisiert werden kann. Die Qualität stellt ein wichtiger Erfolgsfaktor dar, da schlechte Qualität ein Image-Schaden und somit ein Wettbewerbsnachteil nach sich ziehen könnte.
 
-Aufgrund der geschilderten Problematik der Indexierung von Rechnungen bei der AXA entstand die Idee, diese mit neuen Technologien zu lösen. Aus dem beschriebenen Fallbeispiel und dem branchenübergreifenden Interesse an der Anwendung der künstliche Intelligenz zur Automatisierung von Geschäftsprozessen wird für diese Arbeit folgende Forschungsfrage definiert.
+Aufgrund der geschilderten Problematik der Indexierung von Rechnungen bei der AXA entstand die Idee, diese mit neuen Technologien zu lösen. Aus dem beschriebenen Fallbeispiel und dem branchenübergreifenden Interesse an der Anwendung der künstlichen Intelligenz zur Automatisierung von Geschäftsprozessen wird für diese Arbeit folgende Forschungsfrage definiert.
 
 {
     \medskip
@@ -238,9 +198,9 @@ Um die Beantwortung dieser Forschungsfrage zu untersützen, werden folgende Unte
 
 % \todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff "KI" beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
 
-Die künstliche Intelligenz ist ein sehr aktuelles und deshalb auch in der Literatur oft diskutiertes Themengebiet. Bereits 2009 geben \textcite{Russell2009ArtificialEdition} auf über 1000 Seiten einen noch immer aktuellen und sehr umfangreichen Überblick über das Themengebiet. Weiter vertiefen die beiden Autoren viele Teilgebiete der künstlichen Intelligenz und erläutern Grundlegende Konzepte ausführlich.
+Die künstliche Intelligenz ist ein sehr aktuelles und deshalb auch in der Literatur oft diskutiertes Themengebiet. Bereits 2009 geben \textcite{Russell2009} auf über 1000 Seiten einen noch immer aktuellen und sehr umfangreichen Überblick über das Themengebiet. Weiter vertiefen die beiden Autoren viele Teilgebiete der künstlichen Intelligenz und erläutern Grundlegende Konzepte ausführlich.
 
-Einen etwas mathematischeren Überblick über das Thema künstliche Intelligenz geben \textcite{Goodfellow2016DeepLearning}. Die Dikussion reicht von den absoluten Grundlagen, der linearen Algebra, bis hin zu Deep Generative Models, eine fortgeschrittene Anwendung der künstlichen Intelligenz~\autocite{Goodfellow2016DeepLearning}.
+Einen etwas mathematischeren Überblick über das Thema künstliche Intelligenz geben \textcite{Goodfellow2016}. Die Diskussion reicht von den absoluten Grundlagen, der linearen Algebra, bis hin zu Deep Generative Models, eine fortgeschrittene Anwendung der künstlichen Intelligenz~\autocite{Goodfellow2016}.
 
 Zusammenfassend kann gesagt werden, dass in der Grundlagenforschung zur künstlichen Intelligenz bereits viele Forschungsergebnisse vorliegen. Es werden etliche, etablierte und experimentelle, Techniken diskutiert. Für die Entwicklung des Prototypen für die AXA stehen somit viele Möglichkeiten zur Verfügung.
 
@@ -248,77 +208,88 @@ Um einen ersten Überblick über die Problemstellung zu erhalten, werden einige 
 
 \subsubsection{Natural Language Processing}
 
-\todo[inline, color=red]{TODO}
+Natural Language Processing (kurz NLP) beschreibt das Gebiet der Forschung und Anwendung von Computern um natürliche Sprache, in Wort und Schrift, zu verstehen und verarbeiten. NLP umfasst diverse Forschungsfelder wie beispielsweise die maschinelle Übersetzung, die Spracherkennung sowie die Informationsextraktion~\autocite{Chowdhury2003}. 
+
+Für diese Arbeit ist das Themengebiet des Natural Language Processing insofern relevant, als dass es die Grundlage für die Verarbeitung von Rechnungen bildet. Mit Techniken aus diesem Gebiet werden die Inhalte der Rechnungen vom Computer verstanden und verarbeitet.
 
 \subsubsection{Neuronale Netzwerke}
 
-Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des Menschlichen Gehirns zu einem Computer ist allerdings der Fakt, dass unser Gehirn lernt ohne ein Software-Update zu erhalten. Wir brauchen nicht erst eine neue Software um das Fahrradfahren zu erlernen. Doch wie funktioniert das~\autocite{Krogh2008WhatNetworks}?
+Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des Menschlichen Gehirns zu einem Computer ist allerdings der Fakt, dass unser Gehirn lernt ohne ein Software-Update zu erhalten. Wir brauchen nicht erst eine neue Software um das Fahrradfahren zu erlernen. Doch wie funktioniert das~\autocite{Krogh2008}?
 
-Die Berechnungen unseres Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die Neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 Modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale Ein- oder Ausgeschaltet sind. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Neuronale Netzwerke sind also inspiriert von den ersten Modellen des menschlichen Gehirns~\autocite{Krogh2008WhatNetworks}.
+Die Berechnungen unseres Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die Neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 Modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale Ein- oder Ausgeschaltet sind. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Aus diesem Modell entstand das Konzept von Neuronalen Netzwerken~\autocite{Krogh2008}.
 
-Damit ein Neuronales Netzwerk Leistungsfähig werden kann, muss es ähnlich wie ein Mensch, aber erst lernen. Das computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die stärke der Synpasen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Beispielaufgabe vom Netzwerk gelöst. Das Resultate des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Beispielaufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert~\autocite{Krogh2008WhatNetworks}.
+Damit ein Neuronales Netzwerk Leistungsfähig werden kann, muss es ähnlich wie ein Mensch, erst lernen. Das computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die stärke der Synpasen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Beispielaufgabe vom Netzwerk gelöst. Das Resultat des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Beispielaufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert~\autocite{Krogh2008}.
 
-Seit mehreren Jahren liefern Neuronale Netzwerke bessere Resultate als andere Techniken. Dabei werden Neuronale Netzwerk vorwiegend für visuelle Tasks und immer häufiger auch zur Verarbeitung Natürlicher Sprache verwendet~\autocite{Olah2014DeepRepresentations}.
+Seit mehreren Jahren liefern Neuronale Netzwerke bessere Resultate als klassische Techniken. Dabei werden Neuronale Netzwerk vorwiegend für visuelle Aufgaben und immer häufiger auch zur Verarbeitung Natürlicher Sprache verwendet~\autocite{Olah2014b}.
 
-\todo[inline]{Say a word on overfitting}
+% \todo[inline]{Say a word on overfitting}
 
-\todo[inline]{Say something about learning strategies (supervised / unsupervised)}
+% \todo[inline]{Say something about learning strategies (supervised / unsupervised)}
 
 \subsubsection{Long-Short-Term-Memory Netzwerke}
 
-Menschen starten ihren Denkprozess nicht jede Sekunde von neuem. Beim wird jedes Wort aufgrund des Verständnis des vorherigen Wortes verstanden. Gedanken sind persistent. Genau solche persistenten Gedanken sind mit dem bisherigen Ansätzen für Neuronale Netze nicht modellierbar. Hier kommen Recurrent Neural Networks (kurz RNN) ins Spiel. Recurrent Neural Networks sind Neuronale Netzwerke mit integrierten Schlaufen. 
+Menschen starten ihren Denkprozess nicht jede Sekunde von neuem. Beim Lesen wird jedes Wort aufgrund des Verständnisses des vorherigen Wortes verstanden. Gedanken sind persistent. Genau solche persistenten Gedanken sind mit dem bisherigen Ansätzen für Neuronale Netze nicht modellierbar. Hier kommen Recurrent Neural Networks (kurz RNN) ins Spiel. Recurrent Neural Networks sind Neuronale Netzwerke mit integrierten Schlaufen~\autocite{Olah2015}. 
 
-In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist das selbe Netzwerk in einer anderen, ausgerollten Weise zu sehen. Die Abbildung verdeutlicht, wie Informationen von einem Neuron zum anderen fliessen können~\autocite{Olah2015UnderstandingNetworks}.
+In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist das selbe Netzwerk in einer anderen, ausgerollten Weise zu sehen. Die Abbildung verdeutlicht, wie Informationen von einem Neuron zum anderen fliessen können. Mit diesem Informationsfluss von Neuron zu Neuron werden die Resultate jeweils von den vorhergehenden Neuronen beeinflusst. Damit wird eine Art Kurzzeitgedächtnis geschaffen, welches dem Neuronalen Netzwerk erlaubt mit Kontextinformationen zu arbeiten~\autocite{Olah2015}.
 \begin{figure}[h]
-    \caption{Veranschaulichung des Infromationsfluss durch ein Recurrent Neural Network auf zwei verschiedene Weisen abgebildet}
+    \captionsetup{width=.8\linewidth}
+    \caption{Infromationsfluss durch ein Recurrent Neural Network dargestellt als Schlaufe (links) und als Sequenz (rechts)}
     \label{rnn1}
     \centering
-    \includegraphics[width=0.48\textwidth]{graphics/rnn1.png}
-    \caption*{Quelle: \textcite{Olah2015UnderstandingNetworks}}
+    \vspace{0.2cm}
+    \includegraphics[width=0.6\textwidth]{graphics/rnn1.png}\\
+    \vspace{0.3cm}
+    \caption*{Quelle: \textcite{Olah2015}}
 \end{figure}
 
-Ein Problem von RNNs ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen etwas länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, so gehen diese verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese spezialform von Recurrent Neural Networks die auf vier, anstelle einer einzelnen, internen Schicht basieren~\autocite{Olah2015UnderstandingNetworks}.
-\todo[inline,color=red]{HIER NOCH WEITER SCHREIBEN}
+Ein Problem von RNNs ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen etwas länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, gehen diese Informationen verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese Spezialform von Recurrent Neural Networks arbeitet mit sogenannten Gates, um zu regulieren, wie viel Kontextinformationen behalten oder vergessen werden sollen. Mit vier solchen Gates, bestehend aus einem Neural Network Layer und einer Pointwise Operation (vgl. Abbilung \ref{lstm1}), ist ein LSTM Netzwerk in der Lage, nicht nur ein Kurz- sondern auch ein Langzeitgedächtnis aufzubauen~\autocite{Olah2015}.
 \begin{figure}[h]
-    \caption{Veranschaulichung des Informationsfluss eines LSTM Netzwerk mit seinen vier internen Schichten}
+    \captionsetup{width=.8\linewidth}
+    \caption{Veranschaulichung des Informationsflusses eines LSTM Netzwerk mit seinen vier internen Schichten}
     \label{lstm1}
     \centering
-    \includegraphics[width=0.48\textwidth]{graphics/lstm.png}
-    \caption*{Quelle: \textcite{Olah2015UnderstandingNetworks}}
+    \includegraphics[width=0.6\textwidth]{graphics/lstm.png}\\
+    \vspace{0.5cm}
+    \includegraphics[width=0.6\textwidth]{graphics/lstm-notation.png}\\
+    \vspace{0.1cm}
+    \caption*{Quelle: \textcite{Olah2015}}
 \end{figure}
-\todo[inline,color=red]{Legende für diese Grafik (NN, Pointwise, Copy, Concat, ...)}
+
+Recurrent Neural Networks wurden in der Vergangenheit sehr erfolgreich für viele Aufgaben, wie beispielsweise die Spracherkennung, Sprachmodellierung, maschinelle Übersetzung sowie Bilderkennung, angewendet. In den meisten Fällen wurden dabei LSTM Netzwerke angewendet, da die Resultate um ein Vielfaches besser ausfallen als mit herkömmlichen RNNs~\autocite{Olah2015}.
+
+LSTM Netzwerke sind für diese Arbeit besonders zur Texterkennung und Rechtschreibkorrektur interessant. Diese beiden Techniken werden im Prototypen der Rechnungsindexierung verwendet.
 
 \subsubsection{Texterkennung}
 
 Ein wichtiger Bestandteil des Prototypen zur Indexierung von Rechnungen ist die Erkennung von Texten, ob Druckbuchstaben oder Handschrift, auf den Rechnungen. Die erkannten Texte bilden die Grundlage für jegliche digitale Verarbeitung der Rechnungen.
 
-Die feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017CreatingLearning} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Photographien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Convolutional Neural Network}\footnote{Ein Convolutional Neural Network ist eine spezialform eines Neuronalen Netzwerks bei welchen, etwas vereinfacht ausgedrückt, viele Kopien des gleichen Neurons zum Einsatz kommen\autocite{Olah2014ConvPerspective}.} (CNNs),  \textit{Long-Short-Term-Memory} (LSTM) Netzwerke, \textit{Connectionist Temporal Classification}\footnote{CTC ist ein Konzept aus dem Training von Neuronalen Netzwerken, welches vor allem in der Handschrifterkennung Verwendung findet. Dabei wird eine spezielle Trainingsfunktion verwendet, durch welche die Positionierung von Buchstaben generalisiert und somit der Lernprozess des Neuronalen Netzwerks vereinfacht werden kann~\autocite{Scheidl2018AnClassification}} (CTC) und mehr~\autocite{Neuberg2017CreatingLearning}.
+Die herkömmliche Feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Fotografien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Convolutional Neural Network}\footnote{Ein Convolutional Neural Network ist eine Spezialform eines Neuronalen Netzwerks bei welchen, etwas vereinfacht ausgedrückt, viele Kopien des gleichen Neurons zum Einsatz kommen\autocite{Olah2014}.} (CNNs),  \textit{Long-Short-Term-Memory} (LSTM) Netzwerke, \textit{Connectionist Temporal Classification}\footnote{CTC ist ein Konzept aus dem Training von Neuronalen Netzwerken, welches vor allem in der Handschrifterkennung Verwendung findet. Dabei wird eine spezielle Trainingsfunktion verwendet, durch welche die Positionierung von Buchstaben generalisiert und somit der Lernprozess des Neuronalen Netzwerks vereinfacht werden kann~\autocite{Scheidl2018}} (CTC) und weitere~\autocite{Neuberg2017}.
 
-Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007AnEngine, o.V.20184.0LSTM}. So wurde die feature detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
+Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien Verfügung steht, verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007}. So wurde die Feature-detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{O.V.2018, O.V.2018a}.
 
 \subsubsection{Word embedding}
 
-Neuronale Netzwerke funktionieren mit Zahlen, damit auch Wörter und ganze Sätze von solchen Netzwerken verarbeitet werden können, muss eine geeignete Repräsentation von Wörtern mit Zahlen gefunden werden. Der Prozess, mit welchem ein Wort in eine zahlen basierte Repräsentation gebracht wird, nennt sicht Word empedding~\autocite{Olah2014DeepRepresentations}.
+Neuronale Netzwerke funktionieren mit Zahlen. Damit auch Wörter und ganze Sätze von solchen Netzwerken verarbeitet werden können, muss eine geeignete Repräsentation von Wörtern durch Zahlen gefunden werden. Der Prozess, mit welchem ein Wort in eine zahlen-basierte Repräsentation gebracht wird, nennt sicht Word embedding~\autocite{Olah2014b}.
 
-Die ersten Word embeddings wurden von \textcite{Bengio2001Advances13} eingeführt. Trotz des schon fortgeschrittenen Alter dieses Forschungsgebiet ist es noch immer hoch interessant und in voller Fahrt~\autocite{Olah2014DeepRepresentations}.
+Die ersten Word embeddings wurden von \textcite{Bengio2001} eingeführt. Trotz des schon fortgeschrittenen Alter dieses Forschungsgebiet ist es noch immer hoch interessant und in voller Fahrt~\autocite{Olah2014b}.
 
 \begin{wrapfigure}{r}{0.5\textwidth} 
-    \caption{Modulares Netzwerk zur Validierung von 5-Grammen mit einer Word embedding Funktion ($W$) und einem Neuronal Netzwerk ($R$)}
+    \caption{Modulares Netzwerk zur Validierung von 5-Grammen mit einer Word embedding Funktion ($W$) und einem Neuronalen Netzwerk ($R$)}
     \label{wordembeddingtraining}
     \centering
     \includegraphics[width=0.48\textwidth]{graphics/wordembeddingtraining.png}
-    \caption*{Quelle: \textcite{Olah2014DeepRepresentations}}
+    \caption*{Quelle: \textcite{Olah2014b}}
 \end{wrapfigure}
-Technisch gesehen ist ein Word embedding eine parametrierte Funktion, die Wörter einer bestimmten Sprache in einen hoch-dimensionalen Vektor (typischerweise 200-500 Dimensionen) transformiert. Um diese hoch komplexe Funktion zu definieren, kommt, wie bei den Neuronalen Netzwerken, Machine Learning zum Einsatz. \textcite{Olah2014NeuralTopology} beschreibt in seinem Artikel ein Beispiel, bei welchem eine solche Word embedding Funktion trainiert wird, indem die Resultate aus dem Word embedding in ein Neuronales Netzwerk zur Prüfung eines 5-Grammes (Satz mit 5 Wrötern) gespiesen werden und dann das Gesamtkonstrukt trainiert wird (vgl. Abbildung \ref{wordembeddingtraining})~\autocite{Olah2014NeuralTopology}.
+Technisch gesehen ist ein Word embedding eine parametrierte Funktion, welche Wörter einer bestimmten Sprache in einen hoch-dimensionalen Vektor (typischerweise 200-500 Dimensionen) transformiert. Um diese hoch komplexe Funktion zu definieren, kommt, wie bei den Neuronalen Netzwerken, Machine Learning zum Einsatz. \textcite{Olah2014b} beschreibt in seinem Artikel ein Beispiel, bei welchem eine solche Word embedding Funktion trainiert wird, indem die Resultate aus dem Word embedding in ein Neuronales Netzwerk zur Prüfung eines 5-Grammes gespiesen werden und dann das Gesamtkonstrukt trainiert wird (vgl. Abbildung \ref{wordembeddingtraining})~\autocite{Olah2014b}.
 
-Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014DeepRepresentations} zwei verschiedene Visualisierungsmöglichkeiten heran.
+Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014b} zwei verschiedene Möglichkeiten der Visualisierung heran.
 
-Die erste Visualisierung bedient sich dem t-SNE Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In diesem Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014DeepRepresentations}.
+Die erste Visualisierung bedient sich dem t-SNE Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In diesem Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014b}.
 \begin{figure}[h]
     \centering
     \caption{t-SNE Darstellung eines Word embeddings, die verdeutlicht, dass ähnliche Wörter ähnliche Vekotren aufweisen}
-    \includegraphics[width=\textwidth]{graphics/wordmebeddingtsne.png}
-    \caption*{Quelle: \textcite{Turian2010WordLearning} in \textcite{Olah2014DeepRepresentations}}
+    \includegraphics[width=\textwidth]{graphics/wordmebeddingtsne.jpg}
+    \caption*{Quelle: \textcite{Turian2010} in \textcite{Olah2014b}}
     \label{wordembeddingtsne}
 \end{figure}
 
@@ -344,20 +315,20 @@ Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddi
     HUNGARY & PARVATI & GEFORCE & SILVERY & SLASHED & GBIT/S \\ \hline
     SWITZERLAND & GRACE & CAPCOM & YELLOWISH & RIPPED & AMPERES \\ \hline
     \end{tabular}
-    \caption*{Quelle: \textcite{Collobert2011NaturalScratch} in \textcite{Olah2014DeepRepresentations}}
+    \caption*{Quelle: \textcite{Collobert2011} in \textcite{Olah2014b}}
 \end{table}
 
-Sowohl Abbildung \ref{wordembeddingtsne} als auch Tabelle \ref{wordembeddingtable}, zeigen die Stärke von Word embeddings auf: Ähnliche Wörter werden mit ähnlichen Vektoren versehen und somit wird eine komplexe Landschaft von Zusammengehörigen Wörtern gebildet. Aufgrund dieser Eigenschaft verändert sich durch den Austausch eines Wortes mit einem Synonym der Input Vektor für ein nachfolgendes Neuronale Netzwerk nur geringfügig, da die Word embeddings der beiden Synonyme sehr ähnlich sind. Somit muss dieses nachfolgende Neuronale Netzwerk nicht für alle Wörter der Welt trainiert werden, sondern kann auf die Generalisierung durch das Word embedding aufbauen~\autocite{Olah2014DeepRepresentations}.
+Sowohl Abbildung \ref{wordembeddingtsne} als auch Tabelle \ref{wordembeddingtable}, zeigen die Stärke von Word embeddings auf: Ähnliche Wörter werden mit ähnlichen Vektoren versehen und so wird eine komplexe Landschaft von Zusammengehörigen Wörtern gebildet. Aufgrund dieser Eigenschaft verändert sich durch den Austausch eines Wortes mit einem Synonym der Input-Vektor für ein nachfolgendes Neuronales Netzwerk nur geringfügig, da die Word embeddings der beiden Synonyme sehr ähnlich sind. Somit muss dieses nachfolgende Neuronale Netzwerk nicht für alle Wörter der Welt trainiert werden, sondern kann auf die Generalisierung durch das Word embedding aufbauen~\autocite{Olah2014b}.
 
-Word embeddings sind zu einem extrem wichtigen Baustein bei der Verarbeitung von Natürlichen Texten geworden. Neben Input und Output Repräsentationen bei NLP Tasks können Word embeddings auch Output Repräsentationen in der Bilderkennung sein~\autocite{Olah2014DeepRepresentations}. 
+Word embeddings sind zu einem extrem wichtigen Baustein bei der Verarbeitung von Natürlichen Texten geworden. Neben Input und Output Repräsentationen bei NLP Tasks können Word embeddings auch Output Repräsentationen in der Bilderkennung sein~\autocite{Olah2014b}. 
 
-Für den Prototypen bilden Word embeddings eine wichtige Grundlage, da durch diese Tehcnik die in den Rechnungen enthaltenen Wröter und Sätze in eine generalisierte, durch Neuronale Netzwerke verarbeitbare Form gebracht werden können.
+Für den Prototypen bilden Word embeddings eine wichtige Grundlage, da durch diese Technik die in den Rechnungen enthaltenen Wröter und Sätze in eine generalisierte, durch Neuronale Netzwerke verarbeitbare Form gebracht werden können.
 
 \subsubsection{Korrektur von Rechtschreibung und Grammatik}
 
 Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Texte nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt.
 
-Mit Hilfe der in einem vorherigen Kapiteln eingeführten Technik des Word embeddings und von LSTM Netzwerken lässt sich diese Problematik angehen. So kann ein Modulares Netzwerk aus Word embeddings und mehreren LSTM Schichten verwendet werden, um eine Rechtschreibkorrektur vorzunehmen. So beschreibt \textcite{Weiss2016DeepSpelling} in seinem Blog, wie mit einem einfachen Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
+Mit Hilfe der in einem vorherigen Kapiteln eingeführten Technik des Word embeddings und von LSTM Netzwerken lässt sich diese Problematik angehen. So kann ein Modulares Netzwerk aus Word embeddings und mehreren LSTM Schichten verwendet werden, um eine Rechtschreibkorrektur vorzunehmen. So beschreibt \textcite{Weiss2016} in seinem Blog, wie mit einem einfachen Neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
 
 % can't use wrapfigure here as otherwise the next sections wraps too
 \begin{figure} % wrapfigure}{l}{0.5\textwidth}
@@ -391,46 +362,46 @@ Mit Hilfe der in einem vorherigen Kapiteln eingeführten Technik des Word embedd
             \legend{Word,Grammarly,Google,LanguageTool,Deepgrammar}
         \end{axis}
     \end{tikzpicture}
-    \caption*{Quelle: In Anlehnung an \textcite{MuganEvaluationComparison}}
+    \caption*{Quelle: In Anlehnung an \textcite{Mugan}}
 \end{figure} %wrapfigure}
-Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate, welche in der Tabelle \ref{deepgrammar} zu sehen sind, sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Microsoft Word}\footnote{Microsoft Word ist ein Programm zur Textverarbeitung und Dokumenterstellung von Microsoft~\autocite{MicrosoftCorporation2018MicrosoftOffice}.} oder \textit{Language Tool 3.1}\footnote{\enquote{LanguageTool ist eine Software zur Textprüfung [...]}~ \autocite{LanguageTool2018LanguageToolGrammatik}}. und sogar besser als \textit{Grammarly}\footnote{Grammarly verspricht präzise, kontextabhängige Korrekturen von Texten~\autocite{GramarlyInc.2018Grammarly:Checker}} und \textit{Google Docs}\footnote{Google Docs ist eine Online-Lösung zur Textverarbeitung von Google~\autocite{GoogleLLC2018GoogleBearbeiten}}~\autocite{MuganEvaluationComparison}.
+Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate, welche in der Tabelle \ref{deepgrammar} zu sehen sind, sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Microsoft Word}\footnote{Microsoft Word ist ein Programm zur Textverarbeitung und Dokumenterstellung von Microsoft~\autocite{MicrosoftCorporation2018}.} oder \textit{Language Tool 3.1}\footnote{\enquote{LanguageTool ist eine Software zur Textprüfung [...]}~\autocite{LanguageTool2018}} und sogar besser als \textit{Grammarly}\footnote{Grammarly verspricht präzise, kontextabhängige Korrekturen von Texten~\autocite{GramarlyInc.2018}} und \textit{Google Docs}\footnote{Google Docs ist eine Online-Lösung zur Textverarbeitung von Google~\autocite{GoogleLLC2018}}~\autocite{Mugan}.
 
 % TODO: Mugan erwähnt eine bessere Studie. In der Thesis diese verwenden, da Zahlen aus DeepGrammar nicht 100% korrekt sind https://arxiv.org/pdf/1807.01270.pdf
 
-Ein weiterer grosser Vorteil von Neuronalen Netzwerken zur Fehlerkorrektur erwähnt \textcite{Mugan2018PersonlicheE-Mail} in einer persönlichen Kommunikation: Das Neuronale Netzwerk kann auf das Domänenspezifische Lexikon trainiert werden. Das Netzwerk kann beispielsweise mit medizinischen Begriffen aus den Rechnungen trainiert werden, so dass die Resultate noch besser sind~\autocite{Mugan2018PersonlicheE-Mail}.
+Ein weiterer grosser Vorteil von Neuronalen Netzwerken zur Fehlerkorrektur erwähnt \textcite{Mugan2018} in einer persönlichen Kommunikation: Das Neuronale Netzwerk kann auf das Domänenspezifische Lexikon trainiert werden. Das Netzwerk kann beispielsweise mit medizinischen Begriffen aus den Rechnungen trainiert werden, so dass die Resultate des in dieser Arbeit entwickelten Prototypen noch besser werden~\autocite{Mugan2018}.
 
 \subsubsection{Informationsextraktion aus natürlichen Texten}
 
 % https://en.wikipedia.org/wiki/Named-entity_recognition
 % https://en.wikipedia.org/wiki/Medical_classification
 
-Informationsextraktion breschreibt das Themengebiet rund um die Extraktion von strukturierten Informationen aus unstrukturiertem oder halb-strukturiertem Text. In diesem Kapitel werden einige Techniken aus diesem Themengebiet kurz erläutert und deren Ein\-satz\-mög\-lich\-keit für die Entwicklung des Prototypen diskutiert.
+Informationsextraktion beschreibt das Themengebiet rund um die Extraktion von strukturierten Informationen aus unstrukturiertem oder halb-strukturiertem Text. In diesem Kapitel werden einige Techniken aus diesem Themengebiet kurz erläutert und deren Ein\-satz\-mög\-lich\-keit für die Entwicklung des Prototypen diskutiert.
 
-Eine \textit{Regular Expression} (kurz RegEx) ist ein Ausdruck, welcher eine Zeichenkette beschreibt. Diese Ausdrücke funktionieren ähnlich wie arithmetische Ausdrücke: Es werden Operatoren verwendet, um mehrere Ausdrücke zu einem komplexeren Ausdruck zusammenzufassen\autocite{Xiao2004InformationApplications}.
+Eine \textit{Regular Expression} (kurz RegEx) ist ein Ausdruck, welcher eine Zeichenkette beschreibt. Diese Ausdrücke funktionieren ähnlich wie arithmetische Ausdrücke: Es werden Operatoren verwendet, um mehrere Ausdrücke zu einem komplexeren Ausdruck zusammenzufassen\autocite{Xiao2004}.
 
-\textcite{Xiao2004InformationApplications} beschreibt als einfaches Beispiel den Ausdruck \texttt{[a,p]m [0-9]+:[0-9]+} um Zeitangaben wie AM 12:45 zu extrahieren. Dieses Beispiel zeigt einerseits die Einfachheit dieser Technik aber auch die Grenzen. 12:45 AM wird beispielsweise nicht erkannt, da AM hier nach anstelle vor der Uhrzeit steht. 
+\textcite{Xiao2004} beschreibt als einfaches Beispiel den Ausdruck \texttt{[a,p]m [0-9]+:[0-9]+} um Zeitangaben wie AM 12:45 zu extrahieren. Dieses Beispiel zeigt einerseits die Einfachheit dieser Technik aber auch die Grenzen. 12:45 AM wird beispielsweise nicht erkannt, da AM hier nach anstelle vor der Uhrzeit steht. 
 
-Ein weiterer Nachteil von Regular Expressions ist, dass Kontextinformationen nicht be\-rück\-sich\-tigt werden. Folgendes Beispiel von \textcite{Xiao2004InformationApplications} zeigt dies auf: Der Ausdruck \texttt{[0-9]+} ist zwar in der Lage aus dem Text \texttt{100\$} die Zahl \texttt{100} zu extrahieren, allerdings geht die Information, dass es sich hier um einen Geldbetrag handelt, verloren.
+Ein weiterer Nachteil von Regular Expressions ist, dass Kontextinformationen nicht be\-rück\-sich\-tigt werden. Folgendes Beispiel von \textcite{Xiao2004} zeigt dies auf: Der Ausdruck \texttt{[0-9]+} ist zwar in der Lage aus dem Text \texttt{100\$} die Zahl \texttt{100} zu extrahieren, allerdings geht die Information, dass es sich hier um einen Geldbetrag handelt, verloren.
 
-Um eine hohe Präzision bei der Informationsextraktion zu ermöglichen, sollten Regular Expressions also nur mit Vorsicht und in Kombination mit anderen Techniken verwendet werden~\autocite{Xiao2004InformationApplications};
+Um eine hohe Präzision bei der Informationsextraktion zu ermöglichen, sollten Regular Expressions also nur mit Vorsicht und in Kombination mit anderen Techniken verwendet werden~\autocite{Xiao2004};
 
 Trotz der Nachteile der Regular Expressions können diese in der Entwicklung des Prototypen hilfreich sein. In Rechnungen werden viele Beträge, Daten und ähnliche Ausdrücke verwendet, welche mit Regular Expressions erkannt werden können.
 
-\textit{Named Entity Recognition and Classification} (kurz NERC oder NER), beschreibt das erkennen und kategorisieren von Entitäten, sprich Wörter oder Wortgruppen aus natürlichen Texten~\autocite{Nadeau2007AClassification}.
+\textit{Named Entity Recognition and Classification} (kurz NERC oder NER), beschreibt das erkennen und kategorisieren von Entitäten, sprich Wörter oder Wortgruppen aus natürlichen Texten~\autocite{Nadeau2007}.
 
-Der Begriff \textit{Named Entity} wurde bei der Formulierung der Aufgabenstellung der sechsten Message Understanding Conference im Jahre 1995 definiert~\autocite{Borthwick1998NYU:MUC-7}. So wurde bereits damals erkannt, dass die Extraktion von Namen, von Personen, Organisationen oder Lokationen, nummerischen Ausdrücken, Daten und Prozent-Ausdrücken wichtig ist~\autocite{Nadeau2007AClassification}.
+Der Begriff \textit{Named Entity} wurde bei der Formulierung der Aufgabenstellung der sechsten Message Understanding Conference im Jahre 1995 definiert~\autocite{Borthwick1998}. So wurde bereits damals erkannt, dass die Extraktion von Namen, von Personen, Organisationen oder Lokationen, nummerischen Ausdrücken, Daten und Prozent-Ausdrücken wichtig ist~\autocite{Nadeau2007}.
 
-Für die Named Entity Recognition and Classification stehen einige freie Softwarelösungen zur Verfügung. So veröffentlicht beispielsweise Stanford eine Java Implementierung und SpaCy, eine Sammlung von Natural Language Processing Software, beinhaltet eine Implementierung in Python~\autocite{StanfordNLPGroupStanfordNER, ExplosionAIIndustrial-StrengthProcessing}.
+Für die Named Entity Recognition and Classification stehen einige freie Softwarelösungen zur Verfügung. So veröffentlicht beispielsweise Stanford eine Java Implementierung und SpaCy, eine Sammlung von Natural Language Processing Software, beinhaltet eine Implementierung in Python~\autocite{StanfordNLPGroup, ExplosionAI}.
 
-Die Anwendung von NERC ist für das Fallbeispiel äusserst Interessant. Die Erkennung von Namen von Personen ist hilfreich zur Erkennung des Patienten und des Leistungserbringers. Weiter hilft die Erkennung von Daten der ermittlung des Behandlungsdatums und nicht zuletzt kann durch die Erkennung und Klassifizierung von nummerischen Ausdrücken der Gesamtbetrag sowie die Beträge einzelner Positionen ermittelt werden.
+Die Anwendung von NERC ist für das Fallbeispiel äusserst Interessant. Die Erkennung von Namen von Personen ist hilfreich zur Erkennung des Patienten und des Leistungserbringers. Weiter hilft die Erkennung von Daten der Ermittlung des Behandlungsdatums und nicht zuletzt kann durch die Erkennung und Klassifizierung von nummerischen Ausdrücken der Gesamtbetrag sowie die Beträge einzelner Positionen ermittelt werden.
 
-Die letzte Technik welche in diesem Kapitel erläutert wird, ist das \textit{Part of Speech Tagging} (kurz PoS-Tagging). Beim PoS-Tagging werden Wörter und Satzzeichen ihren Wortarten (Nomen, Adjektive, etc.) zugewiesen~\autocite{Xiao2004InformationApplications}.
+Die letzte Technik welche in diesem Kapitel erläutert wird, ist das \textit{Part of Speech Tagging} (kurz PoS-Tagging). Beim PoS-Tagging werden Wörter und Satzzeichen ihren Wortarten (Nomen, Adjektive, etc.) zugewiesen~\autocite{Xiao2004}.
 
-Die grösste Herausforderung beim PoS-Tagging sind Wörter welche verschiedenen Wortgruppen zugewiesen werden könnten. Beispielsweise kann das Wort \textit{widerwillig} im Satz \textit{Sie nannten den Täter widerwillig.} als Adjektiv oder Adverb aufgefasst werden und somit die Bedeutung des Satzes vollkommen verändern~\autocite{VolkFormaleMehrdeutigkeiten}.
+Die grösste Herausforderung beim PoS-Tagging sind Wörter welche verschiedenen Wortgruppen zugewiesen werden könnten. Beispielsweise kann das Wort \textit{widerwillig} im Satz \textit{Sie nannten den Täter widerwillig.} als Adjektiv oder Adverb aufgefasst werden und somit die Bedeutung des Satzes vollkommen verändern~\autocite{Volk}.
 
 % Es gibt diverse Arten von Implementierung des PoS-Tagging, welche in regelbasierte, stochastische und neuronale Verfahren unterteilt werden können. Ein weit verbreiteter Ansatz ist die Verwendung von Hidden Markov Modellen. Ein Hidden Markov Modell ist ein stochastisches Modell, welches Zustände mit übergangswahrscheinlichkeiten modelliert.
 
-Die Verwendung von PoS-Tagging kann bei Rechnungen mit einem Prosa Text von Vorteil sein. Wieviele relvante Informationen in Prosa Texten von Rechnungen verborgen sind, muss sich aber erst noch zeigen.
+Die Verwendung von PoS-Tagging kann bei Rechnungen mit einem Prosatext von Vorteil sein. Wie viele relevante Informationen in Prosatexten von Rechnungen verborgen sind, muss sich aber erst noch zeigen.
 
 Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Implementierung eines Prototypen zur Rechnungsindexierung zu beginnen.
 
@@ -438,28 +409,28 @@ Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Imple
 
 % der Wissensstand im Bereich des Forschungsproblems (was weiss man bereits, was nochnicht) knapp beschrieben
 
-% Bereits die Definition der künstlichen Intelligenz bietet erste Herausforderungen. Das Grundlegende Problem dabei ist das fehlende Verständnis des Begriffs Intelligenz, obwohl wir diesen in unserem Alltag selbstverständlich verwenden. Wir bezeichnen jemanden, der eine gute schulische Leistung erbringt als intelligent, doch auch unsere Katze, die sich versteckt, sobald sie das Wort Tierarzt hört, bezeichnen wir als intelligent~\autocite{Legg2007UniversalIntelligence}.
+% Bereits die Definition der künstlichen Intelligenz bietet erste Herausforderungen. Das Grundlegende Problem dabei ist das fehlende Verständnis des Begriffs Intelligenz, obwohl wir diesen in unserem Alltag selbstverständlich verwenden. Wir bezeichnen jemanden, der eine gute schulische Leistung erbringt als intelligent, doch auch unsere Katze, die sich versteckt, sobald sie das Wort Tierarzt hört, bezeichnen wir als intelligent~\autocite{Legg2007}.
 
-% Die Diskussionen um die Definition des Begriffs Intelligenz sind sehr angeregt, denn sie ist nicht nur für die Definition der künstlichen Intelligenz interessant sondern hat auch einen grossen Einfluss auf die Wertung von Menschen - anhand welcher Kriterien messen wir, ob jemand intelligenter ist als jemand anderes~\autocite{Legg2007UniversalIntelligence}?
+% Die Diskussionen um die Definition des Begriffs Intelligenz sind sehr angeregt, denn sie ist nicht nur für die Definition der künstlichen Intelligenz interessant sondern hat auch einen grossen Einfluss auf die Wertung von Menschen - anhand welcher Kriterien messen wir, ob jemand intelligenter ist als jemand anderes~\autocite{Legg2007}?
 
 % \todo{Hier noch Russel, & Norvig einbringen: Homo Sapiens - men the wise, 8 definitionen von AI}
 
 % Intelligenz ist für viele Wissenschaftliche Bereiche interessant und so gibt es diverse Definitionen von Intelligenz aus der Philosophie, Psychologie, Biologie und aufgrund der steigenden Popularität der künstlichen Intelligenz auch aus der Informatik. Die einzige Gemeinsamkeit von vielen dieser Definitionen ist die Aussage, dass die Intelligenz eine Fähigkeit ist ~\autocite{Minaya-Collado1998AComplexity}.
 
-% \textcite{Minaya-Collado1998AComplexity} benennen die Definition von \textcite{Sternberg1977IntelligenceAbilities.}, aus der psychologie, als die praktischste: \enquote{intelligence is the ability measured by the IQ (Intelligence Quotient) test, known as the g factor} (\cite{Sternberg1977IntelligenceAbilities.} in \cite{ Minaya-Collado1998AComplexity} \todo{invalid citation format}). Bei dieser Definition stellen die beiden aber gleichzeitig die Frage, was denn der IQ Test überhaupt misst und ob wir mit der Definition "intelligence is what is measured by IQ" \autocite{Minaya-Collado1998AComplexity} zufrieden sein sollen. Ihre Antwort lautet ganz klar nein. Die beiden erarbeiten folgend eine formale Definition von Intelligenz anhand von absichtlichen Abweichungen von Algorithmischer Komplexität. Trotz Ihrer sehr spannenden und ausführlichen Diskussion bleiben am Ende noch immer etliche Fragen offen. In Ihrer Arbeit konkludieren die beiden, dass Ihr Werk den IQ Test bestätigen und die Definition von Intelligenz als das, was der IQ Test misst, gar nicht so falsch ist ~\autocite{Minaya-Collado1998AComplexity}.
+% \textcite{Minaya-Collado1998AComplexity} benennen die Definition von \textcite{Sternberg1977}, aus der psychologie, als die praktischste: \enquote{intelligence is the ability measured by the IQ (Intelligence Quotient) test, known as the g factor} (\cite{Sternberg1977} in \cite{ Minaya-Collado1998AComplexity} \todo{invalid citation format}). Bei dieser Definition stellen die beiden aber gleichzeitig die Frage, was denn der IQ Test überhaupt misst und ob wir mit der Definition "intelligence is what is measured by IQ" \autocite{Minaya-Collado1998AComplexity} zufrieden sein sollen. Ihre Antwort lautet ganz klar nein. Die beiden erarbeiten folgend eine formale Definition von Intelligenz anhand von absichtlichen Abweichungen von Algorithmischer Komplexität. Trotz Ihrer sehr spannenden und ausführlichen Diskussion bleiben am Ende noch immer etliche Fragen offen. In Ihrer Arbeit konkludieren die beiden, dass Ihr Werk den IQ Test bestätigen und die Definition von Intelligenz als das, was der IQ Test misst, gar nicht so falsch ist ~\autocite{Minaya-Collado1998AComplexity}.
 
-% Nach \textcite{Legg2007UniversalIntelligence} ist die Unwissenheit über die klare Definition der Intelligenz auch gar nicht so schlimm, wie sie oft diskutiert wird. So kommt \textcite{Gottfredson1997MainstreamBibliography} zum Schluss, dass viele Intelligenztests, sofern sie korrekt angewendet werden, das gleiche Messen (\cite{Gottfredson1997MainstreamBibliography} in \cite{Legg2007UniversalIntelligence}, \cite{Legg2007UniversalIntelligence}) \todo{Korrekte Zitationsform}.
+% Nach \textcite{Legg2007} ist die Unwissenheit über die klare Definition der Intelligenz auch gar nicht so schlimm, wie sie oft diskutiert wird. So kommt \textcite{Gottfredson1997} zum Schluss, dass viele Intelligenztests, sofern sie korrekt angewendet werden, das gleiche Messen (\cite{Gottfredson1997} in \cite{Legg2007}, \cite{Legg2007}) \todo{Korrekte Zitationsform}.
 
-% Obwohl der Begriff Intelligenz nicht klar definiert ist, benennen wir Maschinen als intelligent - als künstlich intelligent. Dies geschieht immer dann, wenn eine Maschine etwas macht, was wir mit menschlicher Intelligenz in Verbindung bringen. Ein Intelligenztest für Maschinen zu erstellen ist aber nicht zielführend, so ist es für eine Maschine mittlerweile einfach Schach zu spielen, während dies früher noch undenkbar war. Eine Definition der künstlichen Intelligenz muss also so gewählt werden, dass sie auch zukünftig noch auf eine weiterentwickelte Art von Maschinen anwendbar ist~\autocite{Legg2007UniversalIntelligence}.
+% Obwohl der Begriff Intelligenz nicht klar definiert ist, benennen wir Maschinen als intelligent - als künstlich intelligent. Dies geschieht immer dann, wenn eine Maschine etwas macht, was wir mit menschlicher Intelligenz in Verbindung bringen. Ein Intelligenztest für Maschinen zu erstellen ist aber nicht zielführend, so ist es für eine Maschine mittlerweile einfach Schach zu spielen, während dies früher noch undenkbar war. Eine Definition der künstlichen Intelligenz muss also so gewählt werden, dass sie auch zukünftig noch auf eine weiterentwickelte Art von Maschinen anwendbar ist~\autocite{Legg2007}.
 
-% Der Begriff künstliche Intelligenz wird in der Literatur oft diskutiert. So definieren \textcite{Legg2007UniversalIntelligence} die künstliche Intelligenz mit Hilfe von übereinstimmenden Merkmalen aus verschiedenen Definitionen des Begriffs Intelligenz. 
+% Der Begriff künstliche Intelligenz wird in der Literatur oft diskutiert. So definieren \textcite{Legg2007} die künstliche Intelligenz mit Hilfe von übereinstimmenden Merkmalen aus verschiedenen Definitionen des Begriffs Intelligenz. 
 % \todo[inline]{Ihre definition von KI}
 
 % \subsubsection{Texterkennung dank künstlicher Intelligenz}
 
-% Weit weniger Waage als die Definition der künstlichen Intelligenz ist ihre Anwendung. Wurde die Erkennung von Texten in einem Bild früher noch mit Feature-Detection ermöglicht, so werden heute Neuronale Netzwerke, in den meisten fällen Long-Short-Term-Memory (LSTM) Netzwerke, eine spezialisierung der Recurrent Neuronal Networks, verwendet. So beschreibt \textcite{Neuberg2017CreatingLearning}, wie Dropbox künstliche Intelligenz zur Texterkennung anwendet, um Photos von Dokumenten durchsuchbar zu machen.
+% Weit weniger Waage als die Definition der künstlichen Intelligenz ist ihre Anwendung. Wurde die Erkennung von Texten in einem Bild früher noch mit Feature-Detection ermöglicht, so werden heute Neuronale Netzwerke, in den meisten fällen Long-Short-Term-Memory (LSTM) Netzwerke, eine spezialisierung der Recurrent Neuronal Networks, verwendet. So beschreibt \textcite{Neuberg2017}, wie Dropbox künstliche Intelligenz zur Texterkennung anwendet, um Photos von Dokumenten durchsuchbar zu machen.
 
-% Tesseract ist eine Engine zur Texterkennung, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht~\autocite{Smith2007AnEngine}. Seit Version 4 verwendet Tesseract ein LSTM Netzwerk mit mehr als 100 Schichten. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen von Fallspezifisch optimiert werden~\autocite{o.V.20184.0Performance, o.V.20184.0LSTM}.
+% Tesseract ist eine Engine zur Texterkennung, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien verfügung steht~\autocite{Smith2007}. Seit Version 4 verwendet Tesseract ein LSTM Netzwerk mit mehr als 100 Schichten. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen von Fallspezifisch optimiert werden~\autocite{o.V.2018, o.V.2018a}.
 % TODO: QUelle für anzahl layers
 % v4 with LSTM: https://github.com/tesseract-ocr/tesseract/wiki/4.0-with-LSTM
 % Perf: https://github.com/tesseract-ocr/tesseract/wiki/4.0-Accuracy-and-Performance
@@ -496,42 +467,46 @@ Diese Arbeit hat zum Ziel, die Grundlagen der künstlichen Intelligenz und des M
 
 Neben der Beantwortung der Forschungsfrage anhand des beschriebenen Fallbeispiels soll geklärt werden, ob Investitionen in die Automatisierung des dargelegten Prozesses durch Künstliche Intelligenz gemacht werden sollen.
 
-\newpage % because of graphic...
+% \newpage % because of graphic...
 \subsection{Abgrenzung Fallbeispiel}
 
 Der Prozess der Rechnungseinreichung (vgl. Abbildung \ref{prozessaxa}) der AXA umfasst den Rechnungseingang, ob digital oder per Post, eine erste Qualitätskontrolle, die Indexierung, die fachliche Prüfung, die Abrechnung und falls notwendig die Weiterleitung an den Grundversicherer.
 
+%\begin{wrapfigure}{r}{0.55\textwidth}
 \begin{figure}[h]
-\caption{Rechnungseinreichungsprozess bei der AXA}
-\label{prozessaxa}
-\centering
-%\iffalse
-    \begin{tikzpicture}[
-      node distance=1.5cm and 15cm
-    ]
-        \node (startPost) [process] {Einreichung per Post};
-        \node (scanning) [process, below of=startPost] {Scanning};
-        \node (startPortal) [process, right=1cm of startPost] {Einreichung per Kundenportal/App};
-        \node (rectification) [process, below of=startPortal] {Automatische Qualitätsprüfung und Optimierung};
-        \node (qualityGate) [process, below of=rectification] {Manuelle Qualitätsprüfung};
-        \node (indexing) [process2, below of=scanning] {Indexierung};
-        \node (check) [process, below of=indexing] {Prüfung};
-        \node (settlement) [process, below of=check] {Abrechnung};
-        \node (communication) [process, below of=settlement] {Kundenkommunikation};
-        \node (okp) [process, below of=check, right=1cm of settlement] {Weiterleitung an Grundversicherung};
-        
-        \draw [arrow] (startPost) -- (scanning);
-        \draw [arrow] (scanning) -- (indexing);
-        \draw [arrow] (startPortal) -- (rectification);
-        \draw [arrow] (rectification) -- (qualityGate);
-        \draw [arrow] (qualityGate) -- (indexing);
-        \draw [arrow] (indexing) -- (check);
-        \draw [arrow] (check) -- (settlement);
-        \draw [arrow] (settlement) -- (communication);
-        \draw [arrow] (check) -| (okp);
-    \end{tikzpicture}
-%\fi
+    \caption{Rechnungseinreichungsprozess bei der AXA}
+    \label{prozessaxa}
+    \centering
+    %\iffalse
+        \resizebox{0.5\textwidth}{!}{%
+            \begin{tikzpicture}[
+              node distance=1.5cm and 15cm
+            ]
+                \node (startPost) [process] {Einreichung per Post};
+                \node (scanning) [process, below of=startPost] {Scanning};
+                \node (startPortal) [process, right=1cm of startPost] {Einreichung per Kundenportal/App};
+                \node (rectification) [process, below of=startPortal] {Automatische Qualitätsprüfung und Optimierung};
+                \node (qualityGate) [process, below of=rectification] {Manuelle Qualitätsprüfung};
+                \node (indexing) [process2, below of=scanning] {Indexierung};
+                \node (check) [process, below of=indexing] {Prüfung};
+                \node (settlement) [process, below of=check] {Abrechnung};
+                \node (communication) [process, below of=settlement] {Kundenkommunikation};
+                \node (okp) [process, below of=check, right=1cm of settlement] {Weiterleitung an Grundversicherung};
+                
+                \draw [arrow] (startPost) -- (scanning);
+                \draw [arrow] (scanning) -- (indexing);
+                \draw [arrow] (startPortal) -- (rectification);
+                \draw [arrow] (rectification) -- (qualityGate);
+                \draw [arrow] (qualityGate) -- (indexing);
+                \draw [arrow] (indexing) -- (check);
+                \draw [arrow] (check) -- (settlement);
+                \draw [arrow] (settlement) -- (communication);
+                \draw [arrow] (check) -| (okp);
+            \end{tikzpicture}
+        }
+    %\fi
 \end{figure}
+%\end{wrapfigure}
 
 Die Entwicklung des Prototypen beschränkt sich auf den Prozessschritt der Indexierung. Die Einreichung sowie die Weiterverarbeitung der Rechnungen nach der Indexierung, sprich die Auswertung, ob und wie eine bestimmte Rechnungsposition versichert ist, ist nicht Teil des Prototypen.
 
@@ -548,9 +523,9 @@ Kapitel 2 bietet einen literaturbasierten Zugang zur Forschungsfrage. Dabei wird
 Im Kapitel 3 wird der aktuelle Forschungsstand im Gebiet der künstlichen Intelligenz präsentiert und Techniken aus diesem Bereich erläutert. Ziel dieses Kapitel ist es, die notwendigen Grundlagen zu erarbeiten, die für die Entwicklung des Prototypen benötigt werden.
 % Grobkzept: Forschungsstand
 
-Der Hauptteil der Arbeit wird in Kapitel 4 abgehandelt. Es werden erst die Rahmenbedingungen für den Prototypen definiert und erläutert. Zu diesen Rahmenbedingungen gehören sowohl das Format und die Qualität der Rechnungen als auch die Erwartungen hinsichtlich Form und Qualität der Resultate. Damit der Prototyp bewertet werden kann, wird ein Set an Tests definiert. Folgend wird der Prototyp in einem iterativen und explorativen Prozess entwickelt. Damit die komplexe Problemstellung bewätltigt werden kann, wird der Prototyp zwei Hauptaspekte, die Texterkennung und die Informationsextraktion aufgeteilt.
+Der Hauptteil der Arbeit wird in Kapitel 4 abgehandelt. Es werden erst die Rahmenbedingungen für den Prototypen definiert und erläutert. Zu diesen Rahmenbedingungen gehören sowohl das Format und die Qualität der Rechnungen als auch die Erwartungen hinsichtlich Form und Qualität der Resultate. Damit der Prototyp bewertet werden kann, wird ein Set an Tests definiert. Folgend wird der Prototyp in einem iterativen und explorativen Prozess entwickelt. Damit die komplexe Problemstellung bewältigt werden kann, wird der Prototyp zwei Hauptaspekte, die Texterkennung und die Informationsextraktion aufgeteilt.
 
-Als erstes wird der Aspekt der Texterkennung bearbeitet. Dafür wird eine Texterkennung, mit einem LSTM Netzwerk, sowie eine Rechtschreibekorrektur, ebenfalls mit einem LSTM Netzwerk, angewendet.
+Als erstes wird der Aspekt der Texterkennung bearbeitet. Dafür wird eine Texterkennung, mit einem LSTM Netzwerk, sowie eine Rechtschreibkorrektur, ebenfalls mit einem LSTM Netzwerk, angewendet.
 
 In einem zweiten Schritt wird die Informationsextraktion in Angriff genommen. Dieser komplexe Teilbereich wird wiederum in verschiedene Experimente aufgeteilt. Es werden diverse Experiment mit Named Entity Recognition and Classification, Text Classification und weiteren Techniken aus dem Gebiet der Information Extraction gemacht. Welche dieser Experimente erfolgreich sein werden kann zu diesem Zeitpunkt noch nicht abgeschätzt werden.
 
@@ -673,11 +648,12 @@ Hier werden bereits gelesene Quellen angeführt und auf weiterführende Literatu
 }
 
 {
-    \nocite{Brynjolfsson2017Artificial}
-    \nocite{BughinARTIFICIALFRONTIER}
-    \nocite{ChuiFourAutomation}
-    \nocite{Kolbjrnsrud2016HowManagement}
-    \nocite{Tredinnick2017ArtificialRoles}
+    \nocite{Brynjolfsson2017}
+    \nocite{Bughin}
+    \nocite{Chui}
+    \nocite{Kolbjornsrud2016}
+    \nocite{Tredinnick2017}
+    \nocite{Ge2018} % Recommended by Mugan, very interesting!
     \printbibliography[heading=none]
 }
 
