@@ -1,36 +1,104 @@
 \section{Theorie}
 
-\todo[inline]{Darauf eingehen was einen Wettbewerbsvorteil ausmacht (e.g. VRIO)}
+In diesem Kapitel wird erläutert, warum es für ein Unternehmen überhaupt sinnvoll ist, einen Geschäftsprozess zu automatisieren und welche Risiken damit einhergehen. Es wird beschrieben, warum die künstliche Intelligenz bei der Automatisierung eines Geschäftsprozesses zur Anwendung kommt. Weiter werden Beispiele der Anwendung von künstlicher Intelligenz zur Automatisierung beschrieben und auf Erfolg und Probleme analysiert. Zum Schluss wird ein Einstig in die Thematik der künstlichen Intelligenz gewährt, welcher die Grundlage für das Fallbeispiel im nächsten Kapitel bildet.
 
-\todo[inline]{Gründe für die Automatisierung eines Geschäftsprozesses
+\todo[inline]{Evtl. etwas zur Ethik sagen. Mit der rasanten Industrie 4.0 könnten tausende Menschen Arbeitslos werden (Taxi-Fahrer durch selbstfahrende Fahrzeuge, etc.) (Gibt auch gegenteilige Studien, die die Problematik nicht so eng sehen)}
 
-- Kundenexperience
+%#############################
+% Gründe zur Automatisierung eines Geschäftsprozesses
+%#############################
+\subsection{Gründe zur Automatisierung eines Geschäftsprozesses}
 
-- Kostenreduktion
+\enquote{Überdurchschnittliche unternehmerische Leistung beruhen langfristig auf Wettbewerbsvorteilen, mit welchen sich ein Unternehmen behaupten kann}~\autocite[104]{Capaul2010}. Zur Erreichung eines solchen Wettbewerbsvorteil, bedient sich ein Unternehmen an einer Wettbewerbsstrategie. Porter \todo{Muss hier "Porter in Capaul" zitiert werden?}  strukturiert diese Strategien nach dem strategischen Vorteil und dem strategischen Zielobjekt (vgl. Abbildung \ref{porter_wettbewerb})~\autocite{Capaul2010}. 
 
-- Differenzierung
+Als strategische Vorteile sieht Porter eine bessere Leistung oder tiefere Kosten als Konkurrenten. Will ein Unternehmen langfristig Erfolg haben, so muss es sich entweder über die Leistung oder die Kosten abheben~\autocite{Capaul2010}. Die Automatisierung eines Geschäftsprozesses kann bei der Erreichung beider dieser Vorteile helfen und ist deshalb für ein Unternehmen erstrebenswert. 
 
-- Produktgestaltung (Zusatznutzen nach SG Mgmnt Modell)
+{
+    \arrayrulecolor{white}
+    \setlength{\tabcolsep}{8pt} % Default value: 6pt
+    \renewcommand{\arraystretch}{1.15}
+    \begin{figure}[h]
+    \footnotesize
+    \centering
+        \caption{Wettbewerbsstrategien nach Porter, systematisiert nach strategischem Vorteil und strategischem Zielobjekt.}
+        \label{porter_wettbewerb}
+        \begin{tabular}{|
+            >{\columncolor[HTML]{FFDFDF}}c |
+            >{\columncolor[HTML]{F4AFAF}}l |
+            >{\columncolor[HTML]{C34949}}l |
+            >{\columncolor[HTML]{C34949}}l }
+            \hline
+            \multicolumn{2}{|l|}{\cellcolor[HTML]{FFDFDF}{\color[HTML]{333333} }}                                                                                                                                                                                         & \multicolumn{2}{c|}{\cellcolor[HTML]{FFDFDF}{\color[HTML]{333333} \textbf{\begin{tabular}[c]{@{}c@{}}Strategischer Vorteil\\ (Leistung oder Kosten)\end{tabular}}}} \\ \hline
+            \cellcolor[HTML]{FFDFDF}{\color[HTML]{333333} }                                                                                              & {\color[HTML]{333333} \begin{tabular}[c]{@{}l@{}}Branchenweit\\ (Gesamtmarktabdeckung)\end{tabular}}           & {\color[HTML]{FFFFFF} \begin{tabular}[c]{@{}l@{}}Differenzierung\\ (Qualitätsführerschaft)\end{tabular}}         & {\color[HTML]{FFFFFF} Kostenführerschaft}        \\ \cline{2-4} 
+            \multirow{-2}{*}{\cellcolor[HTML]{FFDFDF}{\color[HTML]{333333} \textbf{\begin{tabular}[c]{@{}c@{}}Strategisches\\ Zielobjekt\end{tabular}}}} & {\color[HTML]{333333} \begin{tabular}[c]{@{}l@{}}Beschränkung auf Segment\\ (Teilmarktabdeckung)\end{tabular}} & \multicolumn{2}{l|}{\cellcolor[HTML]{C34949}{\color[HTML]{FFFFFF} Konzentration auf Nischen}}                                                                       \\ \hline
+        \end{tabular}
+        \caption*{Quelle: \textcite{Capaul2010}}
+    \end{figure}
+}
 
-- Preisdifferenzierung bzw. Hybride Strategie zur Sicherung einer Monopolstellung -> evtl. auf Tech Giganten eingehen (monopolstellung dieser und/oder bedrohung durch diese in anderen Branchen)
+\todo[inline]{Muss hier \enquote{Porter in Capaul} zitiert werden?
 
-- Marken/Image Auswirkung durch Customer Experience
+In Anlehnung an?}
 
-- Kundenbedingung (vgl. CRM im SG Mgmnt Modell, dadurch Zusatzkäufe, etc.) durch Customer Experience
+Um eine Kostenführerschaft zu erzielen, sind tiefe Selbstkosten sehr wichtig~\autocite{Capaul2010}. Eine Automatisierung kann hohe Selbstkosten, beispielsweise durch hohen manuellen Aufwand, reduzieren und somit eine Kostenführerschaft ermöglichen\todo{Zitat notwendig?}. 
 
-- Zur wichtigkeit von customer experience recherchieren
+Eine Differenzierung im Bereich der Leistung kann durch eine Automatisierung gleich auf zwei verschiedene Arten unterstützt werden. 
 
-- Siehe optimierung und erneuerung in capaul}
+Automatisierte Prozesse weisen weniger Fehler auf, Produkte oder Dienstleistungen können also in einer besseren Qualität angeboten werden. \textcite{Kregassner2012} spricht in der IT Administration von einer Fehlerquote von 10\%, selbst bei einfachen, sich wiederholenden Tätigkeiten, wenn diese manuell ausgeführt werden. Werden diese Tätigkeiten automatisiert, so reduziert sich die Fehlerquote. Ähnliche Beobachtungen wurden auch von \textcite{Uettwiller-Geiger2005} im Bereich von medizinischen Laboren gemacht. Auch in diesem Bereich konnte die Fehlerquote durch die Automatisierung stark reduziert werden. 
 
-\todo[inline]{}
+Neben der Reduktion der Fehlerquote kann die Automatisierung eines Geschäftsprozesses auch einen Zusatznutzen für Kunden bedeuten. Im Beispiel einer Krankenkasse könnte eine Automatisierte Leistungsabwicklung die Durchlaufzeit bis zur Auszahlung einer eingereichten Rechnung um ein vielfaches verkürzen. Gesundheitskosten können zu einer finanziellen Notlage führen, daher ist es Kunden wichtig, das ihnen zustehende Geld schnell ausbezahlt zu bekommen\todo{Zitat notwendig?}. 
 
-\todo[inline]{Hier fehlt noch:
+Werden zeitgleich beide strategischen Vorteile erzielt, spricht man von einer hybriden Strategie. Eine solche hybride Strategie bietet den höchsten Return on Investment und kann einem Unternehmen zu einer quasi-Monopol Stellung verhelfen~\autocite{Lombriser2010}. Gute Beispiele für eine Monopolstellung durch die Nutzung von modernen Technologien zur automatisierten Bereitstellung von Produkten und Dienstleistungen sind Technologie-Giganten wie Amazon. Amazon ermöglicht dank einem hohen Grad an Automatisierung ein Kundenerlebnis wie dies kein anderen Online-Händler zuvor erreichen konnte. Trotz der Zusatznutzen die Amazon verspricht, bleiben die Preise tief. Dies ist nur durch einen hohen Automatisierungsgrad machbar~\autocite{Kha2000}.
 
-- etwas darüber was eine erfolgreiche automatisierung ausmacht. Faktoren über den
+%#############################
+% Risiken durch die Automatisierung
+%#############################
+\subsection{Risiken durch die Automatisierung}
 
-- Beispiele der Automatisierung aus der Literatur um die Forschungsfrage zu beantworten -> Hier der richtige Platz?}
+Die Automatisierung von Geschäftsprozessen ist aus vielen, im vorherigen Kapitel erwähnten, Gründen erstrebenswert. Eine Automatisierung geht aber nicht ohne Risiken einher.
 
+% Automation Surprises (Sarter, 1997)
+\todo[inline]{Dieses Kapitel durch neuere Quellen ergänzen, Suche gestaltet sich allerdings schwierig...}
+
+\todo[inline]{Kapitel neu schreiben. Aktuell zu unstrukturiert, zu unklare Aussagen}
+
+Nach der erfolgreichen Einführung, im Sinne der Erhöhung der Qualität und der Leistung\todo{Besserers Wort finden...}, eines Systems zur Automatisierung wird oft erst im laufe der Zeit erkannt, dass nicht nur positive Effekte erzielt wurde. Mit der Einführung jeder neuen Maschine oder Software entsteht ein neues Potential für Probleme und Fehler. Diese werden meist durch fehlende Kommunikation zwischen dem Anwender und dem System verursacht - der Anwender ist oft überrascht über das Verhalten des Systems. Diese Problematik wird bereits bei der Konzeption des Systems verursacht. Es ist deshalb wichtig, bereits beim design eines Systems darauf zu achten, wie ein Anwender damit umgeht~\autocite{Sarter1997}. 
+
+Ein neues System wird meist nicht ohne Fehler eingeführt. Beispielsweise hat das Betriebssystem aus dem Hause Microsoft, eine traditionelle, regel-basierte Software, zur Zeit der Veröffentlichung einen Fehler pro 2000 Zeilen Code. Das bedeutet, zum Zeitpunkt der Veröffentlichung von Windows XP, Software bestehend aus 40 Millionen Zeilen Code, hatte das Betriebssystem mindestens 20000 Fehler~\autocite{TheEconomist2010}. 
+
+Während bei traditioneller Software Fehler auf einzelne Regeln beziehungsweise Code-Zeilen zurückverfolgt werden können, ist dies bei komplexeren Systemen, wie Beispielsweise Neuronalen Netzwerken, nicht möglich. Fehler beziehungsweise Ungenauigkeiten sind in einem solchen System ein fester Bestandteil und anstelle diese ganzheitlich zu beseitigen wird versucht diese zu minimieren. Dabei helfen Metriken wie der F\textsubscript{1}-Score\footnote{Der F\textsubscript{1}-Score kombiniert die Genauigkeit und Trefferquote in eine einzige Metrik von 0 (ungenau) bis 1 (sehr genau)~\autocite{VanRijsbergen1979}}, welcher eine Genauigkeit zwischen 0 und 1 ergibt~\autocite{VanRijsbergen1979}.
+
+%#############################
+% Automatisierung durch Anwendung künstlicher Intelligenz
+%#############################
+\subsection{Automatisierung durch Anwendung künstlicher Intelligenz}
+
+\todo[inline]{Warum braucht es überhaupt KI?
+
+- Limitierung Regel-basierte Software aufzeigen
+
+- Neue Möglichkeiten aufzeigen, die sich durch KI ergeben}
+
+%#############################
+% Anwendungsbeispiele künstlicher Intelligenz
+%#############################
+\subsection{Anwendungsbeispiele künstlicher Intelligenz}
+
+\todo[inline]{Beispiele der Automatisierung aus der Literatur um die Forschungsfrage zu beantworten 
+
+Wo wird was bereits erfolgreich gemacht, welche Methoden/Praktiken werden eingesetzt?
+
+-> Hier der richtige Platz?
+}
+
+%#############################
+% Forschungsstand zur künstlichen Intelligenz
+%#############################
 \subsection{Forschungsstand zur künstlichen Intelligenz}
+
+\todo[inline]{Anstelle/Neben der Anwendbarkeit für den Prototypen die Anwendbarkeit für die Automatisierung von Geschäftsprozessen generell eingehen
+
+Eine Einleitung zur Definition von künstlicher Intelligenz geben. Auf den Begriff Machine Learning eingehen}
 
 % \todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff "KI" beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
 
@@ -240,14 +308,4 @@ Die grösste Herausforderung beim PoS-Tagging sind Wörter welche verschiedenen 
 Die Verwendung von PoS-Tagging kann bei Rechnungen mit einem Prosatext von Vorteil sein. Wie viele relevante Informationen in Prosatexten von Rechnungen verborgen sind, muss sich aber erst noch zeigen.
 
 Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Implementierung eines Prototypen zur Rechnungsindexierung zu beginnen.
-
-\subsection{Automatisierung von Geschäftsprozessen}
-
-- Was macht eine erfolgreiche Automatisierung aus?
-
-\subsection{Künstliche Intelligenz in der Automatisierung von Geschäftsprozessen}
-
-Anwendungsbeispiele aus der Literatur
-
-Wo wird was bereits erfolgreich gemacht, welche Methoden/Praktiken werden eingesetzt?
 
