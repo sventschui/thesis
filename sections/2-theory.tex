@@ -9,7 +9,7 @@ In diesem Kapitel wird erläutert, warum es für ein Unternehmen überhaupt sinn
 %#############################
 \subsection{Gründe zur Automatisierung eines Geschäftsprozesses}
 
-\enquote{Überdurchschnittliche unternehmerische Leistung beruhen langfristig auf Wettbewerbsvorteilen, mit welchen sich ein Unternehmen behaupten kann}~\autocite[104]{Capaul2010}. Zur Erreichung eines solchen Wettbewerbsvorteil, bedient sich ein Unternehmen an einer Wettbewerbsstrategie. Porter \todo{Muss hier "Porter in Capaul" zitiert werden?}  strukturiert diese Strategien nach dem strategischen Vorteil und dem strategischen Zielobjekt (vgl. Abbildung \ref{porter_wettbewerb})~\autocite{Capaul2010}. 
+\enquote{Überdurchschnittliche unternehmerische Leistung beruhen langfristig auf Wettbewerbsvorteilen, mit welchen sich ein Unternehmen behaupten kann}~\autocite[104]{Capaul2010}. Zur Erreichung eines solchen Wettbewerbsvorteil, bedient sich ein Unternehmen an einer Wettbewerbsstrategie. Porter \todo{Muss hier \enquote{Porter in Capaul} zitiert werden?}  strukturiert diese Strategien nach dem strategischen Vorteil und dem strategischen Zielobjekt (vgl. Abbildung \ref{porter_wettbewerb})~\autocite{Capaul2010}. 
 
 Als strategische Vorteile sieht Porter eine bessere Leistung oder tiefere Kosten als Konkurrenten. Will ein Unternehmen langfristig Erfolg haben, so muss es sich entweder über die Leistung oder die Kosten abheben~\autocite{Capaul2010}. Die Automatisierung eines Geschäftsprozesses kann bei der Erreichung beider dieser Vorteile helfen und ist deshalb für ein Unternehmen erstrebenswert. 
 
@@ -98,9 +98,11 @@ Wo wird was bereits erfolgreich gemacht, welche Methoden/Praktiken werden einges
 
 \todo[inline]{Anstelle/Neben der Anwendbarkeit für den Prototypen die Anwendbarkeit für die Automatisierung von Geschäftsprozessen generell eingehen
 
-Eine Einleitung zur Definition von künstlicher Intelligenz geben. Auf den Begriff Machine Learning eingehen}
+Eine Einleitung zur Definition von künstlicher Intelligenz geben. Auf den Begriff Machine Learning eingehen
 
-% \todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff "KI" beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
+Transfer Learning: See https://www.analyticsvidhya.com/blog/2018/11/tutorial-text-classification-ulmfit-fastai-library/}
+
+% \todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff KI beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
 
 Die künstliche Intelligenz ist ein sehr aktuelles und deshalb auch in der Literatur oft diskutiertes Themengebiet. Bereits 2009 geben \textcite{Russell2009} auf über 1000 Seiten einen noch immer aktuellen und sehr umfangreichen Überblick über das Themengebiet. Weiter vertiefen die beiden Autoren viele Teilgebiete der künstlichen Intelligenz und erläutern Grundlegende Konzepte ausführlich.
 
@@ -115,6 +117,12 @@ Um einen ersten Überblick über das Themengebiet zu erhalten, werden einige Tec
 Natural Language Processing (kurz NLP) beschreibt das Gebiet der Forschung und Anwendung von Computern um natürliche Sprache, in Wort und Schrift, zu verstehen und verarbeiten. NLP umfasst diverse Forschungsfelder wie beispielsweise die maschinelle Übersetzung, die Spracherkennung sowie die Informationsextraktion~\autocite{Chowdhury2003}. 
 
 Für diese Arbeit ist das Themengebiet des Natural Language Processing insofern relevant, als dass es die Grundlage für die Verarbeitung von Rechnungen bildet. Mit Techniken aus diesem Gebiet werden die Inhalte der Rechnungen vom Computer verstanden und verarbeitet.
+
+\todo[inline]{Transfer learning reduces training set requirements and error rate in NLP tasks: http://course18.fast.ai/lessons/lesson10.html
+
+Google BERT is even better: https://github.com/google-research/bert
+
+https://github.com/hanxiao/bert-as-service/blob/master/README.md}
 
 \subsubsection{Neuronale Netzwerke}
 
@@ -308,4 +316,34 @@ Die grösste Herausforderung beim PoS-Tagging sind Wörter welche verschiedenen 
 Die Verwendung von PoS-Tagging kann bei Rechnungen mit einem Prosatext von Vorteil sein. Wie viele relevante Informationen in Prosatexten von Rechnungen verborgen sind, muss sich aber erst noch zeigen.
 
 Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Implementierung eines Prototypen zur Rechnungsindexierung zu beginnen.
+
+\subsubsection{Training und Bewertung eines KI Systems}
+
+\todo[inline]{Etwas zum Trainung und zur Bewertung eines KI Systems sagen
+
+Schlechte Generalisierugn einiger Vorgehen erläutern (e.g. NN)
+
+Es braucht viele Testdaten
+
+Auf Trennung zwischen Training und Test Data eingehen
+
+Accuracy aus keras/tensorflow erklären
+
+Overfitting diskutieren
+
+validation und training loss erklären
+}
+
+\subsubsection{Architektur eines KI Systems}
+
+\todo[inline]{Vorherige Kapitel zeigten die Lego Bausteine. Jetzt geht es darum diese Richtig zusammenzusetzen.
+
+Es gibt kein Rezept dafür, auch Literatur ist sehr begrenzt. Im Netz gibt es Aussagen wie 
+
+- Was würde ein Mensch tun um an das Problem heran zu gehen
+
+- Input und Output sind klar, dazwischen AUsprobieren
+
+- Wie würde das Problem jemandem erklärt werden
+}
 

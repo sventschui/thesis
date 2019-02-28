@@ -1,37 +1,220 @@
 \section{Fallbeispiel AXA Gesundheitsvorsorge}
 
+In diesem Kapitel wird die Anwendbarkeit der künstlichen Intelligenz zur automatisierten Verarbeitung von eingereichten Rechnungen bei der AXA Gesundheitsvorsorge überprüft.
+
+Es wird erst ein Überblick über den Prozess gewährt, aus welchem anschliessend Aufgaben abgeleitet werden, welche sich für diese Analyse eignen.
+
+Es werden für zwei Aufgaben je zwei Modelle erarbeitet, anhand welcher die Machbarkeit der Automatisierung überprüft wird.
+
 \subsection{Einleitung}
 
-Grober Abriss über den Umfang des Prototypen
+\todo[inline]{Grober Abriss über den Umfang des Prototypen
+
+Umfang reduzieren auf 2 Teilaspekte:
+
+- Rechnungsklassifizierung (hierzu 2 Ansätze (Pixel vs. OCR) vergleichen)
+
+- Informationsextraktion (e.g. von Patienten namen und des Totalbetrags)
+}
+
+Der Prozess der Rechnungseinreichung (vgl. Abbildung \ref{prozessaxa}) der AXA kann aufgrund zwei verschiedener Ereignisse angestossen werden. In jedem Fall reicht der Kunde eine Rechnung ein. Dies kann er entweder digital, im Kundenportal, oder per Post machen. 
+
+Im Kundenportal hat der Kunde die Möglichkeit eine Rechnung hochzuladen. Dabei kann er entweder ein Dokument auf seinem Endgerät wählen oder die Kamera seines Geräts nutzen, um eine physische Rechnung zu fotografieren.
+
+Nach erfolgreichem Hochladen der Rechnung im Kundenportal durchläuft diese eine erste manuelle Qualitätsprüfung. Diese Qualitätsprüfung wurde eigeführt, da hochgeladene Rechnung teilweise in ungenügender Qualität hochgeladen wurde. Entspricht die Rechnung nicht den Qualitätsanforderungen oder fehlt eine Seite oder eine ärztliche Verordnung, so wird der Kunde geben die vollständige Rechnung erneut hochzuladen.
+
+Nach der erfolgreichen Qualitätsprüfung wird die Rechnung an den Scanning und Indexierungsdienstleister der AXA weitergeleitet.
+
+Entscheidet sich der Kunde für die Einreichung per Post, so wird sein Brief direkt an den Scanning und Indexierungsdienstleister der AXA weitergeleitet, bei welchem dieser eingescannt wird.
+
+Nach beiden dieser Einstiegspunkten in den Prozess indexiert nun der Scanning und Indexierungsdienstleister der AXA die eingereichte Rechnung. Dieser Aufgabenschritt erfolgt teilweise automatisiert und teilweise manuell.
+
+Nach der Indexierung werden die Scans sowie das Resultat der Indexierung elektronisch an die AXA übermittelt. 
+
+Nach dieser Übermittlung wird das Resultat durch ein Regelwerk abgearbeitet und manuell überprüft sowie korrigiert.
+
+Nach der Erfolgreichen Verarbeitung der Rechnung wird der Kunde elektronisch informiert, ob die beanspruchten Leistungen versichert sind und ob er Geld erhält respektive einzahlen muss.
+
+Hat der Kunde die AXA bevollmächtigt, so wird die Rechnung in gewissen Fällen, je nach Rechnungspositionen, automatisiert an die Grundversicherung des Kunden weitergeleitet. 
+
+Ziel dieser Arbeit ist es, für den Schritt der Rechnungsindexierung, die Anwendung von künstlicher Intelligenz zu prüfen, so dass anschliessend das Kernsystem der AXA mit den korrekten Daten zur automatisierten Verarbeitung einer Rechnung aufgerufen werden kann.
+
+Um den Umfang dieser Analyse einzugrenzen, wird der Fokus auf Rechnungen von Optikern, Fitnesscentern und Sportvereinen gelegt. Diese Rechnungen machen 23\% der eingereichten Rechnungen aus und sind Versicherungstechnisch relativ einfach handzuhaben.
+
+% optiker 2660 -> 
+% fitness 2055
+% sportsclub 847
+% =subtotla 5562
+% other 18881
+% =total 24443
+
+%\begin{wrapfigure}{r}{0.55\textwidth}
+\begin{figure}[h]
+    \caption{Rechnungseinreichungsprozess bei der AXA}
+    \label{prozessaxa}
+    \centering
+    \todo[inline]{Bring back a nicer Version of the process diagram}
+    \iffalse
+        \resizebox{0.5\textwidth}{!}{%
+            \begin{tikzpicture}[
+              node distance=1.5cm and 15cm
+            ]
+                \node (startPost) [process] {Einreichung per Post};
+                \node (scanning) [process, below of=startPost] {Scanning};
+                \node (startPortal) [process, right=1cm of startPost] {Einreichung per Kundenportal/App};
+                \node (rectification) [process, below of=startPortal] {Automatische Qualitätsprüfung und Optimierung};
+                \node (qualityGate) [process, below of=rectification] {Manuelle Qualitätsprüfung};
+                \node (indexing) [process2, below of=scanning] {Indexierung};
+                \node (check) [process, below of=indexing] {Prüfung};
+                \node (settlement) [process, below of=check] {Abrechnung};
+                \node (communication) [process, below of=settlement] {Kundenkommunikation};
+                \node (okp) [process, below of=check, right=1cm of settlement] {Weiterleitung an Grundversicherung};
+                
+                \draw [arrow] (startPost) -- (scanning);
+                \draw [arrow] (scanning) -- (indexing);
+                \draw [arrow] (startPortal) -- (rectification);
+                \draw [arrow] (rectification) -- (qualityGate);
+                \draw [arrow] (qualityGate) -- (indexing);
+                \draw [arrow] (indexing) -- (check);
+                \draw [arrow] (check) -- (settlement);
+                \draw [arrow] (settlement) -- (communication);
+                \draw [arrow] (check) -| (okp);
+            \end{tikzpicture}
+        }
+    \fi
+\end{figure}
+%\end{wrapfigure}
 
 \subsection{Vorgehen und Methodik}
 
-Vorgehen zur Entwicklung und Bewertung des Prototypen
+Die Anwendbarkeit der künstlichen Intelligenz für dieses Fallbeispiel soll durch eine Reihe von praktischen Experimenten erfolgen. Dafür werden zuerst die Anforderungen und Bewertungskriterien an das Gesamtsystem gestellt und anschliessend Teilaufgaben zur Erreichung dieser Aufgabe definiert. 
 
-\subsection{Anforderungen}
+Für jede Teilaufgabe werden Messkriterien definiert, welche die Grundlagen für die Bewertung der Gesamtaufgabe bilden. Es wird für jede Teilaufgabe mindestens ein Experiment durchgeführt.
 
-Was soll der Prototyp machen?
+Für jedes Experiment wird eine aufgabenspezifische künstliche Intelligenz geschaffen, welche anhand der für die Teilaufgabe definierten Messkriterien bewertet wird.
 
-Rahmenbedingungen
+\subsubsection{Anforderungen}
 
-- Klassifikation
+Als Gesamtresultat wird erwartet, dass der Prototyp die notwendigen Daten liefert, um 80\% der eingereichten Rechnungen von Optikern, Fitnesscentern und Sportvereinen automatisiert verarbeitet zu können. 
 
--- Annahme: Bei Fitness / Brillen werden alle Positionen bezahlt
+Es darf bei maximal 1\% dieser Rechnungen ein Fehler, beispielsweise ein falscher Betrag oder eine falsche Versicherte Person, gemacht werden.
 
-- Informationsextraktion
+\paragraph{
+    \textbf{Relevante Attribute einer Optiker Rechnung}
+}
 
--- Patient
 
--- LERB
+Eine Rechnung eines Optikers wird bei der AXA Anhand folgender Attribute beurteilt:
 
--- Rechnungspositionen \& -betrag
+\begin{itemize}
+    \item \textbf{Leistungsbezüger}
+    
+    Es muss ermittelt werden, für wen die Rechnung ausgestellt wurde. Anhand dieser Information wird geprüft ob und wie diese Person bei der AXA Versichert ist. Auch wird damit geprüft, dass der maximal versicherte Betrag noch nicht ausgeschöpft ist.
+    
+    Ist der Leistungsbezüger minderjährig, so wird ein gewisser Betrag von der Grundversicherung übernommen. In diesem Fall wird dieser Betrag abgezogen und die Rechnung der Grundversicherung weitergeleitet.
+    \item \textbf{Totalbetrag der Rechnung (inkl. Währung)}
+    
+    Dieser Betrag bildet die Grundlage zur Berechung des geschuldeten Betrages. 
+    
+    Einzelne Rechnungspoisition sind für Optiker Rechnungen nicht relevant.
+    \item \textbf{Hinweis auf eine ärztliche Verordnung}
+    
+    Besteht eine ärztliche Verordnung, ist ein gewisser Betrag bei der Grundversicherung versichert. In diesem Fall muss dieser Betrag abgezogen und die Rechnung an die Grundversicherung weitergeleitet werden.
+\end{itemize}
+
+\paragraph{
+    \textbf{Relevante Attribute einer Rechnung für einen Sportverein}
+}
+
+Eine Rechnung eines Sportvereins wird bei der AXA Anhand folgender Attribute beurteilt:
+
+\begin{itemize}
+    \item \textbf{Leistungsbezüger}
+    
+    Es muss ermittelt werden, für wen die Rechnung ausgestellt wurde. Anhand dieser Information wird geprüft ob und wie diese Person bei der AXA Versichert ist. Auch wird damit geprüft, dass der maximal versicherte Betrag noch nicht ausgeschöpft ist.
+    \item \textbf{Totalbetrag der Rechnung (inkl. Währung):}
+    
+    Dieser Betrag bildet die Grundlage zur Berechung des geschuldeten Betrages. 
+    
+    Einzelne Rechnungspoisition sind für Rechnungen eines Sportvereins nicht relevant.
+    \item \textbf{Sportart}
+    
+    Die AXA anerkennt alle olympischen Sportarten. Das bedeutet, gewisse Sportarten sind nicht versichert. Es muss also die Sportart ermittelt werden, um die Versicherungsdeckung zu prüfen.
+\end{itemize}
+
+\paragraph{
+    \textbf{Relevante Attribute einer Rechnung für ein Fitness-Abo}
+}
+
+Eine Rechnung für ein Fitness-Abo wird bei der AXA Anhand folgender Attribute beurteilt:
+
+\begin{itemize}
+    \item \textbf{Leistungsbezüger}
+    
+    Es muss ermittelt werden, für wen die Rechnung ausgestellt wurde. Anhand dieser Information wird geprüft ob und wie diese Person bei der AXA Versichert ist. Auch wird damit geprüft, dass der maximal versicherte Betrag noch nicht ausgeschöpft ist.
+    \item \textbf{Totalbetrag der Rechnung (inkl. Währung):}
+    
+    Dieser Betrag bildet die Grundlage zur Berechung des geschuldeten Betrages. 
+    
+    Einzelne Rechnungspoisition sind für Rechnungen für ein Fitness-Abo nicht relevant.
+    \item \textbf{Fitnesscenter}
+    
+    Die AXA anerkennt alle Fitnesscenter mit dem Label Qualitop von Qualicert oder mit mindestens 3 Sternen beim WIE AUCH IMEMR DAS SCHONWIEDER HIESS.
+\end{itemize}
 
 \subsection{Architektur}
 
-Einzelne Teilstücke
+Die Aufgabenstellung wird mit zwei Teilsystemen ermöglich. 
+
+Das erste Teilsystem hat zur Aufgabe, Rechnungen zu klassifizieren.
+
+Dies ermöglicht es, im zweiten System eine künstliche Intelligenz zu verwenden, welche auf ein Rechnungstyp spezialisiert ist.
+
+Das zweite Teilsystem dient der Informationsextraktion. Dieses System ist je nach Rechnungstyp unterschiedlich.
 
 \subsection{Teil 1 - Klassifizierung von Rechnungen}
 
+Die Klassifizierung hat zum Ziel, eine Rechnung in eine der aktuell 4 bekannten Klassen einzuteilen. Diese Klassen sind: Optiker, Fitnesscenter, Sportverein, Andere.
+
+Zur klassifizierung der Rechnungen stehen zwei fundamental unterschiedliche Vorgehen zur Auswahl:
+
+\begin{itemize}
+    \item Die Rechnung kann basierend auf dem Bild, sprich den einzelnen Bildpunkten, klassifiziert werden.
+    \item Die Rechnung kann mittels einem Optical Character Recognition System analysiert und schlussendlich aufgrund des erkannten Inhaltes klassifiziert werden.
+\end{itemize}
+
+\subsubsection{Bild-basierte Rechnungsklassifizierung}
+
+Analog der Klassifizierung von Objekten auf Fotos, wie dies von diversen künstlichen Intelligenzen gemacht wird, ist es auch denkbar Rechnung Bild-basiert zu klassifizieren.
+
+TODO: Achtung das war nicht immer der gleiche typ. Das ist Teil des towards datascience blogs...
+\textcite{SHTsuang2019DRN} beschreibt und vergleicht in seinem Blog immer wieder verschiedenste Modelle im Bereich der Computer-Vision. Zuletzt becshreibt er im Februar 2019 Dilated Residual Networks (kruz DRN), eine Netzwerk mit kleinen Verbesserung des ResNet Netzwerks.
+
+ResNet: https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035
+CRM Arxiv: https://arxiv.org/abs/1512.03385
+DRN: https://towardsdatascience.com/review-drn-dilated-residual-networks-image-classification-semantic-segmentation-d527e1a8fb5
+InceptionV4: https://towardsdatascience.com/review-inception-v4-evolved-from-googlenet-merged-with-resnet-idea-image-classification-5e8c339d18bc
+
+TODO: ResNet beschreiben
+
+TODO: Dilated Residual Network beschreiben: Veränderung der Convolutions in einem ResNet zu einem Grid anstelle der herkömmlichen convolution.
+
+TODO: Etwas zu InceptionV4 sagen
+
+Im folgenden werden die ResNet, Inception und DRN Netzwerke angewendet um die 24443 bisher bei der AXA eingereichten Rechnung zu klassifizieren.
+
+TODO: Etwas zu ungleichen Klassen sagen und wie dies korrigiert wird
+
+TODO: ResNet50, ResNet101, InceptionV4 und DRN zur Rechnungsklassifikation vergleichen
+
+
+TODO: Vermutung: Je mehr Klassen, desto ungenauer wird das wohl, da die anderen Klassen sehr ähnlich sein werden.
+
+\subsubsection{OCR-basierte Rechnungsklassifizierung}
+
+- OCR error Problematik -> grammar check vorschlag
+
+\todo[inline]{
 Klassifizierung von Rechnungen
 
 Evtl. verschiedene Ansätze
@@ -43,6 +226,7 @@ Evtl. verschiedene Ansätze
 - OCR -> (SpellCorrection ->) InformationExtraction -> classification
 
 Bewertung der Ergebnisse
+}
 
 \subsection{Teil 2 - Informationsextraktion}
 
