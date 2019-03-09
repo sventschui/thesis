@@ -176,7 +176,7 @@ Als Ausgangspunkt für die Klassifizierung steht ein Bild einer Rechnung. Die Kl
 
 Es liegt nahe, die Klassifizierung der Rechnungen mit Bild-basierten Modellen anzugehen. Im folgenden Kapitel wird dieser Ansatz verfolgt.
 
-Nicht nur im Bereich der Computer Vision ist das Thema der Klassifikation ein viel behandeltes. Im Bereich des Natural Language Processing ist die Klassifikation von Wörtern, Sätzen oder ganzen Texten eine bekannte Problemstellung. Die sogennante Text Classification ist die Grundlage für viele Applikationen, welche mit Texten arbeiten. So verwenden beispielsweise Mail-Server Text Classification um zu entscheiden, ob ein E-Mail Spam ist oder nicht~\autocite{https://developers.google.com/machine-learning/guides/text-classification/}
+Nicht nur im Bereich der Computer Vision ist das Thema der Klassifikation ein viel behandeltes. Im Bereich des Natural Language Processing ist die Klassifikation von Wörtern, Sätzen oder ganzen Texten eine bekannte Problemstellung. Die sogenannte Text Classification ist die Grundlage für viele Applikationen, welche mit Texten arbeiten. So verwenden beispielsweise Mail-Server Text Classification um zu entscheiden, ob ein E-Mail Spam ist oder nicht~\autocite{https://developers.google.com/machine-learning/guides/text-classification/}
 
 Im Kapitel \autoref{chap:text-based-classification} wird die Text-basierte Klassifizierung der Rechnungen weiter verfolgt.
 
@@ -212,11 +212,21 @@ Die 17210 Rechnungen weisen eine sehr unregelmässige Verteilung auf die vier Kl
 
 % http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.414.9846&rep=rep1&type=pdf
 
-Analog der Klassifizierung von Objekten auf Fotos, wie dies von diversen künstlichen Intelligenzen gemacht wird, ist es auch denkbar, Rechnung auf diese Bild-basierte Weise zu klassifizieren.
+Analog der Klassifizierung von Objekten auf Fotos, wie dies von diversen künstlichen Intelligenzen gemacht wird, ist es auch denkbar, Rechnung mit Hilfe diesem Bild-basiertem Vorgehen zu klassifizieren.
 
-Auf dem Machine Learning Blog \enquote{Towards Data Science} beschreiben und vergleichen diverse Autoren immer wieder verschiedenste Modelle im Bereich der Computer Vision. Der Blog bietet einen guten Überblick über die aktuellen Methoden zur Klassifizierung von Bildern. So werden im Jahr 2017 die Residual Networks (kurz ResNet), entwickelt von \textcite{He2015}, als die bahnbrechendse Eingabe bei der ImageNet Large Scale Visiual Recognition Competition\footnote{Die ImageNet Large Scale Visiual Recognition Competition ist ein Wettbewerb der ImageNet Organisation, bei welcher hunderte Data Scientists ihre Modelle im Bereich der Computer Vision vergleichen. TODO: Quelle} der letzten Jahre bezeichnet~\autocite{Fungg2017ResNet}. Im September 2018 beschreibt \textcite{SHTsuang2018Inception} das InceptionV4 Netzwerk von Google, welches vom GoogLeNet abgeleitet und mit den Ideen aus dem ResNet erweitert wurde. Das Modell erzielt noch bessere Resultate als das ResNet selbst. Im gleichen Artikel wird auch das Inception-ResNet-V2 vorgestellt, welches im Verlgeich zum InceptionV4 Netzwerk schneller trainiert werden kann und etwas bessere Resultate liefert. Zuletzt beschreibt \textcite{SHTsuang2019DR} im Februar 2019 die Dilated Residual Networks (kruz DRN), ein Netzwerk mit Verbesserung gegenüber dem ResNet.
+Auf dem Machine Learning Blog \enquote{Towards Data Science} beschreiben und vergleichen diverse Autoren verschiedenste Modelle im Bereich der Computer Vision. Der Blog bietet einen guten Überblick über die aktuellen Methoden zur Klassifizierung von Bildern. So werden im Juli 2017 die Residual Networks (kurz ResNet), entwickelt von \textcite{He2015}, als die bahnbrechendse Eingabe bei der ImageNet Large Scale Visiual Recognition Competition\footnote{Die ImageNet Large Scale Visiual Recognition Competition ist ein Wettbewerb der ImageNet Organisation, bei welcher hunderte Data Scientists ihre Modelle im Bereich der Computer Vision vergleichen. TODO: Quelle} der letzten Jahre bezeichnet~\autocite{Fungg2017ResNet}. Im September 2018 beschreibt \textcite{SHTsuang2018Inception} das InceptionV4 Netzwerk von Google, welches vom GoogLeNet abgeleitet und mit den Ideen aus dem ResNet erweitert wurde. Das Modell erzielt noch bessere Resultate als das ResNet selbst. Im gleichen Artikel wird auch das Inception-ResNet-V2 vorgestellt, welches im Vergleich zum InceptionV4 Netzwerk schneller trainiert werden kann und zugleich etwas bessere Resultate erzielt. 
 
-\todo[inline]{Übersichtsgrafik von https://towardsdatascience.com/review-inception-v4-evolved-from-googlenet-merged-with-resnet-idea-image-classification-5e8c339d18bc einbringen. Darauf fehlt aber leider Inception-ResNet-V2}
+In einem Blog Post auf dem Google AI Blog präsentieren Forscher aus dem Google Brain Team das NASNet. NASNet ist ein Modell zur Klassifizierung von Bildern, welches durch die Anwendung von Machine Learning designed wurde~\autocite{GoogleNasNet}. Unter dem Codename AutoML publiziert das Google Brain Team einen Ansatz, bei welchem ein Neuronales Netzwerk ein anderes erstellt - eine künstliche Intelligenz, welche eine neue künstliche Intelligenz schafft. Mit diesem Ansatz kann das sehr aufwendige Design eines Neuronalen Netzwerks vereinfacht beziehungsweise automatisiert werden~\autocite{GoogleAutoML}.
+
+Als Teil des selben Blog Posts, in welchem das NASNet präsentiert wird, vergleichen die Forscher von Google das Modell mit anderen Netzwerken, wie dem ResNet und dem Inception-ResNet-V2. Der Abbildung \ref{nasnet-comparision} ist zu entnehmen, dass das vom Google Brain Team präsentierte NASNet trotz reduzierter Anzahl an benötigter Operationen, sprich reduzierter Komplexität, verbesserte Genauigkeit als die bisherigen Netzwerke erzielt~\autocite{GoogleNasNet}.
+
+\begin{wrapfigure}{r}{0.7\textwidth} 
+    \caption{Vergleich des vom Google Brain Team präsentierten NASNet mit bestehenden Netzwerken zur Klassifizierung von Bildern des ImageNet Datensatzes. Es wird die Genauigkeit, der Prozentsatz richtig Klassifizierter Bilder der Gesamtheit aller Bilder, der Anzahl benötigter Operationen, sprich die Komplexität des Netzwerks, gegenübergestellt.}
+    \label{nasnet-comparision}
+    \centering
+    \includegraphics[width=0.48\textwidth]{graphics/nasnet-comparision.jpg}
+    \caption*{Quelle: \textcite{GoogleNasNet}}
+\end{wrapfigure}
 
 % ResNet Arxiv: https://arxiv.org/abs/1512.03385
 % ResNet: https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035
@@ -224,15 +234,26 @@ Auf dem Machine Learning Blog \enquote{Towards Data Science} beschreiben und ver
 % DRN: https://towardsdatascience.com/review-drn-dilated-residual-networks-image-classification-semantic-segmentation-d527e1a8fb5
 % InceptionV4: https://towardsdatascience.com/review-inception-v4-evolved-from-googlenet-merged-with-resnet-idea-image-classification-5e8c339d18bc
 
-\todo[inline]{ResNet, Inception, DRN hier beschreiben?}
+% NASNet: https://ai.googleblog.com/2017/11/automl-for-large-scale-image.html
+
+% NASNet example https://www.tensorflow.org/hub/tutorials/image_retraining
+
+% AutoML: https://ai.googleblog.com/2017/05/using-machine-learning-to-explore.html
+
+
 % TODO: Dilated Residual Network beschreiben: Veränderung der Convolutions in einem ResNet zu einem Grid anstelle der herkömmlichen convolution.
 
-Im folgenden werden die ResNet, Inception-ResNet-V2 und DRN Netzwerke angewendet um die bisher bei der AXA eingereichten Rechnung zu klassifizieren.
+Im folgenden wird das ResNet, das Inception-ResNet-V2 sowie das NASNet Netzwerk angewendet, um die bisher bei der AXA eingereichten Rechnung zu klassifizieren.
 
-Da zu wenige Datensätze vorhanden sind, um Neuronale Netzwerke mit so vielen Parametern, wie diese Modelle sie vorweisen, zu trainieren, wird das Konzept des Transfer Learning angewendet. Dabei werden die Netzwerke mit anderen Datensätzen vortrainiert und dann mit den eigenen Datensätzen ajustiert (sogenanntes Fine-Tuning)~\autocite{https://towardsdatascience.com/transfer-learning-from-pre-trained-models-f2393f124751}. 
+Um Bilderkennungsmodelle mit Millionen von Parametern zu trainieren, werden viele Trainingsdaten und eine enorme Kapazität an Rechenleistung benötigt. Das Konzept des Transfer Learning bietet eine Möglichkeit, diese beiden Problematiken zu Umgehen und dabei nur wenig Genauigkeit einzubüssen. Beim Transfer Learning wird ein Modell mit Hilfe eines Datensatzes trainiert, welche nichts mit der eigentlichen Problemstellung zu tun hat. Das trainierte Modell wird dann mit den für die Problemstellung relevanten Daten weiter trainiert, sogenanntes Fine Tuning~\autocite{TensorflowImageRetraining, TDSTransferLearning}.
 
-Transfer Learning ermöglicht nicht nur die Anwendung dieser Netzwerke auf kleinen Datensätzen sondern reduziert zugleich auch die benötigte Zeit um das Netzwerk zu trainieren~\textcite{https://towardsdatascience.com/transfer-learning-from-pre-trained-models-f2393f124751}
+Um die Rechnungen zu klassifizieren wird Transfer Learning angewendet, indem das Training der genannten Modelle auf dem ImageNet Datensatz als Grundlage verwendet wird. 
+% TODO: use keras and same classifier for NASNet: https://www.tensorflow.org/tutorials/images/hub_with_keras
+Das ResNet und das Inception-ResNet-V2 wird auf die Schichten reduziert, bei welchen als Resultat ein Feature Vector entsteht. Das Klassifizierungsmodell wird durch ein Netzwerk mit zwei Convolution Schichten ersetzt. Bei diesem Klassifizierungsmodell wird mit zusätzlichen Dropout Schichten sowie einem dialting experimentiert.
 
+\todo[inline]{Dropout und dilating beschreiben}
+
+Für die Klassifizierung mit dem NASNet kommt eine open source Implementierung von tensorflow (Google) zur Anwendung. Auch 
 
 TODO: ResNet50, ResNet101, InceptionV4 und DRN zur Rechnungsklassifikation vergleichen
 
