@@ -1,5 +1,21 @@
 \documentclass{article}
 \usepackage{pgfplots}
+\pgfplotsset{
+  compat=1.14,
+}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{external}
+\tikzexternalize
 \begin{document}
+
+
+% \resizebox{<horizontal size>}{<vertical size>}{%
+\begin{figure}[h]
+    \caption{TODO}
+    \label{class-distribution}
+    \centering
+    \includegraphics[width=\textwidth, height=100]{graphics/class-weight}
+\end{figure}
 
 \end{document}}

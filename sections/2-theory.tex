@@ -1,4 +1,4 @@
-\section{Theorie}
+\section{Automatisierung eines Geschäftsprozesses}
 
 In diesem Kapitel wird erläutert, warum es für ein Unternehmen überhaupt sinnvoll ist, einen Geschäftsprozess zu automatisieren und welche Risiken damit einhergehen. Es wird beschrieben, warum die künstliche Intelligenz bei der Automatisierung eines Geschäftsprozesses zur Anwendung kommt. Weiter werden Beispiele der Anwendung von künstlicher Intelligenz zur Automatisierung beschrieben und auf Erfolg und Probleme analysiert. Zum Schluss wird ein Einstig in die Thematik der künstlichen Intelligenz gewährt, welcher die Grundlage für das Fallbeispiel im nächsten Kapitel bildet.
 
@@ -94,7 +94,7 @@ Wo wird was bereits erfolgreich gemacht, welche Methoden/Praktiken werden einges
 %#############################
 % Forschungsstand zur künstlichen Intelligenz
 %#############################
-\subsection{Forschungsstand zur künstlichen Intelligenz}
+\section{Forschungsstand zur künstlichen Intelligenz}
 
 \todo[inline]{Anstelle/Neben der Anwendbarkeit für den Prototypen die Anwendbarkeit für die Automatisierung von Geschäftsprozessen generell eingehen
 
@@ -112,7 +112,7 @@ Es kann gesagt werden, dass in der Grundlagenforschung zur künstlichen Intellig
 
 Um einen ersten Überblick über das Themengebiet zu erhalten, werden einige Techniken im Bereich der künstlichen Intelligenz, welche für die Beantwortung der Forschungsfrage sowie für die Entwicklung des Prototypen relevant sind, in den folgenden Kapiteln erläutert.
 
-\subsubsection{Natural Language Processing}
+\subsection{Natural Language Processing}
 
 Natural Language Processing (kurz NLP) beschreibt das Gebiet der Forschung und Anwendung von Computern um natürliche Sprache, in Wort und Schrift, zu verstehen und verarbeiten. NLP umfasst diverse Forschungsfelder wie beispielsweise die maschinelle Übersetzung, die Spracherkennung sowie die Informationsextraktion~\autocite{Chowdhury2003}. 
 
@@ -124,13 +124,27 @@ Google BERT is even better: https://github.com/google-research/bert
 
 https://github.com/hanxiao/bert-as-service/blob/master/README.md}
 
-\subsubsection{Neuronale Netzwerke}
+\subsection{Neuronale Netzwerke}
 
 Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des Menschlichen Gehirns zu einem Computer ist allerdings der Fakt, dass unser Gehirn lernt ohne ein Software-Update zu erhalten. Wir brauchen nicht erst eine neue Software um das Fahrradfahren zu erlernen. Doch wie funktioniert das~\autocite{Krogh2008}?
 
 Die Berechnungen unseres Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die Neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 Modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale Ein- oder Ausgeschaltet sind. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Aus diesem Modell entstand das Konzept von Neuronalen Netzwerken~\autocite{Krogh2008}.
 
-Damit ein Neuronales Netzwerk Leistungsfähig werden kann, muss es ähnlich wie ein Mensch, erst lernen. Das computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die stärke der Synpasen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Beispielaufgabe vom Netzwerk gelöst. Das Resultat des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Beispielaufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert~\autocite{Krogh2008}.
+Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) modelliert, welche Eingabewerte anderer Units oder externer Quellen erhält. Diese Eingabewerte werden gewichtet und summiert. Liegt die Summe der gewichtet Eingabewerte nun über dem definierten Threshold, so aktiviert sich die Threshold Unit und der Ausgabewert ist 1. Liegt der Wert unter dem Threshold, so ist der Ausgabewert 0.
+
+%\begin{wrapfigure}{l}{0.4\textwidth} 
+\begin{figure}[h]
+    \captionsetup{width=.9\linewidth}
+    \caption{Modell eines Neurons nach McCulloch und Pitts. Die sogenannte threshold unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Die Summe der Gewichte ist 1 $\sum_{i=1}^{N} w_i = 1$, dadurch liegt die Summe der gewichteten Eingangssignale $\sum_{i=1}^{N} w_i x_i = 1$ zwischen $0$ und $1$. Das Modell zeigt nun zwei verschiedene Arten, wie der Ausgabewert eines Neurons modelliert werden kann. Zum einen kann das Modell je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann ein kontinuierlicher Sigmoid (rote Linie) verwendet werden, um einen kontinuierlichen Ausgabewert zwischen $0$ und $1$ zu ermitteln.}
+    \label{krogh:a}
+    \centering
+    \includegraphics[width=0.5\linewidth]{graphics/krogh/krogh_neural-network.png}
+    \caption*{Quelle: \textcite{Krogh2008}}
+%\end{wrapfigure}
+\end{figure}
+
+Damit ein Neuronales Netzwerk Leistungsfähig werden kann, muss es ähnlich wie ein Mensch, erst lernen. Für das Neuronale Netzwerk bedeutet Lernen, für die Gewichte und den Threshod geeignete Werte zu finden. Dieses computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die stärke der Synpasen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Übungsaufgabe vom Netzwerk gelöst. Das Resultat des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Aufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert~\autocite{Krogh2008}.
+Dieses Training kann durch verschiedene Algorithmen implementiert werden. Einer davon wird im Kapitel \ref{chap:backpropagation} beschrieben.
 
 Seit mehreren Jahren liefern Neuronale Netzwerke bessere Resultate als klassische Techniken. Dabei werden Neuronale Netzwerk vorwiegend für visuelle Aufgaben und immer häufiger auch zur Verarbeitung Natürlicher Sprache verwendet~\autocite{Olah2014b}.
 
@@ -138,7 +152,72 @@ Seit mehreren Jahren liefern Neuronale Netzwerke bessere Resultate als klassisch
 
 % \todo[inline]{Say something about learning strategies (supervised / unsupervised)}
 
-\subsubsection{Long-Short-Term-Memory Netzwerke}
+\subsection{Tiefe Neuronale Netzwerke}
+
+Neuronale Netzwerke finden oft bei Klassifizierungsproblemen Anwendung. Dabei soll aufgrund bestimmter Eingabewerte eine Klasse bestimmt werden. Ein Beispiel dafür ist die Klassifizierung eines Säugetiers in die Klasse Hund oder Katze aufgrund ihrer Merkmale~\autocite{Krogh2008}.
+
+Einfache Netzwerke von Threshold Units können Klassifizierungsprobleme dann Lösen, wenn die Klassen linear separierbar sind. Die Abbildung \ref{krogh:b} veranschaulicht die lineare Separierung mit Hilfe einer Ebene in einem dreidimensionalen Raum. Die Ebene separiert die grünen und roten Punkte voneinander~\autocite{Krogh2008}.
+
+%\begin{wrapfigure}{l}{0.4\textwidth} 
+\begin{figure}[h]
+    \captionsetup{width=.9\linewidth}
+    \caption{Die graue Ebene zeit das Konzept der linearen Separierbarkeit. Die grünen und roten Punkte können durch eine lineare Ebene separiert werden. Die grünen und roten Kreuze liegen allerdings auf der falschen Seite der Ebene. Aufgrund dieser Kreuze ist die abgebildete Problemstellung nicht linear separierbar.}
+    \label{krogh:b}
+    \centering
+    \includegraphics[width=0.4\linewidth]{graphics/krogh/krogh_plane.png}
+    \caption*{Quelle: \textcite{Krogh2008}}
+%\end{wrapfigure}
+\end{figure}
+
+Der Abbildung \ref{krogh:b} ist zu entnehmen, dass die Problemstellung im abgebildeten Fall, wie die meisten Klassifizierungsprobleme, nicht linear separierbar ist. Die roten und grünen Kreuze markieren dabei Punkte, welche auf der falschen Seite der Ebene liegen. Eine Klassifizierung durch ein einfaches Netzwerk von Threshold Units würde die Klasse dieser Datensätze falsch vorhersagen~\autocite{Krogh2008}.
+
+Um das Modell zur Klassifizierung zu verbessern, können weitere Ebenen in den dreidimensionalen Raum eingesetzt werden. Durch eine weitere Ebene ist es dem Modell möglich, mehr Datensätze richtig zu klassifizieren. Neue Ebenen werden mit neuen Schichten von Threshold Units modelliert (vgl. Abbildung \ref{krogh:c}). Diese neuen Schichten, welche zwischen die Eingabe und Ausgabe Schichten platziert werden, werden Versteckte Schichten (Hidden Layers) genannt~\autocite{Krogh2008}.
+
+% \begin{wrapfigure}{l}{0.4\textwidth} 
+\begin{figure}[h]
+    \captionsetup{width=.9\linewidth}
+    \caption{Modell eines tiefen neuronalen Netzwerk mit einer versteckten Schicht (Hidden Layer).}
+    \label{krogh:c}
+    \centering
+    \includegraphics[width=0.4\linewidth]{graphics/krogh/krogh_deep-network.png}
+    \caption*{Quelle: \textcite{Krogh2008}}
+%\end{wrapfigure}
+\end{figure}
+
+Ein Netzwerk mit mehreren Schichten, auch tiefes neuronales Netzwerk (Deep Neural Network) genannt, stellt aber neue Anforderungen an das Training. Ein Netzwerk mit versteckten Schichten kann nicht mehr auf eine analytische Weise trainiert werden. Aus diesem Grund wird ein komplexerer Lernalgorithmus benötigt. Ein solcher Algorithmus wird im nächsten Kapitel beschrieben~\autocite{Krogh2008}. 
+
+\subsection{Backpropagation}
+\label{chap:backpropagation}
+
+Da, wie bereits im vorherigen Kapitel erwähnt, tiefe neuronale Netzwerke zu Komplex sind, um mit einem analytischen Ansatz trainiert zu werden, muss ein anderes Vorgehen gefunden werden. Das meist verwendetste Vorgehen zum Training von tiefen neuronalen Netzwerken ist das sogenannte Backpropagation. Beim Backpropagation werden erst zufällige Gewichte und Thresholds festgesetzt. Das Netzwerk löst mit diesen zufälligen Gewichten und Thresholds eine erste Übungsaufgabe. Die Abweichung vom erwarteten Resultat (der sogenannte Fehler) wird nun quadriert. Ziel des Backpropagation ist es nun, diesen quadrierten Fehler zu minimieren. Dies wird gemacht, indem das Verfahren des steilsten Abstiegs, auch Gradientverfahren (englisch gradient descent), angewendet wird. Mit Hilfe dieses Verfahrens zur Lösung allgemeiner Optimierungsprobleme aus der Numerik werden nun die Gewichte und der Threshold so angepasst, dass der quadrierte Fehler minimiert wird. Dieses Vorgehen wird nun mit weiteren Übungsaufgaben wiederholt, bis sich der quadrierte Fehler nicht mehr verändert~\autocite{Krogh2008}.
+
+Beim Backpropagation müssen einige Probleme beachtet werden. So kann durch das Gradientverfahren nur ein lokales Minimum gefunden werden. Ob dieses lokale Minimum dem globalen Minimum entspricht, ist nicht bekannt. Das Ergebnis des Trainings ist also stark von den zufällig gewählten Startwerten der Gewichte und Thresholds abhängig~\autocite{Krogh2008}.
+
+Die grösste Problematik beim Trainieren von neuronalen Netzwerken, besonders von tiefen neuronalen Netzwerken, ist die Gefahr des sogenannten Overfitting oder Auswendiglernen~\autocite{Krogh2008}. Diese Problematik wird im folgenden Kapitel genauer erläutert.
+
+\subsection{Overfitting}
+
+Das sogenannte Overfitting, oder auch Auswendiglernen, bezeichnet die Problematik, dass sich ein Modell aufgrund zuvieler Parameter bei zu wenig Trainingsdaten zu stark an die Trainingsdaten anpasst. Das Modell kann die Trainingsdaten mit 100\% Treffergenauigkeit Beurteilen. Soll das Modell dann aber einen neuen Datensatz beurteilen, so sinkt die Treffergenauigkeit massiv~\autocite{Krogh2008}.
+
+% \begin{wrapfigure}{l}{0.4\textwidth} 
+\begin{figure}[h]
+    \caption{Overfitting... TODO}
+    \label{krogh:d}
+    \centering
+    \includegraphics[width=0.4\linewidth]{graphics/krogh/krogh_overfitting.png}
+    \caption*{Quelle: \textcite{Krogh2008}}
+%\end{wrapfigure}
+\end{figure}
+
+Die Problematik des Overfitting ist aus der Mathematik bekannt. Hat eine Funktion zu viele freie Parameter, so passt sie sich zu stark an die vorgegebenen Punkte an. Abbildung \ref{krogh:d} veranschaulicht diese Problematik. Die grüne Funktion liefert kein optimales Ergebnis, da zu wenige Parameter vorhanden sind. Die pinke Funktion hat dagegen zuviele Parameter und lernt die Trainingsdaten perfekt. Um dies zu erreichen ist die pinke Funktion aber etwas sehr kreativ in ihren Wendepunkten. Die blaue Funktion bietet ein gesundes Mittelmass~\autocite{Krogh2008}.
+
+Während die Problematik des Overfitting aus anderen Bereichen bereits bekannt ist, scheinen neuronale Netzwerke besonders anfällig für eine solche überparametrierung. Würden wir ein Modell entwickeln, welches anhand 20 Merkmalen (20 Eingabewerte) mit Hilfe einer verstecken Schicht von 10 Neuronen erkennen soll, ob es sich um einen Hund oder eine Katze handelt, so würden 221 Parameter geschaffen. Jeder der 20 Eingabewerte wird durch ein Gewicht mit den 10 Neuronen aus der versteckten Schicht Verbunden ($10 * 20 = 200$ Parameter). Jedes dieser Neuronen hat einen Threshold (10 Parameter) und ist mit dem Ausgabeneuron verknüpft (10 Parameter). Das Ausgabeneuron selbst hat auch wieder einen Threshold (1 Parameter). Wird dieses Modell mit 221 Parametern nun mit Hilfe von nur 100 Trainingsdatensätzen trainiert, so kann es diese problemlos Auswendig lernen~\autocite{Krogh2008}.
+
+Um ein solches Overfitting zu verhindert stehen diverse Techniken zur Verfügung. Eine beliebte Regularisierungstechnik ist es, eine sogenannte Dropout Schicht in das Netzwerk einzubringen. Diese Dropout Schichte deaktiviert während dem Training zufällige Neuronen\todo{Mehr zu Dropout, Quelle zu Dropout}~\autocite{Krogh2008, TODO_Dropout}.  
+
+Um ein Overfitting zu erkennen, ist es wichtig, ein neuronales Netzwerk an Daten zu testen, welche nicht zum Training verwendet werden~\autocite{Krogh2008}. \todo{Etwas mehr zum erkennen von Overfitting. Steigendes validation loss, sinkde validation accuracy, Validation accuracy ist stets < training accuracy}
+
+\subsection{Long-Short-Term-Memory Netzwerke}
 
 Menschen starten ihren Denkprozess nicht jede Sekunde von neuem. Beim Lesen wird jedes Wort aufgrund des Verständnisses des vorherigen Wortes verstanden. Gedanken sind persistent. Genau solche persistenten Gedanken sind mit dem bisherigen Ansätzen für Neuronale Netze nicht modellierbar. Hier kommen Recurrent Neural Networks (kurz RNN) ins Spiel. Recurrent Neural Networks sind Neuronale Netzwerke mit integrierten Schlaufen~\autocite{Olah2015}. 
 
@@ -171,7 +250,7 @@ Recurrent Neural Networks wurden in der Vergangenheit sehr erfolgreich für viel
 
 LSTM Netzwerke sind für diese Arbeit besonders zur Texterkennung und Rechtschreibkorrektur interessant. Diese beiden Techniken werden im Prototypen der Rechnungsindexierung verwendet.
 
-\subsubsection{Texterkennung}
+\subsection{Texterkennung}
 
 Ein wichtiger Bestandteil des Prototypen zur Indexierung von Rechnungen ist die Erkennung von Texten, ob Druckbuchstaben oder Handschrift, auf den Rechnungen. Die erkannten Texte bilden die Grundlage für jegliche digitale Verarbeitung der Rechnungen.
 
@@ -179,7 +258,7 @@ Die herkömmliche Feature-detection in Texterkennungssoftware wird immer mehr mi
 
 Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien Verfügung steht, verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007}. So wurde die Feature-detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{O.V.2018, O.V.2018a}.
 
-\subsubsection{Word embedding}
+\subsection{Word embedding}
 
 Neuronale Netzwerke funktionieren mit Zahlen. Damit auch Wörter und ganze Sätze von solchen Netzwerken verarbeitet werden können, muss eine geeignete Repräsentation von Wörtern durch Zahlen gefunden werden. Der Prozess, mit welchem ein Wort in eine zahlen-basierte Repräsentation gebracht wird, nennt sicht Word embedding~\autocite{Olah2014b}.
 
@@ -236,7 +315,7 @@ Word embeddings sind zu einem extrem wichtigen Baustein bei der Verarbeitung von
 
 Für den Prototypen bilden Word embeddings eine wichtige Grundlage, da durch diese Technik die in den Rechnungen enthaltenen Wröter und Sätze in eine generalisierte, durch Neuronale Netzwerke verarbeitbare Form gebracht werden können.
 
-\subsubsection{Korrektur von Rechtschreibung und Grammatik}
+\subsection{Korrektur von Rechtschreibung und Grammatik}
 
 Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Texte nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt.
 
@@ -282,7 +361,7 @@ Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwen
 
 Ein weiterer grosser Vorteil von Neuronalen Netzwerken zur Fehlerkorrektur erwähnt \textcite{Mugan2018} in einer persönlichen Kommunikation: Das Neuronale Netzwerk kann auf das Domänenspezifische Lexikon trainiert werden. Das Netzwerk kann beispielsweise mit medizinischen Begriffen aus den Rechnungen trainiert werden, so dass die Resultate des in dieser Arbeit entwickelten Prototypen noch besser werden~\autocite{Mugan2018}.
 
-\subsubsection{Informationsextraktion aus natürlichen Texten}
+\subsection{Informationsextraktion aus natürlichen Texten}
 
 % https://en.wikipedia.org/wiki/Named-entity_recognition
 % https://en.wikipedia.org/wiki/Medical_classification
@@ -317,24 +396,119 @@ Die Verwendung von PoS-Tagging kann bei Rechnungen mit einem Prosatext von Vorte
 
 Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Implementierung eines Prototypen zur Rechnungsindexierung zu beginnen.
 
-\subsubsection{Training und Bewertung eines KI Systems}
+\subsection{Bewertung eines KI Systems}
 
-\todo[inline]{Etwas zum Trainung und zur Bewertung eines KI Systems sagen
+Um ein System objektiv zu Bewerten und mit anderen Ansätzen zu vergleichen, bedarf es Metriken. Folgend werden einige Metriken erläutert und ihre Anwendungsfälle diskutiert.
+
+\subsubsection{Treffergenauigkeit}
+
+Die Treffergenauigkeit, englisch Accuracy (kurz acc), ist die Metrik, welche wohl am meisten im Zusammenhang mit der künstlichen Intelligenz zu finden ist. Die Frage ist aber, ob diese Metrik für alle Anwendungsfälle geeignet ist~\autocite{TDSAccuracy}.
+
+Die Treffergenauigkeit sagt aus, wie viele der Vorhersagen eines Systems der Wirklichkeit entsprechen. Die Formell lautet wie folgt~\autocite{TDSAccuracy}: 
+
+$$Accuracy = 1 - \frac{False Positive + False Negative}{Total Records}$$
+
+Die Confusion Matrix in Abbildung \ref{cm-sample} zeigt ein Beispiel mit einer Treffergenauigkeit von 0.99, respeketive 99.9\%. Aus 1000 Datensätzen wurden 998 korrekt als Negativ klassifiziert. Ein Datensatz wurde korrekt als Positiv klassifiziert und ein Datensatz wurde fälschlicherweise als Negativ klassifiziert~\autocite{TDSAccuracy}.
+
+\begin{figure}[h]
+    \centering
+    \def\arraystretch{1.5}
+    \arrayrulecolor{black}
+    \begin{tabular}{llcc}
+        \multicolumn{2}{l}{}                                                                       & \multicolumn{2}{c}{\textbf{Vorhersage / Klassifizierung}}   \\ \cline{3-4} 
+        \multicolumn{1}{c}{\textbf{}}                               & \multicolumn{1}{l|}{}        & \multicolumn{1}{c|}{Negativ} & \multicolumn{1}{c|}{Positiv} \\ \cline{2-4} 
+        \multicolumn{1}{l|}{\multirow{2}{*}{\textbf{Wirklichkeit}}} & \multicolumn{1}{l|}{Negativ} & \multicolumn{1}{c|}{998}    & \multicolumn{1}{c|}{0}       \\ \cline{2-4} 
+        \multicolumn{1}{l|}{}                                       & \multicolumn{1}{l|}{Positiv} & \multicolumn{1}{c|}{1}       & \multicolumn{1}{c|}{1}       \\ \cline{2-4} 
+    \end{tabular}
+    \caption{Caption}
+    \label{cm-sample}
+\end{figure}
+
+Eine Treffergenauigkeit von 99.9\% ist sehr gut. Das Modell könnte durchaus als sehr erfolgreich betrachtet werden. Diese Betrachtung ist aber sehr abhängig vom Anwendungsfall des Modells. Wenn das Modell die Infektion mit einem hoch ansteckendem Virus ermitteln würde, so wäre eine Infektion unentdeckt geblieben. In diesem Fall wäre eine geringere Treffergenauigkeit des Modells besser, wenn dafür keine falsche Negativ Vorhersagen vorhanden wären. Die Metriken der folgenden Kapitel könnten für diesen Anwendungsfall besser geeignet sein~\autocite{TDAAccuracy}.
+
+\subsubsection{Genauigkeit}
+
+Die Genauigkeit, English Precision, sagt aus, wie viele als Positiv Vorhergesagten Datensätze wirklich Positiv sind. Die Formell dazu lautet (vgl. Abbildung \ref{cm-precision})~\autocite{TDSAccuracy}: 
+
+$$Precision = \frac{True Positive}{True Positive + False Positive} = \frac{True Positive}{Total Predicted Positive}$$
+
+Die Genauigkeit bietet sich immer dann als gute Metrik an, wenn die Kosten eines False Positive hoch sind. Ein Beispiel dafür ist ein Spamfilter. Markiert der Spamfilter ein E-Mail fälschlicherweise als kein Spam, so ist dies kein grosses Problem. Der Anwender kann das E-Mail einfach selbst als Spam markieren. Marktiert der Spamfilter jedoch ein E-Mail fälschlicherweise als Spam, so ist die wahrscheinlichkeit hoch, dass der Anwender das E-Mail nie lesen wird~\autocite{TDSAccuracy}.
+
+\begin{figure}[h]
+    \centering
+    \def\arraystretch{1.5}
+    \begin{tabular}{llcc}
+        \multicolumn{2}{l}{}                                                                        & \multicolumn{2}{c}{\textbf{Vorhersage / Klassifizierung}}                                         \\ \cline{3-4} 
+        \multicolumn{1}{c}{\textbf{}}                                & \multicolumn{1}{l|}{}        & \multicolumn{1}{c|}{Negativ}        & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}Positiv}        \\ \cline{2-4} 
+        \multicolumn{1}{l|}{}                                        & \multicolumn{1}{l|}{Negativ} & \multicolumn{1}{c|}{True Negative}  & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}False Positive} \\ \cline{2-4} 
+        \multicolumn{1}{l|}{\multirow{-2}{*}{\textbf{Wirklichkeit}}} & \multicolumn{1}{l|}{Positiv} & \multicolumn{1}{c|}{False Negative} & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}True Positive}  \\ \cline{2-4} 
+    \end{tabular}
+    \caption{Caption}
+    \label{cm-precision}
+\end{figure}
+
+\subsubsection{Sensitivität}
+
+Die Sensitivität, English \textit{Recall}, sagt aus, wie viele wirklich positiven Datensätze als Positiv Vorhergesagt werden. Die Formel zur Berechnung der Sensitivität lautet (vgl. Abbildung \ref{cm-recall})~\autocite{TDSAccuracy}: 
+
+$$Precision = \frac{True Positive}{True Positive + False Negative} = \frac{True Positive}{Total Actual Positive}$$
+
+Die Sensitivität ist immer dann relevant, wenn die Auswirkungen durch ein False Negative gross sind. Ein Beispiel dafür ist die Klassifizierung von Bank-Transaktionen auf Betrug. Wird eine nicht-Betrug Transaktion als Betrug markiert, so kann dies schnell abgeklärt und korrigiert werden. Wird jedoch eine Betrug Transaktion nicht als solche erkannt, so sind die finanziellen Auswirkungen meist gross~\autocite{TDSAccuracy}.
+
+\begin{figure}[h]
+    \centering
+    \def\arraystretch{1.5}
+    \begin{tabular}{llcc}
+        \multicolumn{2}{l}{}                                                                                                & \multicolumn{2}{c}{\textbf{Vorhersage / Klassifizierung}}                                                                \\ \cline{3-4} 
+        \multicolumn{1}{c}{\textbf{}}                                & \multicolumn{1}{l|}{}                                & \multicolumn{1}{c|}{Negativ}                                & \multicolumn{1}{c|}{Positiv}                               \\ \cline{2-4} 
+        \multicolumn{1}{l|}{}                                        & \multicolumn{1}{l|}{Negativ}                         & \multicolumn{1}{c|}{True Negative}                          & \multicolumn{1}{c|}{False Positive}                        \\ \cline{2-4} 
+        \multicolumn{1}{l|}{\multirow{-2}{*}{\textbf{Wirklichkeit}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{B5D0EE}Positiv} & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}False Negative} & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}True Positive} \\ \cline{2-4} 
+    \end{tabular}
+    \caption{Caption}
+    \label{cm-recall}
+\end{figure}
+
+\subsubsection{F\textsubscript{1}-Score}
+
+Der F\textsubscript{1}-Score, auch F-Mass, vereint die Genauigkeit und die Sensitivität. Im Gegensatz zur Treffergenauigkeit lässt sich der Wert aber nicht durch ein Übermass an True Negatives beeinflussen, denn sie finden keine Beachtung bei der Berechnung. In den meisten Anwendungsfällen sind True Negatives nicht relevant. False Negatives und False Positives sind meist die Verursacher von potentiell verursachten Kosten. Der F\textsubscript{1}-Score wird mit folgender Formel berechnet~\autocite{TDSAccuracy}:
+
+$$F_1=2 * \frac{Precision * Recall}{Precision + Recall}$$
+
+Der F\textsubscript{1}-Score ist also eine gute Verbindung der Genauigkeit und der Sensibilität. Aufgrund der vernachlässigung der True Negatives ist der F\textsubscript{1}-Score besonders bei ungleichmässig verteilten Klassen, sprich übermässig vielen True Negatives, sinnvoll~\autocite{TDSAccuracy}.
+
+\subsubsection{Loss}
+
+% https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a
+
+Das sogennante Loss zeigt, wie sehr eine Vorhersage von der Realität abweicht. Um das Loss zu berechnen, kommt eine sogennante Loss-Function zur Anwendung. Die genau die Loss-Function definiert ist, hängt von der Problemstellung ab. Bei einer Binären Klassifikation ist beispielsweise die Cross Entropy Loss Function oder die Log Loss Function gängig. 
+
+\todo[inline]{Validation und training loss}
+
+
+\todo[inline]{Etwas zum Trainung eines KI Systems sagen
 
 Schlechte Generalisierugn einiger Vorgehen erläutern (e.g. NN)
 
 Es braucht viele Testdaten
 
 Auf Trennung zwischen Training und Test Data eingehen
-
-Accuracy aus keras/tensorflow erklären
-
-Overfitting diskutieren
-
-validation und training loss erklären
 }
 
-\subsubsection{Architektur eines KI Systems}
+https://towardsdatascience.com/accuracy-precision-recall-or-f1-331fb37c5cb9
+
+Accuracy vs. Precision vs. Recall vs. F1
+
+Bei der Klassifizierung ist es bspw. wichtig die False Positives gering zu halten, hier würde eine Rechnung automatisiert als e.g. Fitness abgerechnet werden, ist aber garkeine Fitness Rechnung. False Negatives sind kein so grosses Problem. Hier hilft im Beispiel dann evtl. auch die Confusion Matrix
+
+Der Recall in unsere Klassifizierungsbeispiel sagt dann etwas darüber aus, wieviele der wirklichen Fitness Rechnungen automatisiert verarbeitet werden könnten.
+
+F1 als Kombi von Precision und Recall, dass vor allem bei ungleichen Klassen, wie bei uns, anwendbar sei. WARUM? DARUM: https://towardsdatascience.com/beyond-accuracy-precision-and-recall-3da06bea9f6c (Terroristen Beispiel)
+
+TODO: Add PR Curve to tensorboard: https://medium.com/@akionakas/precision-recall-curve-with-keras-cd92647685e1
+
+TODO: Drop Adam optimizer: https://towardsdatascience.com/adam-latest-trends-in-deep-learning-optimization-6be9a291375c
+
+\subsection{Architektur eines KI Systems}
 
 \todo[inline]{Vorherige Kapitel zeigten die Lego Bausteine. Jetzt geht es darum diese Richtig zusammenzusetzen.
 

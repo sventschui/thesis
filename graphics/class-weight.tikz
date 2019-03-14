@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        xbar stacked,
+    	% ylabel=Anzahl Rechnungen,
+    	enlargelimits=0.05,
+        % symbolic x coords={Sportverein,Fitness,Optiker,Andere},
+        ytick=data,
+        yticklabels = {Some label},
+        nodes near coords,
+        point meta=explicit symbolic,
+    ]
+     \addplot[fill=blue!40] coordinates{(681,0) [Sportverein]};
+     \addplot[fill=red!40] coordinates{(1432,0) [Fitness]};
+     \addplot[fill=green!40] coordinates{(2215,0) [Optiker]};
+     \addplot[fill=yellow!40] coordinates{(12995,0) [Andere]};
+     %   \addplot 
+    %	    coordinates {(Sportverein, 681) (Fitness, 1432) (Optiker, 2215) (Andere, 12995)};
+    \end{axis}
+\end{tikzpicture}
