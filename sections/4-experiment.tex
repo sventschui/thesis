@@ -23,26 +23,10 @@ Der Prozess der Rechnungseinreichung und -verarbeitung (vgl. Abbildung \ref{proz
     \label{prozessaxa}
     \centering
     \vspace{0.2cm}
-    \includegraphics[width=\textwidth]{graphics/rechnungseinreichung-bpmn.png}
+    \includegraphics[width=\textwidth]{graphics/rechnungseinreichung-bpmn.pdf}
 \end{figure}
 
-\todo[inline]{Optimierung Grafik
-
-Kundenportal löschen
-
-Labels der Linien besser umbrechen
-
-Linien mit Pfeilen
-
-Auszahlung -> Rückmeldung an Kunde (Auszahlung oder Rückweisung)
-
-Eventuelle Rückfragen und frühzeitige Abweisungen (QG) aufzeigen
-
-OKP weiterleitung
-
-Nur den Schritt "Indexierung" einfärben
-
---> See new Download}
+\todo[inline]{Im BPMN Diagramm SVG export fehlen die Pfeile...}
 
 Im Kundenportal hat der Kunde die Möglichkeit eine Rechnung hochzuladen. Dabei kann er entweder ein Dokument auf seinem Endgerät wählen oder die Kamera seines Geräts nutzen, um eine Rechnung zu fotografieren.
 
@@ -154,7 +138,7 @@ Anahnd dieser Informationen können Rechnungen automatisiert verarbeitet werden.
 
 \subsection{Übersicht}
 
-Wie in den Anforderungen bereits ersichtlich, besteht die Aufgabe aus zwei Teilschritten. Als erstes 
+\todo[inline]{Überarbeiten}
 
 Um die Aufgabenstellung besser zu verstehen und Schrittweise bearbeiten zu können, wird diese in zwei Teilaufgaben unterteilt. 
 
@@ -166,19 +150,23 @@ Im zweiten Schritt werden die notwendigen Informationen aus den Rechnungen extra
 
 Die Klassifizierung dient dazu, eine Rechnung einer bestimmten Art (Klasse) zuzuweisen. Die Klassen \enquote{Optiker} und \enquote{Fitness} sind durch die Anforderungen gegeben. Neben diesen Klassen könnten Rechnungen noch in viele weitere Klassen eingeteilt werden. Um dem Rechnung zu tragen, werden in diesem Experiment  Rechnungen den Klassen \enquote{Optiker}, \enquote{Fitness}, \enquote{Sportverein} und \enquote{Übrige} zugewiesen. In der späteren Anwendung wäre es denkbar, die Anzahl Klassen zu erhöhen und somit auch andere Arten von Rechnungen zu Automatisieren.
 
-Als Ausgangspunkt für die Klassifizierung steht ein Bild einer Rechnung. Die Klassifizierung von Bildern respektive Fotos ist eine Kernproblematik der Computer Vision und bildet in diesem Bereich die Grundlage für die Lösung viele weitere Problematiken~\autocite{StanfordGithubClassification}. 
+Als Ausgangspunkt für die Klassifizierung steht ein Bild einer Rechnung. Die Klassifizierung von Bildern respektive Fotos ist eine bekannte Problematik der Computer Vision und bildet in diesem Bereich die Grundlage für die Lösung vieler weiterer Problematiken~\autocite{StanfordGithubClassification}. 
 
-% Die Wichtigkeit der Bildklassifizierung zeigt die Organisation ImageNet. ImageNet aht es zum Ziel, Forschern einen einfachen Zugang zu Datensätzen von Bildern zu gewähren. Seit 2010 wurden bereits sieben Wettbewerbe im Bereich der Computer Vision veranstaltet rund um die Klassifikation von Bildern und die Erkennung von Objekten auf diesen Bildern~\autocite{ImageNet2019}. 
+% Die Wichtigkeit der Bildklassifizierung zeigt die Organisation ImageNet. ImageNet aht es zum Ziel, Forschern einen einfachen Zugang zu Datensätzen von Bildern zu gewähren. Seit 2010 wurden bereits sieben Wettbewerbe im Bereich der Computer Vision veranstaltet rund um die Klassifizierung von Bildern und die Erkennung von Objekten auf diesen Bildern~\autocite{ImageNet2019}. 
 
-Es liegt nahe, die Klassifizierung der Rechnungen mit Bild-basierten Modellen anzugehen. Im folgenden Kapitel wird dieser Ansatz verfolgt.
+Es liegt nahe, die Klassifizierung der Rechnungen mit Bild-basierten Modellen aus dem Bereich der Computer Vision anzugehen. Im folgenden Kapitel wird dieser Ansatz verfolgt.
 
-Nicht nur im Bereich der Computer Vision ist das Thema der Klassifikation ein viel behandeltes. Im Bereich des Natural Language Processing ist die Klassifikation von Wörtern, Sätzen oder ganzen Texten eine bekannte Problemstellung. Die sogenannte Text Classification ist die Grundlage für viele Applikationen, welche mit Texten arbeiten. So verwenden beispielsweise Mail-Server Text Classification um zu entscheiden, ob ein E-Mail Spam ist oder nicht~\autocite{GoogleTextClassification}
+Nicht nur im Bereich der Computer Vision ist die Problematik der Klassifizierung ein viel behandeltes Themengebiet. Im Bereich des Natural Language Processing ist die Klassifizierung von Wörtern, Sätzen oder ganzen Texten eine bekannte Problemstellung. Die sogenannte Text Classification ist die Grundlage für viele Applikationen, welche mit Texten arbeiten. So verwenden beispielsweise Mail-Server Text Classification um zu entscheiden, ob ein E-Mail Spam ist oder nicht~\autocite{GoogleTextClassification}
 
 Im Kapitel \ref{chap:text-based-classification} wird die Text-basierte Klassifizierung der Rechnungen weiter verfolgt.
 
-Die beiden Vorgehen zur Klassifizierung werden anhand der knapp 24500 bereits bei der AXA eingereichten Rechnungen getestet. Um dies zu ermöglichen, wurden die Rechnungen aus dem System der AXA exportiert und in die oben genannten Klassen eingeteilt. Dabei wurde der Datensatz auf 17323 Rechnungen reduziert. Etwas mehr als 7000 Rechnungen hatten mehr als eine Seite. Aus diesem Grund konnten diese Rechnungen mit den vorhandenen Informationen nicht eindeutig einer Klasse zugewiesen werden. Eine manuelle Klassifizierung würde für den Umfang dieses Experiments einen zu grossen Arbeitsaufwand darstellen.
+Die beiden Vorgehen zur Klassifizierung werden anhand der knapp 24500 bereits bei der AXA eingereichten Rechnungen getestet. Um dies zu ermöglichen, wurden die Rechnungen aus dem System der AXA exportiert und in die oben genannten Klassen eingeteilt. Dabei wurde der Datensatz auf 17196 Rechnungen reduziert. 
 
-Nach der Einteilung in die vier Klassen ist festzustellen, dass die 17323 Rechnungen eine sehr unregelmässige Verteilung aufweisen (vgl. Abbildung. \ref{class-distribution}). Es ist wichtig, diesem Umstand während dem Training eines Modells Rechnung zu tragen. Ansonsten würde die Voraussage des Modells zu Oft in der Klasse \enquote{Andere} resultieren, da mit Abstand am meisten Rechnungen dieser Klasse vorhanden sind. Diese Problematik kann auf diverse Arten angegangen werden. In dieser Arbeit wird während dem Training die Funktion, welche das Modell trainiert, die sogenannte loss function, durch eine Gewichtung aufgrund der Klassenverteilung diesem Umstand Rechnung tragen~\autocite{Buda2018}.
+Etwas mehr als 7000 Rechnungen hatten mehr als eine Seite. Aus diesem Grund konnten diese Rechnungen mit den vorhandenen Informationen nicht eindeutig einer Klasse zugewiesen werden. Eine manuelle Klassifizierung würde für den Umfang dieses Experiments einen zu grossen Arbeitsaufwand darstellen.
+
+127 Rechnungen wurde aufgrund mangelnder Qualität aussortiert. Diese Problematik wird durch die vor kurzem eingeführte Qualitätsprüfung (vgl. Abbildung \ref{prozessaxa}) nicht mehr vorkommen und ist deshalb für diese Arbeit nicht relevant.
+
+Nach der Einteilung in die vier Klassen ist festzustellen, dass die 17196 Rechnungen eine sehr unregelmässige Verteilung aufweisen (vgl. Abbildung. \ref{class-distribution}). Es ist wichtig, diesem Umstand während dem Training eines Modells Rechnung zu tragen. Ansonsten würde die Voraussage des Modells zu Oft in der überrepräsentierten Klasse \enquote{Andere} resultieren. Diese Problematik kann auf diverse Arten angegangen werden. In dieser Arbeit wird während dem Training die Funktion, welche das Modell trainiert, die sogenannte loss function\todo{Auf die Beschreibung des loss/der loss function in den Grundlagen referenzieren resp. diesen Teil anpassen und auf das Wissen aus den Grundlagen basieren -> Keine Beschreibung mehr was die loss-function ist.}, durch eine Gewichtung aufgrund der Klassenverteilung diesem Umstand Rechnung tragen~\autocite{Buda2018}.
 
 \begin{figure}[h]
     \captionsetup{width=.8\linewidth}
@@ -207,7 +195,7 @@ Nach der Einteilung in die vier Klassen ist festzustellen, dass die 17323 Rechnu
 
 % http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.414.9846&rep=rep1&type=pdf
 
-Analog der Klassifizierung von Objekten auf Fotos, wie dies von diversen künstlichen Intelligenzen gemacht wird, ist es auch denkbar, Rechnung mit Hilfe diesem Bild-basiertem Vorgehen zu klassifizieren.
+% Analog der Klassifizierung von Objekten auf Fotos, ist es auch denkbar, Rechnung mit Hilfe diesem Bild-basiertem Vorgehen zu klassifizieren.
 
 Auf dem Machine Learning Blog \enquote{Towards Data Science} beschreiben und vergleichen diverse Autoren verschiedenste Modelle im Bereich der Computer Vision. Der Blog bietet einen guten Überblick über die aktuellen Methoden zur Klassifizierung von Bildern. So werden im Juli 2017 die Residual Networks (kurz ResNet), entwickelt von \textcite{He2015}, als die bahnbrechendse Eingabe beim ImageNet LSVRC Wettbewerb\footnote{Die ImageNet Large Scale Visiual Recognition Competition (LSVRC) ist ein Wettbewerb der ImageNet Organisation, bei welcher hunderte Data Scientists ihre Modelle im Bereich der Computer Vision vergleichen. TODO: Quelle} der letzten Jahre bezeichnet~\autocite{Fungg2017ResNet}. Im September 2018 beschreibt \textcite{SHTsuang2018Inception} das InceptionV4 Netzwerk von Google, welches vom GoogLeNet abgeleitet und mit den Ideen aus dem ResNet erweitert wurde. Das Modell erzielt noch bessere Resultate als das ResNet selbst. Im gleichen Artikel wird auch das Inception-ResNet-V2 vorgestellt, welches im Vergleich zum InceptionV4 Netzwerk schneller trainiert werden kann und zugleich etwas bessere Resultate erzielt. 
 
@@ -220,7 +208,7 @@ In einem Blog Post auf dem Google AI Blog präsentieren Forscher aus dem Google 
     \includegraphics[width=0.55\textwidth]{graphics/nasnet-comparision.jpg}
     \caption*{Quelle: \textcite{GoogleNasNet}}
 \end{wrapfigure}
-Als Teil des selben Blog Posts, in welchem das NASNet präsentiert wird, vergleichen die Forscher von Google das Modell mit anderen Netzwerken, wie dem ResNet und dem Inception-ResNet-V2. Der Abbildung \ref{nasnet-comparision} ist zu entnehmen, dass das vom Google Brain Team präsentierte NASNet, in der \enquote{medium} Ausprägung, trotz reduzierter Anzahl an benötigter Operationen, sprich reduzierter Komplexität, verbesserte Treffergenauigkeit als die bisherigen Netzwerke erzielt. In der \enquote{large} ausprägung kann das NASNet durch eine erhöhte Komplexität eine noch bessere Treffergenauigkeit erzielen~\autocite{GoogleNasNet}.
+Als Teil des selben Blog Posts, in welchem das NASNet präsentiert wird, vergleichen die Forscher von Google das Modell mit anderen Netzwerken, wie dem ResNet und dem Inception-ResNet-V2. Der Abbildung \ref{nasnet-comparision} ist zu entnehmen, dass das vom Google Brain Team präsentierte NASNet, in der \enquote{medium} Ausprägung, trotz reduzierter Anzahl an benötigter Operationen, sprich reduzierter Komplexität, eine verbesserte Treffergenauigkeit als die bisherigen Netzwerke erzielt. In der \enquote{large} Ausprägung kann das NASNet durch eine erhöhte Komplexität eine noch bessere Treffergenauigkeit erzielen~\autocite{GoogleNasNet}.
 
 % ResNet Arxiv: https://arxiv.org/abs/1512.03385
 % ResNet: https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035
@@ -239,30 +227,36 @@ Als Teil des selben Blog Posts, in welchem das NASNet präsentiert wird, verglei
 
 Im folgenden wird das ResNet, das Inception-ResNet-V2 sowie das NASNet large Netzwerk angewendet, um die bisher bei der AXA eingereichten Rechnung zu klassifizieren.
 
-Um Bilderkennungsmodelle mit Millionen von Parametern zu trainieren, werden viele Trainingsdaten und eine enorme Kapazität an Rechenleistung benötigt. Das Konzept des Transfer Learning bietet eine Möglichkeit, diese beiden Problematiken zu Umgehen und dabei nur wenig Treffergenauigkeit einzubüssen. Beim Transfer Learning wird ein Modell mit Hilfe eines Datensatzes trainiert, welcher nichts mit der eigentlichen Problemstellung zu tun hat. Das trainierte Modell wird dann mit den für die Problemstellung relevanten Daten weiter trainiert, sogenanntes Fine Tuning~\autocite{TensorflowImageRetraining, TDSTransferLearning}.
+Um Bilderkennungsmodelle mit Millionen von Parametern zu trainieren, werden viele Trainingsdaten und eine enorme Kapazität an Rechenleistung benötigt. Das Konzept des Transfer Learning bietet eine Möglichkeit, diese beiden Problematiken zu Umgehen und dabei nur wenig Treffergenauigkeit einzubüssen. Beim Transfer Learning wird ein Modell mit Hilfe eines Datensatzes trainiert, welcher nichts mit der eigentlichen Problemstellung zu tun hat. Das trainierte Modell wird dann mit den für die Problemstellung relevanten Daten weiter trainiert. Dies wird als Fine Tuning bezeichnet~\autocite{TensorflowImageRetraining, TDSTransferLearning}.
 
-Um die Rechnungen zu klassifizieren wird Transfer Learning angewendet, indem das Training der genannten Modelle auf dem ImageNet Datensatz als Grundlage verwendet wird.
+Um die Rechnungen zu klassifizieren wird Transfer Learning angewendet, indem die genannten Modelle auf dem ImageNet Datensatz trainiert werden, bevor die eigentliche Problemstellung angegangen wird.
 
-Nach dem Training auf dem ImageNet Datensatz wird werden die letzten Schichten des Netzwerks, jene die für die Klassifizierung zuständig sind, durch ein neues Klassifizierungsnetzwerk ersetzt. Dadurch wird der Trainingseffekt durch den ImageNet Datensatz beibehalten und die Klassifikation so angepasst, dass sie die Einteilung in die vier vorliegenden Klassen erlaubt.
+Nach dem Training auf dem ImageNet Datensatz werden die letzten Schichten des Netzwerks, jene die für die Klassifizierung zuständig sind, durch ein neues Klassifizierungsnetzwerk ersetzt. Dadurch wird der Trainingseffekt durch den ImageNet Datensatz beibehalten und die Klassifizierung so angepasst, dass sie die Einteilung in die vier vorliegenden Klassen erlaubt.
 
-Das Klassifizierungsnetzwerk (vgl. Abbildung \ref{image-classification-model}), welches zur Anwendung kommt, besteht aus einem Convolution Layer sowie drei Fully Connected Layer. Zwischen den Fully Connected Layern sind zwei Dropout Layer zur reduzierung des Overfitting\footnote{Overfitting bezeichnet das Auswendiglernen eines Modells. Das Modell klassifiziert während dem Training sehr gut, da es alle Beispiele Auswendig lernt. Bei neuen Daten macht das Modell aber viele Fehler, da das Modell diese Daten nicht auswendig lernen konnte. TODO bessere beschreibung \& Quelle} eingeschoben, um ein Overfitting zu verhindern.
+Das Klassifizierungsnetzwerk (vgl. Abbildung \ref{image-classification-model}), welches zur Anwendung kommt, besteht aus einem Convolution Layer sowie drei Fully Connected Layer. Zwischen den Fully Connected Layern sind zwei Dropout Layer zur Reduzierung des Overfitting eingeschoben.
 
-\begin{wrapfigure}{L}{0.4\textwidth} 
+% \begin{wrapfigure}{L}{0.4\textwidth} 
+\begin{figure}[h]
     \caption{Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt. Der Input aus dem Wörterbuch wird durch zwei Fully Connected und einem Dropout Layer in einen One Hot Encoded Output transformiert, der die erkannte Klasse repräsentiert.}
     \label{image-classification-model}
     \centering
     \includegraphics[width=0.2\textwidth]{graphics/image-classification-results/model.pdf}
-\end{wrapfigure}
+%\end{wrapfigure}
+\end{figure}
 
-Die genannten Modelle werden mit 80\% der vorhandenen Daten trainiert, die übrigen 20\% werden benötigt, um den Trainingsfortschritt zu prüfen. Mit den 20\% Testdaten soll ein allfälliges Overfitting erkannte werden.
+Die genannten Modelle werden mit 80\% der vorhandenen Daten trainiert, die übrigen 20\% werden benötigt, um den Trainingsfortschritt zu prüfen. Mit diesen 20\% Testdaten soll ein allfälliges Overfitting erkannt werden.
 
-Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle. \ref{image-class-results:a} und \ref{image-class-results:b} zeigen die Treffergenauigkeit respektive das sogenannte loss\footnote{TODO: loss beschreiben} während dem Training. Während dem Training steigt die Treffergenauigkeit stetig an und das loss sinkt stetig. Dies ist ein gutes Zeichen. \ref{image-class-results:c} und \ref{image-class-results:d} zeigen die Treffergenauigkeit respektive das loss bei der Anwendung des Modells auf den Testdaten. Die Treffergenauigkeit hat nach der Epoche\footnote{TODO: Epoche beschreiben...} 13 bereits das Maximum erreicht. In den folgenden Epochen schwankt die Treffergenauigkeit stark und erhöht sich nicht mehr. Nach nur etwa 5 Epochen Training steigt das loss für die Testdaten an. Daraus kann abgeleitet werden, dass die Modelle beginnen zu Overfitten.
+Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle während 60 Trainingsepochen (Trainingseinheiten). \ref{image-class-results:a} und \ref{image-class-results:b} zeigen die Treffergenauigkeit respektive das loss während dem Training. Während dem Training steigt die Treffergenauigkeit stetig an und das loss sinkt stetig. Dies zeigt, dass die gewählten Modelle lernen. \ref{image-class-results:c} und \ref{image-class-results:d} zeigen die Treffergenauigkeit respektive das loss bei der Anwendung des Modells auf den Testdaten. 
 
---> Kein Overfitting sondern schlechter optimizer....
+Die einzelnen Modelle zeigen eine Treffergenauigkeit von TODO\% (ResNet, Epoche TODO), TODO\% (Inception-ResNet-V2, Epoche TODO) beziehungsweise TODO\% (NASNet, Epoche TODO).
+
+Das auf dem TODO TODO TODO\todo{TODO} basierende Modell hat mit einer Treffergenauigkeit von \todo{TODO}\% nach \todo{TODO} Epochen die höchste Treffergenauigkeit auf den Testdaten. 
+
+Neben der auch nach 60 Epochen noch leicht steigenden Treffergenauigkeit hat das loss auf den Testdaten (vgl. Abbildung \ref{image-class-results:d}) bereits nach 25 Epochen den Wendepunkt erreicht. Dies ist ein Indikator dafür, dass das Modell beginnt Auswendig zu lernen.
 
 \begin{figure}[ht] 
   \captionsetup{width=.8\linewidth}
-  \caption{Statistiken aus dem Training der Bild-basierten Klassifikation von Rechnungen mit den ResNet, Inception-ResNetV2 und NASNet Netzwerken.}
+  \caption{Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen mit den ResNet, Inception-ResNetV2 und NASNet Netzwerken.}
   \label{image-class-results} 
   \includegraphics[width=0.5\textwidth]{graphics/image-classification-results/legend.pdf}
   \begin{subfigure}[b]{0.5\linewidth}
@@ -295,8 +289,6 @@ Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle
 \end{figure}
 
 \todo[inline]{Update graphics \& legend with NASNet Results, also revisti the paragraph above, whether it holds true for NASNet}
-
-Die einzelnen Modelle zeigen eine Treffergenauigkeit von 88.1\% (ResNet, Epoche 4), 88.4\% (Inception-ResNet-V2, Epoche 9) beziehungsweise xx\% (NASNet, Epoche N).
 
 \todo[inline]{Dropout beschreiben, Wahl dieses Modells begründen}
 
@@ -334,32 +326,111 @@ Improve performance and reduce overfitting -> Keeps weights in NN small
 \subsubsection{Text-basierte Rechnungsklassifizierung}
 \label{chap:text-based-classification}
 
-Werden die Rechnungen nicht als Bilder angesehen sondern wird der auf Ihnen aufgedruckte Text als zentraler Aspekt angesehen, so liegt die Klassifizierung der Rechnung aufgrund dieses Textes nahe. Um die Rechnungen allerdings aufgrund des Textes zu Klassifizieren, muss dieser zuerst aus den Bildern der Rechnungen extrahiert werden. Mit Hilfe von Tesseract OCR wird der Text aus den Bildern extrahiert.
+\todo[inline]{- Look at the Vocabulary that is created
 
-Nach dem Extrahieren des Textes aus den Rechnungen wird als erstes ein Wörterbuch gebildet, welches das WordEmbedding \todo{Referenz auf Erklärungskapitel} ermöglicht. Das WordEmbedding dieses Wörterbuchs ist sehr einfach gehalten und erlaubt keine Rückschlüsse auf die Bedeutung der Wörter aufgrund des resultierenden Vektors.
+- Remove diacritics in pre-processing
 
-Das Wörterbuch wird erstellt, indem der Text erst in Kleinbuchstaben umgewandelt und anschliessend bei Leerzeichen getrennt wird. Es werden alle Stopp-Wörter wie \enquote{und}, \enquote{ein} und \enquote{diese} entfernt, da aus ihnen keine Information gewonnen werden kann. Es werden die häufigsten Wörter ermittelt, zu welchen sich das Wröterbuch eine eindeutige Zahl hält. Das Wörterbuch hält sich nur die häufigsten Wörter um die Komplexität gering zu halten.
+- Rerun Tesseract
 
-Nach dem Wörterbuch wird ein Klassifizierungsmodell erstellt. Input dieses Netzwerks ist ein Vektor in der Länge der Anzahl Wörter im Wörterbuch. Pro Wort wird in diesem Vektor die präsenz des Wortes innerhalb einer Rechnung angegeben. Nach dem Input folgt zwei Hidden Layer. Ein Fully Connected Layer, welcher durch einen Dropout Layer mit dem Fully Connected Output Layer verbunden ist (vgl. Abbildung \ref{text-classification-model}). 
+- Rerun classifiers (image and text) without cache
 
-\begin{wrapfigure}{r}{0.4\textwidth} 
+- Als empfehlung in der Thesis: 
+
+-- Stemming um wörter zu generalisieren
+
+-- Teilwörter splitten (Fitness -> Fitness|park -> Fitness|abo)}
+
+Werden die Rechnungen nicht als Bilder angesehen, sondern wird der auf Ihnen aufgedruckte Text als zentraler Aspekt angesehen, so liegt die Klassifizierung der Rechnung aufgrund dieses Textes nahe. Um die Rechnungen allerdings aufgrund des Textes zu Klassifizieren, muss dieser zuerst aus den Bildern der Rechnungen extrahiert werden. Mit Hilfe von Tesseract OCR wird der Text aus den Bildern extrahiert.
+
+Nach dem Extrahieren des Textes aus den Rechnungen wird als erstes ein Wörterbuch gebildet, welches das Word embedding ermöglicht. Das Word embedding dieses Wörterbuchs ist sehr einfach gehalten und erlaubt keine Rückschlüsse auf die Bedeutung der Wörter aufgrund des resultierenden Vektors.
+
+Das Wörterbuch wird erstellt, indem der Text erst in Kleinbuchstaben umgewandelt und anschliessend bei Leerzeichen getrennt wird. Es werden alle Stopp-Wörter wie \enquote{und}, \enquote{ein} und \enquote{diese} entfernt, da aus ihnen keine Informationen gewonnen werden können. Es werden die häufigsten Wörter ermittelt, zu welchen sich das Wörterbuch je eine eindeutige Zahl merkt. Diese Zahl dient als Abbildung des jeweiligen Wortes. Das Wörterbuch hält sich nur die häufigsten Wörter um die Komplexität gering zu halten.
+
+Nach dem Wörterbuch wird ein Klassifizierungsmodell erstellt. Input dieses Netzwerks ist ein Vektor in der Länge der Anzahl Wörter im Wörterbuch. Pro Wort wird in diesem Vektor die Präsenz beziehungsweise Absenz des Wortes innerhalb einer Rechnung angegeben. Nach dem Input folgen ein Fully Connected Layer. Dieser ist durch einen Dropout Layer mit dem Fully Connected Output Layer verbunden (vgl. Abbildung \ref{text-classification-model}). 
+
+% \begin{wrapfigure}{r}{0.4\textwidth} 
+\begin{figure}[h]
     \caption{Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt. Der Input aus dem Wörterbuch wird durch zwei Fully Connected und einem Dropout Layer in einen One Hot Encoded Output transformiert, der die erkannte Klasse repräsentiert.}
     \label{text-classification-model}
     \centering
     \includegraphics[width=0.2\textwidth]{graphics/text-classification/model.pdf}
-\end{wrapfigure}
+% \end{wrapfigure}
+\end{figure}
+
+\todo[inline]{- Input layer bei diesen Grafiken ergänzen
+
+- Breite der Layer in der Grafik ergänzen}
 
 
 TODO
 
 
 
+Bei der Text-basierten Klassifizierung erreicht das loss auf den Testdaten nach 23 Epochen den Wendepunkt (vgl Abbildung \ref{text-class-results:val_loss}). Dabei wird eine Treffergenauigkeit von 98.4\% erreicht (vgl. Abbildung \ref{text-class-results:val_acc}). Die Treffergenauigkeit liegt bei diesem Ansatz somit deutlich höher als beim Bild-basierten Ansatz.
 
-Die Text-basierte Klassifizierung hat mit XX\% eine höhere Treffergenauigkeit erreicht als die Bild-basierte Klassifizierung. Dennoch gibt es auch bei diesem Vorgehen noch Optimierungspotential.
+\begin{figure}[ht] 
+  \captionsetup{width=.8\linewidth}
+  \caption{Statistiken aus dem Training der Text-basierten Klassifizierung von Rechnungen.}
+  \label{image-class-results}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{graphics/text-classification/acc.pdf} 
+    \caption{Treffergenauigkeit} 
+    \label{text-class-results:val} 
+    \vspace{2ex}
+  \end{subfigure}%% 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{graphics/text-classification/loss.pdf} 
+    \caption{loss} 
+    \label{text-class-results:loss} 
+    \vspace{2ex}
+  \end{subfigure} 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{graphics/text-classification/val_acc.pdf} 
+    \caption{Treffergenauigkeit bei den Testdaten} 
+    \label{text-class-results:val_acc} 
+  \end{subfigure}%%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{graphics/text-classification/val_loss.pdf} 
+    \caption{loss bei den Testdaten} 
+    \label{text-class-results:val_loss} 
+  \end{subfigure}
+  \centering
+\end{figure}
+
+Die falsche Klassifizierung einer Rechnung ist vor allem dann problematisch, wenn diese einer Klasse zugewiesen wird, welche automatisch Verarbeitet wird. Die Confusion Matrix in Abbildung \ref{text-classification-cm} zeigt, dass das Text-basierte Modell aus 3367 Testdatensätzen sechs Rechnungen fälschlicherweise als Fitness Rechnungen und fünf Rechnungen fälschlicherweise als Rechnungen für einen Sportverein klassifiziert hat. Dies ergibt eine Genauigkeit|Sensitivität von xx\% (Fitness), xx\% (Optiker) respektive xx\5 (Sportverein). 
+
+\todo[inline]{Precision und Recall anhand der Confusion Matrix besprechen. Error analysis, wie dies im Buch Machine Learning Yearning beschrieben ist beschreiben. Daraus die Fehler/das Potential, welche unten folgend, ableiten und ergänzen.}
+
+\begin{wrapfigure}{r}{0.5\textwidth} 
+    \caption{Confusion Matrix nach 23 Epochen Training des Text-basierten Modells. Das Modell klassifiziert sechs Rechnungen fälschlicherweise als Fitness Rechnung und fünf Rechnungen fälschlicherweise als Rechnungen für einen Sportverein.}
+    \label{text-classification-cm}
+    \centering
+    \includegraphics[width=0.5\textwidth]{graphics/text-classification/cm_22.png}
+\end{wrapfigure}
+
+Die Insgesamt 53 falsch klassifizierten Rechnungen aus dem Testdatensatz wurden zusammen mit den während dem Training falsch klassifizierten Rechnungen einer Fehleranalyse unterzogen. Während dieser Analyse wurden folgende Probleme identifiziert \todo{Reference the Machine Learning Yearning book that describes this approach}
+
+Ein Problem, welches sofort ins Auge sticht, sind die Ergebnisse des Optical Character Recognition Systems. Diese sind teilweise sehr dürftig. Durch die mässige Qualität fotografierter Rechnungen können gewisse Wörter nur schlecht oder garnicht erkannt werden. Besonders eine schlechte Ausleuchtung scheint Tesseract OCR Mühe zu bereiten.
+
+Durch die ungenauigkeiten während dem OCR Prozess entstehen viele Wörter mit Schreibfehlern. Das Wörterbuch erkennt aber nur Wörter, welche mit den gelernten Wörtern identisch sind. Wurde während dem Training des Wörterbuchs ein Wort nie in einer gewissen falschen Schreibweise angetroffen, so ist es für das Klassifizierungsmodell nutzlos.
+
+\subsubsection{Schlussfolgerungen}
+
+\todo[inline]{- Text-basiertes Modell performt sehr gut
+
+- Trotzdem noch einige Verbesserungsptentiale
+
+- Einbau einer Probability Schwelle um falsch-Klassifizierungen zu vermeiden
+
+- folgende Potential beschreiben:}
 
 \textbf{OCR Fehler}
 
-Die Ergebnisse des Optical Character Recognition System sind teilweise sehr dürftig. Um die Resultate dieses Zwischenschritts zu verbesseren, sieht der Autor folgende Optionen.
+Um die Resultate dieses Zwischenschritts zu verbesseren, sieht der Autor folgende Optionen.
 
 \begin{itemize}
     \item Es könnte versucht werden, dass LSTM Modell, welches dem Tesseract OCR System zugrunde liegt, auf die Rechnungen zu trainieren. Das OCR System kann durch Training mit Schriftzügen und Buchstaben, auf welche das System bisher nicht Trainiert wurde, einiges an Treffergenauigkeit gewinnen. Das System sollte aus diesem Grund auf die gängigsten Schriften der Rechnungen trainiert werden\~{TesseractTraining}.
@@ -407,3 +478,10 @@ Kontrast extrem wichtig für OCR, mehr als Körnung und Schärfe....
 Rotation hat bei OCR klassifizierung einen starken einfluss...
 
 Extrem viele QualiCert Belege, diese aber oft handschriftlich, IE ist wohl schwer
+
+
+
+Fehler in den Trainingsdaten. Error analysis war wichtig. Zitiere dabei das Buch dazu. Finde mit einem diff die ursprünglich falsch klassifizierten und quantifiziere dies
+
+
+Blacklisting von Wörtern wie "Einzahlungsschein" da dies als Sportclub klassifiziert wird -.-" -> Alle wörter die nicht mehr als n levenstein distance haben blacklistenmmacjp

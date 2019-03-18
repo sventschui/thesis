@@ -186,6 +186,8 @@ Um das Modell zur Klassifizierung zu verbessern, können weitere Ebenen in den d
 
 Ein Netzwerk mit mehreren Schichten, auch tiefes neuronales Netzwerk (Deep Neural Network) genannt, stellt aber neue Anforderungen an das Training. Ein Netzwerk mit versteckten Schichten kann nicht mehr auf eine analytische Weise trainiert werden. Aus diesem Grund wird ein komplexerer Lernalgorithmus benötigt. Ein solcher Algorithmus wird im nächsten Kapitel beschrieben~\autocite{Krogh2008}. 
 
+\todo[inline]{\textcite{MLYearning} chapter 4: scale drives machine learning progress}
+
 \subsection{Backpropagation}
 \label{chap:backpropagation}
 
@@ -196,6 +198,8 @@ Beim Backpropagation müssen einige Probleme beachtet werden. So kann durch das 
 Die grösste Problematik beim Trainieren von neuronalen Netzwerken, besonders von tiefen neuronalen Netzwerken, ist die Gefahr des sogenannten Overfitting oder Auswendiglernen~\autocite{Krogh2008}. Diese Problematik wird im folgenden Kapitel genauer erläutert.
 
 \subsection{Overfitting}
+
+\todo[inline]{Extend this paragraph with some words about Underfitting and the views from the deeplearning.ai book (see iBooks)}
 
 Das sogenannte Overfitting, oder auch Auswendiglernen, bezeichnet die Problematik, dass sich ein Modell aufgrund zuvieler Parameter bei zu wenig Trainingsdaten zu stark an die Trainingsdaten anpasst. Das Modell kann die Trainingsdaten mit 100\% Treffergenauigkeit Beurteilen. Soll das Modell dann aber einen neuen Datensatz beurteilen, so sinkt die Treffergenauigkeit massiv~\autocite{Krogh2008}.
 
@@ -484,8 +488,19 @@ Das sogennante Loss zeigt, wie sehr eine Vorhersage von der Realität abweicht. 
 
 \todo[inline]{Validation und training loss}
 
+\subsection{Variance und Bias}
+
+See \textcite{MLYearning}
+
+Evtl. bei Overfitting und Under
+
+\subsection{Error Analysis}
+
+See \textcite{MLYearning}
 
 \todo[inline]{Etwas zum Trainung eines KI Systems sagen
+
+Error Analysis \textcite{MLYearning}
 
 Schlechte Generalisierugn einiger Vorgehen erläutern (e.g. NN)
 
