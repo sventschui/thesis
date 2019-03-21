@@ -1,0 +1,91 @@
+\subsection{Teil 2 - Informationsextraktion}
+
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4378726
+
+% https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4378726
+% Sehr cooler Artikel
+% - Diskussion bisheriger Ansätze zur IE bei Rechnungen
+% - 
+
+
+
+
+% https://www.diva-portal.org/smash/get/diva2:934351/FULLTEXT01.pdf
+% -> Referenziert System von Hamza et al.
+% -> OCR Error Correction approach von Sorio et al.
+
+
+
+Um eine Rechnung verarbeiten zu können, müssen diverse Informationen, wie beispielsweise der Totalbetrag oder der Leistungsbezüger, aus dieser extrahiert werden. Diese Problematik der Informationsextraktion wird bereits von vielen existieren Software Lösungen zur automatisierten Verarbeitung von Rechnungen implementiert. Diese Systeme extrahieren zwei verschiedene Typen von Informationen: Informationen mit Schlüsselwörter oder Informationen aus Tabellen~\autocite{Hamza}.
+
+Die Extraktion von Informationen aus Tabellen wurde bereits viel behandelt. Ein einfacher Ansatz von \textcite{MandalInHamza} erreicht bereits eine Treffergenauigkeit von 97.21\%~\autocite{Hamza}.
+
+\textcite{Hamzet} stellen eine Lösung zur Informationsextraktion aus Rechnungen vor, welche mit Hilfe von Case Based Reasoning\todo{CBR beschreiben}, eine Treffergenauigkeit von 76-85\% erreicht. Knapp die Hälfte der Fehler wird dabei durch OCR Fehler verursacht.
+
+Im Gegensatz zu den diskutierten Lösungen ist in unserem Fall die Extraktion von Informationen aus Tabellen nicht relevant. Für die Verarbeitung der Rechnungen im vorliegenden Fallbeispiel ist die Extraktion einzelner Rechnungspositionen nicht notwendig.
+
+In den folgenden Kapitel werden zwei Lösungsvorschläge zur Extraktion von Informationen aus Rechnungen diskutiert. Der erste Ansatz stammt aus einem Join Venture zwischen der AXA, der 3AP AG und der Fachhochschule Nordwestschweiz. Der zweite Ansatz wurde im Rahmen dieser Arbeit erarbeitet.
+
+\todo[inline]{OCR Correction von Sorio et al, welche die Treffergenauigkeit der Nachgelagerten Systeme Massiv erhöht. Ausprobieren oder zumindest als Potential vermerken}
+
+\subsubsection{Bild-basierte Informationsextraktion}
+
+- Joint-Ventrue AXA, 3AP, FHNW
+
+- Auch hier ein aus der Computer Vision bekanntes Netzwerk: Faster RCNN bzw. SSD zur Object Detection
+
+- Testdaten bilden die ~1000 gelabelten Rechnungen von 3AP / FH NW
+
+- Erfolg ist für Patient erkennung gut, für LERB und Totalbetrag aber nicht wirklich 
+
+% Massive comparision of object detection models: https://medium.com/@jonathan_hui/object-detection-speed-and-accuracy-comparison-faster-r-cnn-r-fcn-ssd-and-yolo-5425656ae359
+% Do these results hold true for our "special" case of paper region detection?
+
+% https://rectlabel.com
+
+
+\subsubsection{Zeilen-basierte Informationsextraktion}
+
+% https://www.reddit.com/r/MachineLearning/comments/53ovp9/extracting_a_total_cost_from_ocr_paper_receipt/
+% -> Some cool approaches discussed there
+% ---> 1. OCR -> for each line -> filter for lines with total --> classifiy is total or not
+% ---> 2. Simple solution: Classify each word into binary: total/not total. Dream up some features, e.g. various regex rules, adjecent words, etc. Pick word w. Highest prob.
+% -----> just using adjacent words with CountVectorizer as the features, this seems to work really well
+% ---> 3. Fancy solution: treat it as a neural translation task from your input sequence of words to a single word output (the total) and use RNNs.
+% ---> 4. Maybe "handcode" a few features like keywords taxes (close to total, as in distance to the word taxes is close) and amount/total that are direct keywords for total
+
+
+- Inspiriert durch reddit thread: https://www.reddit.com/r/MachineLearning/comments/53ovp9/extracting\_a\_total\_cost\_from\_ocr\_paper\_receipt/
+
+- Zeile für Zeile klassifizieren, ob es sich um den Totalbetrag handelt
+
+-- Features könnten folgende sein: Wörterbuch, verschiedene RegExp matches (e.g. $[0-9]+$ | $[0-9]+[.,'`´ ][0-9][05]$ | $[0-9]+[.,'`´ ][0-9]{2}$)
+
+- Zeile mit höchster Wahrscheinlichkeit ist dann das Total
+
+- Betrag via RegExp auslesen
+
+- Problem: mehrere Beträge auf einer Zeile
+
+
+
+\subsub{Weitere Ansätze}
+
+- CBR-DIA aus https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4378726
+
+% Siehe reddit comment unter Eigener Ansatz
+
+- Im selben reddit thread wie oben erwähnt werden weitere Lösungsansätze dargestellt
+
+-- Simple solution: Classify each word into binary: total/not total. Dream up some features, e.g. various regex rules, adjecent words, etc. Pick word w. Highest prob.
+
+--- just using adjacent words with CountVectorizer as the features, this seems to work really well
+
+-- Fancy solution: treat it as a neural translation task from your input sequence of words to a single word output (the total) and use RNNs.
+
+
+- https://www.diva-portal.org/smash/get/diva2:934351/FULLTEXT01.pdf
+
+-- Naive Bayes for feature classification
+
+-- Support Vector Machines -> Geht in Richtung Eigener Ansatz
