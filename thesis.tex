@@ -6,6 +6,10 @@
 \usepackage{svg}
 \usepackage{subcaption}
 \usepackage{hhline}
+\usepackage{minted}
+\usemintedstyle{pastie}
+\usepackage{listings}
+\usepackage{pdflscape}
 
 \DeclareUnicodeCharacter{00B4}{'}
 
@@ -48,7 +52,7 @@
 %#############################
 % Schlussfolgerungen
 %#############################
-\section{Schlussfolgerungen}
+\include{sections/5-summary}
 
 %#############################
 % Notes
@@ -61,11 +65,17 @@
 %%TC:ignore
 \section{Anhang}
 
-% \makeBibliography{Anhang}{Literaturverzeichnis}
+\makeBibliography{Anhang}{Literaturverzeichnis}
 
-% \newpage
+\newpage
 
-% \makeListOfTablesAndFigures{Tabellen- und Abbildungsverzeichnis}
+\makeListOfTablesAndFigures{Tabellen- und Abbildungsverzeichnis}
+
+\newpage
+
+\begin{landscape}
+\include{sections/8-1-code}
+\end{landscape}
 %%TC:endignore
 
 \end{document}

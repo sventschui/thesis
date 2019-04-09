@@ -1,15 +1,16 @@
 \section{Automatisierung eines Geschäftsprozesses}
+\label{chap:automation}
 
 In diesem Kapitel wird erläutert, warum es für ein Unternehmen überhaupt sinnvoll ist, einen Geschäftsprozess zu automatisieren und welche Risiken damit einhergehen. Es wird beschrieben, warum die künstliche Intelligenz bei der Automatisierung eines Geschäftsprozesses zur Anwendung kommt. Weiter werden Beispiele der Anwendung von künstlicher Intelligenz zur Automatisierung beschrieben und auf Erfolg und Probleme analysiert. Zum Schluss wird ein Einstig in die Thematik der künstlichen Intelligenz gewährt, welcher die Grundlage für das Fallbeispiel im nächsten Kapitel bildet.
 
-\todo[inline]{Evtl. etwas zur Ethik sagen. Mit der rasanten Industrie 4.0 könnten tausende Menschen Arbeitslos werden (Taxi-Fahrer durch selbstfahrende Fahrzeuge, etc.) (Gibt auch gegenteilige Studien, die die Problematik nicht so eng sehen)}
+\todo[inline, color=igloo]{Evtl. etwas zur Ethik sagen. Mit der rasanten Industrie 4.0 könnten tausende Menschen Arbeitslos werden (Taxi-Fahrer durch selbstfahrende Fahrzeuge, etc.) (Gibt auch gegenteilige Studien, die die Problematik nicht so eng sehen)}
 
 %#############################
 % Gründe zur Automatisierung eines Geschäftsprozesses
 %#############################
 \subsection{Gründe zur Automatisierung eines Geschäftsprozesses}
 
-\enquote{Überdurchschnittliche unternehmerische Leistung beruhen langfristig auf Wettbewerbsvorteilen, mit welchen sich ein Unternehmen behaupten kann}~\autocite[104]{Capaul2010}. Zur Erreichung eines solchen Wettbewerbsvorteil, bedient sich ein Unternehmen an einer Wettbewerbsstrategie. Porter \todo{Muss hier \enquote{Porter in Capaul} zitiert werden?}  strukturiert diese Strategien nach dem strategischen Vorteil und dem strategischen Zielobjekt (vgl. Abbildung \ref{porter_wettbewerb})~\autocite{Capaul2010}. 
+\enquote{Überdurchschnittliche unternehmerische Leistung beruhen langfristig auf Wettbewerbsvorteilen, mit welchen sich ein Unternehmen behaupten kann}~\autocite[104]{Capaul2010}. Zur Erreichung eines solchen Wettbewerbsvorteil, bedient sich ein Unternehmen an einer Wettbewerbsstrategie. Porter strukturiert diese Strategien nach dem strategischen Vorteil und dem strategischen Zielobjekt (vgl. Abbildung \ref{porter_wettbewerb})~\autocite{Capaul2010}. 
 
 Als strategische Vorteile sieht Porter eine bessere Leistung oder tiefere Kosten als Konkurrenten. Will ein Unternehmen langfristig Erfolg haben, so muss es sich entweder über die Leistung oder die Kosten abheben~\autocite{Capaul2010}. Die Automatisierung eines Geschäftsprozesses kann bei der Erreichung beider dieser Vorteile helfen und ist deshalb für ein Unternehmen erstrebenswert. 
 
@@ -36,17 +37,13 @@ Als strategische Vorteile sieht Porter eine bessere Leistung oder tiefere Kosten
     \end{figure}
 }
 
-\todo[inline]{Muss hier \enquote{Porter in Capaul} zitiert werden?
-
-In Anlehnung an?}
-
-Um eine Kostenführerschaft zu erzielen, sind tiefe Selbstkosten sehr wichtig~\autocite{Capaul2010}. Eine Automatisierung kann hohe Selbstkosten, beispielsweise durch hohen manuellen Aufwand, reduzieren und somit eine Kostenführerschaft ermöglichen\todo{Zitat notwendig?}. 
+Um eine Kostenführerschaft zu erzielen, sind tiefe Selbstkosten sehr wichtig~\autocite{Capaul2010}. Eine Automatisierung kann hohe Selbstkosten, beispielsweise durch hohen manuellen Aufwand, reduzieren und somit eine Kostenführerschaft ermöglichen.
 
 Eine Differenzierung im Bereich der Leistung kann durch eine Automatisierung gleich auf zwei verschiedene Arten unterstützt werden. 
 
 Automatisierte Prozesse weisen weniger Fehler auf, Produkte oder Dienstleistungen können also in einer besseren Qualität angeboten werden. \textcite{Kregassner2012} spricht in der IT Administration von einer Fehlerquote von 10\%, selbst bei einfachen, sich wiederholenden Tätigkeiten, wenn diese manuell ausgeführt werden. Werden diese Tätigkeiten automatisiert, so reduziert sich die Fehlerquote. Ähnliche Beobachtungen wurden auch von \textcite{Uettwiller-Geiger2005} im Bereich von medizinischen Laboren gemacht. Auch in diesem Bereich konnte die Fehlerquote durch die Automatisierung stark reduziert werden. 
 
-Neben der Reduktion der Fehlerquote kann die Automatisierung eines Geschäftsprozesses auch einen Zusatznutzen für Kunden bedeuten. Im Beispiel einer Krankenkasse könnte eine Automatisierte Leistungsabwicklung die Durchlaufzeit bis zur Auszahlung einer eingereichten Rechnung um ein vielfaches verkürzen. Gesundheitskosten können zu einer finanziellen Notlage führen, daher ist es Kunden wichtig, das ihnen zustehende Geld schnell ausbezahlt zu bekommen\todo{Zitat notwendig?}. 
+Neben der Reduktion der Fehlerquote kann die Automatisierung eines Geschäftsprozesses auch einen Zusatznutzen für Kunden bedeuten. Im Beispiel einer Krankenkasse könnte eine Automatisierte Leistungsabwicklung die Durchlaufzeit bis zur Auszahlung einer eingereichten Rechnung um ein vielfaches verkürzen. Gesundheitskosten können zu einer finanziellen Notlage führen, daher ist es Kunden wichtig, das ihnen zustehende Geld schnell ausbezahlt zu bekommen. 
 
 Werden zeitgleich beide strategischen Vorteile erzielt, spricht man von einer hybriden Strategie. Eine solche hybride Strategie bietet den höchsten Return on Investment und kann einem Unternehmen zu einer quasi-Monopol Stellung verhelfen~\autocite{Lombriser2010}. Gute Beispiele für eine Monopolstellung durch die Nutzung von modernen Technologien zur automatisierten Bereitstellung von Produkten und Dienstleistungen sind Technologie-Giganten wie Amazon. Amazon ermöglicht dank einem hohen Grad an Automatisierung ein Kundenerlebnis wie dies kein anderen Online-Händler zuvor erreichen konnte. Trotz der Zusatznutzen die Amazon verspricht, bleiben die Preise tief. Dies ist nur durch einen hohen Automatisierungsgrad machbar~\autocite{Kha2000}.
 
@@ -55,14 +52,17 @@ Werden zeitgleich beide strategischen Vorteile erzielt, spricht man von einer hy
 %#############################
 \subsection{Risiken durch die Automatisierung}
 
+\todo[inline, color=igloo]{Kapitel überarbeiten:
+
+- etwas strukturierter
+
+- neuere Quellen}
+
 Die Automatisierung von Geschäftsprozessen ist aus vielen, im vorherigen Kapitel erwähnten, Gründen erstrebenswert. Eine Automatisierung geht aber nicht ohne Risiken einher.
 
 % Automation Surprises (Sarter, 1997)
-\todo[inline]{Dieses Kapitel durch neuere Quellen ergänzen, Suche gestaltet sich allerdings schwierig...}
 
-\todo[inline]{Kapitel neu schreiben. Aktuell zu unstrukturiert, zu unklare Aussagen}
-
-Nach der erfolgreichen Einführung, im Sinne der Erhöhung der Qualität und der Leistung\todo{Besserers Wort finden...}, eines Systems zur Automatisierung wird oft erst im laufe der Zeit erkannt, dass nicht nur positive Effekte erzielt wurde. Mit der Einführung jeder neuen Maschine oder Software entsteht ein neues Potential für Probleme und Fehler. Diese werden meist durch fehlende Kommunikation zwischen dem Anwender und dem System verursacht - der Anwender ist oft überrascht über das Verhalten des Systems. Diese Problematik wird bereits bei der Konzeption des Systems verursacht. Es ist deshalb wichtig, bereits beim design eines Systems darauf zu achten, wie ein Anwender damit umgeht~\autocite{Sarter1997}. 
+Nach der erfolgreichen Einführung, im Sinne der Erhöhung der Qualität und der Produktivität, eines Systems zur Automatisierung wird oft erst im laufe der Zeit erkannt, dass nicht nur positive Effekte erzielt wurde. Mit der Einführung jeder neuen Maschine oder Software entsteht ein neues Potential für Probleme und Fehler. Diese werden meist durch fehlende Kommunikation zwischen dem Anwender und dem System verursacht - der Anwender ist oft überrascht über das Verhalten des Systems. Diese Problematik wird bereits bei der Konzeption des Systems verursacht. Es ist deshalb wichtig, bereits beim design eines Systems darauf zu achten, wie ein Anwender damit umgeht~\autocite{Sarter1997}. 
 
 Ein neues System wird meist nicht ohne Fehler eingeführt. Beispielsweise hat das Betriebssystem aus dem Hause Microsoft, eine traditionelle, regel-basierte Software, zur Zeit der Veröffentlichung einen Fehler pro 2000 Zeilen Code. Das bedeutet, zum Zeitpunkt der Veröffentlichung von Windows XP, Software bestehend aus 40 Millionen Zeilen Code, hatte das Betriebssystem mindestens 20000 Fehler~\autocite{TheEconomist2010}. 
 
@@ -73,28 +73,84 @@ Während bei traditioneller Software Fehler auf einzelne Regeln beziehungsweise 
 %#############################
 \subsection{Automatisierung durch Anwendung künstlicher Intelligenz}
 
-\todo[inline]{Warum braucht es überhaupt KI?
+% https://starlab-alliance.com/wp-content/uploads/2017/09/The-Business-of-Artificial-Intelligence.pdf
+Das Polanyi Paradox besagt, dass wir Menschen mehr Wissen, als wir beschreiben oder erklären können. Diese Problematik gilt auch für klassische Computer Anwendungen. Wir waren über lange Zeit nicht Fähig, dem Computer Dinge beizubringen, die wir nicht Erklären konnten. Da Computer bisher immer anhand von Menschen definierter Regeln operierten, waren sie bisher limitiert in den Dingen, die sie erledigen konnten~\autocite{McAfee}. 
 
-- Limitierung Regel-basierte Software aufzeigen
+Die künstliche Intelligenz bietet die Möglichkeit diese Limitierung zu Umgehen. Anstelle Software anhand vordefinierter Regeln zu schreiben, lernt die Software die Regeln selbst. So kann die Software Dinge lernen, die wir Menschen nicht ausdrücken können~\autocite{McAfee}.
 
-- Neue Möglichkeiten aufzeigen, die sich durch KI ergeben}
+Künstliche Intelligenz wird als die wichtigste Allzweck-Technologie unserer Zeit gehandelt. Vergleiche mit der Dampfkraft, Elektrizität und dem Verbrennungsmotor liegen sehr nahe~\autocite{McAfee}.
+
+Die Künstliche Intelligenz findet in vielen Bereichen bereits Anwendung. Obwohl diese Anwendung noch nicht perfekt sind, kann die Leistung eines Menschen bereits übertroffen werden. Ein gutes Beispiel dafür ist die Erkennung von Objekten auf Bildern. Bereits im Jahr 2015 konnte die Menschliche Fehlerquote von ca. 5\% von einer künstlichen Intelligenz unterboten werden\footnote{Dieser Test wurde auf dem ImageNet Datensatz für Bilderkennung durchgeführt. Mehr zur Bilderkennung im Kapitel \ref{chap:image-recon}}. Diese vielversprechende Ergebnisse zeigen, warum die künstliche Intelligenz für die Automatisierung von Geschäftsprozessen eine immer wichtigere Rolle spielen wird~\autocite{McAfee}.
+
+Eine Studie von McKinsey zeigt, dass die künstliche Intelligenz einem Unternehmen das Potential zur Disruption bringt. Unternehmen, welche die künstliche Intelligenz früh einführen und mit einer proaktiven Strategie kombinieren, haben einen höheren Gewinn als Ihre Konkurrenz~\autocite{Bughin}. 
 
 %#############################
 % Anwendungsbeispiele künstlicher Intelligenz
 %#############################
 \subsection{Anwendungsbeispiele künstlicher Intelligenz}
 
+Eine Studie des \textcite{Bughin} zeigt, dass die grossen Investitionen in die künstliche Intelligenz noch immer von den Technologie Giganten und Digital Native Unternehmen wie Amazon, Apple, Badiu und Google kommen. Die Investitionen von diesen Unternehmen werden in dem Bericht auf 18 bis 27 Milliarden USD geschätzt. Viele der Leitenden Angestellten der über 3000 weltweit befragten Unternehmen wissen aktuell nicht, welche Vorteile die künstliche Intelligenz für ihr Unternehmen bieten könnte. Aus diesem Grund bleiben Investitionen von Firmen ausserhalb des Technologie Sektors aus.
+
+Im folgenden werden einige Anwendungsbeispiele der künstlichen Intelligenz gezeigt. Diese Beispiele sollen verdeutlichen, dass auch für Unternehmen ausserhalb des Technologie Sektors eine Investition in die künstliche Intelligenz sinnvoll ist.
+
+\subsubsection{Ping An Insurance Co. of China Ltd.}
+
+Ping An Insurance Co. of China Ltd. hatte bereits im Jahr 2017 110 Data Scientists eingestellt, welche unter anderem im Bereich der künstlichen Intelligenz tätig sind und mehr als 30 CEO gesponsorte Projekte in diesem Bereich durchführten~\autocite{Ransbotham2017}. Der technologische Fortschritt des Ping An Konzerns zeigt sich auch auf der dedizierten Webseite von Ping An Technology, der Konzern eigenen IT Unternehmung. Die Webseite stellt bereits auf der Startseite die künstliche Intelligenz als eine der wichtigsten Technologien für die Unternehmung vor. Auf der Webseite werden auch einige Anwendungsfälle aufgezeigt. So gibt Ping An Technology an, Systeme entwickelt zu haben, welche eine Grippe, Diabetes und andere Krankheiten vorhersagen können~\autocite{PingAnTechnology}.
+
+\subsubsection{Blue River Technology}
+
+% https://www.bernardmarr.com/default.asp?contentID=1387
+
+Blue River Technology, heute Teil von John Deer, hat ein System entwickelt, welches mit Hilfe von Computer-Vision und künstlicher Intelligenz beurteilen kann, ob eine Pflanze von einem Schädling befallen ist. Das System kann auch sagen, wie viel von welchem Pestizid notwendig ist, um den Schädling zu bekämpfen. Betrachtet man die Nebenwirkungen solcher Pestizide und deren aktuell Massenhaften Einsatz, so ist dieses System ein wichtiger Bestandteil der Nahrungssicherung~\autocite{BlueRiverTechnology}.
+
+\subsubsection{Infervision}
+
+https://www.bernardmarr.com/default.asp?contentID=1269
+
+
+
+
+
+% In Fällen, bei welchen die künstliche Intelligenz bessere Ergebnisse liefert als Menschen, verbreitet sich die Technologie viel schneller. Aptonomy und Sanbot, Hersteller von Dronen beziehungsweise Roboter, verwenden künstliche Intelligenz um grosse Teile der Arbeit von Sicherheitspersonal zu automatisieren. Enlitic, ein Startup aus dem Medizinalbereich, nutzt künstliche Intelligenz um medizinische Bilder auszuwerten, um Krebs zu diagnostizieren~\autocite{McAfee}. Bei diesen Unternehmen handelt es sich um Unternehmen, welche die Anwendung der künstlichen Intelligenz als eine ihrer Kernkompetenzen sehen.
+
+% https://starlab-alliance.com/wp-content/uploads/2017/09/The-Business-of-Artificial-Intelligence.pdf
+
+% Viele Anwendungsbeispiele lassen sich bei Technologie Giganten wie Google und Facebook finden. Diese Unternehmen, welche stetig nach neuen Geschäftsideen suchen, gelten als besonders technisch Innovativ und haben die notwendigen Mittel, kosteninentsive Forschung zu betreiben.
+
+\todo[inline]{
+- Ping An, wie bereits in der Einleitung erwähnt, 110 Data Scientist
+
+- Google, Facebook, etc.
+
+- \textcite{Bughin}
+
+-- Google, etc. investieren viel
+
+-- Zu sagen, wie viel andere Unternehmen investieren ist schwierig
+
+- https://www.wiley.com/en-ch/Artificial+Intelligence+in+Practice:+How+50+Successful+Companies+Used+AI+and+Machine+Learning+to+Solve+Problems-p-9781119548218
+
+- https://www.forbes.com/sites/bernardmarr/2018/04/30/27-incredible-examples-of-ai-and-machine-learning-in-practice/
+
+- https://sloanreview.mit.edu/projects/artificial-intelligence-in-business-gets-real/
+
+-- Example of Allianz using AI in Underwriting
+}
+
 \todo[inline]{Beispiele der Automatisierung aus der Literatur um die Forschungsfrage zu beantworten 
 
 Wo wird was bereits erfolgreich gemacht, welche Methoden/Praktiken werden eingesetzt?
 
 -> Hier der richtige Platz?
+
+ARTIFICIAL INTELLIGENCE THE NEXT DIGITAL FRONTIER?
 }
 
 %#############################
 % Forschungsstand zur künstlichen Intelligenz
 %#############################
-\section{Forschungsstand zur künstlichen Intelligenz}
+\section{Künstliche Intelligenz: Grundlagen und Ansätze in der Praxis}
+\label{chap:ai}
 
 \todo[inline]{Anstelle/Neben der Anwendbarkeit für den Prototypen die Anwendbarkeit für die Automatisierung von Geschäftsprozessen generell eingehen
 

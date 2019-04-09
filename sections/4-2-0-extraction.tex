@@ -1,26 +1,15 @@
 \subsection{Teil 2 - Informationsextraktion}
 
-https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4378726
-
-% https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4378726
-% Sehr cooler Artikel
-% - Diskussion bisheriger Ansätze zur IE bei Rechnungen
-% - 
-
-
-
-
 % https://www.diva-portal.org/smash/get/diva2:934351/FULLTEXT01.pdf
 % -> Referenziert System von Hamza et al.
 % -> OCR Error Correction approach von Sorio et al.
 
 
-
 Um eine Rechnung verarbeiten zu können, müssen diverse Informationen, wie beispielsweise der Totalbetrag oder der Leistungsbezüger, aus dieser extrahiert werden. Diese Problematik der Informationsextraktion wird bereits von vielen existieren Software Lösungen zur automatisierten Verarbeitung von Rechnungen implementiert. Diese Systeme extrahieren zwei verschiedene Typen von Informationen: Informationen mit Schlüsselwörter oder Informationen aus Tabellen~\autocite{Hamza}.
 
-Die Extraktion von Informationen aus Tabellen wurde bereits viel behandelt. Ein einfacher Ansatz von \textcite{MandalInHamza} erreicht bereits eine Treffergenauigkeit von 97.21\%~\autocite{Hamza}.
+Die Extraktion von Informationen aus Tabellen wurde bereits viel behandelt. Ein einfacher Ansatz von \textcite{Mandal} erreicht bereits eine Treffergenauigkeit von 97.21\%~(\cite{Mandal} in \cite{Hamza}).
 
-\textcite{Hamzet} stellen eine Lösung zur Informationsextraktion aus Rechnungen vor, welche mit Hilfe von Case Based Reasoning\todo{CBR beschreiben}, eine Treffergenauigkeit von 76-85\% erreicht. Knapp die Hälfte der Fehler wird dabei durch OCR Fehler verursacht.
+\textcite{Hamza} stellen eine Lösung zur Informationsextraktion aus Rechnungen vor, welche mit Hilfe von Case Based Reasoning\todo{CBR beschreiben}, eine Treffergenauigkeit von 76-85\% erreicht. Knapp die Hälfte der Fehler wird dabei durch OCR Fehler verursacht.
 
 Im Gegensatz zu den diskutierten Lösungen ist in unserem Fall die Extraktion von Informationen aus Tabellen nicht relevant. Für die Verarbeitung der Rechnungen im vorliegenden Fallbeispiel ist die Extraktion einzelner Rechnungspositionen nicht notwendig.
 
@@ -30,6 +19,7 @@ In den folgenden Kapitel werden zwei Lösungsvorschläge zur Extraktion von Info
 
 \subsubsection{Bild-basierte Informationsextraktion}
 
+\todo[inline]{
 - Joint-Ventrue AXA, 3AP, FHNW
 
 - Auch hier ein aus der Computer Vision bekanntes Netzwerk: Faster RCNN bzw. SSD zur Object Detection
@@ -42,7 +32,7 @@ In den folgenden Kapitel werden zwei Lösungsvorschläge zur Extraktion von Info
 % Do these results hold true for our "special" case of paper region detection?
 
 % https://rectlabel.com
-
+}
 
 \subsubsection{Zeilen-basierte Informationsextraktion}
 
@@ -54,7 +44,7 @@ In den folgenden Kapitel werden zwei Lösungsvorschläge zur Extraktion von Info
 % ---> 3. Fancy solution: treat it as a neural translation task from your input sequence of words to a single word output (the total) and use RNNs.
 % ---> 4. Maybe "handcode" a few features like keywords taxes (close to total, as in distance to the word taxes is close) and amount/total that are direct keywords for total
 
-
+\todo[inline]{
 - Inspiriert durch reddit thread: https://www.reddit.com/r/MachineLearning/comments/53ovp9/extracting\_a\_total\_cost\_from\_ocr\_paper\_receipt/
 
 - Zeile für Zeile klassifizieren, ob es sich um den Totalbetrag handelt
@@ -66,11 +56,12 @@ In den folgenden Kapitel werden zwei Lösungsvorschläge zur Extraktion von Info
 - Betrag via RegExp auslesen
 
 - Problem: mehrere Beträge auf einer Zeile
+}
 
 
+\subsubsection{Weitere Ansätze}
 
-\subsub{Weitere Ansätze}
-
+\todo[inline]{
 - CBR-DIA aus https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4378726
 
 % Siehe reddit comment unter Eigener Ansatz
@@ -89,3 +80,4 @@ In den folgenden Kapitel werden zwei Lösungsvorschläge zur Extraktion von Info
 -- Naive Bayes for feature classification
 
 -- Support Vector Machines -> Geht in Richtung Eigener Ansatz
+}
