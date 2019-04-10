@@ -25,6 +25,7 @@ Natural Language Processing (kurz NLP) beschreibt das Gebiet der Forschung und A
 Für diese Arbeit ist das Themengebiet des Natural Language Processing insofern relevant, als dass es die Grundlage für die Verarbeitung von Rechnungen bildet. Mit Techniken aus diesem Gebiet werden die Inhalte der Rechnungen vom Computer verstanden und verarbeitet.
 
 \subsection{Neuronale Netzwerke}
+\label{chap:neuron}
 
 Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des Menschlichen Gehirns zu einem Computer ist allerdings der Fakt, dass unser Gehirn lernt ohne ein Software-Update zu erhalten. Wir brauchen nicht erst eine neue Software um das Fahrradfahren zu erlernen~\autocite{Krogh2008}. Doch wie funktioniert das?
 
@@ -34,7 +35,7 @@ Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) mod
 
 %\begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h]
-    \captionsetup{width=.8\linewidth}
+    \captionsetup{width=.9\linewidth}
     \caption[Modell eines Neurons nach McCulloch und Pitts]{Modell eines Neurons nach McCulloch und Pitts. Die sogenannte threshold unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Die Summe der Gewichte ist 1 $\sum_{i=1}^{N} w_i = 1$, dadurch liegt die Summe der gewichteten Eingangssignale $\sum_{i=1}^{N} w_i x_i = 1$ zwischen $0$ und $1$. Das Modell zeigt nun zwei verschiedene Arten, wie der Ausgabewert eines Neurons modelliert werden kann. Zum einen kann das Modell je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann ein kontinuierlicher Sigmoid (rote Linie) verwendet werden, um einen kontinuierlichen Ausgabewert zwischen $0$ und $1$ zu ermitteln.}
     \label{krogh:a}
     \centering
@@ -76,7 +77,7 @@ Um das Modell zur Klassifizierung zu verbessern, können weitere Ebenen in den d
 
 % \begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h]
-    \captionsetup{width=.8\linewidth}
+    \captionsetup{width=.9\linewidth}
     \caption[Modell eines tiefen neuronalen Netzwerk]{Modell eines tiefen neuronalen Netzwerk mit einer versteckten Schicht (Hidden Layer).}
     \label{krogh:c}
     \centering
@@ -89,7 +90,7 @@ Mit immer mehr verfügbarer Rechenkapazität und immer mehr Daten steigt die Pop
 
 % \begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h]
-    \captionsetup{width=.8\linewidth}
+    \captionsetup{width=.9\linewidth}
     \caption[Verhältniss der verfügbaren Daten und der Genauigkeit unterschiedlich grosser neuronaler Netze]{Die tiefe und breite eines neuronalen Netzwerks sowie die Menge verfügbarer Daten erhöhen die Genauigkeit.}
     \label{scale-drives-ml-progress}
     \centering
@@ -126,7 +127,7 @@ Die Problematik des Overfitting ist aus der Mathematik bekannt. Hat eine Funktio
 
 % \begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h]
-    \captionsetup{width=.8\linewidth}
+    \captionsetup{width=.9\linewidth}
     \caption[Graphen von Funktionen, welche 8 Punkte fitten sollen]{Graphen von Funktionen, welche 8 Punkte fitten sollen. Der grüne Graph ist ein Beispiel des Underfitting. Er hat zu wenige Parameter um eine tiefe Abweichung zu erreichen. Der pinke Graph zeigt ein Beispiel eines Overfitting. Mit vielen Parametern vermag der Graph alle Punkte perfekt zu schneiden. Die vielen extremen Wendepunkte deuten aber darauf hin, dass der Graph neue Punkte mit hoher Wahrscheinlichkeit nicht schneiden würde. Der blaue Graph gilt als Beispiel für ein gutes fitting. Der Graph ist nahe an den Punkten ohne dabei extreme Wendepunkte haben zu müssen.}
     \label{krogh:d}
     \centering
@@ -147,7 +148,7 @@ Menschen starten ihren Denkprozess nicht jede Sekunde von neuem. Beim Lesen wird
 
 In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist das selbe Netzwerk in einer anderen, ausgerollten Weise zu sehen. Die Abbildung verdeutlicht, wie Informationen von einem Neuron zum anderen fliessen können. Mit diesem Informationsfluss von Neuron zu Neuron werden die Resultate jeweils von den vorhergehenden Neuronen beeinflusst. Damit wird eine Art Kurzzeitgedächtnis geschaffen, welches dem Neuronalen Netzwerk erlaubt mit Kontextinformationen zu arbeiten~\autocite{Olah2015}.
 \begin{figure}[h]
-    \captionsetup{width=.8\linewidth}
+    \captionsetup{width=.9\linewidth}
     \caption[Infromationsfluss durch ein Recurrent Neural Network]{Infromationsfluss durch ein Recurrent Neural Network dargestellt als Schlaufe (links) und als Sequenz (rechts)}
     \label{rnn1}
     \centering
@@ -159,7 +160,7 @@ In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist
 
 Ein Problem von RNNs ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen etwas länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, gehen diese Informationen verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese Spezialform von Recurrent Neural Networks arbeitet mit sogenannten Gates, um zu regulieren, wie viel Kontextinformationen behalten oder vergessen werden sollen. Mit vier solchen Gates, bestehend aus einem Neural Network Layer und einer Pointwise Operation (vgl. Abbilung \ref{lstm1}), ist ein LSTM Netzwerk in der Lage, nicht nur ein Kurz- sondern auch ein Langzeitgedächtnis aufzubauen~\autocite{Olah2015}.
 \begin{figure}[h]
-    \captionsetup{width=.8\linewidth}
+    \captionsetup{width=.9\linewidth}
     \caption[Veranschaulichung des Informationsflusses eines LSTM Netzwerk]{Veranschaulichung des Informationsflusses eines LSTM Netzwerk mit seinen vier internen Schichten}
     \label{lstm1}
     \centering
@@ -183,12 +184,14 @@ Die herkömmliche Feature-detection in Texterkennungssoftware wird immer mehr mi
 Auch die Texterkennungssoftware Tesseract, welche ursprünglich als PhD Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien Verfügung steht, verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007}. So wurde die Feature-detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur Qualitativ stark verbessert werden sondern ist auch einiges schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{O.V.2018, O.V.2018a}.
 
 \subsection{Word embedding}
+\label{chap:embedding}
 
 Neuronale Netzwerke funktionieren mit Zahlen. Damit auch Wörter und ganze Sätze von solchen Netzwerken verarbeitet werden können, muss eine geeignete Repräsentation von Wörtern durch Zahlen gefunden werden. Der Prozess, mit welchem ein Wort in eine zahlen-basierte Repräsentation gebracht wird, nennt sicht Word embedding~\autocite{Olah2014b}.
 
 Die ersten Word embeddings wurden von \textcite{Bengio2001} eingeführt. Trotz des schon fortgeschrittenen Alter dieses Forschungsgebiet ist es noch immer hoch interessant und in voller Fahrt~\autocite{Olah2014b}.
 
 \begin{wrapfigure}{r}{0.5\textwidth} 
+    \captionsetup{width=.9\linewidth}
     \caption[Modulares Netzwerk zur Validierung von 5-Grammen]{Modulares Netzwerk zur Validierung von 5-Grammen mit einer Word embedding Funktion ($W$) und einem Neuronalen Netzwerk ($R$)}
     \label{wordembeddingtraining}
     \centering
@@ -202,6 +205,7 @@ Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014b}
 Die erste Visualisierung bedient sich dem t-SNE Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In diesem Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014b}.
 \begin{figure}[h!]
     \centering
+    \captionsetup{width=.9\linewidth}
     \caption[t-SNE Darstellung eines Word embeddings]{t-SNE Darstellung eines Word embeddings, die verdeutlicht, dass ähnliche Wörter ähnliche Vekotren aufweisen}
     \includegraphics[width=\textwidth]{graphics/wordmebeddingtsne.jpg}
     \caption*{Quelle: \textcite{Turian2010} in \textcite{Olah2014b}}
@@ -211,6 +215,7 @@ Die erste Visualisierung bedient sich dem t-SNE Algorithmus um die hoch-dimensio
 Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddingtable}) für sechs Wörter die nächsten Embeddings, sprich mit den mathematisch nächsten Vektoren, auf. So werden beispielsweise unter dem Titel \textit{FRANCE} neben \textit{EUROPA} diverse weitere Länder aufgelistet.
 \begin{table}[h!]
 \centering
+    \captionsetup{width=.9\linewidth}
     \caption[Ähnlichkeit von sechs Word-Embeddings]{Sechs Ausgangswörter mit den ihnen ähnlichsten Word embeddings, sprich mit den mathematisch nächsten Vektoren}
     \label{wordembeddingtable}
     \renewcommand{\arraystretch}{1.25}
@@ -240,6 +245,7 @@ Word embeddings sind zu einem extrem wichtigen Baustein bei der Verarbeitung von
 Für den Prototypen bilden Word embeddings eine wichtige Grundlage, da durch diese Technik die in den Rechnungen enthaltenen Wröter und Sätze in eine generalisierte, durch Neuronale Netzwerke verarbeitbare Form gebracht werden können.
 
 \subsection{Korrektur von Rechtschreibung und Grammatik}
+\label{chap:grammar-correction}
 
 Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Texte nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt.
 
@@ -248,6 +254,7 @@ Mit Hilfe der in einem vorherigen Kapiteln eingeführten Technik des Word embedd
 % can't use wrapfigure here as otherwise the next sections wraps too
 \begin{figure}[h!] % wrapfigure}{l}{0.5\textwidth}
     \centering
+    \captionsetup{width=.9\linewidth}
     \caption{Vergleich der Erfolgsrate bei der Prüfung von 418 Textsnippets}
     \label{deepgrammar}
     \begin{tikzpicture}
@@ -347,8 +354,9 @@ $$Accuracy = 1 - \frac{False Positive + False Negative}{Total Records}$$
 
 Die Confusion Matrix in Abbildung \ref{cm-sample} zeigt ein Beispiel mit einer Treffergenauigkeit von 0.99, respeketive 99.9\%. Aus 1000 Datensätzen wurden 998 korrekt als Negativ klassifiziert. Ein Datensatz wurde korrekt als Positiv klassifiziert und ein Datensatz wurde fälschlicherweise als Negativ klassifiziert~\autocite{TDSAccuracy}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
+    \captionsetup{width=.9\linewidth}
     \caption{Beispiel einer Confusion Matrix zur Veranschaulichung der Treffergenauigkeit}
     \def\arraystretch{1.5}
     \arrayrulecolor{black}
@@ -372,8 +380,9 @@ $$Precision = \frac{True Positive}{True Positive + False Positive} = \frac{True 
 
 Die Genauigkeit bietet sich immer dann als gute Metrik an, wenn die Kosten eines False Positive hoch sind. Ein Beispiel dafür ist ein Spamfilter. Markiert der Spamfilter ein E-Mail fälschlicherweise als kein Spam, so ist dies kein grosses Problem. Der Anwender kann das E-Mail einfach selbst als Spam markieren. Marktiert der Spamfilter jedoch ein E-Mail fälschlicherweise als Spam, so ist die wahrscheinlichkeit hoch, dass der Anwender das E-Mail nie lesen wird~\autocite{TDSAccuracy}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
+    \captionsetup{width=.9\linewidth}
     \caption[Confusion Matrix als Veranschaulichung der Genauigkeit]{Confusion Matrix als Veranschaulichung der Genauigkeit. Die blau hervorgehobenen Elemente bilden die Grundlage zur Berechnung der Genauigkeit.}
     \def\arraystretch{1.5}
     \begin{tabular}{llcc}
@@ -394,8 +403,9 @@ $$Precision = \frac{True Positive}{True Positive + False Negative} = \frac{True 
 
 Die Sensitivität ist immer dann relevant, wenn die Auswirkungen durch ein False Negative gross sind. Ein Beispiel dafür ist die Klassifizierung von Bank-Transaktionen auf Betrug. Wird eine nicht-Betrug Transaktion als Betrug markiert, so kann dies schnell abgeklärt und korrigiert werden. Wird jedoch eine Betrug Transaktion nicht als solche erkannt, so sind die finanziellen Auswirkungen meist gross~\autocite{TDSAccuracy}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
+    \captionsetup{width=.9\linewidth}
     \caption[Confusion Matrix als Veranschaulichung der Sensitivität]{Confusion Matrix als Veranschaulichung der Sensitivität. Die blau hervorgehobenen Elemente bilden die Grundlage zur Berechnung der Sensitivität.}
     \def\arraystretch{1.5}
     \begin{tabular}{llcc}
@@ -416,46 +426,30 @@ $$F_1=2 * \frac{Precision * Recall}{Precision + Recall}$$
 
 Der F\textsubscript{1}-Score ist also eine gute Verbindung der Genauigkeit und der Sensibilität. Aufgrund der vernachlässigung der True Negatives ist der F\textsubscript{1}-Score besonders bei ungleichmässig verteilten Klassen, sprich übermässig vielen True Negatives, sinnvoll~\autocite{TDSAccuracy}.
 
-\subsubsection{Loss}
+\subsubsection{Loss und Loss-Funktion}
 
-% https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a
+Das sogenannte Loss, auch Kosten oder Fehler, zeigt, wie sehr eine Vorhersage von der Realität abweicht. Um das Loss zu berechnen, kommt die Loss-Funktion, auch Kosten- oder Fehler-Funktion, zur Anwendung. Wie genau die Loss-FunKtion definiert wird, hängt von der Problemstellung ab. Bei einer Binären Klassifikation ist beispielsweise die Cross-Entropy-Loss–Function oder die Log-Loss–Function gängig~\autocite{TDSLoss}. 
 
-Das sogennante Loss zeigt, wie sehr eine Vorhersage von der Realität abweicht. Um das Loss zu berechnen, kommt eine sogennante Loss-Function zur Anwendung. Die genau die Loss-Function definiert ist, hängt von der Problemstellung ab. Bei einer Binären Klassifikation ist beispielsweise die Cross Entropy Loss Function oder die Log Loss Function gängig. 
+Während dem Training ist das Loss, in diesem Fall die Differenz zwischen Vorhersage des Modells und den Trainingsdaten, die zu optimierende Grösse. Die Wahl der Loss-Funktion kann einen erheblichen einfluss auf das Modell haben. Die Loss-Funktion wird während dem Training meist durch Regularisierungstechniken erweitert, um ein Overfitting zu verhindern~\autocite{Goodfellow2016}.
 
-\todo[inline]{Validation und training loss}
+\subsection{Fehleranalyse}
 
-\subsection{Error Analysis}
+Als Fehleranalyse wird die analyse der falschen Vorhersagen eines Modells bezeichnet. Im Falle eines Klassifizierungsmodells werden die falsch Klassifizierten Datensätze betrachtet und auf die Ursache der falschen Klassifizierung untersucht. Das Ziel dabei ist es, Optimierungspotential zu finden, anhand welchem das bestehende Modell verbessert werden kann~\autocite{MLYearning}.
 
-See \textcite{MLYearning}
+Wird beispielsweise ein Modell zur Klassifizierung von Bildern in die Klassen Hund und Katze mit einer Treffergenauigkeit von 90\% untersucht, so könnte eine Erkenntnis sein, dass nur 5\% aller falsch Klassifizierten Bilder der Klasse Hund angehören. Es würde nun wenig Sinn machen, das Modell zur besseren Erkennung von Hunden zu optimieren. Es könnte dadurch nur 5\% des Fehlers reduziert, sprich 0.5\% an Treffergenauigkeit gewonnen werden. Würden 50\% der falsch Klassifizierten Bilder der Klasse Hund angehören, würde eine solche Optimierung Sinn machen, denn die Reduktion der Fehler um 50\% würde eine Steigerung der Treffergenauigkeit von 5\% (50\% von 10\%) ermöglichen~\autocite{MLYearning}.
 
-\todo[inline]{Etwas zum Trainung eines KI Systems sagen
+Die Fehleranalyse hilft die Ursachen einer falschen Klassifizierung zu finden. Sie kann somit Auskunft darüber geben, in welche Richtung das untersuchte Modell optimiert respektive weiterentwickelt werden soll~\autocite{MLYearning}.
 
-Error Analysis \textcite{MLYearning}
-
-Schlechte Generalisierugn einiger Vorgehen erläutern (e.g. NN)
-
-Es braucht viele Testdaten
-
-Auf Trennung zwischen Training und Test Data eingehen
-}
-
-https://towardsdatascience.com/accuracy-precision-recall-or-f1-331fb37c5cb9
-
-Accuracy vs. Precision vs. Recall vs. F1
-
-Bei der Klassifizierung ist es bspw. wichtig die False Positives gering zu halten, hier würde eine Rechnung automatisiert als e.g. Fitness abgerechnet werden, ist aber garkeine Fitness Rechnung. False Negatives sind kein so grosses Problem. Hier hilft im Beispiel dann evtl. auch die Confusion Matrix
-
-Der Recall in unsere Klassifizierungsbeispiel sagt dann etwas darüber aus, wieviele der wirklichen Fitness Rechnungen automatisiert verarbeitet werden könnten.
-
-F1 als Kombi von Precision und Recall, dass vor allem bei ungleichen Klassen, wie bei uns, anwendbar sei. WARUM? DARUM: https://towardsdatascience.com/beyond-accuracy-precision-and-recall-3da06bea9f6c (Terroristen Beispiel)
-
-TODO: Add PR Curve to tensorboard: https://medium.com/@akionakas/precision-recall-curve-with-keras-cd92647685e1
-
-TODO: Drop Adam optimizer: https://towardsdatascience.com/adam-latest-trends-in-deep-learning-optimization-6be9a291375c
+%- Betrachtung der Falsch Klassifizierten Daten
+%- Ziel: Optimierungspotential finden
+%- Beispiel 5\% der falsch Klassifizierten Bilder sind Hunde. Egal wie startk für Hunde optimiert wird, es wird maximal 5\% des Fehlers optimiert
+%- Fehleranalyse zeigt, in welche Richtung weiter vorgegangen werden soll
+%- Fehleranalyse hilft die Ursachen der Falschklassifizierung zu finden
+%- Kann helfen, unbekannte Gebiete durch ein iteratives vorgehen zu explorieren
 
 \subsection{Architektur eines KI Systems}
 
-\todo[inline]{Vorherige Kapitel zeigten die Lego Bausteine. Jetzt geht es darum diese Richtig zusammenzusetzen.
+\todo[inline, color=igloo]{Vorherige Kapitel zeigten die Lego Bausteine. Jetzt geht es darum diese Richtig zusammenzusetzen.
 
 Es gibt kein Rezept dafür, auch Literatur ist sehr begrenzt. Im Netz gibt es Aussagen wie 
 
@@ -464,5 +458,9 @@ Es gibt kein Rezept dafür, auch Literatur ist sehr begrenzt. Im Netz gibt es Au
 - Input und Output sind klar, dazwischen AUsprobieren
 
 - Wie würde das Problem jemandem erklärt werden
+
+- MLYearning
+
+-- Ein einfaches Modell bauen und durch Fehleranalyse iterativ weiterentwickeln
 }
 

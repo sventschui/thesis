@@ -4,7 +4,9 @@
 
 % Analog der Klassifizierung von Objekten auf Fotos, ist es auch denkbar, Rechnung mit Hilfe diesem Bild-basiertem Vorgehen zu klassifizieren.
 
-Auf dem Machine Learning Blog \enquote{Towards Data Science} beschreiben und vergleichen diverse Autoren verschiedenste Modelle im Bereich der Computer Vision. Der Blog bietet einen guten Überblick über die aktuellen Methoden zur Klassifizierung von Bildern. So werden im Juli 2017 die Residual Networks (kurz ResNet), entwickelt von \textcite{He2015}, als die bahnbrechendse Eingabe beim ImageNet LSVRC Wettbewerb\footnote{Die ImageNet Large Scale Visiual Recognition Competition (LSVRC) ist ein Wettbewerb der ImageNet Organisation, bei welcher hunderte Data Scientists ihre Modelle im Bereich der Computer Vision vergleichen. TODO: Quelle} der letzten Jahre bezeichnet~\autocite{Fungg2017ResNet}. Im September 2018 beschreibt \textcite{SHTsuang2018Inception} das InceptionV4 Netzwerk von Google, welches vom GoogLeNet abgeleitet und mit den Ideen aus dem ResNet erweitert wurde. Das Modell erzielt noch bessere Resultate als das ResNet selbst. Im gleichen Artikel wird auch das Inception-ResNet-V2 vorgestellt, welches im Vergleich zum InceptionV4 Netzwerk schneller trainiert werden kann und zugleich etwas bessere Resultate erzielt. 
+Wie im vorherigen Kapitel erwähnt, ist die Klassifizierung von Bildern eine bekannte Problematik aus dem Bereich der Computer-Vision. Dieses Kapitel widmet sich einem Experiment, bei welchem Algorithmen und Modelle aus dem Bereich der Computer-Vision angewendet werden, um Rechnungen zu klassifizieren.
+
+Auf dem Machine Learning Blog \enquote{Towards Data Science} beschreiben und vergleichen diverse Autoren verschiedenste Modelle im Bereich der Computer Vision. Der Blog bietet einen guten Überblick über die aktuellen Methoden zur Klassifizierung von Bildern. So werden im Juli 2017 die Residual Networks (kurz ResNet), entwickelt von \textcite{He2015}, als die bahnbrechendse Eingabe beim ImageNet LSVRC Wettbewerb\footnote{Die ImageNet Large Scale Visiual Recognition Competition (LSVRC) ist ein Wettbewerb der ImageNet Organisation, bei welcher hunderte Data Scientists ihre Modelle im Bereich der Computer Vision vergleichen.} der letzten Jahre bezeichnet~\autocite{Fungg2017ResNet}. Im September 2018 beschreibt \textcite{SHTsuang2018Inception} das InceptionV4 Netzwerk von Google, welches vom GoogLeNet abgeleitet und mit den Ideen aus dem ResNet erweitert wurde. Das Modell erzielt noch bessere Resultate als das ResNet selbst. Im gleichen Artikel wird auch das Inception-ResNet-V2 vorgestellt, welches im Vergleich zum InceptionV4 Netzwerk schneller trainiert werden kann und zugleich etwas bessere Resultate erzielt. 
 
 In einem Blog Post auf dem Google AI Blog präsentieren Forscher aus dem Google Brain Team das NASNet. NASNet ist ein Modell zur Klassifizierung von Bildern, welches durch die Anwendung von Machine Learning designed wurde~\autocite{GoogleNasNet}. Unter dem Codename AutoML publiziert das Google Brain Team einen Ansatz, bei welchem ein Neuronales Netzwerk ein anderes erstellt - eine künstliche Intelligenz, welche eine neue künstliche Intelligenz schafft. Mit diesem Ansatz kann das sehr aufwendige Design eines Neuronalen Netzwerks vereinfacht beziehungsweise automatisiert werden~\autocite{GoogleAutoML}.
 
@@ -13,7 +15,8 @@ Als Teil des selben Blog Posts, in welchem das NASNet präsentiert wird, verglei
 
 \begin{figure}[h]
 % \begin{wrapfigure}{r}{0.6\textwidth} 
-    \caption[Vergleich des NASNet mit anderen Netzwerken zur Klassifizierung von Bildern]{Vergleich des vom Google Brain Team präsentierten NASNet mit bestehenden Netzwerken zur Klassifizierung von Bildern des ImageNet Datensatzes. Es wird die Treffergenauigkeit, der Prozentsatz richtig Klassifizierter Bilder der Gesamtheit aller Bilder, der Anzahl benötigter Operationen, sprich die Komplexität des Netzwerks, gegenübergestellt.}
+    \captionsetup{width=.9\linewidth}
+    \caption[Vergleich des NASNet mit anderen Netzwerken zur Klassifizierung von Bildern]{Vergleich des vom Google Brain Team präsentierten NASNet mit älteren Netzwerken zur Klassifizierung von Bildern des ImageNet Datensatzes. Es wird die Treffergenauigkeit, der Prozentsatz richtig Klassifizierter Bilder der Gesamtheit aller Bilder, der Anzahl benötigter Operationen, sprich die Komplexität des Netzwerks, gegenübergestellt.}
     \label{nasnet-comparision}
     \centering
     \includegraphics[width=0.55\textwidth]{graphics/nasnet-comparision.jpg}
@@ -44,11 +47,11 @@ Um die Rechnungen zu klassifizieren wird Transfer Learning angewendet, indem die
 
 Nach dem Training auf dem ImageNet Datensatz werden die letzten Schichten des Netzwerks, jene die für die Klassifizierung zuständig sind, durch ein neues Klassifizierungsnetzwerk ersetzt. Dadurch wird der Trainingseffekt durch den ImageNet Datensatz beibehalten und die Klassifizierung so angepasst, dass sie die Einteilung in die vier vorliegenden Klassen erlaubt.
 
-Das Klassifizierungsnetzwerk (vgl. Abbildung \ref{image-classification-model}), welches zur Anwendung kommt, besteht aus einem Convolution Layer sowie drei Fully Connected Layer. Zwischen den Fully Connected Layern sind zwei Dropout Layer zur Reduzierung des Overfitting eingeschoben.
+Das Klassifizierungsnetzwerk (vgl. Abbildung \ref{image-classification-model}), welches zur Anwendung kommt, besteht aus einem Convolution Layer sowie drei Fully Connected Layer\footnote{Ein Fully Connected Layer ist die einfachste Schicht eines neuronalen Netzwerks. Die Schicht besteht aus einer variablen Anzahl an Neuronen (vgl. Kapitel \ref{chap:neuron}). Jedes einzelne Neuron ist mit allen Neuronen der vorhigen Schicht verbunden. Ein Beispiel einer solchen Schicht ist im Kapitel \ref{chap:deep-neural-nets} zu sehen.}. Zwischen den Fully Connected Layern sind zwei Dropout Layer zur Reduzierung des Overfitting eingeschoben. Im Falle des NASNet entfällt der Convolution Layer, da das Netzwerk bereits einen eindimensionalen Feature-Vektor als Ausgabe liefert.
 
 
-\begin{figure}[ht] 
-  \captionsetup{width=.8\linewidth}
+\begin{figure}[h!] 
+  \captionsetup{width=.9\linewidth}
   \caption[Neuronale Netze, welche bei der Bild-basierten Klassifizierung zur Anwendung kommen]{Neuronale Netze, welche bei der Bild-basierten Klassifizierung zur Anwendung kommen. Input ist jeweils der Feature-Vektor, welcher durch das ResNet, Inception-ResNet beziehungsweise NASNet Netzwerk erstellt wurde. Beim ResNet und Inception-ResNet wird dieser Feature-Vektor durch ein 2D-Convolution und ein Flatten Layer in einen eindimensionalen Vektor gebracht. Das NASNet liefert bereits einen eindimensionalen Feature-Vektor und die ersten zwei Schichten fallen somit weg. Durch zwei Hidden Layer wird der Vektor schlussendlich zu einem One-Hot Encoded Vektor für die vier Klassen reduziert.}
   \label{image-classification-model} 
   \begin{subfigure}[b]{0.3\linewidth}
@@ -77,16 +80,10 @@ Das Klassifizierungsnetzwerk (vgl. Abbildung \ref{image-classification-model}), 
 
 Die genannten Modelle werden mit 80\% der vorhandenen Daten trainiert, die übrigen 20\% werden benötigt, um den Trainingsfortschritt zu prüfen. Mit diesen 20\% Testdaten soll ein allfälliges Overfitting erkannt werden.
 
-Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle während 60 Trainingsepochen (Trainingseinheiten). \ref{image-class-results:a} und \ref{image-class-results:b} zeigen die Treffergenauigkeit respektive das loss während dem Training. Während dem Training steigt die Treffergenauigkeit stetig an und das loss sinkt stetig. Dies zeigt, dass die gewählten Modelle lernen. \ref{image-class-results:c} und \ref{image-class-results:d} zeigen die Treffergenauigkeit respektive das loss bei der Anwendung des Modells auf den Testdaten. 
+Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle während 60 Trainingsepochen (Trainingseinheiten). \ref{image-class-results:a} und \ref{image-class-results:b} zeigen die Treffergenauigkeit respektive das loss während dem Training.  \ref{image-class-results:c} und \ref{image-class-results:d} zeigen die Treffergenauigkeit respektive das loss bei der Anwendung des Modells auf den Testdaten. 
 
-Die einzelnen Modelle zeigen eine Treffergenauigkeit von TODO\% (ResNet, Epoche TODO), TODO\% (Inception-ResNet-V2, Epoche TODO) beziehungsweise TODO\% (NASNet, Epoche TODO).
-
-Das auf dem TODO TODO TODO\todo{TODO} basierende Modell hat mit einer Treffergenauigkeit von \todo{TODO}\% nach \todo{TODO} Epochen die höchste Treffergenauigkeit auf den Testdaten. 
-
-Neben der auch nach 60 Epochen noch leicht steigenden Treffergenauigkeit hat das loss auf den Testdaten (vgl. Abbildung \ref{image-class-results:d}) bereits nach 25 Epochen den Wendepunkt erreicht. Dies ist ein Indikator dafür, dass das Modell beginnt Auswendig zu lernen\todo{Quelle für Overfitting resp. Referenz auf Theorie}.
-
-\begin{figure}[ht] 
-  \captionsetup{width=.8\linewidth}
+\begin{figure}[h!] 
+  \captionsetup{width=.9\linewidth}
   \caption[Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen]{Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen mit den ResNet, Inception-ResNetV2 und NASNet Netzwerken.}
   \label{image-class-results} 
   \includegraphics[width=0.5\textwidth]{graphics/image-classification-results/legend.pdf}
@@ -119,13 +116,23 @@ Neben der auch nach 60 Epochen noch leicht steigenden Treffergenauigkeit hat das
   \centering
 \end{figure}
 
-\todo[inline]{Update graphics \& legend with NASNet Results, also revisit the paragraph above, whether it holds true for NASNet}
+% Die einzelnen Modelle zeigen eine Treffergenauigkeit von TODO\% (ResNet, Epoche TODO), TODO\% (Inception-ResNet-V2, Epoche TODO) beziehungsweise TODO\% (NASNet, Epoche TODO).
 
-\todo[inline]{Dropout beschreiben, Wahl dieses Modells begründen}
+% Das auf dem TODO TODO TODO\todo{TODO} basierende Modell hat mit einer Treffergenauigkeit von \todo{TODO}\% nach \todo{TODO} Epochen die höchste Treffergenauigkeit auf den Testdaten. 
 
-\todo[inline]{Schlussfolgerungen analog Text-classification
+Auffällig ist das schlechte Resultate des NASNet Modells. Obwohl das NASNet als eines der genausten Klassifizierungsmodelle für Bilder gilt, schneidet es im vorliegenden Experiment mit Abstand am schlechtesten ab. Auffällig ist auch, dass die Treffergenauigkeit auf dem Testdatensatz sehr sprunghaft ist.
 
-Hier könnte gesagt werden, dass die Ergebnisse so schlecht sind, dass durch Optimierung des Ansatzes keine praktikable Lösung entsteht. Es muss ein anderer Ansatz gesucht werden}
+Eine fundierte Erklärung, weshalb das NASNet Modell so schlecht abschneidet, kann nicht gefunden werden. Eine mögliche Erklärung ist der mit Abstand kleinere Feature-Vektor des NASNets. Dieser ist mit nur 4032 Neuronen wesentlich kleiner als jener des ResNet (266240 Neuronen) und des Inception-ResNet-V2 (135168 Neuronen).
+
+Die Ergebnisse des ResNet und des Inception-ResNet-V2 sehen dagegen wesentlich besser aus. Während dem Training steigt die Treffergenauigkeit stetig an und das loss sinkt stetig. Die Modelle weisen bereits nach 30 Epochen einen Bias von weniger als 5\% (ResNet) respektive weniger als 2\% (Inception-ResNet-V2) auf. Nach 60 Epochen Training weisen die beiden Modelle einen Bias von weniger als 1.5\% respektive 0.5\% auf. Dies zeigt, dass die gewählten Modelle lernen und grundsätzlich geeignet sind, die Problemstellung anzugehen. 
+
+Neben der auch nach 60 Epochen noch leicht steigenden Treffergenauigkeit hat das loss auf den Testdaten (vgl. Abbildung \ref{image-class-results:d}) bereits nach 25 (ResNet) respektive 15 (Inception-ResNet-V2) Epochen den Wendepunkt erreicht. Dies zeigt, dass das Modell zu wenig gut Generalisiert. Die steigende Testgenauigkeit vermittelt zwar einen guten eindruck, das steigende loss zeigt jedoch, dass das Modell in seinen Entscheidungen immer unsicherer wird, das heisst die Wahrscheinlichkeit, mit welcher sich das Modell sicher ist, eine Rechnung einer bestimmten Klasse zuzuweisen, sinkt. Das Modell beginnt also nach nur wenigen Epochen Auswendig zu lernen (Overfitting).
+
+Das Problem des Overfitting könnte womöglich durch zusätzliche Trainingsdaten gemindert werden, diese stehen jedoch nicht zur Verfügung.
+
+Konkludierend kann gesagt werden, dass durch den Bild-basierten Ansatz eine Klassifizierung möglich ist, aktuell aber zu wenig Testdaten zur Verfügung stehen, um den Ansatz weiter zu verfolgen.
+
+Im folgenden Kapitel wird ein weiterer Ansatz zur Klassifizierung der Rechnungen gezeigt, welcher mit den vorhandenen Datensätzen bessere Ergebnisse erzielen kann.
 
 % Optimierungspotential:
 
