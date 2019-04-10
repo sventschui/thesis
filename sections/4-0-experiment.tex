@@ -22,19 +22,23 @@ Die Kosten des Gesundheitswesen steigen stetig an, so weisen die Zahlen vom Jahr
 
 Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, \textit{Tiers payant} oder \textit{Tiers garant}, vergütet (vgl. Tabelle \ref{tiers}~\autocite{EDI2017}. 
 
-\begin{wraptable}{l}{0.53\textwidth}
+% TODO: wraptable will mess up with list of numeration of table
+\begin{table}
+%\begin{wraptable}{l}{0.53\textwidth}
     \renewcommand{\arraystretch}{1.25}
-    \setlength{\tabcolsep}{5pt}
+    \setlength{\tabcolsep}{10pt}
     \caption{Vergütungsmodelle bei den schweizer Krankenversicherern}
     \label{tiers}
-    \begin{tabular}{| p{0.15\textwidth} | p{0.32\textwidth} |}
+    \begin{tabular}{| p{0.2\textwidth} | p{0.8\textwidth-40pt} |}
+    % \begin{tabular}{| p{0.15\textwidth} | p{0.32\textwidth} |}
         \hline
          Tiers payant & Kosten werden vom Leistungserbringer direkt dem Krankenversicherer in Rechnung gestellt. \\
         \hline
          Tiers garant & Kosten werden vom Leistungserbringer dem Patienten in Rechnung gestellt, welcher die Rechnung dem Krankenversicherer zur Rückvergütung weiterleitet. \\
         \hline
     \end{tabular}
-\end{wraptable}
+%\end{wraptable}
+\end{table}
 
 Beim System Tiers payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, indem der Patient mit seiner Versichertenkarte bezahlt. Anhand dieser Versichertenkarte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt~\autocite{EDI2017}. 
 
@@ -83,7 +87,7 @@ Der Prozess der Rechnungseinreichung und -verarbeitung (vgl. Abbildung \ref{proz
 
 \begin{figure}[h]
     \captionsetup{width=.8\linewidth}
-    \caption{Prozess der Rechnungseinreichung und -verarbeitung der AXA Gesundheitsvorsorge. Vom Kunden per Post oder über das Kundenportal eingereichte Rechnungen durchlaufen mehrere Prozessschritte in Verantwortung unterschiedlicher Organisationen.}
+    \caption[Prozess der Rechnungseinreichung und -verarbeitung der AXA Gesundheitsvorsorge]{Prozess der Rechnungseinreichung und -verarbeitung der AXA Gesundheitsvorsorge. Vom Kunden per Post oder über das Kundenportal eingereichte Rechnungen durchlaufen mehrere Prozessschritte in Verantwortung unterschiedlicher Organisationen.}
     \label{prozessaxa}
     \centering
     \vspace{0.2cm}

@@ -11,13 +11,15 @@ In einem Blog Post auf dem Google AI Blog präsentieren Forscher aus dem Google 
 
 Als Teil des selben Blog Posts, in welchem das NASNet präsentiert wird, vergleichen die Forscher von Google das Modell mit anderen Netzwerken, wie dem ResNet und dem Inception-ResNet-V2. Der Abbildung \ref{nasnet-comparision} ist zu entnehmen, dass das vom Google Brain Team präsentierte NASNet, in der \enquote{medium} Ausprägung, trotz reduzierter Anzahl an benötigter Operationen, sprich reduzierter Komplexität, eine verbesserte Treffergenauigkeit als die bisherigen Netzwerke erzielt. In der \enquote{large} Ausprägung kann das NASNet durch eine erhöhte Komplexität eine noch bessere Treffergenauigkeit erzielen~\autocite{GoogleNasNet}.
 
-\begin{wrapfigure}{r}{0.6\textwidth} 
-    \caption{Vergleich des vom Google Brain Team präsentierten NASNet mit bestehenden Netzwerken zur Klassifizierung von Bildern des ImageNet Datensatzes. Es wird die Treffergenauigkeit, der Prozentsatz richtig Klassifizierter Bilder der Gesamtheit aller Bilder, der Anzahl benötigter Operationen, sprich die Komplexität des Netzwerks, gegenübergestellt.}
+\begin{figure}[h]
+% \begin{wrapfigure}{r}{0.6\textwidth} 
+    \caption[Vergleich des NASNet mit anderen Netzwerken zur Klassifizierung von Bildern]{Vergleich des vom Google Brain Team präsentierten NASNet mit bestehenden Netzwerken zur Klassifizierung von Bildern des ImageNet Datensatzes. Es wird die Treffergenauigkeit, der Prozentsatz richtig Klassifizierter Bilder der Gesamtheit aller Bilder, der Anzahl benötigter Operationen, sprich die Komplexität des Netzwerks, gegenübergestellt.}
     \label{nasnet-comparision}
     \centering
     \includegraphics[width=0.55\textwidth]{graphics/nasnet-comparision.jpg}
     \caption*{Quelle: \textcite{GoogleNasNet}}
-\end{wrapfigure}
+\end{figure}
+%\end{wrapfigure}
 
 % ResNet Arxiv: https://arxiv.org/abs/1512.03385
 % ResNet: https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035
@@ -36,7 +38,7 @@ Als Teil des selben Blog Posts, in welchem das NASNet präsentiert wird, verglei
 
 Im folgenden wird das ResNet, das Inception-ResNet-V2 sowie das NASNet large Netzwerk angewendet, um die bisher bei der AXA eingereichten Rechnung zu klassifizieren.
 
-Um Bilderkennungsmodelle mit Millionen von Parametern zu trainieren, werden viele Trainingsdaten und eine enorme Kapazität an Rechenleistung benötigt. Das Konzept des Transfer Learning bietet eine Möglichkeit, diese beiden Problematiken zu Umgehen und dabei nur wenig Treffergenauigkeit einzubüssen. Beim Transfer Learning wird ein Modell mit Hilfe eines Datensatzes trainiert, welcher nichts mit der eigentlichen Problemstellung zu tun hat. Das trainierte Modell wird dann mit den für die Problemstellung relevanten Daten weiter trainiert. Dies wird als Fine Tuning bezeichnet~\autocite{TensorflowImageRetraining, TDSTransferLearning}.
+Um Bilderkennungsmodelle mit Millionen von Parametern zu trainieren, werden viele Trainingsdaten und eine enorme Kapazität an Rechenleistung benötigt. Das Konzept des Transfer Learning bietet die Möglichkeit, diese beiden Problematiken zu Umgehen und dabei nur wenig oder keine Treffergenauigkeit einzubüssen (vgl. Kapitel \ref{chap:transfer-learning})~\autocite{TDSTransferLearning}. % \autocite{TensorflowImageRetraining}
 
 Um die Rechnungen zu klassifizieren wird Transfer Learning angewendet, indem die genannten Modelle auf dem ImageNet Datensatz trainiert werden, bevor die eigentliche Problemstellung angegangen wird.
 
@@ -47,7 +49,7 @@ Das Klassifizierungsnetzwerk (vgl. Abbildung \ref{image-classification-model}), 
 
 \begin{figure}[ht] 
   \captionsetup{width=.8\linewidth}
-  \caption{Neuronale Netze, welche bei der Bild-basierten Klassifizierung zur Anwendung kommen. Input ist jeweils der Feature-Vektor, welcher durch das ResNet, Inception-ResNet beziehungsweise NASNet Netzwerk erstellt wurde. Beim ResNet und Inception-ResNet wird dieser Feature-Vektor durch ein 2D-Convolution und ein Flatten Layer in einen eindimensionalen Vektor gebracht. Das NASNet liefert bereits einen eindimensionalen Feature-Vektor und die ersten zwei Schichten fallen somit weg. Durch zwei Hidden Layer wird der Vektor schlussendlich zu einem One-Hot Encoded Vektor für die vier Klassen reduziert.}
+  \caption[Neuronale Netze, welche bei der Bild-basierten Klassifizierung zur Anwendung kommen]{Neuronale Netze, welche bei der Bild-basierten Klassifizierung zur Anwendung kommen. Input ist jeweils der Feature-Vektor, welcher durch das ResNet, Inception-ResNet beziehungsweise NASNet Netzwerk erstellt wurde. Beim ResNet und Inception-ResNet wird dieser Feature-Vektor durch ein 2D-Convolution und ein Flatten Layer in einen eindimensionalen Vektor gebracht. Das NASNet liefert bereits einen eindimensionalen Feature-Vektor und die ersten zwei Schichten fallen somit weg. Durch zwei Hidden Layer wird der Vektor schlussendlich zu einem One-Hot Encoded Vektor für die vier Klassen reduziert.}
   \label{image-classification-model} 
   \begin{subfigure}[b]{0.3\linewidth}
     \centering
@@ -85,7 +87,7 @@ Neben der auch nach 60 Epochen noch leicht steigenden Treffergenauigkeit hat das
 
 \begin{figure}[ht] 
   \captionsetup{width=.8\linewidth}
-  \caption{Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen mit den ResNet, Inception-ResNetV2 und NASNet Netzwerken.}
+  \caption[Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen]{Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen mit den ResNet, Inception-ResNetV2 und NASNet Netzwerken.}
   \label{image-class-results} 
   \includegraphics[width=0.5\textwidth]{graphics/image-classification-results/legend.pdf}
   \begin{subfigure}[b]{0.5\linewidth}

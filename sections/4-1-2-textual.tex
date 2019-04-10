@@ -22,7 +22,7 @@ Nach dem Wörterbuch wird ein Klassifizierungsmodell erstellt. Input dieses Netz
 % \begin{wrapfigure}{r}{0.4\textwidth} 
 \begin{figure}[h!]
     \captionsetup{width=.8\linewidth}
-    \caption{Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt. Der Input aus dem Wörterbuch wird durch zwei Fully Connected und einem Dropout Layer in einen One Hot Encoded Output transformiert, der die erkannte Klasse repräsentiert.}
+    \caption[Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt]{Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt. Der Input aus dem Wörterbuch wird durch zwei Fully Connected und einem Dropout Layer in einen One Hot Encoded Output transformiert, der die erkannte Klasse repräsentiert.}
     \label{text-classification-model}
     \centering
     \includegraphics[width=0.2\textwidth]{graphics/text-classification/model.pdf}
@@ -39,7 +39,7 @@ Bei dem gewählten Modell, mit einem Vokabular von 5000 Wörtern und einem Dropo
 
 \begin{figure}[h!] 
   \captionsetup{width=.8\linewidth}
-  \caption{Statistiken aus dem Training der Text-basierten Klassifizierung von Rechnungen.}
+  \caption[Statistiken aus dem Training der Text-basierten Klassifizierung von Rechnungen]{Statistiken aus dem Training der Text-basierten Klassifizierung von Rechnungen.}
   \label{text-class-results}
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
@@ -76,7 +76,7 @@ Die falsche Klassifizierung einer Rechnung ist vor allem dann problematisch, wen
 
 \begin{figure}[h!] 
 %\begin{wrapfigure}{r}{0.5\textwidth} 
-    \caption{Confusion Matrix nach 23 Epochen Training des Text-basierten Modells. Das Modell klassifiziert sechs Rechnungen fälschlicherweise als Fitness Rechnung und fünf Rechnungen fälschlicherweise als Rechnungen für einen Sportverein.}
+    \caption[Confusion Matrix des Text-basierten Modells zur Klassifizierung von Rechnungen]{Confusion Matrix nach 23 Epochen Training des Text-basierten Modells zur Klassifizierung von Rechnungen. Das Modell klassifiziert sechs Rechnungen fälschlicherweise als Fitness Rechnung und fünf Rechnungen fälschlicherweise als Rechnungen für einen Sportverein.}
     \label{text-classification-cm}
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/text-classification/cm_22.png}
