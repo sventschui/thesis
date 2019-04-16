@@ -25,20 +25,5 @@ Nach der Einteilung in die vier Klassen ist festzustellen, dass die 17196 Rechnu
     \caption{Ungleichverteilung der Klassen innerhalb des Trainingsdatensatzes}
     \label{class-distribution}
     \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            ybar,
-        	ylabel=Anzahl Rechnungen,
-        	enlargelimits=0.05,
-            symbolic x coords={Sportverein,Fitness,Optiker,Übrige},
-            y tick label style={/pgf/number format/fixed},
-            scaled y ticks=false,
-            xtick=data,
-            nodes near coords,
-            nodes near coords align={vertical},
-        ]
-            \addplot 
-        	    coordinates {(Sportverein, 760) (Fitness, 1492) (Optiker, 2193) (Übrige, 12751)};
-        \end{axis}
-    \end{tikzpicture}
+    \includegraphics[scale=1]{graphics/matplot/class-weight.pdf}
 \end{figure}

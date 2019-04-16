@@ -42,7 +42,7 @@
 \renewcommand{\baselinestretch}{1.15}
 
 % - custom paragraph spacing
-\setlength{\parskip}{0.25em}
+\setlength{\parskip}{0.35em}
 
 %#############################
 % Page header & footer
@@ -92,6 +92,9 @@
 %#############################
 % Graphics & Figures
 %#############################
+% allow for align in \includegraphics
+\usepackage{graphbox}
+
 % charts 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.13}

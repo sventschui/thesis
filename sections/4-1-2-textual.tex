@@ -27,7 +27,7 @@ Nach dem Wörterbuch wird ein Klassifizierungsmodell erstellt. Dieses Modell wir
     \caption[Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt]{Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt. Der Input aus dem Wörterbuch wird durch zwei Fully Connected und einem Dropout Layer in einen One Hot Encoded Output transformiert, der die erkannte Klasse repräsentiert.}
     \label{text-classification-model}
     \centering
-    \includegraphics[width=0.2\textwidth]{graphics/text-classification/model.pdf}
+    \includegraphics[scale=0.6]{graphics/text-classification/model.pdf}
 % \end{wrapfigure}
 \end{figure} 
 
@@ -43,27 +43,27 @@ Bei dem gewählten Modell, mit einem Vokabular von 5000 Wörtern und einem Dropo
   \label{text-class-results}
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{graphics/text-classification/acc.pdf} 
+    \includegraphics[scale=1]{graphics/matplot/textual-class__acc.pdf} 
     \caption{Treffergenauigkeit} 
     \label{text-class-results:val} 
     \vspace{2ex}
   \end{subfigure}%% 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{graphics/text-classification/loss.pdf} 
+    \includegraphics[scale=1]{graphics/matplot/textual-class__loss.pdf} 
     \caption{loss} 
     \label{text-class-results:loss} 
     \vspace{2ex}
   \end{subfigure} 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{graphics/text-classification/val_acc.pdf} 
+    \includegraphics[scale=1]{graphics/matplot/textual-class__val_acc.pdf} 
     \caption{Treffergenauigkeit bei den Testdaten} 
     \label{text-class-results:val_acc} 
   \end{subfigure}%%
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{graphics/text-classification/val_loss.pdf} 
+    \includegraphics[scale=1]{graphics/matplot/textual-class__val_loss.pdf} 
     \caption{loss bei den Testdaten} 
     \label{text-class-results:val_loss} 
   \end{subfigure}
@@ -76,15 +76,16 @@ Die falsche Klassifizierung einer Rechnung ist vor allem dann problematisch, wen
 
 Würde eine Rechnung fälschlicherweise als Andere klassifiziert werden, so würde eine manuelle Verarbeitung der Rechnung stattfinden. In diesem Fall würde der Kunde nichts von dem Fehler bemerken. 
 
-Aus den genannten Gründen ist die Genauigkeit (vgl. Kapitel \ref{chap:precision}) für das vorliegende Beispiel die wichtigste Metrik. Die Genauigkeit liegt bei 97.86\% (Fitness), 100\% (Optiker) respektive 96.50\% (Sportverein).
+Aus den genannten Gründen ist die Genauigkeit für das vorliegende Beispiel die wichtigste Metrik. Die Genauigkeit liegt bei 97.86\% (Fitness), 100\% (Optiker) respektive 96.50\% (Sportverein).
 
+\todo[inline]{Confusion Matrix einer späteren Epoche verwenden!}
 \begin{figure}[h!] 
 %\begin{wrapfigure}{r}{0.5\textwidth} 
     \captionsetup{width=.9\linewidth}
     \caption[Confusion Matrix des Text-basierten Modells zur Klassifizierung von Rechnungen]{Confusion Matrix nach 23 Epochen Training des Text-basierten Modells zur Klassifizierung von Rechnungen. Das Modell klassifiziert sechs Rechnungen fälschlicherweise als Fitness Rechnung und fünf Rechnungen fälschlicherweise als Rechnungen für einen Sportverein.}
     \label{text-classification-cm}
     \centering
-    \includegraphics[width=0.8\textwidth]{graphics/text-classification/cm_22.png}
+    \includegraphics[scale=1]{graphics/matplot/textual-class__cm_22.pdf}
 %\end{wrapfigure}
 \end{figure}
 
@@ -93,7 +94,8 @@ Die Insgesamt 53 falsch klassifizierten Rechnungen aus dem Testdatensatz sowie d
 % TODO: this 4-th indentation is a bit shitty
 \newpage
 
-\textbf{Ungenauigkeiten des Optical Chracter Recognition}
+{\parindent=0pt
+\textbf{Ungenauigkeiten des Optical Chracter Recognition}}
 
 Ein Problem, welches sofort ins Auge sticht, sind die Ergebnisse des Optical Character Recognition Systems. Diese sind teilweise sehr dürftig. Durch die mässige Qualität fotografierter Rechnungen können gewisse Wörter nur schlecht oder garnicht erkannt werden. 
 
@@ -111,6 +113,7 @@ Die Grösse der vorliegenden Bilder ist kein Problem. Die meisten Bilder wurden 
 
 Die Binärisierung, sprich das umwandeln in Schwarz-Weiss Bilder, der Rechnungen scheint durchaus ein Problem zu sein. Wie bereits erwähnt wurde, sind die OCR Resultate dann besonders schlecht, wenn das Bild schlecht Ausgeleuchtet ist. In diesem Fall ist der Binärisierungs-Algorithmus, welcher Tesseract standardmässig anwendet, nicht geeignet. Mit einem geeigneteren Algorithmus zur Binärisierung könnte die Qualität der OCR Ergebnisse verbessert werden. Eine Option wäre es, Bilder, welche in einem schlechten OCR Ergebnis resultieren, durch verschiedene Binärisierungs-Algorithmen umwandeln zu lassen. Es kann dann jenes Bild verwendet werden, welches die besten OCR Resultate liefert.
 
+
 Rotierte oder verzerrte Bilder sind im vorliegenden Fall kein Problem. Die Rechnungen sind bereits richtig rotiert und kaum verzerrt.
 
 Ein körniges Bild, ist wie erwähnt, aktuell ein Problem, welches die Qualität des OCR Ergebnis stark beeinflusst. Das entfernen dieses Rauschens (Körnung) im Bild würde die Qualität des OCR Ergebnis und somit die Genauigkeit des Klassifizierungsmodells verbessern.
@@ -119,7 +122,8 @@ Scanning Rändern, wie diese auf dem Tesseract Wiki angemerkt werden, sind im vo
 
 Mit den genannten Ansätzen können die Resultate des OCR Systems verbessert werden. Es kann jedoch nicht davon ausgegangen werden, dass das OCR System immer alles korrekt erkennt. Aus diesem Grund ist eine Nachbearbeitung des OCR Resultats sinnvoll. Im Kapitel \ref{chap:grammar-correction} wird ein Modell, basierend auf LSTM Netzwerken vorgestellt, welches darauf trainiert wird, Rechtschreibfehler zu korrigieren. Dieses Modell dürfte auch auf die Korrektur von OCR Fehlern anwendbar sein. Durch die Korrektur der OCR Fehler vor der Anwendung des Klassifizierungsmodells kann die Qualität dieses erhöht werden.
 
-\textbf{Überrepräsentation einzelner Wörter in gewissen Klassen}
+{\parindent=0pt
+\textbf{Überrepräsentation einzelner Wörter in gewissen Klassen}}
 
 Die Fielmann AG ist wohl einer der bekanntesten Optiker in der Schweiz. Sehen wir eine Rechnung und lesen Fielmann, denken wir sofort an eine Optiker Rechnung. Genau so scheint auch unser Modell zu denken, denn eine Rechnung von Fielmann wird stets als Optiker Rechnung klassifiziert. Dies stellt nun aber ein Problem dar, denn Fielmann verkauft nicht nur Seh- sondern auch Hörhilfen.
 
@@ -127,19 +131,22 @@ Diese Problematik erinnert an das Problem der überrepräsentierten Klassen. Auf
 
 Um diese Problematik zu lösen sind zwei Ansätze denkbar. Zum einen könnte das Wort Fielmann aus dem Wörterbuch ausgeschlossen werden. Dies könnte aber einen sehr negativen Einfluss auf die Klassifizierung tatsächlicher Optiker Rechnungen haben. Zum anderen ist ein Over- oder Undersampling, also das künstliche vermehren oder vermindern, der Unter- beziehungsweise Überrepräsentierten Rechnungen denkbar. Das bedeutet, jene Fielmann Rechnungen welche Hörhilfen betreffen, sollten dem Modell während dem Training öfters vorgelegt werden. Damit würde das Modell auf diese Art von Rechnungen sensibilisiert werden.
 
-\textbf{Nicht eindeutige Wahrscheinlichkeiten bei der Klassifizierung}
+{\parindent=0pt
+\textbf{Nicht eindeutige Wahrscheinlichkeiten bei der Klassifizierung}}
 
 Die verwendete Methode der Klassifizierung verwendet vier Wahrscheinlichkeiten, mit welcher eine Rechnung einer bestimmten Klasse angehört. In Summe ergeben diese Wahrscheinlichkeiten immer 1. Die Klasse, bei welcher die Wahrscheinlichkeit am höchsten liegt, gewinnt. Es kann nun vorkommen, dass die Wahrscheinlichkeiten annähernd gleichmässig verteilt sind und eine Rechnung mit einer Klassen-Wahrscheinlichkeit von nur 25.1\% klassifiziert wird.
 
 Um diese Problematik zu lösen, sollte eine minimale Wahrscheinlichkeit definiert werden, mit welcher eine Rechnung klassifiziert werden muss, damit das Ergebnis verwendet wird. Wahrscheinlichkeiten, welche unter diesem Minimum liegen, dürften nicht verwendet werden. Dieser Ansatz hat neben der Reduzierung der Fehlerquote aber auch eine Reduzierung der Automatisierung zur Folge. Es muss abgewogen werden, ob die AXA Gesundheitsvorsorge das Risiko einer höheren Fehlerquote eingehen möchte und dafür mehr Rechnungen automatisieren kann.
 
-\textbf{Klassifizierung aufgrund irrelevanter Wörter}
+{\parindent=0pt
+\textbf{Klassifizierung aufgrund irrelevanter Wörter}}
 
 Bei der Betrachtung einiger Rechnungen wurde festgestellt, dass diese hauptsächlich aus einem Einzahlungsschein bestehen. Dies kam besonders oft bei Sportvereinen vor. Aus diesem Grund assoziert das Modell nun Wörter, welche auf dem Orangen Einzahlungsschein vorkommen, mit einer Rechnung eines Sportvereins. Dies führt dazu, dass Rechnungen, welche keine anderen klaren Indikatoren aufweisen, fälschlicherweise als Rechnung eines Sportvereins klassifiziert werden.
 
 Zur Lösung dieser Problematik trägt ein Blacklisting der Wörter, welche auf dem Orangen Einzahlungsschein vorkommen, bei. Dabei dürfen aber nicht nur die exakten Wörter herausgefiltert werden. Auch ähnliche Wörter, sprich Wörter mit Schreib- bezeiehungsweise OCR-Fehlern müssten gefiltert werden.
 
-\textbf{Limitierung auf bekannte Wörter}
+{\parindent=0pt
+\textbf{Limitierung auf bekannte Wörter}}
 
 Das angewendete Verfahren zum Word embedding, basieren auf einem Wörterbuch, funktioniert nur für bekannte Wörter. Wörter mit einem Tippfehler oder Synonyme können aufgrund dem fehlenden Embedding nicht zur Klassifizierung beitragen.
 

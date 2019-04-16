@@ -220,7 +220,7 @@ Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddi
     \label{wordembeddingtable}
     \renewcommand{\arraystretch}{1.25}
     \setlength{\tabcolsep}{3pt}
-    \small
+    \footnotesize
     \begin{tabular}{ | l | l | l | l | l | l |}
     \hline
     \rowcolor{ccc} FRANCE & JESUS & XBOX & REDDISH & SCRATCHED & MEGABITS \\ \hline
@@ -257,34 +257,8 @@ Mit Hilfe der in einem vorherigen Kapiteln eingeführten Technik des Word embedd
     \captionsetup{width=.9\linewidth}
     \caption{Vergleich der Erfolgsrate bei der Prüfung von 418 Textsnippets}
     \label{deepgrammar}
-    \begin{tikzpicture}
-        \begin{axis}[
-            ytick={0,10,20,30,40,50,60,70},
-            ymin=0,
-            ymax=70,
-            xticklabels=\empty,
-            xtick style={draw=none},
-        	ylabel={Erfolgsrate [\%]},
-        	enlargelimits=0.05,
-        	ybar={10pt},
-            bar width=20pt,
-            legend style={cells={anchor=west},at={(1,-0.02)}, legend columns=2}, 
-            area legend,
-        ]
-            \addplot[fill=cChart1]
-            	coordinates {(0,61)};
-            \addplot[fill=cChart2]
-            	coordinates {(0,54)};
-            \addplot[fill=cChart3]
-            	coordinates {(0,54)};
-            \addplot[fill=cChart4]
-            	coordinates {(0,65)};
-            \addplot[fill=cChart5]
-            	coordinates {(0, 58)};
-            \legend{Word,Grammarly,Google,LanguageTool,Deepgrammar}
-        \end{axis}
-    \end{tikzpicture}
-    \caption*{Quelle: In Anlehnung an \textcite{Mugan}}
+    \includegraphics{graphics/matplot/grammar-tools.pdf}
+    \caption*{Quelle: \textcite{Mugan}}
 \end{figure} %wrapfigure}
 Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwendbar. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein solches Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate, welche in der Abbildung \ref{deepgrammar} zu sehen sind, sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Microsoft Word}\footnote{Microsoft Word ist ein Programm zur Textverarbeitung und Dokumenterstellung von Microsoft~\autocite{MicrosoftCorporation2018}.} oder \textit{Language Tool 3.1}\footnote{\enquote{LanguageTool ist eine Software zur Textprüfung [...]}~\autocite{LanguageTool2018}} und sogar besser als \textit{Grammarly}\footnote{Grammarly verspricht präzise, kontextabhängige Korrekturen von Texten~\autocite{GramarlyInc.2018}} und \textit{Google Docs}\footnote{Google Docs ist eine Online-Lösung zur Textverarbeitung von Google~\autocite{GoogleLLC2018}}~\autocite{Mugan}.
 
@@ -422,7 +396,7 @@ Die Sensitivität ist immer dann relevant, wenn die Auswirkungen durch ein False
 
 Der F\textsubscript{1}-Score, auch F-Mass, vereint die Genauigkeit und die Sensitivität. Im Gegensatz zur Treffergenauigkeit lässt sich der Wert aber nicht durch ein Übermass an True Negatives beeinflussen, denn sie finden keine Beachtung bei der Berechnung. In den meisten Anwendungsfällen sind True Negatives nicht relevant. False Negatives und False Positives sind meist die Verursacher von potentiell verursachten Kosten. Der F\textsubscript{1}-Score wird mit folgender Formel berechnet~\autocite{TDSAccuracy}:
 
-$$F_1=2 * \frac{Precision * Recall}{Precision + Recall}$$
+$$F_1=2 * \frac{Genauigkeit * Sensitivität}{Genauigkeit + Sensitivität}$$
 
 Der F\textsubscript{1}-Score ist also eine gute Verbindung der Genauigkeit und der Sensibilität. Aufgrund der vernachlässigung der True Negatives ist der F\textsubscript{1}-Score besonders bei ungleichmässig verteilten Klassen, sprich übermässig vielen True Negatives, sinnvoll~\autocite{TDSAccuracy}.
 
@@ -431,6 +405,155 @@ Der F\textsubscript{1}-Score ist also eine gute Verbindung der Genauigkeit und d
 Das sogenannte Loss, auch Kosten oder Fehler, zeigt, wie sehr eine Vorhersage von der Realität abweicht. Um das Loss zu berechnen, kommt die Loss-Funktion, auch Kosten- oder Fehler-Funktion, zur Anwendung. Wie genau die Loss-FunKtion definiert wird, hängt von der Problemstellung ab. Bei einer Binären Klassifikation ist beispielsweise die Cross-Entropy-Loss–Function oder die Log-Loss–Function gängig~\autocite{TDSLoss}. 
 
 Während dem Training ist das Loss, in diesem Fall die Differenz zwischen Vorhersage des Modells und den Trainingsdaten, die zu optimierende Grösse. Die Wahl der Loss-Funktion kann einen erheblichen einfluss auf das Modell haben. Die Loss-Funktion wird während dem Training meist durch Regularisierungstechniken erweitert, um ein Overfitting zu verhindern~\autocite{Goodfellow2016}.
+
+\subsubsection{Intersection over Union}
+
+Um die Treffergenauigkeit, Genauigkeit und die Sensitivität zu berechnen, muss klar sein, ob eine Vorhersage eines Modells korrekt war oder nicht. Das bedeutet, es muss klar sein, ob es sich um einen True Positive, False Positive, True Negative oder False Negative handelt. 
+
+Ein Modell zur Objekterkennung in Bildern sagt eine Position eines Objektes, als umschliessendes Rechteck, sowie dessen Klasse vorher. Die Korrektheit der Klasse kann sehr einfach beurteilt werden: Entweder die Vorhersage stimmt mit der Erwartung überein oder nicht. Die Beurteilung der Korrektheit der vorhergesagten Position ist dagegen nicht so klar, wie dies Abbildung \ref{fig:iou-issue} verdeutlicht. Die Vorhersage des Modells trifft nicht exakt die Erwartung, doch deshalb ist die Vorhersage nicht falsch. Eine exakte Übereinstimmung des vorhergesagten und des erwarteten Rechtecks ist sehr unwahrscheinlich. Aus diesem Grund ist eine Metrik notwendig, die solche Ungenauigkeiten zulässt~\autocite{IoU}.
+
+\begin{figure}[h]
+    \captionsetup{width=.9\linewidth}
+    \caption{TODO}
+    \label{fig:iou-issue}
+    \centering
+    \includegraphics[width=0.6\textwidth]{graphics/iou/iou_issue.png}\\
+    \includegraphics[scale=1]{graphics/matplot/iou_issue_legend.pdf}
+    \caption*{Quelle: \textcite{IoU}}
+\end{figure}
+
+Intersection over Union, kurz IoU, ist ein solches Mass. Es stellt, wie es der Name bereits sagt, die Überlappung des vorhergesagten mit dem erwarteten Rechteck in das Verhältniss zur Vereinigung dieser~\autocite{IoU}:
+
+$$IoU = \frac{
+    \textnormal{Fläche der Überlappung} \hspace{10pt} \includegraphics[width=20pt]{graphics/iou/intersection.pdf}
+}{
+    \textnormal{Fläche der Vereinigung} \hspace{12pt} \includegraphics[width=20pt, align=t]{graphics/iou/union.pdf}
+}$$
+
+Die Beispiele aus Abbildung \ref{fig:iou-examples} verdeutlichen, dass das Mass gegen 1 tendiert, je exakter das vorhergesagte mit dem erwarteten Rechteck übereinstimmt. Es kann nun also beurteilt werden, wie genau die Vorhersage ist. Wird nun noch ein Schwellwert definiert, ab welchem eine Vorhersage als Korrekt angesehen wird, so kann die Korrektheit der Vorhersage beurteilt werden. Die Wahl dieses Schwellwerts ist sehr unterschiedlich. In Bilderkennungs Wettbewerben sind Schwellwerte zwischen 0.5 und 0.75 üblich. Auch wird teilweise ein Durchschnitt über mehrere Schwellwerte verwendet. Dies wird im Kapitel \ref{chap:map} genauer erläutert~\autocite{IoU}.
+
+\begin{figure}[h]
+    \captionsetup{width=.9\linewidth}
+    \caption{TODO}
+    \label{fig:iou-examples}
+    \centering
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \caption*{$IoU=0.4034$}
+        % rescaling doesn't matter as there is no text in the graphics
+        \includegraphics[width=0.5\linewidth]{graphics/iou/iou_examples/1.pdf}
+        \caption*{Schlecht} 
+        \vspace{2ex}
+    \end{subfigure}%% 
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \caption*{$IoU=0.7330$} 
+        % rescaling doesn't matter as there is no text in the graphics
+        \includegraphics[width=0.5\linewidth]{graphics/iou/iou_examples/2.pdf}
+        \caption*{Gut} 
+        \vspace{2ex}
+    \end{subfigure}%% 
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \caption*{$IoU=0.9264$}
+        % rescaling doesn't matter as there is no text in the graphics
+        \includegraphics[width=0.5\linewidth]{graphics/iou/iou_examples/3.pdf}
+        \caption*{Sehr gut} 
+        \vspace{2ex}
+    \end{subfigure}
+    
+    \caption*{Quelle: \textcite{IoU}}
+\end{figure}
+
+\subsubsection{Average Precision}
+\label{chap:ap}
+
+Average Precision, kurz AP, ist eine Metrik, welche oft bei der Bewertung von Modellen zur Objekterkennung zur Anwendung kommt. Als Average Precision wird der Durchschnitt aller Genauigkeiten bei jeder Sensitivität verstanden. Um dies genauer zur erläutern wird im folgenden ein Beispiel zur Berechnung aufgeführt~\autocite{AP}.
+
+Wird ein Modell zur Erkennung von fünf Katzen auf zehn Bildern angewendet, so sind insgesamt fünf True Positive Beispiele vorhanden. Die Tabelle \ref{tab:ap-example} zeigt mögliche Ergebnisse des Modells. Die Ergebnisse sind sortiert nach der Konfidenz des Modells, richtig zu liegen. Pro Vorhersage wird nun die Genauigkeit sowie die Sensitivität berechnet. Dabei steigt die Sensitivität bei jeder korrekten Vorhersage. Die Genauigkeit steigt bei jeder korrekten Vorhersage und sinkt bei jeder falschen~\autocite{AP}.
+
+\begin{table}[h!]
+    \captionsetup{width=.9\linewidth}
+    \caption{TODO}
+    \label{fig:iou-examples}
+    \centering
+    \begin{tabular}{|l|l|l|l|} 
+    \hline
+    Rang & Korrekte Vorhersage & Genauigkeit & Sensitivität  \\ 
+    \hline
+    1    & Ja                  & 1.0         & 0.2           \\ 
+    \hline
+    2    & Ja                  & 1.0         & 0.4           \\ 
+    \hline
+    3    & Nein                & 0.67        & 0.4           \\ 
+    \hline
+    4    & Nein                & 0.5         & 0.4           \\ 
+    \hline
+    5    & Nein                & 0.4         & 0.4           \\ 
+    \hline
+    6    & Ja                  & 0.5         & 0.6           \\ 
+    \hline
+    7    & Ja                  & 0.57        & 0.8           \\ 
+    \hline
+    8    & Nein                & 0.5         & 0.8           \\ 
+    \hline
+    9    & Nein                & 0.44        & 0.8           \\ 
+    \hline
+    10   & Ja                  & 0.5         & 1.0           \\
+    \hline
+    \end{tabular}
+    \caption*{Quelle: \textcite{AP}}
+\end{table}
+
+Die Abbildung \ref{fig:ap-pr-curve} zeigt die sogenannte PR-Curve (Precision-Recall-Curve), welche die Genauigkeit bei jeder Sensitivität darstellt, für das genannte Beispiel. Auf der Abbildung ist die Zickzack Linie durch die steigende und sinkende Genauigkeit zu erkennen~\autocite{AP}.
+
+\begin{figure}[h!]
+    \captionsetup{width=.9\linewidth}
+    \caption{TODO}
+    \label{fig:pr}
+    \centering
+    \includegraphics[scale=1]{graphics/matplot/ap__pr.pdf}\\
+    \caption*{Quelle: \textcite{AP}}
+\end{figure}
+
+Wir erwähnt, wird als Average Precision der Durchschnitt aller Genauigkeiten bei jeder Sensitivität verstanden. Die Average Precision wird generall als die Fläche unter den PR-Curve definiert~\autocite{AP}:
+
+$$AP = \int_{0}^{1}p(r)dr$$
+
+Da sowohl die Genauigkeit als auch die Sensitivität zwischen 0 und 1 liegt, fällt auch die Average Precision zwischen 0 und 1~\autocite{AP}.
+
+Um die Berechnung der Average Precision zu vereinfachen, wird die Zickzack Linie oftmals geglättet. Dabei wird zu jeder Sensitivität jeweils die maximale Genauigkeit aller grösseren Sensitivitäten gewählt. Die grüne Linie in Abbildung \ref{fig:pr-smoothed} veranschaulicht diese Glättung~\autocite{AP}.
+
+\begin{figure}[h!]
+    \captionsetup{width=.9\linewidth}
+    \caption{TODO}
+    \label{fig:pr-smoothed}
+    \centering
+    \includegraphics[scale=1]{graphics/matplot/ap__pr-smoothed.pdf}\\
+    \caption*{Quelle: \textcite{AP}}
+\end{figure}
+
+Neben dieser Glättung kommt in gewissen fällen auch eine Interpolation zur Anwendung. Bis 2008 verwendete das PASCAL VOC Dataset zur Berechnung der Average Precision eine Interpolation mit elf Punkten. Das bedeutet, dass die Genauigkeit bei allen Sensitivität-Werten mit dem Faktor 0.1 Berechnet wird. Beim COCO\footnote{TODO} Dataset wird eine Interpolation von 101 Punkten verwendet. Im neueren PASCAL VOC\footnote{TODO} Dataset wird auf eine Interpolation verzeichtet und die Average Precision wird als die Fläche unter der geglätteten PR-Curve berechnet. Je nach Art der Berechnung kann es zu unterschiedlichen Resultaten kommen, wie dies Abbildung \ref{fig:pr-interpolated} zeigt. Durch die Interpolation können ungenauigkeiten entstehen, wenn die Abnahme der Genauigkeit nicht genau auf einen der zur Berechnung verwendeten Punkte fällt. Werden Modelle miteinander verglichen, ist es also wichtig zu wissen, welche Methode der Berechnung verwendet wurde~\autocite{AP}.
+
+\begin{figure}[H]
+    \captionsetup{width=.9\linewidth}
+    \caption{TODO}
+    \label{fig:pr-interpolated}
+    \centering
+    \includegraphics[scale=1]{graphics/matplot/ap__pr-interpolated.pdf}\\
+    \caption*{Quelle: \textcite{AP}}
+\end{figure}
+
+\subsubsection{Mean Average Precision}
+\label{chap:map}
+
+Als Mean Average Precision wird der Durchschnitt über mehrere Average Precisions bezeichnet. Welche Average Precisions dabei gemeint sind, ist von Anwendung zu Anwendung unterschiedlich. In gewissen Fällen wird einfach nur von der Average Precision gesprochen, obwohl eigentlich ein Durchschnitt über mehrere Average Precisions gemeint ist. Es wird davon ausgegangen, dass dies im Kontext klar ist. Im folgenden werden drei Varianten zur Bildung der Mean Average Precision erläutert~\autocite{AP}.
+
+Im COCO Dataset wird der Durchschnitt der Average Precisions für unterschiedliche Schwellerte für das Intersection over Union Verfahren als Mean Average Precision bezeichnet. Konkret werden alle Average Precisions für die IoU Schwellwerte in Schritten von 0.05 zwischen 0.5 und 0.95 gemittelt. Dies wird dabei als $mAP[0.5:0.05:0.95]$ oder kürzer $mAP[0.5:0.95]$ bezeichnet. Durch dieses Verfahren werden Modelle mit genaueren Vorhersagen, sprich grösserem IoU Wert, besser bewertet~\autocite{AP}.
+
+In anderen Fällen wird Mean Average Precision als der Durchschnitt der Average Precisions über alle zu identifizierenden Klassen berechnet. Sollen in einer Aufgabe Hunde und Katzen auf Bildern erkannt werden, so kann für beide Klassen eine Average Precision ermittelt werden. Ein Modell könnte eine Average Precision für Hunde von 0.9 und eine für Katzen von 0.3 aufweisen. Um dieses Modell nun mit einem anderen Modell zu vergleichen, wird die Mean Average Precision über alle Klassen berechnet: $mAP = \frac{\sum_{i=0}^{n}AP_{i}}{n} = \frac{AP_{Hund}+AP_{Katze}}{2} = 0.6$~\autocite{AP}.
+
+Die beiden Methoden werden oft kombiniert um somit die Mean Average Precision über mehrere Intersection over Union Schwellwerte und über mehrere Klassen zu berechnen. Dies ermöglicht, verschiedene Modelle mit nur einer Zahl zu vergleichen~\autocite{AP}.
 
 \subsection{Fehleranalyse}
 

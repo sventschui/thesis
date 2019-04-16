@@ -56,21 +56,21 @@ Das Klassifizierungsnetzwerk (vgl. Abbildung \ref{image-classification-model}), 
   \label{image-classification-model} 
   \begin{subfigure}[b]{0.3\linewidth}
     \centering
-    \includegraphics[width=0.7\linewidth]{graphics/image-classification-results/model/resnet.pdf} 
+    \includegraphics[scale=0.6]{graphics/image-classification-results/model/resnet.pdf} 
     \caption{ResNet} 
     \label{image-classification-model:resnet} 
     \vspace{2ex}
   \end{subfigure}%% 
    \begin{subfigure}[b]{0.3\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{graphics/image-classification-results/model/inception.pdf} 
+    \includegraphics[scale=0.6]{graphics/image-classification-results/model/inception.pdf} 
     \caption{Inception-ResNet-V2} 
     \label{image-classification-model:inception} 
     \vspace{2ex}
   \end{subfigure}%% 
   \begin{subfigure}[b]{0.3\linewidth}
     \centering
-    \includegraphics[width=0.75	\linewidth]{graphics/image-classification-results/model/nasnet.pdf} 
+    \includegraphics[scale=0.6]{graphics/image-classification-results/model/nasnet.pdf} 
     \caption{NASNet} 
     \label{image-classification-model:nasnet} 
     \vspace{2ex}
@@ -89,27 +89,27 @@ Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle
   \includegraphics[width=0.5\textwidth]{graphics/image-classification-results/legend.pdf}
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{graphics/image-classification-results/acc.pdf} 
+    \includegraphics[scale=1]{graphics/matplot/img-class__acc.pdf}
     \caption{Treffergenauigkeit} 
     \label{image-class-results:a} 
     \vspace{2ex}
   \end{subfigure}%% 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{graphics/image-classification-results/loss.pdf} 
+    \includegraphics[scale=1]{graphics/matplot/img-class__loss.pdf}
     \caption{loss} 
     \label{image-class-results:b} 
     \vspace{2ex}
   \end{subfigure} 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{graphics/image-classification-results/val_acc.pdf} 
+    \includegraphics[scale=1]{graphics/matplot/img-class__val_acc.pdf}
     \caption{Treffergenauigkeit bei den Testdaten} 
     \label{image-class-results:c} 
   \end{subfigure}%%
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{graphics/image-classification-results/val_loss.pdf} 
+    \includegraphics[scale=1]{graphics/matplot/img-class__val_loss.pdf}
     \caption{loss bei den Testdaten} 
     \label{image-class-results:d} 
   \end{subfigure}
@@ -133,6 +133,8 @@ Das Problem des Overfitting könnte womöglich durch zusätzliche Trainingsdaten
 Konkludierend kann gesagt werden, dass durch den Bild-basierten Ansatz eine Klassifizierung möglich ist, aktuell aber zu wenig Testdaten zur Verfügung stehen, um den Ansatz weiter zu verfolgen.
 
 Im folgenden Kapitel wird ein weiterer Ansatz zur Klassifizierung der Rechnungen gezeigt, welcher mit den vorhandenen Datensätzen bessere Ergebnisse erzielen kann.
+
+\todo[inline, color=igloo]{Evtl. ROC Curve als Messinstrument: https://www.dlology.com/blog/simple-guide-on-how-to-generate-roc-plot-for-keras-classifier/}
 
 % Optimierungspotential:
 
