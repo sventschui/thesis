@@ -94,23 +94,25 @@
 %#############################
 % allow for align in \includegraphics
 \usepackage{graphbox}
+% allow for float H
+\usepackage{float}
 
 % charts 
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.13}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.13}
 
 % floating figures/tables
 \usepackage{wrapfig}
 
 % tikz
-\usepackage{tikz}
-\usetikzlibrary{positioning} % for right=of ... syntax
-\usetikzlibrary{shapes.geometric, arrows}
+% \usepackage{tikz}
+% \usetikzlibrary{positioning} % for right=of ... syntax
+% \usetikzlibrary{shapes.geometric, arrows}
 
 % tikz styles
-\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=igloo-darker, fill=igloo!50]
-\tikzstyle{process2} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=igloo-darker, fill=igloo]
-\tikzstyle{arrow} = [thick,->,>=stealth]
+% \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=igloo-darker, fill=igloo!50]
+% \tikzstyle{process2} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=igloo-darker, fill=igloo]
+% \tikzstyle{arrow} = [thick,->,>=stealth]
 
 %#############################
 % Headings
@@ -172,6 +174,7 @@
 \input{commands/abstract.tex}
 \input{commands/begin-main.tex}
 \input{commands/bibliography.tex}
+\input{commands/blankpage.tex}
 \input{commands/declaration-of-authorship.tex}
 \input{commands/list-of-tables-and-figures.tex}
 \input{commands/preface.tex}

@@ -9,15 +9,13 @@ Um eine Rechnung verarbeiten zu können, müssen diverse Informationen, wie beis
 
 Die Extraktion von Informationen aus Tabellen wurde bereits viel behandelt. Ein einfacher Ansatz von \textcite{Mandal} erreicht bereits eine Treffergenauigkeit von 97.21\%~(\cite{Mandal} in \cite{Hamza}).
 
-\textcite{Hamza} stellen eine Lösung zur Informationsextraktion aus Rechnungen vor, welche mit Hilfe von Case Based Reasoning\todo{CBR beschreiben}, eine Treffergenauigkeit von 76-85\% erreicht. Knapp die Hälfte der Fehler wird dabei durch OCR Fehler verursacht.
+\textcite{Hamza} stellen eine Lösung zur Informationsextraktion aus Rechnungen vor, welche mit Hilfe von Case Based Reasoning\todo[color=red]{CBR beschreiben}, eine Treffergenauigkeit von 76-85\% erreicht. Knapp die Hälfte der Fehler wird dabei durch OCR Fehler verursacht.
 
 Im Gegensatz zu den diskutierten Lösungen ist in unserem Fall die Extraktion von Informationen aus Tabellen nicht relevant. Für die Verarbeitung der Rechnungen im vorliegenden Fallbeispiel ist die Extraktion einzelner Rechnungspositionen nicht notwendig.
 
 In den folgenden Kapitel werden zwei Lösungsvorschläge zur Extraktion von Informationen aus Rechnungen diskutiert. Die gewählten Ansätze sind, verglichen zu den oben erwähnten Ansätzen von \textcite{Mandal} und \textcite{Hamza}, einfach gehalten. 
 
 Der erste Ansatz stammt aus einem Join Venture zwischen der AXA, der 3AP AG und der Fachhochschule Nordwestschweiz. Der zweite Ansatz wurde im Rahmen dieser Arbeit erarbeitet.
-
-\todo[inline]{OCR Correction von Sorio et al, welche die Treffergenauigkeit der Nachgelagerten Systeme Massiv erhöht. Ausprobieren oder zumindest als Potential vermerken}
 
 \subsubsection{Bild-basierte Informationsextraktion}
 
@@ -57,11 +55,11 @@ Beim Vergleich der Mean Average Precisions auf den Trainings- und Validierungsda
   \end{subfigure}
 \end{figure}
 
-\todo[inline]{train SSD on smaller LR to reduce the jumping in the graph...}
+\todo[inline, color=orange]{train SSD on smaller LR to reduce the jumping in the graph...}
 
 Abbildung \ref{fig:3ap-map:loss} zeigt das Loss der beiden Modelle auf den Validierungsdaten über den Trainingsverlauf hinweg. Es ist zu erkennen, dass das Loss nach 4000 Trainingsschritten schon sehr flach wird. Die Modelle Lernen zu diesem Zeitpunkt also nur noch sehr wenig. Die Modelle noch weiter zu trainieren, würde keine Verbesserung der Mean Average Precision zur Folge haben.
 
-\todo[inline]{Use single figsize for the following graphic}
+\todo[inline, color=red]{Use single figsize for the following graphic}
 
 \begin{figure}[h!] 
 %\begin{wrapfigure}{r}{0.5\textwidth} 
@@ -80,17 +78,26 @@ Einen etwas detaillierteren Einblick in die Qualität der Modelle gibt die Tabel
 Auffällig an der Gegenüberstellung der Mean IoU Werte ist die Klasse Totalbetrag. Dabei schneidet das SSD Modell extrem schlecht ab. Das SSD Modell scheint mit dieser Flächen mässig kleinen Region of Interest also besonders Probleme zu haben.
 
 \begin{table}[h!]
-\label{tab:3ap-iou}
-\centering
+    \centering
     \captionsetup{width=.9\linewidth}
     \caption{Durchschnittliche Intersection over Union der einzelnen Klassen}
-    \begin{tabular}{lll}
-                                    & \multicolumn{2}{c}{\textbf{Modell}}  \\
+    \label{tab:3ap-iou}
+    \begin{tabular}{|l|l|l|}
+    \hhline{~|--|}    
+    \multicolumn{1}{c|}{}
+                                    & \multicolumn{2}{c|}{\cellcolor[HTML]{DDDDDD}\textbf{Modell}}  \\
+    \hline
+    \rowcolor[HTML]{DDDDDD}
     \textbf{Klasse}                          & \textbf{Faster-RCNN} & \textbf{SSD}           \\
+    \hline
     Adresse des Patienten           & 0.850       & 0.731         \\
+    \hline
     Adresse des Leistungserbringers & 0.625       & 0.623         \\
+    \hline
     Rechnungspositionen             & 0.835       & 0.728         \\
-    Totalbetrag                     & 0.629       & 0.258             
+    \hline
+    Totalbetrag                     & 0.629       & 0.258         \\  
+    \hline
     \end{tabular}
 \end{table}
 
@@ -100,7 +107,7 @@ In Bezug auf die Automatisierung der Rechnungseinreichung sind die Adresse des P
 
 Im folgenden Kapitel wird versucht diesen Ansatz um die fehlenden Informationen zu ergänzen sowie die Qualität der Ergebnisse zu steigern, indem das Modell auf Rechnungen bestimmter Leistungserbringer spezialisiert wird.
 
-\todo[inline, color=igloo]{
+\todo[inline, color=orange]{
 - Rechnungen mit erkannten Regions als Beispiele zeigen, sieht cool aus
 }
 
@@ -123,6 +130,8 @@ Die Abbildung \ref{fielmann-cm} zeigt die Confusion Matrix des angepassten Model
 %\end{wrapfigure}
 \end{figure}
 
+Die Klassifizierung der Rechnungen nach einzelnen Leistungserbringer scheint für das Modell kein Problem darzustellen. Im folgenden wird nun die Erkennung der Region of Interest mit dem bild-basierten Ansatz evaluiert.
+
 Das Faster-RCNN und SSD Modell wurden auf den Rechnungen der Klassen Fielmann und Visilab trainiert. Die Abbildung \ref{fig:specific-ie} zeigt die Mean Average Precisions der beiden Modelle für verschiedene IoU Schwellwerte für die beiden Klassen.
 
 \begin{figure}[h!] 
@@ -140,16 +149,16 @@ Das Faster-RCNN und SSD Modell wurden auf den Rechnungen der Klassen Fielmann un
   \end{subfigure}%% 
   \begin{subfigure}[b]{0.45\linewidth}
     \centering
-    \includegraphics[scale=1]{graphics/matplot/img-detection__fielmann__ap.pdf}
-    \caption{Average Precision auf den Validierungsdaten der Klasse Fielmann} 
-    \label{fig:specific-ie:fielmann:ap_val}
+    \includegraphics[scale=1]{graphics/matplot/img-detection__visilab__ap.pdf}
+    \caption{Average Precision auf den Trainingsdaten der Klasse Visilab} 
+    \label{fig:specific-ie:visilab:ap_train}
     \vspace{2ex}
   \end{subfigure}
   \begin{subfigure}[b]{0.45\linewidth}
     \centering
-    \includegraphics[scale=1]{graphics/matplot/img-detection__visilab__ap.pdf}
-    \caption{Average Precision auf den Trainingsdaten der Klasse Visilab} 
-    \label{fig:specific-ie:visilab:ap_train}
+    \includegraphics[scale=1]{graphics/matplot/img-detection__fielmann__ap.pdf}
+    \caption{Average Precision auf den Validierungsdaten der Klasse Fielmann} 
+    \label{fig:specific-ie:fielmann:ap_val}
     \vspace{2ex}
   \end{subfigure}%%
   \begin{subfigure}[b]{0.45\linewidth}
@@ -161,7 +170,21 @@ Das Faster-RCNN und SSD Modell wurden auf den Rechnungen der Klassen Fielmann un
   \end{subfigure}
 \end{figure}
 
-Die Abbildung \ref{fig:specific-ie:loss} zeigt das Loss der beiden Modelle auf den Validierungsdaten für beide Klassen. Es ist zu erkennen, dass die Modelle auch auf den Leistungserbringer spezifischen Rechnungen nach ca. 4000 Trainingsschritten nicht mehr stark lernen. Die Modelle weiter zu trainieren, dürfte auch hier keine Erhöhung der Mean Average Precisions mehr zur Folge haben.
+Bei diesen Leistungserbringer spezifischen Modellen fällt der Unterschied in den Mean Average Precisions zwischen dem SSD und Faster-RCNN noch stärker aus. Es zeigt sich, dass die Präzision des Faster-RCNN Modell die höhere Rechenintensivität rechtfertig.
+
+Für die Rechnungen von Fielmann erreicht das Modell während dem Training und der Validierung eine beachtliche Mean Average Precision von 98\% respektive 94\% bei einem IoU Schwellwert von 0.5. Das Modell erkennt also für sehr viele Rechnungen, wo sich die Regions of Interest befinden. Eine mAP@[0.50:0.95] von 80\% während dem Training zeigt, dass das Modell die Regions relativ genau trifft. Auf dem Validierungsdatensatz liegt die mAP@[0.5:0.95] dagegen bei nur knapp 60\%. Das Modell weist somit bei der mAP@0.5 und mAP@[0.5:95] eine Varianz von 4\% respektive 20\% auf. Aus dieser teilweise grossen Varianz ist zu schliessen, dass das Modell mehr Trainingsdaten bedarf. Leider stehen diese aktuell nicht zur Verfügung. 
+
+Der Bedarf an mehr Trainingsdaten zeigt, dass ein solcher Ansatz nicht für alle Leistungserbringer realisitisch ist. Für viele Leistungserbringer stehen sehr viel weniger Trainingsdaten zur Verfügung.
+
+\todo[inline, color=red]{Etwas zu visilab sagen, sobald resultate da sind}
+
+\todo[inline, color=red]{Ab hier weiter schreiben}
+\todo[inline]{Ab hier weiter schreiben}
+\todo[inline]{Ab hier weiter schreiben}
+\todo[inline]{Ab hier weiter schreiben}
+\todo[inline]{Ab hier weiter schreiben}
+
+Die Abbildungen \ref{fig:specific-ie:fielmann:loss} und  \ref{fig:specific-ie:visilab:loss} zeigen das Loss der beiden Modelle auf den Validierungsdaten für beide Klassen. Es ist zu erkennen, dass die Modelle auch auf den Leistungserbringer spezifischen Rechnungen nach ca. 4000 Trainingsschritten nicht mehr stark lernen. Die Modelle weiter zu trainieren, dürfte auch hier keine Erhöhung der Mean Average Precisions mehr zur Folge haben.
 
 \begin{figure}[h!] 
   \captionsetup{width=.9\linewidth}
@@ -173,7 +196,7 @@ Die Abbildung \ref{fig:specific-ie:loss} zeigt das Loss der beiden Modelle auf d
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__fielmann__loss.pdf}
     \caption{Totales loss auf den Validierungsdaten der Klasse Fielmann} 
-    \label{fig:specific-ie:visilab:loss}
+    \label{fig:specific-ie:fielmann:loss}
     \vspace{2ex}
   \end{subfigure}%% 
   \begin{subfigure}[b]{0.45\linewidth}
@@ -185,7 +208,13 @@ Die Abbildung \ref{fig:specific-ie:loss} zeigt das Loss der beiden Modelle auf d
   \end{subfigure} 
 \end{figure}
 
-\todo[inline, color=igloo]{Use package hhline to fix border issues...}
+\todo[inline, color=red]{Use package hhline to fix border issues in Tables...}
+
+Die Tabelle \ref{tab:specific-ie-iou} zeigt die durchschnittliche Intersection over Union für die einzelnen Klassen. Auch hier ist zu erkennen, dass das Faster-RCNN Modell mit Abstand bessere Resultate liefert als das SSD Modell. 
+
+Bei einem Vergleich dieser Resultate mit den Resultaten aus dem generellen Modell ist etwas vorsicht geboten, denn die Trainings- und vor allem Testdaten, auf welche diese Metriken basieren, sind unterschiedlich. Bei all dieser Vorsicht kann aber dennoch festgehalten werden, dass die durchschnittliche IoU der Klasse Totalbetrag der Rechnungen von Fielmann mehr als 0.2 grösser ist. Dieser nicht ganz korrekte Vergleich lässt ahnen, dass die Leistungserbringer spezifischen Modelle um einiges präzisere Vorhersagen ermöglichen.
+
+\todo[inline, color=igloo]{Compare visilab and fielmann. Might be interesting to highlight that visilab has a load less training data than fielmann. Whats the difference there. Also visilab invoices have a background image. this might hurt the precision}
 
 \begin{table}[h!]
 \label{tab:specific-ie-iou}
@@ -194,24 +223,30 @@ Die Abbildung \ref{fig:specific-ie:loss} zeigt das Loss der beiden Modelle auf d
     \caption{Durchschnittliche Intersection over Union der einzelnen Klassen}
     %\begin{tabular}{lllll}
     \begin{tabular}{|l|l|l|l|l|}
+    \hhline{~|----|}    
+    \multicolumn{1}{c|}{}
+                                    & \multicolumn{4}{c|}{\cellcolor[HTML]{DDDDDD}\textbf{Modell}}  \\
+    \hhline{~|--|--|}
+    \multicolumn{1}{c|}{}
+                                    & \multicolumn{2}{c|}{\cellcolor[HTML]{DDDDDD}\textbf{Fielmann}} 
+                                                            & \multicolumn{2}{c|}{\cellcolor[HTML]{DDDDDD}\textbf{Visilab}} \\
     \hline
-                                    & \multicolumn{4}{c}{\textbf{Modell}}  \\
-    \hline
-                                    & \multicolumn{2}{c}{\textbf{Fielmann}} & \multicolumn{2}{c}{\textbf{Visilab}} \\
-    \hline
-    \textbf{Region of Interest}     & \textbf{Faster-RCNN}   & \textbf{SSD}        & \textbf{Faster-RCNN}  & \textbf{SSD} \\
+    \rowcolor[HTML]{DDDDDD}     
+    \textbf{Region of Interest}     & \textbf{Faster-RCNN}  & \textbf{SSD}        & \textbf{Faster-RCNN}  & \textbf{SSD} \\
     %                                & \textbf{(Fielmann)}   & \textbf{(Fielmann)}        & \textbf{(Visilab)}  & \textbf{(Visilab)} \\
     \hline
-    Adresse des            &                        & 0.884                & & \\
+    Adresse des                     & 0.915    & 0.884      & & \\
     Patienten &&&& \\
     \hline
-    Adresse des  &                        & 0.692                & & \\
+    Adresse des                     & 0.820    & 0.692      & & \\
     Leistungserbringers &&&& \\
     \hline
-    Begründung des  &                        & 0.716                & & \\
+    Begründung des                  & 0.864    & 0.716      & & \\
     Leistungsbezuges &&&& \\
     \hline
-    Totalbetrag                     &                        & 0.672                & & \\
+    Totalbetrag                     & 0.829    & 0.672      & & \\
+    \hline
+    Behandlungsdatum                & 0.833    & SHIT!      & & \\
     \hline
     \end{tabular}
 \end{table}
@@ -219,8 +254,11 @@ Die Abbildung \ref{fig:specific-ie:loss} zeigt das Loss der beiden Modelle auf d
 
 \subsubsection{Weitere Ansätze}
 
+
 \todo[inline]{
 - CBR-DIA aus https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4378726
+
+- OCR Correction von Sorio et al, welche die Treffergenauigkeit der Nachgelagerten Systeme Massiv erhöht. Ausprobieren oder zumindest als Potential vermerken
 
 % Siehe reddit comment unter Eigener Ansatz
 

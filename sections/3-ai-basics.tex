@@ -6,7 +6,7 @@
 \section{Künstliche Intelligenz: Grundlagen und Ansätze in der Praxis}
 \label{chap:ai}
 
-\todo[inline, color=igloo]{Eine Einleitung zur Definition von künstlicher Intelligenz geben. Auf den Begriff Machine Learning eingehen}
+\todo[inline, color=orange]{Eine Einleitung zur Definition von künstlicher Intelligenz geben. Auf den Begriff Machine Learning eingehen}
 
 % \todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff KI beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
 
@@ -396,7 +396,7 @@ Die Sensitivität ist immer dann relevant, wenn die Auswirkungen durch ein False
 
 Der F\textsubscript{1}-Score, auch F-Mass, vereint die Genauigkeit und die Sensitivität. Im Gegensatz zur Treffergenauigkeit lässt sich der Wert aber nicht durch ein Übermass an True Negatives beeinflussen, denn sie finden keine Beachtung bei der Berechnung. In den meisten Anwendungsfällen sind True Negatives nicht relevant. False Negatives und False Positives sind meist die Verursacher von potentiell verursachten Kosten. Der F\textsubscript{1}-Score wird mit folgender Formel berechnet~\autocite{TDSAccuracy}:
 
-$$F_1=2 * \frac{Genauigkeit * Sensitivität}{Genauigkeit + Sensitivität}$$
+$$F_1=2 * \frac{\textnormal{Genauigkeit} * \textnormal{Sensitivität}}{\textnormal{Genauigkeit} + \textnormal{Sensitivität}}$$
 
 Der F\textsubscript{1}-Score ist also eine gute Verbindung der Genauigkeit und der Sensibilität. Aufgrund der vernachlässigung der True Negatives ist der F\textsubscript{1}-Score besonders bei ungleichmässig verteilten Klassen, sprich übermässig vielen True Negatives, sinnvoll~\autocite{TDSAccuracy}.
 
@@ -475,7 +475,7 @@ Wird ein Modell zur Erkennung von fünf Katzen auf zehn Bildern angewendet, so s
 \begin{table}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{TODO}
-    \label{fig:iou-examples}
+    \label{tab:ap-example}
     \centering
     \begin{tabular}{|l|l|l|l|} 
     \hline
@@ -505,12 +505,12 @@ Wird ein Modell zur Erkennung von fünf Katzen auf zehn Bildern angewendet, so s
     \caption*{Quelle: \textcite{AP}}
 \end{table}
 
-Die Abbildung \ref{fig:ap-pr-curve} zeigt die sogenannte PR-Curve (Precision-Recall-Curve), welche die Genauigkeit bei jeder Sensitivität darstellt, für das genannte Beispiel. Auf der Abbildung ist die Zickzack Linie durch die steigende und sinkende Genauigkeit zu erkennen~\autocite{AP}.
+Die Abbildung \ref{fig:ap-pr} zeigt die sogenannte PR-Curve (Precision-Recall-Curve), welche die Genauigkeit bei jeder Sensitivität darstellt, für das genannte Beispiel. Auf der Abbildung ist die Zickzack Linie durch die steigende und sinkende Genauigkeit zu erkennen~\autocite{AP}.
 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{TODO}
-    \label{fig:pr}
+    \label{fig:ap-pr}
     \centering
     \includegraphics[scale=1]{graphics/matplot/ap__pr.pdf}\\
     \caption*{Quelle: \textcite{AP}}
@@ -556,6 +556,7 @@ In anderen Fällen wird Mean Average Precision als der Durchschnitt der Average 
 Die beiden Methoden werden oft kombiniert um somit die Mean Average Precision über mehrere Intersection over Union Schwellwerte und über mehrere Klassen zu berechnen. Dies ermöglicht, verschiedene Modelle mit nur einer Zahl zu vergleichen~\autocite{AP}.
 
 \subsection{Fehleranalyse}
+\label{chap:error-analysis}
 
 Als Fehleranalyse wird die analyse der falschen Vorhersagen eines Modells bezeichnet. Im Falle eines Klassifizierungsmodells werden die falsch Klassifizierten Datensätze betrachtet und auf die Ursache der falschen Klassifizierung untersucht. Das Ziel dabei ist es, Optimierungspotential zu finden, anhand welchem das bestehende Modell verbessert werden kann~\autocite{MLYearning}.
 
@@ -572,7 +573,7 @@ Die Fehleranalyse hilft die Ursachen einer falschen Klassifizierung zu finden. S
 
 \subsection{Architektur eines KI Systems}
 
-\todo[inline, color=igloo]{Vorherige Kapitel zeigten die Lego Bausteine. Jetzt geht es darum diese Richtig zusammenzusetzen.
+\todo[inline, color=red]{Vorherige Kapitel zeigten die Lego Bausteine. Jetzt geht es darum diese Richtig zusammenzusetzen.
 
 Es gibt kein Rezept dafür, auch Literatur ist sehr begrenzt. Im Netz gibt es Aussagen wie 
 

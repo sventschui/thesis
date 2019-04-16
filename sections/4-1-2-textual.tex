@@ -1,16 +1,6 @@
 \subsubsection{Text-basierte Rechnungsklassifizierung}
 \label{chap:text-based-classification}
 
-\todo[inline]{- Generiertes Vokabular ansehen, um daraus mögliche Fehler abzuleiten
-
-- Als empfehlung in der Thesis: 
-
--- diakritische Zeichen entfernen
-
--- Stemming um wörter zu generalisieren
-
--- Teilwörter splitten (Fitness -> Fitness|park -> Fitness|abo)}
-
 Werden die Rechnungen nicht als Bilder angesehen, sondern wird der auf Ihnen aufgedruckte Text als zentraler Aspekt angesehen, so liegt die Klassifizierung der Rechnung aufgrund dieses Textes nahe. In diesem Kapitel wird ein Text-basierter Ansatz zur Klassifizierung von Rechnungen präsentiert. 
 
 Um die Rechnungen aufgrund des enthaltenen Textes zu Klassifizieren, muss dieser zuerst aus den Bildern der Rechnungen extrahiert werden. Dies wird mit Hilfe von Tesseract OCR, einem OCR System, welches selbst auf einem hoch komplexen neuronalen Netzwerk basiert, gemacht.
@@ -78,7 +68,6 @@ Würde eine Rechnung fälschlicherweise als Andere klassifiziert werden, so wür
 
 Aus den genannten Gründen ist die Genauigkeit für das vorliegende Beispiel die wichtigste Metrik. Die Genauigkeit liegt bei 97.86\% (Fitness), 100\% (Optiker) respektive 96.50\% (Sportverein).
 
-\todo[inline]{Confusion Matrix einer späteren Epoche verwenden!}
 \begin{figure}[h!] 
 %\begin{wrapfigure}{r}{0.5\textwidth} 
     \captionsetup{width=.9\linewidth}
