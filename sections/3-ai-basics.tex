@@ -267,6 +267,7 @@ Nicht nur zur Korrektur von Rechtschreibfehler ist ein Neuronales Netzwerk anwen
 Ein weiterer grosser Vorteil von Neuronalen Netzwerken zur Fehlerkorrektur erwähnt \textcite{Mugan2018} in einer persönlichen Kommunikation: Das Neuronale Netzwerk kann auf das Domänenspezifische Lexikon trainiert werden. Das Netzwerk kann beispielsweise mit medizinischen Begriffen aus den Rechnungen trainiert werden, so dass die Resultate des in dieser Arbeit entwickelten Prototypen noch besser werden~\autocite{Mugan2018}.
 
 \subsection{Informationsextraktion aus natürlichen Texten}
+\label{chap:ner}
 
 % https://en.wikipedia.org/wiki/Named-entity_recognition
 % https://en.wikipedia.org/wiki/Medical_classification
@@ -315,6 +316,7 @@ Wird ein Modell, welches bereits für eine Aufgabe trainiert wurde, für eine zw
 Ursprünglich kommt das Transfer Learning aus dem Bereich der Computer Vision. Im Jahr 2018 präsentierten \textcite{Howard2018} sowie \textcite{Devlin2018} mit ULMFiT\footnote{Universal Language Model Fine-tuning, kurz ULMFiT, ist ein Ansatz, bei welchem ein Modell auf einem sehr grossen Datensatz trainiert wird. Dieses Modell kann nun für diverse Aufgaben im Gebiet des Natural Language Processing verwendet werden und verspricht bessere Ergebnisse als Ansätze ohne Transfer Learning\autocite{Howard2018}.} respektive BERT\footnote{Bidirectional Encoder Representations from Transformes, kurz BERT, ist eine neuartige Repräsentation von natürlicher Sprache. Mit diesem auf Transfer Learning basierten Ansatz kann das Google AI Language Team in diversen NLP Aufgaben neue Bestresultate erzielen\autocite{Devlin2018}.} Ansätze, das Transfer Learning auch für Aufgaben im Gebiet des Natural Language Processing anzuwenden. Beide Ansätze versprechen die Reduktion der Menge benötigter Traingsdatensätze sowie die Verbesserung der resultierenden Modelle.
 
 \subsection{Messkriterien zur Bewertung eines KI Systems}
+\label{chap:metrices}
 
 Um ein System objektiv zu Bewerten und mit anderen Ansätzen zu vergleichen, bedarf es Metriken. Folgend werden einige Metriken erläutert und ihre Anwendungsfälle diskutiert.
 
@@ -571,20 +573,51 @@ Die Fehleranalyse hilft die Ursachen einer falschen Klassifizierung zu finden. S
 %- Fehleranalyse hilft die Ursachen der Falschklassifizierung zu finden
 %- Kann helfen, unbekannte Gebiete durch ein iteratives vorgehen zu explorieren
 
-\subsection{Architektur eines KI Systems}
+\subsubsection{Design eines KI Systems}
 
-\todo[inline, color=red]{Vorherige Kapitel zeigten die Lego Bausteine. Jetzt geht es darum diese Richtig zusammenzusetzen.
+Die vorherigen Kapitel haben einen Einblick in einige der Grundbausteine von Machine Learning Modellen gegeben. Eine grosse Herausforderung ist nun, diese so anzuwenden, dass eine Problemstellung möglichst optimal gelöst werden kann. Dieses Kapitel gibt einen Überblick, wie an eine Problemstellung herangegangen werden soll, um ein Machine Learning Modell zu entwickeln.
 
-Es gibt kein Rezept dafür, auch Literatur ist sehr begrenzt. Im Netz gibt es Aussagen wie 
+% - https://towardsdatascience.com/machine-learning-general-process-8f1b510bd8af
+Der erste und einer der wichtigsten Schritte ist, die \textbf{Problemstellung zu beschreiben}. Dabei gilt es zu klären, was das genau Ziel ist respektive was vorhergesagt werden soll. Das heisst, es muss geklärt werden, wie genau die Ausgabe des Modells aussehen soll. Es ist ausserdem zu klären, welche Daten als Eingabewerte notwendig sind und ob diese verfügbar sind. Weiter gilt es zu definieren, anhand welcher Metrik das Modell gemessen werden soll~\autocite{DesignML}.
 
-- Was würde ein Mensch tun um an das Problem heran zu gehen
+Der nächste Schritt ist die \textbf{Beschaffung der zuvor identifizierten Daten}. Dieser Schritt kann sehr einfach oder aber auch sehr aufwendig sein. Für gewisse Problemstellungen sind bereits strukturierte Daten vorhanden. Bei anderen müssen diese mit aufwendigen Techniken wie Web-Scraping, dem automatisierten extrahieren von Informationen aus von Webseiten, beschafft werden~\autocite{DesignML}.
 
-- Input und Output sind klar, dazwischen AUsprobieren
+Im dritten Schritt muss eine \textbf{Zielmetrik} bestimmt werden. Das Kapitel \ref{chap:metrices} zeigt einige der bekanntesten Metriken auf. Die Wahl der Metrik ist wichtig, damit das Ziel bekannt und das Modell auf die Erreichung dieses optimiert werden kann~\autocite{DesignML}.
 
-- Wie würde das Problem jemandem erklärt werden
+Nachdem das Ziel bekannt ist, müssen die \textbf{Eingabedaten aufbereitet} werden. Dabei muss ein Weg gefunden werden, mit potentiell fehlenden oder unvollständigen Daten umzugehen. Alle Daten müssen in eine Form gebracht werden, welche das Modell verstehen kann. So müssen beispielsweise ordinale und nominale Daten in Ganzzahlen umgewandelt respektive codiert werden. Da die meisten Modelle mit gleich-skalierten Daten am besten umgehen können, werden die Daten auf die Skala $[0:1]$ gebracht~\autocite{DesignML}.
 
-- MLYearning
+Lassen die Problemstellung und die Eingabedaten es zu, so ist es Ratsam nun ein \textbf{einfache Vorhersage}\todo{Anderes Wort}, beispielsweise basierenden auf k-Nearest-Neighbour oder Naive Bayes, zu erstellen. Eine solche Vorhersage ermöglicht die Eingabedaten auf ihre Eignung zur Vorhersage des gesuchten Resultats zu prüfen. Weiter gibt diese Vorhersage eine Baseline, an welcher sich während der Erarbeitung des Machine Learning Modells gehalten werden kann.~\autocite{DesignMLSecondaryCite}
 
--- Ein einfaches Modell bauen und durch Fehleranalyse iterativ weiterentwickeln
+Nachdem alle Rahmenbedingungen geschaffen sind, geht es nun an die eigentliche \textbf{Entwicklung des Modells}. Dabei ist Cross Validation, der Vergleich von bestehenden Modellen, und das anschliessende Optimieren des besten Kandidats ein oft angewendetes Vorgehen. Beim Cross Validation werden verschiedene Modelle auf den Eingabedaten angewendet und anhand der Zielmetrik bewertet. Das Modell mit dem besten Resultat wird anschliessend optimiert. Diese Optimierung ist die anpassung von den sogenannten Hyperparametern. Die Hyperparameter bezeichnen jene Parameter eines Machine Learning Modells, welche nicht während dem Training gelernt, sondern von aussen in das Modell hereingegeben werden. Die Hyperparameter können als Konfiguration eines Modells verstanden werden~\autocite{DesignML}.
+
+\todo[inline, color=red]{Rest dieses Kapitels zu Neural Network Design schreiben. Gute Quellen suchen
+
+- ftp://ftp.sas.com/pub/neural/FAQ3.html\#A\_hl
+
+Um eine Problemstellung mit einem Neuronalen Netzwerk zu lösen, muss erst ein solches entworfen werden. Auch hier ist der Cross Validation Ansatz wohl der geeignetste, um möglichst schnell gute Resultate zu erzielen. Für viele Problemstellungen können Analogien gefunden werden, zu welchen bereits Modelle bestehen. Es gibt diverse Wettbewerbe, bei welchen Modelle, beispielsweise zur Objekterkennung auf Bildern, verglichen werden. Auch gibt es unzählige frei verfügbare Forschungsarbeiten und Open Source Modelle, welche Lösung zu einer breiten Variation von Problemstellungen präsentieren.
+
+Wird ein Modell selbst entworfen oder angepasst, so stellt sich oft die Frage, wie viele Hidden Layer ein solches Modell haben sollte und wie viele Neuronen diese beinhalten sollen. Für diese Frage gibt es keine klare Antwort. 
+
+
+Beim Entwurf eines solches Netzwerks stellt sich die Frage, was für Schichten und wie viele davon ein Netzwerk haben soll. Es gibt dafür in vielen Fällen keine klaren Regeln und es muss oft etwas experimentiert werden. Einige Faustregeln können dabei helfen, mit geringem Aufwand ein geeignetes Modell zu finden.
+}
+
+\subsection{Künstliche Intelligenz in produktiver Umgebung}
+
+\todo[inline, color=red]{
+- KI/ML beginnt oft mit Experimenten
+
+- KI Software in stetigem Wandel
+
+- Verschiedene ML Architekturen: https://towardsdatascience.com/five-not-well-known-machine-learning-architectures-that-will-help-you-move-from-pilot-to-production-a051eaae69ef
+
+- Uber hat mit Michelangelo eine extrem fortgeschrittene Pipeline, evtl. helfen erkenntnise daraus
+
+-- https://eng.uber.com/michelangelo/
+
+-- Learning in production wird gemäss diesem Post auch bei Uber nicht gemacht. Lernen passiert aktuell immer Offline
+
+-- Lernen in Produktion muss extrem stark überwacht werden, da sonst das Modell Amok laufen könnte
+
 }
 

@@ -78,15 +78,20 @@ Aus den genannten Gründen ist die Genauigkeit für das vorliegende Beispiel die
 %\end{wrapfigure}
 \end{figure}
 
+% Im folgenden Kapitel wird Verbesserungspotential anhand einer Fehleranalyse für den präsentierten Ansatz aufgezeigt. Im Kapitel \ref{chap:class:conclusions} werden Schlussfolgerungen zur Rechnungsklassifizierung getroffen.
+
+% \subsubsection{Verbesserungspotential der präsentierten Ansätze}
+
 Die Insgesamt 53 falsch klassifizierten Rechnungen aus dem Testdatensatz sowie die während dem Training falsch klassifizierten Rechnungen wurden einer Fehleranalyse unterzogen. \textcite{MLYearning} suggerieren für die Verbesserung eines Modells dort anzusetzen, wo am meisten Falschklassifikationen vorliegen. Dabei wird argumentiert, dass dort das Potential, die Treffergenauigkeit zu erhöhen, am höchsten ist. In unserem Fall ist die Treffergenauigkeit aber eher nebensächlich. Die 42 fälschlicherweise als Übrigen klassifizierten Rechnungen haben, wie bereits erwähnt, keinen grossen negativen Einfluss auf den Geschäftsprozess. Aus diesem Grund fokussiert sich die Analyse auf die fälschlicherweise als eine der automatisierbaren Klassen klassifizierten Rechnungen. Während dieser Analyse wurden folgende Probleme und Verbesserungsmöglichkeiten identifiziert:
 
 % TODO: this 4-th indentation is a bit shitty
 \newpage
 
-{\parindent=0pt
-\textbf{Ungenauigkeiten des Optical Chracter Recognition}}
+%{\parindent=0pt
+%\textbf{Ungenauigkeiten des Optical Chracter Recognition}}
 
-Ein Problem, welches sofort ins Auge sticht, sind die Ergebnisse des Optical Character Recognition Systems. Diese sind teilweise sehr dürftig. Durch die mässige Qualität fotografierter Rechnungen können gewisse Wörter nur schlecht oder garnicht erkannt werden. 
+\label{chap:ocr-quality}
+\textbf{Ungenauigkeiten des Optical Chracter Recognition}: Ein Problem, welches sofort ins Auge sticht, sind die Ergebnisse des Optical Character Recognition Systems. Diese sind teilweise sehr dürftig. Durch die mässige Qualität fotografierter Rechnungen können gewisse Wörter nur schlecht oder garnicht erkannt werden. 
 
 Durch diese Ungenauigkeiten während dem OCR Prozess entstehen viele Wörter mit Schreibfehlern. Das Wörterbuch erkennt aber nur Wörter, welche mit den gelernten Wörtern identisch sind. Wurde während dem Training des Wörterbuchs ein Wort nie in einer gewissen falschen Schreibweise angetroffen, so ist dieses Wort für das Klassifizierungsmodell nutzlos.
 
@@ -109,34 +114,34 @@ Ein körniges Bild, ist wie erwähnt, aktuell ein Problem, welches die Qualität
 
 Scanning Rändern, wie diese auf dem Tesseract Wiki angemerkt werden, sind im vorliegenden Fall kein Problem. Ein ähnliches Problem, welches sich aber äussert, sind Ränder auf Fotografien von Rechnungen. Fotorgrafiert jemand eine Rechnung, so ist meist noch etwas vom Hintergrund, beispielsweise einem Holztisch, zu sehen. Diese Rändern stören die Qualität der OCR Ergebnisse indirekt, durch eine verschlechterte Binärisierung, sowie direkt. Es ist also zentral, diese Ränder zu entfernen. Viele Apps bieten bereits eine solche Funktion an, in welcher Ränder automatisch erkannt werden und der Nutzer die Möglichkeit hat, diese anzupassen. Eine solche Funktion ist für das vorliegende Fallbeispiel empfehlenswert.
 
-Mit den genannten Ansätzen können die Resultate des OCR Systems verbessert werden. Es kann jedoch nicht davon ausgegangen werden, dass das OCR System immer alles korrekt erkennt. Aus diesem Grund ist eine Nachbearbeitung des OCR Resultats sinnvoll. Im Kapitel \ref{chap:grammar-correction} wird ein Modell, basierend auf LSTM Netzwerken vorgestellt, welches darauf trainiert wird, Rechtschreibfehler zu korrigieren. Dieses Modell dürfte auch auf die Korrektur von OCR Fehlern anwendbar sein. Durch die Korrektur der OCR Fehler vor der Anwendung des Klassifizierungsmodells kann die Qualität dieses erhöht werden.
+Mit den genannten Ansätzen können die Resultate des OCR Systems verbessert werden. Es kann jedoch nicht davon ausgegangen werden, dass das OCR System immer alles korrekt erkennt. Aus diesem Grund ist eine Nachbearbeitung des OCR Resultats sinnvoll. Im Kapitel \ref{chap:grammar-correction} wird ein Modell, basierend auf LSTM Netzwerken vorgestellt, welches darauf trainiert wird, Rechtschreibfehler zu korrigieren. Dieses Modell dürfte auch auf die Korrektur von OCR Fehlern anwendbar sein. Durch die Korrektur der OCR Fehler vor der Anwendung des Klassifizierungsmodells kann die Qualität dieses erhöht werden. Mit einem Domain-Know-How basierten Ansatz zur Korrektur von Fehlern erreichen \textcite{OCRCorrection} eine knappe Verdoppelung der Qualität der Resultate aus dem OCR System. Selbst für qualitativ sehr schlechte Bilder erreichen werden sehr gute Resultate erreicht.
 
-{\parindent=0pt
-\textbf{Überrepräsentation einzelner Wörter in gewissen Klassen}}
+%{\parindent=0pt
+%\textbf{Überrepräsentation einzelner Wörter in gewissen Klassen}}
 
-Die Fielmann AG ist wohl einer der bekanntesten Optiker in der Schweiz. Sehen wir eine Rechnung und lesen Fielmann, denken wir sofort an eine Optiker Rechnung. Genau so scheint auch unser Modell zu denken, denn eine Rechnung von Fielmann wird stets als Optiker Rechnung klassifiziert. Dies stellt nun aber ein Problem dar, denn Fielmann verkauft nicht nur Seh- sondern auch Hörhilfen.
+\textbf{Überrepräsentation einzelner Wörter in gewissen Klassen}: Die Fielmann AG ist wohl einer der bekanntesten Optiker in der Schweiz. Sehen wir eine Rechnung und lesen Fielmann, denken wir sofort an eine Optiker Rechnung. Genau so scheint auch unser Modell zu denken, denn eine Rechnung von Fielmann wird stets als Optiker Rechnung klassifiziert. Dies stellt nun aber ein Problem dar, denn Fielmann verkauft nicht nur Seh- sondern auch Hörhilfen.
 
 Diese Problematik erinnert an das Problem der überrepräsentierten Klassen. Auf Stufe der Klassen trägt die Gewichtung der loss-Funktion der Überrepräsentation einzelner Klassen Rechnung. Auf der Stufe des Vokabulars wird diesem Ungleichgewicht bisher keine Rechnung getragen.
 
 Um diese Problematik zu lösen sind zwei Ansätze denkbar. Zum einen könnte das Wort Fielmann aus dem Wörterbuch ausgeschlossen werden. Dies könnte aber einen sehr negativen Einfluss auf die Klassifizierung tatsächlicher Optiker Rechnungen haben. Zum anderen ist ein Over- oder Undersampling, also das künstliche vermehren oder vermindern, der Unter- beziehungsweise Überrepräsentierten Rechnungen denkbar. Das bedeutet, jene Fielmann Rechnungen welche Hörhilfen betreffen, sollten dem Modell während dem Training öfters vorgelegt werden. Damit würde das Modell auf diese Art von Rechnungen sensibilisiert werden.
 
-{\parindent=0pt
-\textbf{Nicht eindeutige Wahrscheinlichkeiten bei der Klassifizierung}}
+%{\parindent=0pt
+%\textbf{Nicht eindeutige Wahrscheinlichkeiten bei der Klassifizierung}}
 
-Die verwendete Methode der Klassifizierung verwendet vier Wahrscheinlichkeiten, mit welcher eine Rechnung einer bestimmten Klasse angehört. In Summe ergeben diese Wahrscheinlichkeiten immer 1. Die Klasse, bei welcher die Wahrscheinlichkeit am höchsten liegt, gewinnt. Es kann nun vorkommen, dass die Wahrscheinlichkeiten annähernd gleichmässig verteilt sind und eine Rechnung mit einer Klassen-Wahrscheinlichkeit von nur 25.1\% klassifiziert wird.
+\textbf{Nicht eindeutige Wahrscheinlichkeiten bei der Klassifizierung}: Die verwendete Methode der Klassifizierung verwendet vier Wahrscheinlichkeiten, mit welcher eine Rechnung einer bestimmten Klasse angehört. In Summe ergeben diese Wahrscheinlichkeiten immer 1. Die Klasse, bei welcher die Wahrscheinlichkeit am höchsten liegt, gewinnt. Es kann nun vorkommen, dass die Wahrscheinlichkeiten annähernd gleichmässig verteilt sind und eine Rechnung mit einer Klassen-Wahrscheinlichkeit von nur 25.1\% klassifiziert wird.
 
 Um diese Problematik zu lösen, sollte eine minimale Wahrscheinlichkeit definiert werden, mit welcher eine Rechnung klassifiziert werden muss, damit das Ergebnis verwendet wird. Wahrscheinlichkeiten, welche unter diesem Minimum liegen, dürften nicht verwendet werden. Dieser Ansatz hat neben der Reduzierung der Fehlerquote aber auch eine Reduzierung der Automatisierung zur Folge. Es muss abgewogen werden, ob die AXA Gesundheitsvorsorge das Risiko einer höheren Fehlerquote eingehen möchte und dafür mehr Rechnungen automatisieren kann.
 
-{\parindent=0pt
-\textbf{Klassifizierung aufgrund irrelevanter Wörter}}
+%{\parindent=0pt
+%\textbf{Klassifizierung aufgrund irrelevanter Wörter}}
 
-Bei der Betrachtung einiger Rechnungen wurde festgestellt, dass diese hauptsächlich aus einem Einzahlungsschein bestehen. Dies kam besonders oft bei Sportvereinen vor. Aus diesem Grund assoziert das Modell nun Wörter, welche auf dem Orangen Einzahlungsschein vorkommen, mit einer Rechnung eines Sportvereins. Dies führt dazu, dass Rechnungen, welche keine anderen klaren Indikatoren aufweisen, fälschlicherweise als Rechnung eines Sportvereins klassifiziert werden.
+\textbf{Klassifizierung aufgrund irrelevanter Wörter}: Bei der Betrachtung einiger Rechnungen wurde festgestellt, dass diese hauptsächlich aus einem Einzahlungsschein bestehen. Dies kam besonders oft bei Sportvereinen vor. Aus diesem Grund assoziert das Modell nun Wörter, welche auf dem Orangen Einzahlungsschein vorkommen, mit einer Rechnung eines Sportvereins. Dies führt dazu, dass Rechnungen, welche keine anderen klaren Indikatoren aufweisen, fälschlicherweise als Rechnung eines Sportvereins klassifiziert werden.
 
 Zur Lösung dieser Problematik trägt ein Blacklisting der Wörter, welche auf dem Orangen Einzahlungsschein vorkommen, bei. Dabei dürfen aber nicht nur die exakten Wörter herausgefiltert werden. Auch ähnliche Wörter, sprich Wörter mit Schreib- bezeiehungsweise OCR-Fehlern müssten gefiltert werden.
 
-{\parindent=0pt
-\textbf{Limitierung auf bekannte Wörter}}
+%{\parindent=0pt
+%\textbf{Limitierung auf bekannte Wörter}}
 
-Das angewendete Verfahren zum Word embedding, basieren auf einem Wörterbuch, funktioniert nur für bekannte Wörter. Wörter mit einem Tippfehler oder Synonyme können aufgrund dem fehlenden Embedding nicht zur Klassifizierung beitragen.
+\textbf{Limitierung auf bekannte Wörter}: Das angewendete Verfahren zum Word embedding, basieren auf einem Wörterbuch, funktioniert nur für bekannte Wörter. Wörter mit einem Tippfehler oder Synonyme können aufgrund dem fehlenden Embedding nicht zur Klassifizierung beitragen.
 
 Anstelle des aktuell verwendeten, einfachen Word Tokenizer könnte ein komplexeres Word embedding (vgl. Kapitel \ref{chap:embedding}) angewendet werden. Wie bereits im Kapitel \ref{chap:transfer-learning} erwähnt, zeigen jüngste Forschungen, dass auch in diesem Bereich dank Transfer Learning mit nur wenig Datensätzen gute Ergebnisse erzielt werden können. Das im Oktober 2018 publizierte BERT Modell verspricht in diesem Bereich eine revolutionäre Verbesserung. Das Modell könnte in diesem Fall als Grundlage für das Transfer Learning dienen~\autocite{Devlin2018}.

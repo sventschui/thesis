@@ -1,14 +1,46 @@
 \section{Diskussion}
 \label{chap:summary}
 
-\todo[inline, color=red]{DO IT!}
+Die Resultate der einzelnen Experimente wurden in den entsprechenden Kapitel bereits kurz diskutiert. Weiter wurde mögliches Optimierungspotential aufgezeigt. In diesem Kapitel werden Empfehlungen an die AXA Gesundheitsvorsorge abgebeben, wie mit der Automatisierung der Rechnungseinreichung vorgegangen werden soll. Weiter wird die Forschungsfrage anhand der Theorie und vor allem des Fallbeispiels beantwortet.
 
 \subsection{Empfehlungen an die AXA Gesundheitsvorsorge}
 
-\todo[inline, color=red]{
-- LERB basierte Klassifizierung
+\todo[inline, color=red]{Diskussion der Wirtschaftlichkeit
 
-- Pro LERB ein Region detection Modell
+Abschnitt überarbeiten...}
+
+Aufgrund der beschriebenen Experimente wird der AXA Gesundheitsvorsorge empfohlen, einen inkrementellen Rollout eines Systems zur Automatisierung der Rechnungseinreichung anzustreben. Dabei wird die Anwendung eines Text-basierten Klassifizierungsmodell (vgl. Kapitel \ref{chap:text-based-classification}) und Leistungserbringer spezifischen Bild-basierten Modellen (vgl. Kapitel \ref{chap:lerb-specific-ie}) empfohlen.
+
+Durch einen inkrementellen Rollout des Systems kann die Time-to-Market sowie das involvierte Risiko klein gehalten werden. Auch hat die AXA Gesundheitsvorsorge dabei die Möglichkeit ihre Infrastruktur und den Prozess an die Automatisierung anzupassen. Durch dieses Vorgehen erhält die AXA schnell Feedback aus der realen Anwendung und kann gegebenenfalls schnell darauf reagieren.
+
+Die Text-basierte Klassifizierung wird aktuell aufgrund der höheren Genauigkeit der Bild-basierten vorgezogen. Es gilt allerdings zu evaluieren, ob sich durch das Hinzufügen von immer mehr Leistungserbringern als Klassen die Ausgangslage ändert.
+
+Damit die Fehlerquote besonders tief gehalten werden kann und somit auch möglichst wenig manueller Aufwand während dem Prozess entsteht, wird der Ansatz des Leistungserbinger spezifischen Bild-basierten Modell zur Informationsextraktion empfohlen. Dieser Ansatz hat zum generellen Bild-basierten Modell eine höhere Genauigkeit und ist in der Lage alle notwendigen Informationen zur Automatisierung einer Rechnung von Fielmann und Visilab zu erfassen. Auch für andere Leistungserbringer ist der Ansatz vielversprechend. Auch hier hat ein inkrementeller Ansatz den Vorteil, dass zu Beginn ein einziges Modell für einen Leistungserbringer produktiv geschaltet werden kann. Die Erfahrungen können dann sofort für die Entwicklung der folgenden Modelle verwendet werden.
+
+Neben der Einführung der präsentierten Ansätze wird eine Optimierung dieser sowie die Exploration weiterer Ansätze empfohlen. Nur so kann die Genauigkeit und somit die Automatisierung noch weiter erhöht werden.
+
+\todo[inline, color=red]{
+LERB basierte Klassifizierung und IE mit graduellem Rollout um Vorgehen zu validieren und Prozesse zu testen. Auch um Infrastruktur gleichzeitig aufbauen zu können. Dabei evtl. auch Michelangelo von Uber eingehen. Bedeutet unter dem Strich auch, dass das Thema von einem dedizierten Team eng begleitet werden muss. Es benötigt stetige Weiterentwicklung der Modelle
 
 - 
 }
+
+\subsection{Beantwortung der Forschungsfrage}
+
+\todo[inline, color=red]{DO IT!
+
+- Hoher Aufwand
+
+-- Für KMU evtl. untragbar
+
+-- Wirtschaftlichkeit muss abgewogen werden
+
+-- Zukunftsorientierung
+
+- KI ist eine strategische Investition
+
+- Wenn das Unternehmen nicht investiert, wird es von einem Startup, welches es tut, überholt
+
+- Viele Ansätze zur freien verfügung, die bereits gute Resultate liefern
+
+- Wenns komplexer wird, wird auch der Aufwand zur Entwicklung des Modells/der KI enorm höher}
