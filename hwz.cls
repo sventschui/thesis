@@ -57,6 +57,21 @@
 \fancyhf{}
 \fancyfoot[LE,RO]{\thepage}
 
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[LE,RO]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% clear page means CLEAR (no header & footer)
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{plain}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
 %#############################
 % citation style APA
 %#############################
@@ -140,6 +155,11 @@
 }
 
 %#############################
+% Paragraphs
+%#############################
+\usepackage{parskip}
+
+%#############################
 % List
 %#############################
 % allows for custom list spacings
@@ -149,6 +169,11 @@
 % Colors
 %#############################
 \input{colors.tex}
+
+%#############################
+% Footnotes
+%#############################
+\usepackage[bottom]{footmisc}
 
 %#############################
 % Tables
