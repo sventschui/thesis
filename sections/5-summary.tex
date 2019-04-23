@@ -2,55 +2,51 @@
 \section{Empfehlungen und Schlussfolgerungen}
 \label{chap:summary}
 
-Die Resultate der einzelnen Experimente wurden in den entsprechenden Kapitel bereits kurz diskutiert. Weiter wurde mögliches Optimierungspotential aufgezeigt. In diesem Kapitel werden Empfehlungen an die AXA Gesundheitsvorsorge abgebeben, wie mit der Automatisierung der Rechnungseinreichung vorgegangen werden soll. Weiter wird die Forschungsfrage anhand der Theorie und vor allem des Fallbeispiels beantwortet.
+Die Resultate der einzelnen Experimente wurden in den entsprechenden Kapitel bereits diskutiert. Weiter wurde mögliches Optimierungspotential aufgezeigt. In diesem Kapitel werden Empfehlungen an die AXA Gesundheitsvorsorge abgegeben, wie bei der Automatisierung der Rechnungseinreichung vorgegangen werden soll. Weiter wird die Forschungsfrage anhand der Theorie und des Fallbeispiels beantwortet.
 
 \subsection{Empfehlungen an die AXA Gesundheitsvorsorge}
 
-\todo[inline, color=red]{Diskussion der Wirtschaftlichkeit
+Im Rahmen dieser Arbeit konnte sich der Autor das Wissen aneignen, um die erläuterten Experimente zur Klassifizierung und Informationsextraktion durchzuführen. Mit vertretbarem Aufwand ist es gelungen Erfolge zu erzielen. Die Investition in die künstliche Intelligenz ist vielversprechend.
 
-Abschnitt überarbeiten...}
+Die Klassifizierung der Rechnungen mit dem Text-basierten Ansatz hat bereits sehr gut funktioniert. Wird das aufgezeigte Optimierungspotential ausgeschöpft, kann dieser Aspekt zur Automatisierung mit Hilfe der künstlichen Intelligenz erfolgreich abgedeckt werden. Die Text-basierte Klassifizierung wird aktuell aufgrund der höheren Genauigkeit der Bild-basierten vorgezogen. Es gilt allerdings zu evaluieren, ob sich durch das Hinzufügen von immer mehr Leistungserbringern als Klassen die Ausgangslage ändert.
 
-Aufgrund der beschriebenen Experimente wird der AXA Gesundheitsvorsorge empfohlen, einen inkrementellen Rollout eines Systems zur Automatisierung der Rechnungseinreichung anzustreben. Dabei wird die Anwendung eines Text-basierten Klassifizierungsmodell (vgl. Kapitel \ref{chap:text-based-classification}) und Leistungserbringer spezifischen Bild-basierten Modellen (vgl. Kapitel \ref{chap:lerb-specific-ie}) empfohlen.
+Bei der allgemeinen Informationsextraktion konnten keine zufriedenstellende Ergebnisse erzielt werden. Die Leistungserbringer spezifischen Modelle zur Informationsextraktion konnten dagegen bessere Resultate erzielen. Damit die Fehlerquote besonders tief gehalten werden kann und somit auch möglichst wenig manueller Aufwand während dem Prozess entsteht, wird der Ansatz des Leistungserbinger spezifischen Bild-basierten Modell zur Informationsextraktion empfohlen. Dieser Ansatz hat im Vergleich zum generellen Bild-basierten Modell eine höhere Genauigkeit und ist in der Lage alle notwendigen Informationen zur Automatisierung einer Rechnung von Fielmann und Visilab zu erfassen. Auch für andere Leistungserbringer ist der Ansatz vielversprechend.
 
-Durch einen inkrementellen Rollout des Systems kann die Time-to-Market sowie das involvierte Risiko klein gehalten werden. Auch hat die AXA Gesundheitsvorsorge dabei die Möglichkeit ihre Infrastruktur und den Prozess an die Automatisierung anzupassen. Durch dieses Vorgehen erhält die AXA schnell Feedback aus der realen Anwendung und kann gegebenenfalls schnell darauf reagieren.
+Die in den Experimenten erarbeiteten Modelle sind nicht perfekt. Aus diesem Grund ist es wichtig, in die Optimierungspotentiale zu investieren.
 
-Die Text-basierte Klassifizierung wird aktuell aufgrund der höheren Genauigkeit der Bild-basierten vorgezogen. Es gilt allerdings zu evaluieren, ob sich durch das Hinzufügen von immer mehr Leistungserbringern als Klassen die Ausgangslage ändert.
+Beispielsweise ist die Investition in eine verbesserte Nutzerführung beim Fotografieren ein Rechnung zentral. Somit können die Qualität der digital eingereichten Rechnungen gesteigert und die Fehler des OCR Systems reduziert werden.
 
-Damit die Fehlerquote besonders tief gehalten werden kann und somit auch möglichst wenig manueller Aufwand während dem Prozess entsteht, wird der Ansatz des Leistungserbinger spezifischen Bild-basierten Modell zur Informationsextraktion empfohlen. Dieser Ansatz hat zum generellen Bild-basierten Modell eine höhere Genauigkeit und ist in der Lage alle notwendigen Informationen zur Automatisierung einer Rechnung von Fielmann und Visilab zu erfassen. Auch für andere Leistungserbringer ist der Ansatz vielversprechend. Auch hier hat ein inkrementeller Ansatz den Vorteil, dass zu Beginn ein einziges Modell für einen Leistungserbringer produktiv geschaltet werden kann. Die Erfahrungen können dann sofort für die Entwicklung der folgenden Modelle verwendet werden.
+Die Modelle sollen nicht nur in den aktuellen Prozess integriert werden, sondern der ganze Prozess sollte auf die künstliche Intelligenz aufbauen. Nur mit Qualitätskontrollen und manuellen Korrekturen, wo sich das Modell unsicher ist, kann ein reibungsloser Ablauf garantiert werden. Es könnte beispielsweise lohnenswert sein, die Resultate aus der Automatisierung, mit einer Rückfrage, durch die Kund/-in prüfen zu lassen.
+
+Aufgrund der beschriebenen Experimente wird der AXA Gesundheitsvorsorge empfohlen, einen inkrementellen Rollout eines Systems zur Automatisierung der Rechnungseinreichung anzustreben. Dabei wird die Anwendung eines Text-basierten Klassifizierungsmodell und Leistungserbringer spezifischen Bild-basierten Modellen empfohlen.
+
+Durch einen inkrementellen Rollout des Systems kann die Time-to-Market sowie das involvierte Risiko klein gehalten werden. Auch hat die AXA Gesundheitsvorsorge dabei die Möglichkeit ihre Infrastruktur und den Prozess an die Automatisierung schrittweise anzupassen. Durch dieses Vorgehen erhält die AXA Gesundheitsvorsorge schnell Feedback aus der realen Anwendung und kann gegebenenfalls schnell darauf reagieren.
 
 Neben der Einführung der präsentierten Ansätze wird eine Optimierung dieser sowie die Exploration weiterer Ansätze empfohlen. Nur so kann die Genauigkeit und somit die Automatisierung noch weiter erhöht werden.
 
-\todo[inline, color=red]{
-LERB basierte Klassifizierung und IE mit graduellem Rollout um Vorgehen zu validieren und Prozesse zu testen. Auch um Infrastruktur gleichzeitig aufbauen zu können. Dabei evtl. auch Michelangelo von Uber eingehen. Bedeutet unter dem Strich auch, dass das Thema von einem dedizierten Team eng begleitet werden muss. Es benötigt stetige Weiterentwicklung der Modelle
-
-- Verbesserung digitaler Input Kanal
-
-- Aufbau ML Infrastruktur
-}
-
 \subsection{Schlussfolgerungen}
-
-\todo[inline, color=red]{Etwas zu den benötigten Trainingsdaten sagen. Experiment IE zeigt, dass viele Trainingsdaten notwendig sind. Beschaffung sehr aufwändig}
 
 Jedes Unternehmen möchte langfristig erfolgreich sein. Nach Porter ist dazu ein Wettbewerbsvorteil unabdingbar. Bei der Erreichung eines solchen spielen neue Technologien eine immer grössere Rolle. \textcite{McAfee} vergleichen die künstliche Intelligenz mit der Dampfkraft, Elektrizität und dem Verbrennungsmotor und bezeichnen sie als die wichtigste Allzwecktechnologie unserer Zeit.
 
 Einige Unternehmen möchten die künstliche Intelligenz bereits heute anwenden. Technologie Giganten investieren enorm, etliche Start-Ups werden in diesem Bereich gegründet. Die Motivation zur Anwendung der künstlichen Intelligenz ist hoch. Dies wird in Zukunft auch kleinere Unternehmen dazu zwingen, in Technologien rund um die künstliche Intelligenz zu investieren.
 
-Mit erfolgreichen Experimenten in der Fallstudie zeigt diese Arbeit, dass ohne grosses Vorwissen und verhältnismässig wenig Aufwand bereits künstliche Intelligenzen geschaffen werden können, welche zur Automatisierung von Geschäftsprozesses beitragen können. Das Fallbeispiel zeigt allerdings auch auf, dass die künstliche Intelligenz nicht einfach nur in einem Prozess integriert werden kann, sondern dieser an die künstliche Intelligenz angepasst werden muss. Der Investitionsaufwand ist trotz der mittlerweilen guten Verfügbarkeit der Technologien noch immer hoch.
+Mit erfolgreichen Experimenten in der Fallstudie zeigt diese Arbeit, dass ohne grosses Vorwissen und vertretbarem Aufwand bereits künstliche Intelligenzen, welche zur Automatisierung von Geschäftsprozesses beitragen, geschaffen werden können. Das Fallbeispiel zeigt allerdings auch auf, dass die künstliche Intelligenz nicht einfach nur in einem Prozess integriert werden kann, sondern dieser darauf ausgerichtet werden muss. Der Investitionsaufwand ist trotz der mittlerweile guten Zugänglichkeit der künstlichen Intelligenz noch immer nicht zu unterschätzen.
 
-Trotz den hohen Investitionskosten kann die Forschungsfrage \enquote{Können Geschäftsprozesse in kleineren Unternehmen durch eigen-entwickelte künstliche Intelligenz automatisiert werden?} mit Ja beantwortet werden. Auch wenn für ein kleineres Unternehmen die Investitionskosten aktuell noch ziemlich hoch sein dürften, wird sich dies in den nächsten Monaten stark ändern. Die Geschwindigkeit, in welcher sich die Technologien rund um die künstliche Intelligenz entwickeln ist beeindruckend. Die künstliche Intelligenz wird in Zukunft nicht nur helfen Wettbewerbsvorteile zu erarbeiten sondern wird notwendig sein um Wettbewerbsfähig zu sein.
+Neben der Erstellung der künstlichen Intelligenz ist die Beschaffung von qualitativ hochwertigen Trainingsdaten eine der grössten Herausforderungen. Im Rahmen dieser Arbeit standen knapp 18'000 Rechnungen zur Verfügung, welche mit vertretbarem Aufwand zum Training verwendet werden konnten. Die Annotation zur Objekterkennung von den knapp 800 Rechnungen von Fielmann und Visilab war hingegen sehr aufwendig. 
+
+Trotz den hohen Investitionskosten kann die Forschungsfrage \enquote{Können Geschäftsprozesse in kleineren Unternehmen durch eigenentwickelte künstliche Intelligenz automatisiert werden?} mit Ja beantwortet werden. Auch wenn für ein kleineres Unternehmen die Investitionskosten aktuell noch ziemlich hoch sein dürften, wird sich dies in den nächsten Monaten stark ändern. Die Geschwindigkeit, in welcher sich die Technologien rund um die künstliche Intelligenz entwickeln ist beeindruckend. Die künstliche Intelligenz wird in Zukunft nicht nur helfen Wettbewerbsvorteile zu erarbeiten sondern wird notwendig sein, um Wettbewerbsfähig zu sein.
 
 Der Autor empfiehlt allen Unternehmen sich mit der künstlichen Intelligenz vertraut zu machen und Investitionen zu prüfen, um zukünftig Wettbewerbsfähig zu bleiben. 
 
 \cleardoublepage
-\section{Reflexion}
+\section{Ausblick, weitere Forschung, etc., blabla}
+
+\todo[inline, color=red]{TODO, notwendig?}
+
+\cleardoublepage
+\section{Kritische Reflexion}
 \label{chap:reflexion}
 
-\todo[inline,color=red]{
-- Viel Erlernt
+Die vorliegende Arbeit orientiert sich stark am Fallbeispiel der AXA Gesundheitsvorsorge, da es dem Autoren wichtig war, einen Bezug zur Praxis zu schaffen. Es kann argumentiert werden, dass ein wissenschaftlicher Beweis zur Beantwortung der Forschungsfrage fehlt. Der Autor sieht die Forschungsfrage dennoch als beantwortet, da das Fallbeispiel ein Beweis dafür ist, dass die künstliche Intelligenz zur Automatisierung von Geschäftsprozessen beitragen kann. Die Aspekte von kleineren Unternehmen und der Eigenenticklung sieht der Autor ebenfalls als behandelt, da er sich das Wissen im Themengebiet der künstlichen Intelligenz im Rahmen dieser Arbeit angeeignet hat.
 
-- Experimente sehr Aufwendig
-
-- Fokus auf Forschungsfrage etwas verloren
-
-- }
+Durch die Aktualität und den schnellen Wandel der behandelten Themen wurde an gewissen Stellen auf Webseiten und Blogs als Quellen zurückgegriffen. Diese wurden vom Autoren durch weitere Internetrecherche zu den jeweiligen Themen geprüft. Weiter wurde jeweils der Hintergrund des jeweiligen Autoren recherchiert, so dass nach der Meinung des Autoren die Quellen trotzdem als zitierwürdig gelten.

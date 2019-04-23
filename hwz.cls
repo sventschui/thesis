@@ -51,7 +51,7 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
-\renewcommand{\sectionmark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 \renewcommand{\subsectionmark}[1]{\markright{#1}}
 \setlength{\headheight}{15pt}
 \fancyhf{}
@@ -87,6 +87,9 @@
 \bibliography{./library.bib}
 \usepackage{csquotes}
 \DeclareLanguageMapping{german}{german-apa}
+
+% spacing between bib entries
+\setlength\bibitemsep{0.17\baselineskip}
 
 % fix mendeley url messup
 \DeclareSourcemap{ % Used when .bib/Bibliography is compiled, not when document is

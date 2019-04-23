@@ -7,8 +7,6 @@
 \section{Künstliche Intelligenz: Grundlagen und Ansätze in der Praxis}
 \label{chap:ai}
 
-\todo[inline, color=orange]{Eine Einleitung zur Definition von künstlicher Intelligenz geben. Auf den Begriff Machine Learning eingehen}
-
 % \todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff KI beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
 
 Die künstliche Intelligenz ist ein in der Literatur oft diskutiertes Themengebiet. Bereits 2009 geben \textcite{Russell2009} auf über 1000 Seiten einen noch immer aktuellen und sehr umfangreichen Überblick über dieses Themengebiet. Weiter vertiefen die beiden Autoren viele Teilgebiete der künstlichen Intelligenz und erläutern grundlegende Konzepte ausführlich.
@@ -30,12 +28,12 @@ Für diese Arbeit ist das Themengebiet des Natural Language Processing insofern 
 
 Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des menschlichen Gehirns zu einem Computer ist der Fakt, dass unser Gehirn lernt, ohne eine Softwareaktualisierung zu erhalten. Wir brauchen nicht erst eine neue Software, um das Fahrradfahren zu erlernen~\autocite{Krogh2008}. Doch wie funktioniert das?
 
-Die Berechnungen des menschlichen Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale ein- oder ausgeschaltet werden. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Aus diesem Modell entstand das Konzept von neuronalen Netzwerken\todo{Search \& Replace, überall gleich schreiben}~\autocite{Krogh2008}.
+Die Berechnungen des menschlichen Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale ein- oder ausgeschaltet werden. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Aus diesem Modell entstand das Konzept von neuronalen Netzwerken~\autocite{Krogh2008}.
 
 Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) modelliert, welche Eingabewerte anderer Units oder externer Quellen erhält. Diese Eingabewerte werden gewichtet und summiert. Liegt die Summe der gewichtet Eingabewerte nun über dem definierten Threshold, so aktiviert sich die Threshold Unit und der Ausgabewert ist 1. Liegt der Wert unter dem Threshold, so ist der Ausgabewert 0.
 
 %\begin{wrapfigure}{l}{0.4\textwidth} 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption[Modell eines Neurons nach McCulloch und Pitts]{Modell eines Neurons nach McCulloch und Pitts. Die sogenannte Threshold Unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Die Summe der Gewichte ist 1 $\sum_{i=1}^{N} w_i = 1$, dadurch liegt die Summe der gewichteten Eingangssignale $\sum_{i=1}^{N} w_i x_i = 1$ zwischen $0$ und $1$. Das Modell zeigt nun zwei verschiedene Arten, wie der Ausgabewert eines Neurons modelliert werden kann. Zum einen kann das Modell je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann ein kontinuierlicher Sigmoid (rote Linie) verwendet werden, um einen kontinuierlichen Ausgabewert zwischen $0$ und $1$ zu ermitteln.}
     \label{krogh:a}
@@ -62,7 +60,7 @@ Neuronale Netzwerke finden oft bei Klassifizierungsproblemen Anwendung. Dabei so
 Einfache Netzwerke von Threshold Units können Klassifizierungsprobleme dann Lösen, wenn die Klassen linear separierbar sind. Die Abbildung \ref{krogh:b} veranschaulicht die lineare Separierung mit Hilfe einer Ebene in einem dreidimensionalen Raum. Die Ebene separiert die grünen und roten Punkte voneinander~\autocite{Krogh2008}.
 
 %\begin{wrapfigure}{l}{0.4\textwidth} 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption[Konzept der linearen Separierbarkeit]{Konzept der linearen Separierbarkeit. Die grünen und roten Kreuze liegen, im Gegensatz zu den Punkten, auf der falschen Seite der Ebene. Die Problemstellung ist somit nicht linear separierbar.}
     \label{krogh:b}
@@ -77,7 +75,7 @@ Der Abbildung \ref{krogh:b} ist zu entnehmen, dass die Problemstellung im abgebi
 Um das Modell zur Klassifizierung zu verbessern, können weitere Ebenen in den dreidimensionalen Raum eingesetzt werden. Durch eine weitere Ebene ist es dem Modell möglich, mehr Datensätze richtig zu klassifizieren. Neue Ebenen werden mit neuen Schichten von Threshold Units modelliert (vgl. Abbildung \ref{krogh:c}). Diese neuen Schichten, welche zwischen die Eingabe und Ausgabe Schichten platziert werden, werden versteckte Schichten (Hidden Layers) genannt. Ein Modell mit mindestens einer solcher versteckter Schicht wird als tiefes neuronales Netzwerk (Deep Neural Network) bezeichnet~\autocite{Krogh2008}.
 
 % \begin{wrapfigure}{l}{0.4\textwidth} 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption[Modell eines tiefen neuronalen Netzwerks]{Modell eines tiefen neuronalen Netzwerks mit einer versteckten Schicht (Hidden Layer).}
     \label{krogh:c}
@@ -90,7 +88,7 @@ Um das Modell zur Klassifizierung zu verbessern, können weitere Ebenen in den d
 Mit immer mehr verfügbarer Rechenkapazität und immer mehr Daten steigt die Popularität tiefer neuronaler Netzwerke gegenüber traditionellen Lernalgorithmen wie der logistischen Regression. Je tiefer und breiter ein neuronales Netzwerk ist und je mehr Trainingsdaten zur Verfügung stehen, desto besser wird es eine Problemstellung lösen können (vgl. Abbildung \ref{scale-drives-ml-progress})~\autocite{MLYearning}.
 
 % \begin{wrapfigure}{l}{0.4\textwidth} 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{Verhältnis der verfügbaren Daten und der Genauigkeit unterschiedlich grosser neuronaler Netze.}
     \label{scale-drives-ml-progress}
@@ -122,12 +120,12 @@ Um eine Generalisierung sicherzustellen, wird ein Modell immer auf einem Trainin
 
 Die Problematik des Underfitting wurde bereits bei der Einführung von tiefen neuronalen Netzwerken, im Kapitel \ref{chap:deep-neural-nets}, angeschnitten. Ein Modell, welches zu wenige Parameter hat, ist nicht in der Lage eine komplexe Problemstellung abzubilden. Das Modell hat somit einen hohes Bias (hohe Fehlerquote auf dem Trainingsdatensatz). In diesem Fall ist es wichtig, das Modell anzupassen. Eine Erhöhung der Anzahl Trainingsdatensätze hilft nicht, den Bias zu reduzieren~\autocite{MLYearning}.
 
-Das sogenannte Overfitting, oder auch Auswendiglernen, bezeichnet die Problematik, dass sich ein Modell aufgrund zu vieler Parameter bei zu wenig Trainingsdaten zu stark an diese Trainingsdaten anpasst. Das Modell kann die Trainingsdaten mit annähernd 100\% Treffergenauigkeit Beurteilen, hat also ein kleines Bias. Soll das Modell dann aber einen neuen Datensatz beurteilen, so sinkt die Treffergenauigkeit erheblich. Das Modell hat eine hohe Varianz und ist nicht in der Lage das gelernte zu generalisieren~\autocite{MLYearning, Krogh2008}.
+Das sogenannte Overfitting, oder auch Auswendiglernen, bezeichnet die Problematik, dass sich ein Modell aufgrund zu vieler Parameter bei zu wenig Trainingsdaten zu stark an diese Trainingsdaten anpasst. Das Modell kann die Trainingsdaten mit annähernd 100\% Trefferquote Beurteilen, hat also ein kleines Bias. Soll das Modell dann aber einen neuen Datensatz beurteilen, so sinkt die Trefferquote erheblich. Das Modell hat eine hohe Varianz und ist nicht in der Lage das gelernte zu generalisieren~\autocite{MLYearning, Krogh2008}.
 
 Die Problematik des Overfitting ist aus der Mathematik bekannt. Hat eine Funktion zu viele freie Parameter, so passt sie sich zu stark an die vorgegebenen Punkte an. Die Abbildung \ref{krogh:d} veranschaulicht diese Problematik anhand von Graphen von Funktionen, welche 8 Punkte fitten sollen. Der grüne Graph ist ein Beispiel des Underfitting. Er hat zu wenige Parameter, um eine tiefe Abweichung zu erreichen. Der pinke Graph zeigt ein Beispiel eines Overfitting. Mit vielen Parametern vermag der Graph alle Punkte perfekt zu schneiden. Die vielen extremen Wendepunkte deuten aber darauf hin, dass der Graph neue Punkte mit hoher Wahrscheinlichkeit nicht schneiden würde. Der blaue Graph gilt als Beispiel für ein gutes Fitting. Der Graph ist nahe an den Punkten, ohne dabei extreme Wendepunkte haben zu müssen~\autocite{Krogh2008}.
 
 % \begin{wrapfigure}{l}{0.4\textwidth} 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{Over- und Underfitting dargestellt anhand von Graphen von Funktionen}
     \label{krogh:d}
@@ -145,10 +143,10 @@ Um Over- respektive Underfitting zu erkennen, ist es also wichtig, ein neuronale
 
 \subsection{Long-Short-Term-Memory Netzwerke}
 
-Menschen starten ihren Denkprozess nicht jede Sekunde von neuem. Beim Lesen wird jedes Wort aufgrund des Verständnisses des vorherigen Wortes verstanden. Gedanken sind persistent. Genau solche persistenten Gedanken sind mit den bisherigen Ansätzen für Neuronale Netze nicht modellierbar. Hier kommen Recurrent Neural Networks (kurz RNN) ins Spiel. Recurrent Neural Networks sind Neuronale Netzwerke mit integrierten Schlaufen~\autocite{Olah2015}. 
+Menschen starten ihren Denkprozess nicht jede Sekunde von neuem. Beim Lesen wird jedes Wort aufgrund des Verständnisses des vorherigen Wortes verstanden. Gedanken sind persistent. Genau solche persistenten Gedanken sind mit den bisherigen Ansätzen für neuronale Netze nicht modellierbar. Hier kommen Recurrent Neural Networks (kurz RNN) ins Spiel. Recurrent Neural Networks sind neuronale Netzwerke mit integrierten Schlaufen~\autocite{Olah2015}. 
 
-In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist dasselbe Netzwerk in einer anderen, ausgerollten Weise zu sehen. Die Abbildung verdeutlicht, wie Informationen von einem Neuron zum anderen fliessen können. Mit diesem Informationsfluss von Neuron zu Neuron werden die Resultate jeweils von den vorhergehenden Neuronen beeinflusst. Damit wird eine Art Kurzzeitgedächtnis geschaffen, welches dem Neuronalen Netzwerk erlaubt mit Kontextinformationen zu arbeiten~\autocite{Olah2015}.
-\begin{figure}[H]
+In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist dasselbe Netzwerk in einer anderen, ausgerollten Weise zu sehen. Die Abbildung verdeutlicht, wie Informationen von einem Neuron zum anderen fliessen können. Mit diesem Informationsfluss von Neuron zu Neuron werden die Resultate jeweils von den vorhergehenden Neuronen beeinflusst. Damit wird eine Art Kurzzeitgedächtnis geschaffen, welches dem neuronalen Netzwerk erlaubt mit Kontextinformationen zu arbeiten~\autocite{Olah2015}.
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption[Informationsfluss durch ein Recurrent Neural Network]{Informationsfluss durch ein Recurrent Neural Network dargestellt als Schlaufe (links) und als Sequenz (rechts)}
     \label{rnn1}
@@ -159,8 +157,8 @@ In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist
     \caption*{Quelle: \textcite{Olah2015}}
 \end{figure}
 
-Ein Problem von RNN ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, gehen diese Informationen verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese Spezialform von Recurrent Neural Networks arbeitet mit sogenannten Gates, um zu regulieren, wie viel Kontextinformationen behalten oder vergessen werden sollen. Mit vier solchen Gates, bestehend aus einem Neural Network Layer und einer Pointwise Operation (vgl. Abbildung \ref{lstm1}), ist ein LSTM Netzwerk in der Lage, nicht nur ein Kurz- sondern auch ein Langzeitgedächtnis aufzubauen~\autocite{Olah2015}.\todo{Punkt am schluss von Abbildungsbeschriftungen oder nicht? Einheitlich!}
-\begin{figure}[H]
+Ein Problem von RNN ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, gehen diese Informationen verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese Spezialform von Recurrent Neural Networks arbeitet mit sogenannten Gates, um zu regulieren, wie viel Kontextinformationen behalten oder vergessen werden sollen. Mit vier solchen Gates, bestehend aus einem Neural Network Layer und einer Pointwise Operation (vgl. Abbildung \ref{lstm1}), ist ein LSTM Netzwerk in der Lage, nicht nur ein Kurz- sondern auch ein Langzeitgedächtnis aufzubauen~\autocite{Olah2015}.
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption[Veranschaulichung des Informationsflusses eines LSTM Netzwerk]{Veranschaulichung des Informationsflusses eines LSTM Netzwerk mit seinen vier internen Schichten}
     \label{lstm1}
@@ -172,7 +170,7 @@ Ein Problem von RNN ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. 
     \caption*{Quelle: \textcite{Olah2015}}
 \end{figure}
 
-Recurrent Neural Networks wurden in der Vergangenheit sehr erfolgreich für viele Aufgaben, wie beispielsweise die Spracherkennung, Sprachmodellierung, maschinelle Übersetzung sowie Bilderkennung, angewendet. In den meisten Fällen wurden dabei LSTM Netzwerke angewendet, da die Resultate um ein Vielfaches besser ausfallen als mit herkömmlichen RNNs~\autocite{Olah2015}.
+Recurrent Neural Networks wurden in der Vergangenheit sehr erfolgreich für viele Aufgaben, wie beispielsweise die Spracherkennung, Sprachmodellierung, maschinelle Übersetzung sowie Objektkennung, angewendet. In den meisten Fällen wurden dabei LSTM Netzwerke angewendet, da die Resultate um ein Vielfaches besser ausfallen als mit herkömmlichen RNNs~\autocite{Olah2015}.
 
 LSTM Netzwerke sind für diese Arbeit besonders zur Texterkennung und Rechtschreibkorrektur interessant. Diese beiden Techniken werden im Prototypen der Rechnungsindexierung verwendet.
 
@@ -193,18 +191,18 @@ Die ersten Word embeddings wurden von \textcite{Bengio2001} eingeführt. Trotz d
 
 \begin{wrapfigure}{r}{0.5\textwidth} 
     \captionsetup{width=.9\linewidth}
-    \caption[Modulares Netzwerk zur Validierung von 5-Grammen]{Modulares Netzwerk zur Validierung von 5-Grammen mit einer Word embedding Funktion ($W$) und einem Neuronalen Netzwerk ($R$)}
+    \caption[Modulares Netzwerk zur Validierung von 5-Grammen]{Modulares Netzwerk zur Validierung von 5-Grammen mit einer Word embedding Funktion ($W$) und einem neuronalen Netzwerk ($R$)}
     \label{wordembeddingtraining}
     \centering
     \includegraphics[width=0.48\textwidth]{graphics/wordembeddingtraining.png}
     \caption*{Quelle: \textcite{Olah2014b}}
 \end{wrapfigure}
-Technisch gesehen ist ein Word embedding eine parametrierte Funktion, welche Wörter einer bestimmten Sprache in einen hoch-dimensionalen Vektor (typischerweise 200-500 Dimensionen) transformiert. Um diese hoch komplexe Funktion zu definieren, kommt, wie bei den Neuronalen Netzwerken, Machine Learning zum Einsatz. \textcite{Olah2014b} beschreibt in seinem Artikel ein Beispiel, bei welchem eine solche Word embedding Funktion trainiert wird. Die Resultate aus dem Word embedding werden in ein Neuronales Netzwerk zur Prüfung eines 5-Grammes gespiesen und dann das Gesamtkonstrukt trainiert (vgl. Abbildung \ref{wordembeddingtraining})~\autocite{Olah2014b}.
+Technisch gesehen ist ein Word embedding eine parametrierte Funktion, welche Wörter einer bestimmten Sprache in einen hoch-dimensionalen Vektor (typischerweise 200-500 Dimensionen) transformiert. Um diese hoch komplexe Funktion zu definieren, kommt, wie bei den neuronalen Netzwerken, Machine Learning zum Einsatz. \textcite{Olah2014b} beschreibt in seinem Artikel ein Beispiel, bei welchem eine solche Word embedding Funktion trainiert wird. Die Resultate aus dem Word embedding werden in ein neuronales Netzwerk zur Prüfung eines 5-Grammes gespiesen und dann das Gesamtkonstrukt trainiert (vgl. Abbildung \ref{wordembeddingtraining})~\autocite{Olah2014b}.
 
 Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014b} zwei verschiedene Möglichkeiten der Visualisierung heran.
 
-Die erste Visualisierung bedient sich dem t-SNE\todo{Beschreiben} Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In einem solchen Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014b}.
-\begin{figure}[H]
+Die erste Visualisierung bedient sich dem t-SNE\todo{t-SNE erläutern} Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In einem solchen Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014b}.
+\begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
     \caption[t-SNE Darstellung eines Word embeddings]{t-SNE Darstellung eines Word embeddings, um zu verdeutlichen, dass ähnliche Wörter ähnliche Vektoren aufweisen}
@@ -214,7 +212,7 @@ Die erste Visualisierung bedient sich dem t-SNE\todo{Beschreiben} Algorithmus um
 \end{figure}
 
 Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddingtable}) für sechs Wörter die nächsten Embeddings, sprich mit den mathematisch nächsten Vektoren, auf. So werden beispielsweise unter dem Titel \textit{FRANCE} neben \textit{EUROPA} diverse weitere Länder aufgelistet.
-\begin{table}[H]
+\begin{table}[h!]
 \centering
     \captionsetup{width=.9\linewidth}
     \caption[Ähnlichkeit von sechs Word-Embeddings]{Sechs Ausgangswörter mit den ihnen ähnlichsten Word embeddings, sprich mit den mathematisch nächsten Vektoren}
@@ -222,9 +220,10 @@ Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddi
     \renewcommand{\arraystretch}{1.25}
     \setlength{\tabcolsep}{3pt}
     \footnotesize
+    % \arrayrulecolor{black}
     \begin{tabular}{ | l | l | l | l | l | l |}
     \hline
-    \rowcolor{ccc} FRANCE & JESUS & XBOX & REDDISH & SCRATCHED & MEGABITS \\ \hline
+    \rowcolor[HTML]{C0E5FD} FRANCE & JESUS & XBOX & REDDISH & SCRATCHED & MEGABITS \\ \hline
     AUSTRIA & GOD & AMIGA & GREENISH & NAILED & OCTETS \\ \hline
     BELGIUM & SATI & PLAYSTATION & BLUISH & SMASHED & MB/S \\ \hline
     GERMNAY& CHRIST & MSX & PINKISH & PUNCHED & BIT/S \\ \hline
@@ -236,24 +235,25 @@ Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddi
     HUNGARY & PARVATI & GEFORCE & SILVERY & SLASHED & GBIT/S \\ \hline
     SWITZERLAND & GRACE & CAPCOM & YELLOWISH & RIPPED & AMPERES \\ \hline
     \end{tabular}
+    % \vspace{8pt}
     \caption*{Quelle: \textcite{Collobert2011} in \textcite{Olah2014b}}
 \end{table}
 
 Sowohl Abbildung \ref{wordembeddingtsne} als auch Tabelle \ref{wordembeddingtable}, zeigen die Stärke von Word embeddings auf. Ähnliche Wörter werden mit ähnlichen Vektoren versehen und so wird eine komplexe Landschaft von zusammengehörigen Wörtern gebildet. Da somit zwei Synonyme ein ähnliches Word embedding aufweisen, verändert sich der Input-Vektor eines nachfolgenden neuronalen Netzwerks durch den Austausch dieser nur geringfügig. Somit muss dieses nachfolgende neuronale Netzwerk nicht für alle Wörter der Welt trainiert werden, sondern kann auf die Generalisierung durch das Word embedding aufbauen~\autocite{Olah2014b}.
 
-Word embeddings sind zu einem extrem wichtigen Baustein bei der Verarbeitung von Natürlichen Texten geworden. Neben Input und Output Repräsentationen bei NLP Tasks können Word embeddings auch Output Repräsentationen in der Bilderkennung sein~\autocite{Olah2014b}. 
+Word embeddings sind zu einem extrem wichtigen Baustein bei der Verarbeitung von Natürlichen Texten geworden. Neben Input und Output Repräsentationen bei NLP Tasks können Word embeddings auch Output Repräsentationen in der Objektkennung sein~\autocite{Olah2014b}. 
 
-Für den Prototypen bilden Word embeddings eine wichtige Grundlage. Durch diese Technik können die in den Rechnungen enthaltenen Wörter und Sätze in eine generalisierte, durch Neuronale Netzwerke verarbeitbare Form gebracht werden.
+Für den Prototypen bilden Word embeddings eine wichtige Grundlage. Durch diese Technik können die in den Rechnungen enthaltenen Wörter und Sätze in eine generalisierte, durch neuronale Netzwerke verarbeitbare Form gebracht werden.
 
 \subsection{Korrektur von Rechtschreibung und Grammatik}
 \label{chap:grammar-correction}
 
-Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Texte nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter, sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt.\todo{Quelle}
+Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher Intelligenz, im Bereich der Texterkennung, werden Texte nicht zu 100\% korrekt erkannt. So schleichen sich falsch erkannte Buchstaben ein, welche nicht nur Wörter, sondern auch ganze Sätze bedeutungslos machen. Um solche Fehler zu korrigieren, wird auf die Rechtschreibung- und Grammatik-Korrektur zurückgegriffen. Während diverse Korrekturprogramme regelbasierte Software anwenden, wurde auch in diesem Bereich bereits erfolgreich künstliche Intelligenz angewandt\todo{Quelle}.
 
 Mit Hilfe der in einem vorherigen Kapiteln eingeführten Technik des Word embeddings und von LSTM Netzwerken lässt sich diese Problematik angehen. So kann ein modulares Netzwerk aus Word embeddings und mehreren LSTM Schichten verwendet werden, um eine Rechtschreibkorrektur vorzunehmen. So beschreibt \textcite{Weiss2016} in seinem Blog, wie mit einem einfachen neuronalen Netzwerk, bestehend aus nur 4 LSTM und 4 Dropout Schichten, bereits erfolgreich Rechtschreibfehler korrigiert werden können. 
 
 % can't use wrapfigure here as otherwise the next sections wraps too
-\begin{figure}[H] % wrapfigure}{l}{0.5\textwidth}
+\begin{figure}[h!] % wrapfigure}{l}{0.5\textwidth}
     \centering
     \captionsetup{width=.9\linewidth}
     \caption{Vergleich der Erfolgsrate bei der Prüfung von 418 Textsnippets}
@@ -265,7 +265,7 @@ Nicht nur zur Korrektur von Rechtschreibfehlern ist ein neuronales Netzwerk anwe
 
 % TODO: Mugan erwähnt eine bessere Studie. In der Thesis diese verwenden, da Zahlen aus DeepGrammar nicht 100% korrekt sind https://arxiv.org/pdf/1807.01270.pdf
 
-Ein weiterer grosser Vorteil von neuronalen Netzwerken zur Fehlerkorrektur erwähnt \textcite{Mugan2018} in einer persönlichen Kommunikation. Das Neuronale Netzwerk kann auf das Domänenspezifische Lexikon trainiert werden. Das Netzwerk kann beispielsweise mit medizinischen Begriffen aus den Rechnungen trainiert werden, so dass die Resultate des in dieser Arbeit entwickelten Prototypen noch besser werden~\autocite{Mugan2018}.
+Ein weiterer grosser Vorteil von neuronalen Netzwerken zur Fehlerkorrektur erwähnt \textcite{Mugan2018} in einer persönlichen Kommunikation. Das neuronale Netzwerk kann auf das Domänenspezifische Lexikon trainiert werden. Das Netzwerk kann beispielsweise mit medizinischen Begriffen aus den Rechnungen trainiert werden, so dass die Resultate des in dieser Arbeit entwickelten Prototypen noch besser werden~\autocite{Mugan2018}.
 
 \subsection{Informationsextraktion aus natürlichen Texten}
 \label{chap:ner}
@@ -308,7 +308,7 @@ Transfer Learning beschreibt das Vorgehen, bei welchem das Gelernte aus einer Au
 
 Beim Transfer Learning wird ein Modell verwendet, um zwei oder mehr verschiedene Aufgaben zu lösen. Es wird dabei angenommen, dass die Vorhersagen für eine Aufgabe aufgrund ähnlicher Kriterien getroffen werden wie für jene einer anderen Aufgabe. Dies ist typischerweise dann der Fall, wenn die Eingabewerte eines Modells gleich oder ähnlich sind, sich die Art der gesuchten Ausgabewerte aber unterscheidet~\autocite{Goodfellow2016}.
 
-Ein Beispiel für ein solches Transfer Learning ist, wenn ein Modell trainiert wird, Bilder von Hunden und Katzen zu klassifizieren. Dabei stehen viele Trainingsdaten zur Verfügung. Nun soll ein Modell entwickelt werden, welches Bilder von Ameisen und Wespen klassifiziert. Sind nun für die zweite Aufgabe nur wenige Trainingsdaten verfügbar, so ist es denkbar, das Modell aus erster Aufgabe als Grundlage zu verwenden. Da viele visuelle Repräsentationen grundlegende Eigenschaften wie Formen und Kanten teilen, kann die Wiederverwendung des trainierten Modells aus erster Aufgabe die Treffergenauigkeit in der zweiten Aufgabe stark erhöhen~\autocite{Goodfellow2016}.
+Ein Beispiel für ein solches Transfer Learning ist, wenn ein Modell trainiert wird, Bilder von Hunden und Katzen zu klassifizieren. Dabei stehen viele Trainingsdaten zur Verfügung. Nun soll ein Modell entwickelt werden, welches Bilder von Ameisen und Wespen klassifiziert. Sind nun für die zweite Aufgabe nur wenige Trainingsdaten verfügbar, so ist es denkbar, das Modell aus erster Aufgabe als Grundlage zu verwenden. Da viele visuelle Repräsentationen grundlegende Eigenschaften wie Formen und Kanten teilen, kann die Wiederverwendung des trainierten Modells aus erster Aufgabe die Trefferquote in der zweiten Aufgabe stark erhöhen~\autocite{Goodfellow2016}.
 
 Wird ein Modell, welches bereits für eine Aufgabe trainiert wurde, für eine zweite Aufgabe weiter trainiert, spricht man von Fine Tuning~\autocite{Goodfellow2016}.
 
@@ -319,20 +319,20 @@ Ursprünglich kommt das Transfer Learning aus dem Bereich der Computer Vision. I
 
 Um ein System objektiv zu Bewerten und mit anderen Ansätzen zu vergleichen, bedarf es Metriken. Folgend werden einige Metriken erläutert und ihre Anwendungsfälle diskutiert.
 
-\subsubsection{Treffergenauigkeit}
+\subsubsection{Trefferquote}
 
-Die Treffergenauigkeit, englisch Accuracy (kurz acc), ist die Metrik, welche wohl am meisten im Zusammenhang mit der künstlichen Intelligenz zu finden ist. Die Frage ist aber, ob diese Metrik für alle Anwendungsfälle geeignet ist~\autocite{TDSAccuracy}.
+Die Trefferquote, englisch Accuracy (kurz acc), ist die Metrik, welche wohl am meisten im Zusammenhang mit der künstlichen Intelligenz zu finden ist. Die Frage ist aber, ob diese Metrik für alle Anwendungsfälle geeignet ist~\autocite{TDSAccuracy}.
 
-Die Treffergenauigkeit sagt aus, wie viele der Vorhersagen eines Systems der Wirklichkeit entsprechen. Die Formell lautet wie folgt~\autocite{TDSAccuracy}: 
+Die Trefferquote sagt aus, wie viele der Vorhersagen eines Systems der Wirklichkeit entsprechen. Die Formell lautet wie folgt~\autocite{TDSAccuracy}: 
 
 $$Accuracy = 1 - \frac{False Positive + False Negative}{Total Records}$$
 
-Die Confusion Matrix in Abbildung \ref{cm-sample} zeigt ein Beispiel mit einer Treffergenauigkeit von 0.99, respektive 99.9\%. Aus 1000 Datensätzen wurden 998 korrekt als Negativ klassifiziert. Ein Datensatz wurde korrekt als Positiv klassifiziert und ein Datensatz wurde fälschlicherweise als Negativ klassifiziert~\autocite{TDSAccuracy}.
+Die Confusion Matrix in Abbildung \ref{cm-sample} zeigt ein Beispiel mit einer Trefferquote von 0.99, respektive 99.9\%. Aus 1000 Datensätzen wurden 998 korrekt als Negativ klassifiziert. Ein Datensatz wurde korrekt als Positiv klassifiziert und ein Datensatz wurde fälschlicherweise als Negativ klassifiziert~\autocite{TDSAccuracy}.
 
-\begin{figure}[H]
+\begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
-    \caption{Beispiel einer Confusion Matrix zur Veranschaulichung der Treffergenauigkeit}
+    \caption{Beispiel einer Confusion Matrix zur Veranschaulichung der Trefferquote}
     \label{cm-sample}
     \def\arraystretch{1.5}
     \arrayrulecolor{black}
@@ -345,7 +345,7 @@ Die Confusion Matrix in Abbildung \ref{cm-sample} zeigt ein Beispiel mit einer T
     \caption*{Quelle: \textcite{TDSAccuracy}}
 \end{figure}
 
-Eine Treffergenauigkeit von 99.9\% ist sehr gut. Das Modell könnte durchaus als sehr erfolgreich betrachtet werden. Diese Betrachtung ist aber abhängig vom Anwendungsfall des Modells. Wenn das Modell die Infektion mit einem hoch ansteckenden Virus ermitteln würde, so wäre eine Infektion unentdeckt geblieben. In diesem Fall wäre eine geringere Treffergenauigkeit des Modells besser, wenn dafür keine falsche negativ Vorhersagen vorhanden wären. Die Metriken der folgenden Kapitel könnten für diesen Anwendungsfall besser geeignet sein~\autocite{TDSAccuracy}.
+Eine Trefferquote von 99.9\% ist sehr gut. Das Modell könnte durchaus als sehr erfolgreich betrachtet werden. Diese Betrachtung ist aber abhängig vom Anwendungsfall des Modells. Wenn das Modell die Infektion mit einem hoch ansteckenden Virus ermitteln würde, so wäre eine Infektion unentdeckt geblieben. In diesem Fall wäre eine geringere Trefferquote des Modells besser, wenn dafür keine falsche negativ Vorhersagen vorhanden wären. Die Metriken der folgenden Kapitel könnten für diesen Anwendungsfall besser geeignet sein~\autocite{TDSAccuracy}.
 
 \subsubsection{Genauigkeit}
 
@@ -355,7 +355,7 @@ $$Precision = \frac{True Positive}{True Positive + False Positive} = \frac{True 
 
 Die Genauigkeit bietet sich immer dann als gute Metrik an, wenn die Kosten eines False Positive hoch sind. Ein Beispiel dafür ist ein Spamfilter. Markiert der Spamfilter ein E-Mail fälschlicherweise als kein Spam, so ist dies kein grosses Problem. Der Anwender kann das E-Mail einfach selbst als Spam markieren. Markiert der Spamfilter jedoch ein E-Mail fälschlicherweise als Spam, so ist die Wahrscheinlichkeit hoch, dass der Anwender das E-Mail nie lesen wird~\autocite{TDSAccuracy}.
 
-\begin{figure}[H]
+\begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
     \caption[Confusion Matrix als Veranschaulichung der Genauigkeit]{Confusion Matrix als Veranschaulichung der Genauigkeit. Die blau hervorgehobenen Elemente bilden die Grundlage zur Berechnung der Genauigkeit.}
@@ -378,7 +378,7 @@ $$Precision = \frac{True Positive}{True Positive + False Negative} = \frac{True 
 
 Die Sensitivität ist immer dann relevant, wenn die Auswirkungen durch ein False Negative gross sind. Ein Beispiel dafür ist die Klassifizierung von Banktransaktionen auf Betrug. Wird eine nicht-Betrug Transaktion als Betrug markiert, so kann dies schnell abgeklärt und korrigiert werden. Wird jedoch eine Betrug Transaktion nicht als solche erkannt, so sind die finanziellen Auswirkungen gross~\autocite{TDSAccuracy}.
 
-\begin{figure}[H]
+\begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
     \caption[Confusion Matrix als Veranschaulichung der Sensitivität]{Confusion Matrix als Veranschaulichung der Sensitivität. Die blau hervorgehobenen Elemente bilden die Grundlage zur Berechnung der Sensitivität.}
@@ -396,7 +396,7 @@ Die Sensitivität ist immer dann relevant, wenn die Auswirkungen durch ein False
 \subsubsection{F\textsubscript{1}-Score}
 \label{chap:f1-score}
 
-Der F\textsubscript{1}-Score, auch F-Mass, vereint die Genauigkeit und die Sensitivität. Im Gegensatz zur Treffergenauigkeit lässt sich der Wert aber nicht durch ein Übermass an True Negatives beeinflussen, denn sie finden keine Beachtung bei der Berechnung. In den meisten Anwendungsfällen sind True Negatives nicht relevant. False Negatives und False Positives sind meist die Verursacher von potentiell verursachten Kosten. Der F\textsubscript{1}-Score wird mit folgender Formel berechnet~\autocite{TDSAccuracy}:
+Der F\textsubscript{1}-Score, auch F-Mass, vereint die Genauigkeit und die Sensitivität. Im Gegensatz zur Trefferquote lässt sich der Wert aber nicht durch ein Übermass an True Negatives beeinflussen, denn sie finden keine Beachtung bei der Berechnung. In den meisten Anwendungsfällen sind True Negatives nicht relevant. False Negatives und False Positives sind meist die Verursacher von potentiell verursachten Kosten. Der F\textsubscript{1}-Score wird mit folgender Formel berechnet~\autocite{TDSAccuracy}:
 
 $$F_1=2 * \frac{\textnormal{Genauigkeit} * \textnormal{Sensitivität}}{\textnormal{Genauigkeit} + \textnormal{Sensitivität}}$$
 
@@ -404,19 +404,19 @@ Der F\textsubscript{1}-Score ist also eine gute Verbindung der Genauigkeit und d
 
 \subsubsection{Loss und Loss-Funktion}
 
-Das sogenannte Loss, auch Kosten oder Fehler, zeigt, wie sehr eine Vorhersage von der Realität abweicht. Um das Loss zu berechnen, kommt die Loss-Funktion, auch Kosten- oder Fehler-Funktion, zur Anwendung. Wie genau die Loss-Funktion definiert wird, hängt von der Problemstellung ab. Bei einer Binären Klassifikation ist beispielsweise die Cross-Entropy-Loss–Function oder die Log-Loss–Function gängig~\autocite{TDSLoss}. 
+Das sogenannte Loss, auch Kosten oder Fehler, zeigt, wie sehr eine Vorhersage von der Realität abweicht. Um das Loss zu berechnen, kommt die Loss-Funktion, auch Kosten- oder Fehler-Funktion, zur Anwendung. Wie genau die Loss-Funktion definiert wird, hängt von der Problemstellung ab. Bei einer binären Klassifikation ist beispielsweise die Cross-Entropy-Loss–Function oder die Log-Loss–Function gängig~\autocite{TDSLoss}. 
 
 Während dem Training ist das Loss, in diesem Fall die Differenz zwischen Vorhersage des Modells und den Trainingsdaten, die zu optimierende Grösse. Die Wahl der Loss-Funktion kann einen erheblichen Einfluss auf das Modell haben. Die Loss-Funktion wird während dem Training meist durch Regularisierungstechniken erweitert, um ein Overfitting zu verhindern~\autocite{Goodfellow2016}.
 
 \subsubsection{Intersection over Union}
 
-Um die Treffergenauigkeit, Genauigkeit und die Sensitivität zu berechnen, muss klar sein, ob eine Vorhersage eines Modells korrekt war oder nicht. Das bedeutet, es muss klar sein, ob es sich um einen True Positive, False Positive, True Negative oder False Negative handelt. 
+Um die Trefferquote, Genauigkeit und die Sensitivität zu berechnen, muss klar sein, ob eine Vorhersage eines Modells korrekt war oder nicht. Das bedeutet, es muss klar sein, ob es sich um einen True Positive, False Positive, True Negative oder False Negative handelt. 
 
 Bei der Objekterkennung in Bildern ist dies aber nicht immer eindeutig zu sagen. Ein Modell zur Objekterkennung sagt eine Position eines Objektes, als umschliessendes Rechteck, sowie dessen Klasse vorher. Die Korrektheit der Klasse kann sehr einfach beurteilt werden. Entweder die Vorhersage stimmt mit der Erwartung überein oder nicht. Die Beurteilung der Korrektheit der vorhergesagten Position ist dagegen nicht eindeutig, wie dies Abbildung \ref{fig:iou-issue} verdeutlicht. Die Vorhersage des Modells trifft nicht exakt die Erwartung, doch deshalb ist die Vorhersage nicht falsch. Eine exakte Übereinstimmung des vorhergesagten und des erwarteten Rechtecks ist sehr unwahrscheinlich. Aus diesem Grund ist eine Metrik notwendig, die solche Ungenauigkeiten zulässt~\autocite{IoU}.
 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption{TODO}
+    \caption{Beispiel einer tatsächlichen und vorhergesagten Position eines Objekts zur Veranschaulichung der Intersection over Union Metrik}
     \label{fig:iou-issue}
     \centering
     \includegraphics[width=0.6\textwidth]{graphics/iou/iou_issue.png}\\
@@ -432,9 +432,9 @@ $$IoU = \frac{
     \textnormal{Fläche der Vereinigung} \hspace{12pt} \includegraphics[width=20pt, align=t]{graphics/iou/union.pdf}
 }$$
 
-Die Beispiele aus Abbildung \ref{fig:iou-examples} verdeutlichen, dass das Mass gegen 1 tendiert, je exakter das vorhergesagte mit dem erwarteten Rechteck übereinstimmt. Es kann nun also beurteilt werden, wie genau die Vorhersage ist. Wird nun noch ein Schwellenwert definiert, ab welchem eine Vorhersage als Korrekt angesehen wird, so kann die Korrektheit der Vorhersage beurteilt werden. Die Wahl dieses Schwellenwerts ist sehr unterschiedlich. In Bilderkennungs-Wettbewerben sind Schwellenwerte zwischen 0.5 und 0.75 üblich. Auch wird teilweise ein Durchschnitt über mehrere Schwellenwerte verwendet~\autocite{IoU}.
+Die Beispiele aus Abbildung \ref{fig:iou-examples} verdeutlichen, dass das Mass gegen 1 tendiert, je exakter das vorhergesagte mit dem erwarteten Rechteck übereinstimmt. Es kann nun also beurteilt werden, wie genau die Vorhersage ist. Wird nun noch ein Schwellenwert definiert, ab welchem eine Vorhersage als Korrekt angesehen wird, so kann die Korrektheit der Vorhersage beurteilt werden. Die Wahl dieses Schwellenwerts ist sehr unterschiedlich. In Objekterkennungs-Wettbewerben sind Schwellenwerte zwischen 0.5 und 0.75 üblich. Auch wird teilweise ein Durchschnitt über mehrere Schwellenwerte verwendet~\autocite{IoU}.
 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{Beispiele des Intersection over Union Mass}
     \label{fig:iou-examples}
@@ -509,7 +509,7 @@ Wird ein Modell zur Erkennung von fünf Katzen auf zehn Bildern angewendet, so s
 
 Die Abbildung \ref{fig:ap-pr} zeigt die sogenannte PR-Curve (Precision-Recall-Curve), welche die Genauigkeit bei jeder Sensitivität darstellt, für das genannte Beispiel. Auf der Abbildung ist die Zickzack Linie durch die steigende und sinkende Genauigkeit zu erkennen~\autocite{AP}.
 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{Beispiel einer PR-Curve, die die Genauigkeit bei der Sensitivität darstellt.}
     \label{fig:ap-pr}
@@ -526,7 +526,7 @@ Da sowohl die Genauigkeit als auch die Sensitivität zwischen 0 und 1 liegt, fä
 
 Um die Berechnung der Average Precision zu vereinfachen, wird die Zickzack Linie oftmals geglättet. Dabei wird zu jeder Sensitivität jeweils die maximale Genauigkeit aller grösseren Sensitivitäten gewählt~\autocite{AP}. Die grüne Linie in Abbildung \ref{fig:pr-smoothed} veranschaulicht diese Glättung.
 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{Beispiel zur Glättung einer PR-Curve}
     \label{fig:pr-smoothed}
@@ -537,7 +537,7 @@ Um die Berechnung der Average Precision zu vereinfachen, wird die Zickzack Linie
 
 Neben dieser Glättung kommt in gewissen Fällen auch eine Interpolation zur Anwendung. Bis 2008 verwendete das PASCAL VOC Dataset zur Berechnung der Average Precision eine Interpolation mit elf Punkten. Das bedeutet, dass die Genauigkeit bei allen Sensitivitäts-Werten mit dem Faktor 0.1 berechnet wird. Beim COCO\footnote{Das COCO (Common Objects in Context) Dataset ist ein sehr grosses Dataset, welches für diverse Wettbewerbe im Bereich der Objekterkennung verwendet wird.} Dataset wird eine Interpolation von 101 Punkten verwendet. Im neueren PASCAL VOC Dataset\footnote{Die PASCAL Visual Object Classes Datasets sind ein annotierte Datensätze zur Objekterkennung auf Bildern, welche von 2005 bis 2012 für die PASCAL VOC Challenge ausgegeben wurden.} wird auf eine Interpolation verzichtet und die Average Precision wird als die Fläche unter der geglätteten PR-Curve berechnet. Je nach Art der Berechnung kann es zu unterschiedlichen Resultaten kommen, wie dies Abbildung \ref{fig:pr-interpolated} zeigt. Durch die Interpolation können Ungenauigkeiten entstehen, wenn die Abnahme der Genauigkeit nicht genau auf einen der zur Berechnung verwendeten Punkte fällt. Werden Modelle miteinander verglichen, ist es also wichtig zu wissen, welche Methode zur Berechnung verwendet wurde~\autocite{AP}.
 
-\begin{figure}[H]
+\begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{Interpolation einer geglätteten PR-Curve.}
     \label{fig:pr-interpolated}
@@ -564,7 +564,7 @@ Die beiden Methoden werden oft kombiniert, um somit die Mean Average Precision �
 
 Als Fehleranalyse wird die Analyse der falschen Vorhersagen eines Modells bezeichnet. Im Falle eines Klassifizierungsmodells werden die falsch klassifizierten Datensätze betrachtet und auf die Ursache der falschen Klassifizierung untersucht. Das Ziel dabei ist es, Optimierungspotential zu finden, anhand welchem das bestehende Modell verbessert werden kann~\autocite{MLYearning}.
 
-Wird beispielsweise ein Modell zur Klassifizierung von Bildern in die Klassen Hund und Katze mit einer Treffergenauigkeit von 90\% untersucht, so könnte eine Erkenntnis sein, dass nur 5\% aller falsch Klassifizierten Bilder der Klasse Hund angehören. Es würde nun wenig Sinn machen, das Modell zur besseren Erkennung von Hunden zu optimieren. Es könnte dadurch nur 5\% des Fehlers reduziert, sprich 0.5\% an Treffergenauigkeit gewonnen werden. Würden 50\% der falsch Klassifizierten Bilder der Klasse Hund angehören, würde eine solche Optimierung Sinn machen, denn die Reduktion der Fehler um 50\% würde eine Steigerung der Treffergenauigkeit von 5\% (50\% der Fehlerquote von 10\%) ermöglichen~\autocite{MLYearning}.
+Wird beispielsweise ein Modell zur Klassifizierung von Bildern in die Klassen Hund und Katze mit einer Trefferquote von 90\% untersucht, so könnte eine Erkenntnis sein, dass nur 5\% aller falsch Klassifizierten Bilder der Klasse Hund angehören. Es würde nun wenig Sinn machen, das Modell zur besseren Erkennung von Hunden zu optimieren. Es könnte dadurch nur 5\% des Fehlers reduziert, sprich 0.5\% an Trefferquote gewonnen werden. Würden 50\% der falsch Klassifizierten Bilder der Klasse Hund angehören, würde eine solche Optimierung Sinn machen, denn die Reduktion der Fehler um 50\% würde eine Steigerung der Trefferquote von 5\% (50\% der Fehlerquote von 10\%) ermöglichen~\autocite{MLYearning}.
 
 Die Fehleranalyse hilft die Ursachen einer falschen Klassifizierung zu finden. Sie kann somit Auskunft darüber geben, in welche Richtung das untersuchte Modell optimiert respektive weiterentwickelt werden soll~\autocite{MLYearning}.
 
@@ -588,7 +588,7 @@ Im dritten Schritt muss eine \textbf{Zielmetrik} bestimmt werden. Das Kapitel \r
 
 Nachdem das Ziel bekannt ist, müssen die \textbf{Eingabedaten aufbereitet} werden. Dabei muss ein Weg gefunden werden, mit potentiell fehlenden oder unvollständigen Daten umzugehen. Alle Daten müssen in eine Form gebracht werden, welche das Modell verstehen kann. So müssen beispielsweise ordinale und nominale Daten in Ganzzahlen umgewandelt respektive codiert werden. Da die meisten Modelle mit gleich skalierten Daten am besten umgehen können, werden die Daten auf die Skala $[0:1]$ gebracht~\autocite{DesignML}.
 
-Lassen die Problemstellung und die Eingabedaten es zu, so ist es Ratsam nun eine \textbf{einfache Vorhersage}\todo{Anderes Wort}, beispielsweise basierenden auf k-Nearest-Neighbour\footnote{k-Nearest-Neighbour ist ein Algorithmus zur Klassifizierung eines Datensatzes aufgrund seiner k-nächsten Nachbarn, sprich k-ähnlichsten Datensätzen.} oder Naive Bayes\footnote{Naive Bayes ist ein Algorithmus zur Klassifizierung, welcher Datensätze aufgrund einer Kostenfunktion klassifiziert. Ein Datensatz wird jener Klasse zugewiesen, bei welcher die wenigsten Kosten entstehen.}, zu erstellen. Eine solche Vorhersage ermöglicht die Eingabedaten auf ihre Eignung zur Vorhersage des gesuchten Resultats zu prüfen. Weiter gibt diese Vorhersage eine Baseline, an welcher sich während der Erarbeitung des Machine Learning Modells gehalten werden kann.~\autocite{DesignMLSecondaryCite}
+Lassen die Problemstellung und die Eingabedaten es zu, so ist es Ratsam nun eine \textbf{einfache Vorhersage}, beispielsweise basierenden auf k-Nearest-Neighbour\footnote{k-Nearest-Neighbour ist ein Algorithmus zur Klassifizierung eines Datensatzes aufgrund seiner k-nächsten Nachbarn, sprich k-ähnlichsten Datensätzen.} oder Naive Bayes\footnote{Naive Bayes ist ein Algorithmus zur Klassifizierung, welcher Datensätze aufgrund einer Kostenfunktion klassifiziert. Ein Datensatz wird jener Klasse zugewiesen, bei welcher die wenigsten Kosten entstehen.}, zu erstellen. Eine solche Vorhersage ermöglicht die Eingabedaten auf ihre Eignung zur Vorhersage des gesuchten Resultats zu prüfen. Weiter gibt diese Vorhersage eine Baseline, an welcher sich während der Erarbeitung des Machine Learning Modells gehalten werden kann.~\autocite{DesignMLSecondaryCite}
 
 Nachdem alle Rahmenbedingungen geschaffen sind, geht es nun an die \textbf{Entwicklung des Modells}. Dabei ist Cross Validation, der Vergleich von bestehenden Modellen, und das anschliessende Optimieren des besten Kandidaten, ein oft angewendetes Vorgehen. Beim Cross Validation werden verschiedene Modelle auf den Eingabedaten angewendet und anhand der Zielmetrik bewertet. Das Modell mit dem besten Resultat wird anschliessend optimiert. Diese Optimierung ist die Anpassung der sogenannten Hyperparametern. Die Hyperparameter bezeichnen jene Parameter eines Machine Learning Modells, welche nicht während dem Training gelernt, sondern von aussen in das Modell hereingegeben werden. Die Hyperparameter können als Konfiguration eines Modells verstanden werden~\autocite{DesignML}.
 
@@ -596,7 +596,7 @@ Nachdem alle Rahmenbedingungen geschaffen sind, geht es nun an die \textbf{Entwi
 
 - ftp://ftp.sas.com/pub/neural/FAQ3.html\#A\_hl
 
-Um eine Problemstellung mit einem Neuronalen Netzwerk zu lösen, muss erst ein solches entworfen werden. Auch hier ist der Cross Validation Ansatz wohl der geeignetste, um möglichst schnell gute Resultate zu erzielen. Für viele Problemstellungen können Analogien gefunden werden, zu welchen bereits Modelle bestehen. Es gibt diverse Wettbewerbe, bei welchen Modelle, beispielsweise zur Objekterkennung auf Bildern, verglichen werden. Auch gibt es unzählige frei verfügbare Forschungsarbeiten und Open Source Modelle, welche Lösung zu einer breiten Variation von Problemstellungen präsentieren.
+Um eine Problemstellung mit einem neuronalen Netzwerk zu lösen, muss erst ein solches entworfen werden. Auch hier ist der Cross Validation Ansatz wohl der geeignetste, um möglichst schnell gute Resultate zu erzielen. Für viele Problemstellungen können Analogien gefunden werden, zu welchen bereits Modelle bestehen. Es gibt diverse Wettbewerbe, bei welchen Modelle, beispielsweise zur Objekterkennung auf Bildern, verglichen werden. Auch gibt es unzählige frei verfügbare Forschungsarbeiten und Open Source Modelle, welche Lösung zu einer breiten Variation von Problemstellungen präsentieren.
 
 Wird ein Modell selbst entworfen oder angepasst, so stellt sich oft die Frage, wie viele Hidden Layer ein solches Modell haben sollte und wie viele Neuronen diese beinhalten sollen. Für diese Frage gibt es keine klare Antwort. 
 
