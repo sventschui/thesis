@@ -14,7 +14,7 @@ Nach dem Wörterbuch wird ein Klassifizierungsmodell erstellt. Dieses Modell wir
 % \begin{wrapfigure}{r}{0.4\textwidth} 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption[Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt]{Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt. Der Input aus dem Wörterbuch wird durch zwei Fully Connected und einem Dropout Layer in einen One Hot Encoded Output transformiert, der die erkannte Klasse repräsentiert.}
+    \caption{Neuronales Netzwerk, welches bei der Text-basierten Klassifizierung zur Anwendung kommt}]
     \label{text-classification-model}
     \centering
     \includegraphics[scale=0.6]{graphics/text-classification/model.pdf}
@@ -29,7 +29,7 @@ Bei dem gewählten Modell, mit einem Vokabular von 5'000 Wörtern und einem Drop
 
 \begin{figure}[h!] 
   \captionsetup{width=.9\linewidth}
-  \caption[Statistiken aus dem Training der Text-basierten Klassifizierung von Rechnungen]{Statistiken aus dem Training der Text-basierten Klassifizierung von Rechnungen.}
+  \caption{Statistiken aus dem Training der Text-basierten Klassifizierung von Rechnungen}
   \label{text-class-results}
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
@@ -62,16 +62,16 @@ Bei dem gewählten Modell, mit einem Vokabular von 5'000 Wörtern und einem Drop
 
 Bei diesen guten Ergebnissen liegt es nahe, dass der Ansatz durch etwas Optimierung noch weiter verbessert werden kann. Im Folgenden wird eine Fehleranalyse, wie dies im Kapitel \ref{chap:error-analysis} beschrieben ist, gemacht. Zuerst wird aufgezeigt, worauf bei der Klassifizierung im vorliegenden Fallbeispiel besonders geachtet werden muss. Anschliessend werden aus den falsch klassifizierten Rechnungen Verbesserungsvorschläge abgeleitet. 
 
-Die falsche Klassifizierung einer Rechnung ist vor allem dann problematisch, wenn diese einer Klasse zugewiesen wird, welche automatisch verarbeitet wird. Die Confusion Matrix in Abbildung \ref{text-classification-cm} zeigt, dass das Text-basierte Modell sechs aus 3'367 Rechnungen des Testsets fälschlicherweise als Fitness Rechnungen und fünf Rechnungen fälschlicherweise als Rechnungen für einen Sportverein klassifiziert hat. Diese Rechnungen würden automatisiert als solche abgerechnet werden, was der Kund/-in nicht vorenthalten bleibt. Die Kund/-in müsste in diesem Fall aktiv werden, damit der Fehler bemerkt wird.
+Die falsche Klassifizierung einer Rechnung ist vor allem dann problematisch, wenn diese einer Klasse zugewiesen wird, welche automatisch verarbeitet wird. Die Confusion Matrix in Abbildung \ref{text-classification-cm} zeigt, dass das Text-basierte Modell sechs aus 3'367 Rechnungen des Testsets fälschlicherweise als Fitness Rechnungen und fünf Rechnungen fälschlicherweise als Rechnungen für einen Sportverein klassifiziert hat. Diese Rechnungen würden automatisiert als solche abgerechnet werden, was der Kundin oder dem Kunden nicht vorenthalten bleibt. Die Kundin oder der Kunde müsste in diesem Fall aktiv werden, damit der Fehler bemerkt wird.
 
-Würde eine Rechnung fälschlicherweise als Andere klassifiziert werden, so muss eine manuelle Verarbeitung der Rechnung stattfinden. In diesem Fall merkt der Kunde nichts von dem Fehler. 
+Würde eine Rechnung fälschlicherweise als Andere klassifiziert werden, so muss eine manuelle Verarbeitung der Rechnung stattfinden. In diesem Fall merkt die Kundin oder der Kunde nichts von dem Fehler. 
 
 Aus den genannten Gründen ist die Genauigkeit für das vorliegende Beispiel die wichtigste Metrik. Die ermittelte Genauigkeit liegt bei 97.86\% (Fitness), 100\% (Optiker) respektive 96.50\% (Sportverein).
 
 \begin{figure}[h!] 
 %\begin{wrapfigure}{r}{0.5\textwidth} 
     \captionsetup{width=.9\linewidth}
-    \caption[Confusion Matrix des Text-basierten Modells zur Klassifizierung von Rechnungen]{Confusion Matrix nach 23 Epochen Training des Text-basierten Modells zur Klassifizierung von Rechnungen. Das Modell klassifiziert sechs Rechnungen fälschlicherweise als Fitness Rechnung und fünf Rechnungen fälschlicherweise als Rechnungen für einen Sportverein.}
+    \caption{Confusion Matrix nach 23 Trainingsepochen des Text-basierten Modells zur Klassifizierung von Rechnungen}
     \label{text-classification-cm}
     \centering
     \includegraphics[scale=1]{graphics/matplot/textual-class__cm_22.pdf}

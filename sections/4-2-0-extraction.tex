@@ -24,19 +24,41 @@ In diesem Kapitel wird ein bild-basierter Ansatz zur Informationsextraktion aus 
 
 Auch dieser bild-basierte Ansatz basiert, analog dem bild-basierten Ansatz zur Klassifizierung, auf Algorithmen und Modellen aus dem Bereich der Computer-Vision.
 
-Der präsentierte Ansatz basiert auf der Idee, Modelle, welche ursprünglich zur Objekterkennung in Bildern entwickelt wurden, zur Erkennung von Regionen mit relevanten Informationen (Region of Interest) zu verwenden. Konkret heisst dies, dass mit einem Modell zur Objekterkennung die Positionen der Adresse des Patienten, des Namens des Leistungserbringers, der Rechnungspositionen sowie des Totalbetrages auf den Rechnungen identifiziert werden sollen. 
-
-Dieser Ansatz wurde mit dem Framework luminoth umgesetzt. Dabei steht das Single Shot Detection (SSD) sowie das Faster-RCNN Modell zur Verfügung. Das SSD Modell ist eines der performantesten Modelle zur Objekterkennung. Das Faster-RCNN Modell ist aktuell eines der präzisesten, aber dafür rechenintensivsten, Modellen~\autocite{SSDFRCNN}.
-
-Die beiden Modelle werden auf einem Datensatz von knapp 900 Rechnungen von Optikern trainiert. Dieser Datensatz wurde manuell mit den Region of Interest annotiert. Da die Annotation der Region of Interest sehr zeitintensiv ist, wird vorerst auf die Verwendung des AXA Datensatzes\todo{Lara: brauchts das? Sven: ganzer satz löschen?} von 2'193 Rechnungen von Optikern verzichtet. Sollte sich später herausstellen, dass die Modelle eine hohe Varianz aufweisen und somit von mehr Testdaten profitieren würde, kann dies nachgeholt werden.
-
-Die Abbildungen \ref{fig:3ap-map:map_train} und \ref{fig:3ap-map:map_val} zeigen drei verschiedene Mean Average Precision Metriken der beiden Modelle auf den Trainings- respektive Validierungsdaten. Auf der Abbildung \ref{fig:3ap-map:map_val} ist zu sehen, dass das Faster-RCNN Modell nach knapp 1'500 Trainingsschritten präziser ist als das SSD Model. Die Mean Average Precision des Faster-RCNN Modell steigt bei einem IoU Schwellenwert von 0.5 bis auf 0.82. Bei einem IoU Schwellwert von 0.75 beziehungsweise $[0.5:0.95]$ steigt die Mean Average Precision nur knapp über 0.5 respektive bis knapp unter 0.5. Dies bedeutet, dass die Modelle ungefähr erkennen, wo die relevanten Informationen sind, diese aber nicht sehr genau umrahmen können.
-
-Beim Vergleich der Mean Average Precisions auf den Trainings- und Validierungsdaten ist zu erkennen, dass die Modelle ein hohes Bias aufweisen. Es ist bereits während dem Training eine starke Abweichung von der optimalen Mean Average Precision von 1 zu erkennen. Gegenüber dem Trainingsdatensatz ist die Mean Average Precision auf dem Validierungsdatensatz nur gering kleiner, die Modelle besitzen also eine kleine Varianz. Dies bedeutet, dass die Herkunft der Fehler beim Design der Modelle liegen dürfte und mit mehr Trainingsdaten nicht behoben werden kann. 
+Der präsentierte Ansatz basiert auf der Idee, Modelle, welche ursprünglich zur Objekterkennung in Bildern entwickelt wurden, zur Erkennung von Regionen mit relevanten Informationen (Region of Interest) zu verwenden. Konkret heisst dies, dass mit einem Modell zur Objekterkennung die Positionen der Adresse des Patienten, des Namens des Leistungserbringers, der Rechnungspositionen sowie des Totalbetrages auf den Rechnungen identifiziert werden sollen. Die Abbildung \ref{fig:roi-example} zeigt zwei Rechnungen, welche manuell mit den erwarteten Regions of Interest annotiert wurden. Dabei wurden persönliche Daten aus Datenschutzgründen unkenntlich gemacht.
 
 \begin{figure}[H]
   \captionsetup{width=.9\linewidth}
-  \caption{Average Precision auf den Trainings- und Validierungsdaten des Faster-RCNN und SSD Modells}
+  \caption{Zwei Beispiele von Rechnungen mit annotierten Regions of Interest}
+  \label{fig:roi-example}
+  \centering
+  \begin{subfigure}[t]{0.5\linewidth}
+    \captionsetup{width=.9\linewidth}
+    \centering
+    \includegraphics[scale=1]{graphics/roi-example-cp.pdf}
+    \vspace{6pt}
+    \subcaption{Eine über das Kundenportal eingereichte Rechnung} 
+    \vspace{2ex}
+  \end{subfigure}%% 
+  \begin{subfigure}[t]{0.5\linewidth}
+    \captionsetup{width=.9\linewidth}
+    \centering
+    \includegraphics[scale=1]{graphics/roi-example-scan.pdf}
+    \subcaption{Eine via Post eingereichte Rechnung} 
+    \vspace{2ex}
+  \end{subfigure}
+\end{figure}
+
+Dieser Ansatz wurde mit dem Framework luminoth umgesetzt. Dabei steht das Single Shot Detection (SSD) sowie das Faster-RCNN Modell zur Verfügung. Das SSD Modell ist eines der performantesten Modelle zur Objekterkennung. Das Faster-RCNN Modell ist aktuell eines der präzisesten, aber dafür rechenintensivsten, Modellen~\autocite{SSDFRCNN}.
+
+Die beiden Modelle werden auf einem Datensatz von knapp 900 Rechnungen von Optikern trainiert. Dieser Datensatz wurde manuell mit den Region of Interest annotiert.
+
+Die Abbildungen \ref{fig:3ap-map:map_train} und \ref{fig:3ap-map:map_val} zeigen drei verschiedene Mean Average Precision Metriken der beiden Modelle auf den Trainings- respektive Testsdaten. Auf der Abbildung \ref{fig:3ap-map:map_val} ist zu sehen, dass das Faster-RCNN Modell nach knapp 1'500 Trainingsschritten präziser ist als das SSD Model. Die Mean Average Precision des Faster-RCNN Modell steigt bei einem IoU Schwellenwert von 0.5 bis auf 0.82. Bei einem IoU Schwellwert von 0.75 beziehungsweise $[0.5:0.95]$ steigt die Mean Average Precision nur knapp über 0.5 respektive bis knapp unter 0.5. Dies bedeutet, dass die Modelle ungefähr erkennen, wo die relevanten Informationen sind, diese aber nicht sehr genau umrahmen können.
+
+Beim Vergleich der Mean Average Precisions auf den Trainings- und Testdaten ist zu erkennen, dass die Modelle ein hohes Bias aufweisen. Es ist bereits während dem Training eine starke Abweichung von der optimalen Mean Average Precision von 1 zu erkennen. Gegenüber dem Trainingsdatensatz ist die Mean Average Precision auf dem Testdatensatz nur gering kleiner, die Modelle besitzen also eine kleine Varianz. Dies bedeutet, dass die Herkunft der Fehler beim Design der Modelle liegen dürfte und mit mehr Trainingsdaten nicht behoben werden kann. 
+
+\begin{figure}[H]
+  \captionsetup{width=.9\linewidth}
+  \caption{Average Precision auf den Trainings- und Testdaten des Faster-RCNN und SSD Modells}
   \label{fig:3ap-map}
   \centering
   \includegraphics[scale=1]{graphics/matplot/img-detection__legend_3.pdf}
@@ -50,18 +72,18 @@ Beim Vergleich der Mean Average Precisions auf den Trainings- und Validierungsda
   \begin{subfigure}[t]{0.5\linewidth}
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__all__ap.pdf}
-    \subcaption{Average Precision auf den Validierungsdaten} 
+    \subcaption{Average Precision auf den Testdaten} 
     \label{fig:3ap-map:map_val}
     \vspace{2ex}
   \end{subfigure}
 \end{figure}
 
-Abbildung \ref{fig:3ap-map:loss} zeigt das Loss der beiden Modelle auf den Validierungsdaten über den Trainingsverlauf hinweg. Es ist zu erkennen, dass das Loss nach 4000 Trainingsschritten schon sehr flach wird. Die Modelle Lernen zu diesem Zeitpunkt also nur noch sehr wenig. Die Modelle noch weiter zu trainieren, würde keine Verbesserung der Mean Average Precision zur Folge haben.
+Abbildung \ref{fig:3ap-map:loss} zeigt das Loss der beiden Modelle auf den Testdaten über den Trainingsverlauf hinweg. Es ist zu erkennen, dass das Loss nach 4000 Trainingsschritten schon sehr flach wird. Die Modelle Lernen zu diesem Zeitpunkt also nur noch sehr wenig. Die Modelle noch weiter zu trainieren, würde keine Verbesserung der Mean Average Precision zur Folge haben.
 
 \begin{figure}[h!] 
 %\begin{wrapfigure}{r}{0.5\textwidth} 
     \captionsetup{width=.9\linewidth}
-    \caption{Totales loss auf den Validierungsdaten}
+    \caption{Totales loss auf den Testdaten}
     \label{fig:3ap-map:loss}
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__legend_1.pdf}
@@ -113,12 +135,12 @@ Damit in der Praxis spezifische Modelle zur Informationsextraktion auf die Rechn
 
 Das im Kapitel \ref{chap:text-based-classification} beschriebene, text-basierte Modell zur Klassifizierung der Rechnungen wurde um die Klassen Fielmann und Visilab erweitert. Diese Klassen wurden gewählt, da sie innerhalb der aktuell grössten Klasse von Rechnungen, der Klasse Optiker, einen grossen Anteil haben. Es stehen 578 Rechnungen von Fielmann sowie 195 Rechnungen von Visilab zur Verfügung.
 
-Die Abbildung \ref{fielmann-cm} zeigt die Confusion Matrix des angepassten Modells auf den Validierungsdaten. Darauf ist zu erkennen, dass die Einteilung in die beiden neuen Klassen sehr gut funktioniert. Nach 45 Epochen Training werden innerhalb des Validierungsdatensatzes lediglich 2 Rechnungen fälschlicherweise als Visilab Rechnungen klassifiziert. Diese Klassifizierung ist nicht ganz falsch, denn es handelt sich tatsächlich um Rechnungen von Visilab, aber in einem anderen Format: ein Kassenbeleg sowie eine Monatsrechnung. Diese Unterschiede im Format würden nicht in das erwartete Muster des im zweiten Schritt folgenden Modell zur Informationsextraktion passen und werden deshalb in diesem Fall als Falsch angesehen.
+Die Abbildung \ref{fielmann-cm} zeigt die Confusion Matrix des angepassten Modells auf den Testdaten. Darauf ist zu erkennen, dass die Einteilung in die beiden neuen Klassen sehr gut funktioniert. Nach 45 Epochen Training werden innerhalb des Testdatensatzes lediglich 2 Rechnungen fälschlicherweise als Visilab Rechnungen klassifiziert. Diese Klassifizierung ist nicht ganz falsch, denn es handelt sich tatsächlich um Rechnungen von Visilab, aber in einem anderen Format: ein Kassenbeleg sowie eine Monatsrechnung. Diese Unterschiede im Format würden nicht in das erwartete Muster des im zweiten Schritt folgenden Modell zur Informationsextraktion passen und werden deshalb in diesem Fall als Falsch angesehen.
 
 \begin{figure}[h!] 
 %\begin{wrapfigure}{r}{0.5\textwidth} 
     \captionsetup{width=.9\linewidth}
-    \caption[Confusion Matrix des um die Klassen Fielmann und Visilab ergänzten text-basierten Modells zur Klassifizierung von Rechnungen]{Confusion Matrix nach 45 Epochen Training des erweiterten text-basierten Modells zur Klassifizierung von Rechnungen.}
+    \caption{Confusion Matrix nach 45 Trainingsepochen des erweiterten Text-basierten Modells zur Klassifizierung von Rechnungen}
     \label{fielmann-cm}
     \centering
     \includegraphics[scale=1]{graphics/matplot/class__fielmann__cm_44.pdf}
@@ -131,35 +153,39 @@ Das Faster-RCNN und SSD Modell wurden auf den Rechnungen der Klassen Fielmann un
 
 \begin{figure}[h!] 
   \captionsetup{width=.9\linewidth}
-  \caption{Average Precision auf den Trainings- und Validierungsdaten der Leistungserbringer spezifischen Modelle}
+  \caption{Average Precision auf den Trainings- und Testdaten der Leistungserbringer spezifischen Modelle}
   \label{fig:specific-ie}
   \centering
   \includegraphics[scale=1]{graphics/matplot/img-detection__legend_3.pdf}
-  \begin{subfigure}[b]{0.45\linewidth}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \captionsetup{width=.9\linewidth}
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__fielmann__ap__train.pdf}
     \caption{Average Precision auf den Trainingsdaten der Klasse Fielmann} 
     \label{fig:specific-ie:fielmann:ap_train}
     \vspace{2ex}
   \end{subfigure}%% 
-  \begin{subfigure}[b]{0.45\linewidth}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \captionsetup{width=.9\linewidth}
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__visilab__ap.pdf}
     \caption{Average Precision auf den Trainingsdaten der Klasse Visilab} 
     \label{fig:specific-ie:visilab:ap_train}
     \vspace{2ex}
   \end{subfigure}
-  \begin{subfigure}[b]{0.45\linewidth}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \captionsetup{width=.9\linewidth}
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__fielmann__ap.pdf}
-    \caption{Average Precision auf den Validierungsdaten der Klasse Fielmann} 
+    \caption{Average Precision auf den Testdaten der Klasse Fielmann} 
     \label{fig:specific-ie:fielmann:ap_val}
     \vspace{2ex}
   \end{subfigure}%%
-  \begin{subfigure}[b]{0.45\linewidth}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \captionsetup{width=.9\linewidth}
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__visilab__ap.pdf}
-    \caption{Average Precision auf den Validierungsdaten der Klasse Visilab} 
+    \caption{Average Precision auf den Testdaten der Klasse Visilab} 
     \label{fig:specific-ie:visilab:ap_val}
     \vspace{2ex}
   \end{subfigure}
@@ -167,29 +193,31 @@ Das Faster-RCNN und SSD Modell wurden auf den Rechnungen der Klassen Fielmann un
 
 Die Abbildung \ref{fig:specific-ie} zeigt, dass bei den Leistungserbringer spezifischen Modellen der Unterschied in den Mean Average Precisions zwischen dem SSD und Faster-RCNN noch stärker ausfallen (vgl. Abbildung \ref{fig:3ap-map}). Es zeigt sich, dass die Präzision des Faster-RCNN Modell die höhere Rechenintensivität rechtfertig.
 
-Die Abbildungen \ref{fig:specific-ie:fielmann:ap_train} und \ref{fig:specific-ie:fielmann:ap_val} zeigen die Mean Average Precision des Modells zur Informationsextraktion aus Rechnungen von Fielmann. Das Modell erreicht während dem Training und der Validierung eine beachtliche Mean Average Precision von 98\% respektive 94\% bei einem IoU Schwellwert von 0.5. Das Modell erkennt also für sehr viele Rechnungen, wo sich die Regions of Interest befinden. Die mAP@[0.50:0.95] von 80\% während dem Training zeigt, dass das Modell die Regions relativ genau lokalisiert. Auf dem Validierungsdatensatz liegt die mAP@[0.5:0.95] dagegen bei nur knapp 60\%. Das Modell weist somit bei der mAP@0.5 und mAP@[0.5:0.95] eine Varianz von 4\% respektive 20\% auf. Aus dieser teilweise grossen Varianz ist zu schliessen, dass das Modell mehr Trainingsdaten bedarf, welche zum aktuellen Zeitpunkt nicht zur Verfügung stehen.
+Die Abbildungen \ref{fig:specific-ie:fielmann:ap_train} und \ref{fig:specific-ie:fielmann:ap_val} zeigen die Mean Average Precision des Modells zur Informationsextraktion aus Rechnungen von Fielmann. Das Modell erreicht während dem Training und dem Testen eine beachtliche Mean Average Precision von 98\% respektive 94\% bei einem IoU Schwellwert von 0.5. Das Modell erkennt also für sehr viele Rechnungen, wo sich die Regions of Interest befinden. Die mAP@[0.50:0.95] von 80\% während dem Training zeigt, dass das Modell die Regions relativ genau lokalisiert. Auf dem Testdatensatz liegt die mAP@[0.5:0.95] dagegen bei nur knapp 60\%. Das Modell weist somit bei der mAP@0.5 und mAP@[0.5:0.95] eine Varianz von 4\% respektive 20\% auf. Aus dieser teilweise grossen Varianz ist zu schliessen, dass das Modell mehr Trainingsdaten bedarf, welche zum aktuellen Zeitpunkt nicht zur Verfügung stehen.
 
 Der Bedarf an mehr Trainingsdaten zeigt, dass ein solcher Ansatz nicht für alle Leistungserbringer realistisch ist. Für viele Leistungserbringer stehen noch weniger Trainingsdaten zur Verfügung. Diese Problematik manifestiert sich auch bei der Erkennung der Regions of Interest für Rechnungen von Visilab. Mit 195 Rechnungen stehen hier nur rund ein Drittel so viele Rechnungen wie von Fielmann zur Verfügung. Wie in den Abbildungen \ref{fig:specific-ie:visilab:ap_train} und \ref{fig:specific-ie:visilab:ap_val} zu sehen ist, liegt die Varianz der mAP@[0.5:0.95] des Faster-RCNN Modells für Visilab Rechnungen bei knapp 40\%. Dies ist ein klarer Indikator dafür, dass zu wenige Trainingsdaten zur Verfügung stehen.
 
-Die Abbildungen \ref{fig:specific-ie:fielmann:loss} und  \ref{fig:specific-ie:visilab:loss} zeigen das Loss der beiden Modelle auf den Validierungsdaten für beide Klassen. Es ist zu erkennen, dass die Modelle auf den Leistungserbringer spezifischen Rechnungen nach ungefähr 4'000 Trainingsschritten nicht mehr stark lernen. Die Modelle auf den vorliegenden Trainingsdaten weiter zu trainieren, dürfte auch hier keine Erhöhung der Mean Average Precisions mehr zur Folge haben.
+Die Abbildungen \ref{fig:specific-ie:fielmann:loss} und  \ref{fig:specific-ie:visilab:loss} zeigen das Loss der beiden Modelle auf den Testdaten für beide Klassen. Es ist zu erkennen, dass die Modelle auf den Leistungserbringer spezifischen Rechnungen nach ungefähr 4'000 Trainingsschritten nicht mehr stark lernen. Die Modelle auf den vorliegenden Trainingsdaten weiter zu trainieren, dürfte auch hier keine Erhöhung der Mean Average Precisions mehr zur Folge haben.
 
 \begin{figure}[h!] 
   \captionsetup{width=.9\linewidth}
   \label{fig:specific-ie:loss}
-  \caption{Totales Loss auf den Validierungsdaten der Leistungserbringer spezifischen Modelle}
+  \caption{Totales Loss auf den Testdaten der Leistungserbringer spezifischen Modelle}
   \centering
   \includegraphics[scale=1]{graphics/matplot/img-detection__legend_1.pdf}
-  \begin{subfigure}[b]{0.45\linewidth}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \captionsetup{width=.9\linewidth}
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__fielmann__loss.pdf}
-    \caption{Totales loss auf den Validierungsdaten der Klasse Fielmann} 
+    \caption{Totales loss auf den Testdaten der Klasse Fielmann} 
     \label{fig:specific-ie:fielmann:loss}
     \vspace{2ex}
   \end{subfigure}%% 
-  \begin{subfigure}[b]{0.45\linewidth}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \captionsetup{width=.9\linewidth}
     \centering
     \includegraphics[scale=1]{graphics/matplot/img-detection__visilab__loss.pdf}
-    \caption{Totales loss auf den Validierungsdaten der Klasse Visilab} 
+    \caption{Totales loss auf den Testdaten der Klasse Visilab} 
     \label{fig:specific-ie:visilab:loss}
     \vspace{2ex}
   \end{subfigure} 
@@ -197,12 +225,14 @@ Die Abbildungen \ref{fig:specific-ie:fielmann:loss} und  \ref{fig:specific-ie:vi
 
 Die Tabelle \ref{tab:specific-ie-iou} zeigt die durchschnittliche Intersection over Union für die einzelnen Klassen. Auch hier ist zu erkennen, dass das Faster-RCNN Modell deutlich bessere Resultate liefert als das SSD Modell. Besonders erwähnenswert ist, dass das SSD Modell für die Klasse Behandlungsdatum der Rechnungen von Fielmann überhaupt keine und für den Totalbetrag der Visilab Klasse nur sehr schlechte Regions of Interest vorhersagt. Bei diesen beiden Fällen handelt es sich um kleine Regions mit anderen Regions in unmittelbarer Nähe.
 
+Die Klasse Begründung des Leistungsbezugs ist für die Rechnungen von Visilab nicht relevant, da diese Information nicht auf der Rechnung ersichtlich ist.
+
 Da die Leistungserbringer spezifischen Modelle mit anderen Trainings- und Testdaten als die generellen Modell trainiert beziehungsweise getestet wurden, ist ein direkter Vergleich der durchschnittlichen IoU nicht genau. Mit Rücksichtnahme auf diese Ungenauigkeit kann aber dennoch festgestellt werden, dass die durchschnittliche IoU der Klasse Totalbetrag bei den Rechnungen von Fielmann um 0.2 grösser ist, als jene über alle Leistungserbringer hinweg (vgl. Tabelle \ref{tab:3ap-iou} und \ref{tab:specific-ie-iou}). Bei den Rechnungen von Visilab ist die durchschnittliche IoU um 0.1 grösser als über alle Leistungserbringer hinweg. Dieser mit etwas Ungenauigkeit behaftete Vergleich lässt vermuten, dass die Leistungserbringer spezifischen Modelle um einiges präzisere Vorhersagen ermöglichen.
 
 \begin{table}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
-    \caption[Durchschnittliche Intersection over Union der Regions of Interest pro Klasse]{Durchschnittliche Intersection over Union der Regions of Interest pro Klasse. Die Klasse Begründung des Leistungsbezugs ist für die Rechnungen von Visilab nicht relevant, da diese Information nicht auf der Rechnung ersichtlich ist.}
+    \caption{Durchschnittliche Intersection over Union der Regions of Interest pro Klasse}
     \label{tab:specific-ie-iou}
     %\begin{tabular}{lllll}
     \begin{tabular}{|l|l|l|l|l|}
@@ -234,11 +264,13 @@ Da die Leistungserbringer spezifischen Modelle mit anderen Trainings- und Testda
     \end{tabular}
 \end{table}
 
-Die Fehleranalyse der Resultate aus der Informationsextraktion zeigt, dass vor allem Bilder mit schlechter Qualität oder sehr kleinen Regions of Interest zu Ungenauigkeiten führen.
+Analog dem Text-basierten Modell zur Klassifizierung wird auch hier eine Fehleranalyse durchgeführt. Die Fehleranalyse der Resultate aus der Informationsextraktion zeigt, dass vor allem Bilder mit schlechter Qualität oder sehr kleinen Regions of Interest zu Ungenauigkeiten führen.
 
 Modelle zur Objekterkennung sind dafür bekannt, dass sie mit kleinen Objekten Probleme haben. Im aktuellen Vorgehen wurden die Bilder auf eine maximale Auflösung von 400x600 Pixeln verkleinert, damit die Rechenintensität tief gehalten werden kann. Dies hat sich beim SSD Modell besonders beim Behandlungsdatum bei Rechnungen von Fielmann gezeigt, welche überhaupt nicht erkannt werden konnten. Ein Vergleich verschiedener Modelle zur Objekterkennung mit unterschiedlichen Parametern zeigt, dass die Reduktion der Auflösung um die Hälfte in beide Dimensionen im Mittel eine Reduktion der Trefferquote von ungefähr 15\% zur Folge hat~\autocite{SSDFRCNN}. Daraus kann geschlossen werden, dass eine \textbf{Erhöhung der Auflösung} die Trefferquote erhöhen wird.
 
 Durch die Verkleinerung der Bilder entstehen in einigen Fällen Bilder mit sehr schlechter Qualität. Wird ein anderer Algorithmus zur Verkleinerung der Bilder gewählt, kann die \textbf{Qualität der Bilder} verbessert werden. Dadurch sollte das Modell besser Strukturen auf den Bildern erkennen können und somit genauere Resultate liefern.
+
+Eine Problematik, welche bereits bei der Diskussion der Varianz der Mean Average Precision erläutert wurde, ist der \textbf{Mangel an Testdaten}. Im Rahmen dieser Arbeit wurden Rechnungen, welche bei der AXA eingreicht wurden, zum Training verwendet. Um ein Modell in Zukunft besser trainieren zu können, ist es denkbar, Testdaten aus anderen Quellen, beispielsweise vom Leistungserbringer, zu beschaffen oder zu erzeugen. Die Erzeugung von Testdaten umfasst dabei die Erschaffung von Testdaten aufgrund von Abänderungen existierender Daten sowie die Erschaffung von komplett neuen, künstlichen Testdaten. Werden Testdaten erzeugt, so ist darauf zu achten, dass diese möglichst nahe an der Realität sind. Diese künstlich erzeugten Daten sollten nur während dem Training und nicht während dem Testen des Modells verwendet werden, damit die Testresultate die Realität wiederspiegeln.
 
 \subsubsection{Vervollständigung des präsentierten Ansatzes}
 \label{chap:ie-quality-check}
@@ -247,7 +279,7 @@ Die präsentierten Experimente zeigen, dass die Regions of Interest mit guter Pr
 
 Bei Informationen wie der Adresse des Patienten oder des Leistungserbringers ist eine Ungenauigkeit des OCR Systems weniger problematisch. Diese Daten können mit den Stammdaten aus dem Kernsystem der AXA abgeglichen werden. Durch diesen Abgleich können diese Informationen mit hoher Wahrscheinlichkeit aus den Regions of Interest extrahiert werden.
 
-Problematischer ist die Situation beispielsweise beim Totalbetrag oder beim Behandlungsdatum. Macht das OCR System hier einen Fehler, ist es schwierig dies automatisch zu erkennen. Soll hier, um dem Kunden keine falsche Abrechnung zuzustellen, eine Kontrolle eingeführt werden, wäre dies wohl nur manuell möglich\todo{Umformulierenf}. Je nach User Experience die dem Kunden geboten werden will, bietet sich eine Kontrolle durch Mitarbeitende oder den Kunden selbst an. Wird der Kunde nach dem Upload einer Rechnung im Kundenportal direkt nach der Korrektheit der Daten gefragt, so wäre dies wahrscheinlich akzeptabel für ihn. Bei Rechnungen, welche per Post eingereicht wurden, ist eine solche User Experience schwieriger rechtzufertigen.
+Problematischer ist die Situation beispielsweise beim Totalbetrag oder beim Behandlungsdatum. Macht das OCR System hier einen Fehler, ist es schwierig dies automatisch zu erkennen. Eine Kontrolle, um der Kundin oder dem Kunden keine falsche Abrechnung zuzustellen, könnte hier nur manuell durchgeführt werden. Je nach User Experience die der Kundin oder dem Kunden geboten werden will, bietet sich eine Kontrolle durch Mitarbeitende oder die Kundin oder den Kunden selbst an. Wird die Kundin oder der Kunde nach dem Upload einer Rechnung im Kundenportal direkt nach der Korrektheit der Daten gefragt, so wäre dies wahrscheinlich akzeptabel für ihn. Bei Rechnungen, welche per Post eingereicht wurden, ist eine solche User Experience schwieriger rechtzufertigen.
 
 
 
@@ -260,7 +292,7 @@ Der bereits in der Einleitung des Kapitels \ref{chap:ie} präsentierte, auf dem 
 
 Ein weiterer Ansatz ist die Anwendung eines Text-basierten Named Entity Recognition and Classification Systems (vgl. Kapitel \ref{chap:ner}). Es sind diverse Implementationen dieses Ansatzes als freie Software verfügbar. Ein Beispiel ist die Library SpaCy, mit welcher in nur geringer Zeit eine Problemspezifisches NERC Modell trainiert werden kann. Der aufwendige Teil bei diesem Ansatz ist die Beschaffung der Trainingsdaten. Es müssen alle Texte aus den Rechnungen extrahiert und annotiert werden. Eine Herausforderung bei einer solchen Text-basierten Methode sind wahrscheinlich die Resultate aus dem OCR Schritt. Stehen keine qualitativ hochwertigen Texte zur Verfügung, wird es für ein Modell wahrscheinlich schwierig eine Genau vorhersage zu machen. Diese Vermutung gilt es in einem Experiment zu überprüfen.
 
-Bei der Internet Recherche zu dieser Problematik wurde ein interessanter Beitrag auf der Plattform Reddit gefunden. Der Autor des Beitrages schlägt vor, die Problematik zur Extraktion des Totalbetrages als neuronales Übersetzungsproblem zu sehen. Er schlägt also Techniken aus der Machine Translation vor, um den gesamten Rechnungstext in nur den Totalbetrag zu übersetzen. Auch wenn dieser Ansatz etwas kreativ erscheint, gilt es ihn in einem Experiment zu prüfen~\autocite{RedditIE}.
+% Bei der Internet Recherche zu dieser Problematik wurde ein interessanter Beitrag auf der Plattform Reddit gefunden. Der Autor des Beitrages schlägt vor, die Problematik zur Extraktion des Totalbetrages als neuronales Übersetzungsproblem zu sehen. Er schlägt also Techniken aus der Machine Translation vor, um den gesamten Rechnungstext in nur den Totalbetrag zu übersetzen. Auch wenn dieser Ansatz etwas kreativ erscheint, gilt es ihn in einem Experiment zu prüfen~\autocite{RedditIE}.
 
 Bei allen Ansätzen hat die Qualität der Resultate des OCR Systems einen Einfluss auf die Qualität des gesamten Systems. Aus diesem Grund kann auch hier festgehalten werden, dass Ansätze zur Verbesserung der Resultate aus dem OCR System (vgl. Kapitel \ref{chap:ocr-quality}) nachgegangen werden sollte.
 
@@ -276,10 +308,8 @@ Bei allen Ansätzen hat die Qualität der Resultate des OCR Systems einen Einflu
 
 \subsubsection{Schlussfolgerungen}
 
-Mit den präsentierten Ansätzen konnten die Regions of Interest mit einer guten Genauigkeit vorhergesagt werden. Die Extraktion und Strukturierung wird an gewissen Stellen noch eine Herausforderung bieten. Die Informationsextraktion mit Hilfe der künstlichen Intelligenz ist auf jeden Fall möglich und scheint sinnvoll.
+Mit den präsentierten Ansätzen konnten die Regions of Interest mit einer guten Genauigkeit vorhergesagt werden. Die Extraktion und Strukturierung wird an gewissen Stellen noch eine Herausforderung bieten. Die Informationsextraktion mit Hilfe der künstlichen Intelligenz ist auf jeden Fall möglich und sinnvoll.
 
-Es ist wichtig anzumerken, dass das in dieser Arbeit präsentierte Experiment eine gute Grundlage bietet, die erwähnten Optimierungsmöglichkeiten aber unbedingt angegangen werden sollten. Auch sollten andere Ansätze ausprobiert werden, um die Genauigkeit gegebenenfalls noch weiter zu erhöhen.
+Die in dieser Arbeit präsenterten Experimente bieten eine gute Grundlage. Es ist wichtig, die erwähnten Optimierungsmerkmale anzugehen. Dies bedeutet, dass die Qualität und die Auflösung der Bilder, welche durch das Modell verarbeitet werden, verbessert werden müssen. Am wichtigsten ist es, möglichst viele Trainingsdaten zu beschaffen oder zu erzeugen, damit die Leistungserbringer spezifischen Modelle optimal trainiert werden können.
 
-Die Automatisierung bedarf einer Anpassung im Prozess der Rechnungseinreichung. So ist es wichtig, gewisse Qualitätsprüfungen, wie sie im Kapitel \ref{chap:ie-quality-check} angesprochen wurden, in den Prozess einfliessen zu lassen.
-
-Schlussfolgerungen zur Forschungsfrage sowie eine umfassendere Empfehlung an die AXA Gesundheitsvorsorge folgen im Kapitel \ref{chap:summary}.
+Die Automatisierung bedarf einer Anpassung im Prozess der Rechnungseinreichung. So ist es wichtig, gewisse Qualitätsprüfungen, wie im Kapitel \ref{chap:ie-quality-check} angesprochen, in den Prozess einfliessen zu lassen. Nur durch diese Anpassungen im Prozess kann ein reibungsloser Ablauf garantiert werden.

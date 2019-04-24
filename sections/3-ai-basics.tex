@@ -30,12 +30,12 @@ Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir s
 
 Die Berechnungen des menschlichen Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale ein- oder ausgeschaltet werden. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Aus diesem Modell entstand das Konzept von neuronalen Netzwerken~\autocite{Krogh2008}.
 
-Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) modelliert, welche Eingabewerte anderer Units oder externer Quellen erhält. Diese Eingabewerte werden gewichtet und summiert. Liegt die Summe der gewichtet Eingabewerte nun über dem definierten Threshold, so aktiviert sich die Threshold Unit und der Ausgabewert ist 1. Liegt der Wert unter dem Threshold, so ist der Ausgabewert 0.
+Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) modelliert, welche Eingabewerte anderer Units oder externer Quellen erhält. Die Threshold Unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Die Summe der Gewichte ist 1 $\sum_{i=1}^{N} w_i = 1$, dadurch liegt die Summe der gewichteten Eingangssignale $\sum_{i=1}^{N} w_i x_i = 1$ zwischen $0$ und $1$. Das Modell zeigt nun zwei verschiedene Arten, wie der Ausgabewert eines Neurons modelliert werden kann. Zum einen kann das Modell je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann ein kontinuierlicher Sigmoid (rote Linie) verwendet werden, um einen kontinuierlichen Ausgabewert zwischen $0$ und $1$ zu ermitteln.
 
 %\begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption[Modell eines Neurons nach McCulloch und Pitts]{Modell eines Neurons nach McCulloch und Pitts. Die sogenannte Threshold Unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Die Summe der Gewichte ist 1 $\sum_{i=1}^{N} w_i = 1$, dadurch liegt die Summe der gewichteten Eingangssignale $\sum_{i=1}^{N} w_i x_i = 1$ zwischen $0$ und $1$. Das Modell zeigt nun zwei verschiedene Arten, wie der Ausgabewert eines Neurons modelliert werden kann. Zum einen kann das Modell je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann ein kontinuierlicher Sigmoid (rote Linie) verwendet werden, um einen kontinuierlichen Ausgabewert zwischen $0$ und $1$ zu ermitteln.}
+    \caption{Modell eines Neurons nach McCulloch und Pitts}
     \label{krogh:a}
     \centering
     \includegraphics[width=0.5\linewidth]{graphics/krogh/krogh_neural-network.png}
@@ -62,7 +62,7 @@ Einfache Netzwerke von Threshold Units können Klassifizierungsprobleme dann Lö
 %\begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption[Konzept der linearen Separierbarkeit]{Konzept der linearen Separierbarkeit. Die grünen und roten Kreuze liegen, im Gegensatz zu den Punkten, auf der falschen Seite der Ebene. Die Problemstellung ist somit nicht linear separierbar.}
+    \caption{Konzept der linearen Separierbarkeit}
     \label{krogh:b}
     \centering
     \includegraphics[width=0.4\linewidth]{graphics/krogh/krogh_plane.png}
@@ -77,7 +77,7 @@ Um das Modell zur Klassifizierung zu verbessern, können weitere Ebenen in den d
 % \begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption[Modell eines tiefen neuronalen Netzwerks]{Modell eines tiefen neuronalen Netzwerks mit einer versteckten Schicht (Hidden Layer).}
+    \caption{Modell eines tiefen neuronalen Netzwerks mit einer versteckten Schicht}
     \label{krogh:c}
     \centering
     \includegraphics[width=0.4\linewidth]{graphics/krogh/krogh_deep-network.png}
@@ -90,7 +90,7 @@ Mit immer mehr verfügbarer Rechenkapazität und immer mehr Daten steigt die Pop
 % \begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption{Verhältnis der verfügbaren Daten und der Genauigkeit unterschiedlich grosser neuronaler Netze.}
+    \caption{Verhältnis der verfügbaren Daten und der Genauigkeit unterschiedlich grosser neuronaler Netze}
     \label{scale-drives-ml-progress}
     \centering
     \includegraphics[width=0.4\linewidth]{graphics/scale-drives-ml-progress.png}
@@ -116,7 +116,7 @@ Die grösste Problematik beim Trainieren von neuronalen Netzwerken, besonders vo
 
 Eine Herausforderung der künstlichen Intelligenz beziehungsweise des Machine Learning ist es, auf zuvor unbekannten Daten gute Ergebnisse zu erzielen. Diese Fähigkeit wird als Generalisierung bezeichnet~\autocite{Goodfellow2016}.
 
-Um eine Generalisierung sicherzustellen, wird ein Modell immer auf einem Trainingsdatensatz trainiert und auf einem Testdatensatz validiert. Ziel eines Modells ist es, die Fehler während dem Training (auch Bias genannt) zu minimieren und den Unterschied zwischen der Fehlerquote während dem Training und während der Validierung (auch Varianz genannt) möglichst klein zu halten. Die Nichterreichung dieser Ziele wird Over- respektive Underfitting genannt~\autocite{Goodfellow2016}.
+Um eine Generalisierung sicherzustellen, wird ein Modell immer auf einem Trainingsdatensatz trainiert und auf einem Testdatensatz validiert. Ziel eines Modells ist es, die Fehler während dem Training (auch Bias genannt) zu minimieren und den Unterschied zwischen der Fehlerquote während dem Training und während dem Testen (auch Varianz genannt) möglichst klein zu halten. Die Nichterreichung dieser Ziele wird Over- respektive Underfitting genannt~\autocite{Goodfellow2016}.
 
 Die Problematik des Underfitting wurde bereits bei der Einführung von tiefen neuronalen Netzwerken, im Kapitel \ref{chap:deep-neural-nets}, angeschnitten. Ein Modell, welches zu wenige Parameter hat, ist nicht in der Lage eine komplexe Problemstellung abzubilden. Das Modell hat somit einen hohes Bias (hohe Fehlerquote auf dem Trainingsdatensatz). In diesem Fall ist es wichtig, das Modell anzupassen. Eine Erhöhung der Anzahl Trainingsdatensätze hilft nicht, den Bias zu reduzieren~\autocite{MLYearning}.
 
@@ -148,7 +148,7 @@ Menschen starten ihren Denkprozess nicht jede Sekunde von neuem. Beim Lesen wird
 In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist dasselbe Netzwerk in einer anderen, ausgerollten Weise zu sehen. Die Abbildung verdeutlicht, wie Informationen von einem Neuron zum anderen fliessen können. Mit diesem Informationsfluss von Neuron zu Neuron werden die Resultate jeweils von den vorhergehenden Neuronen beeinflusst. Damit wird eine Art Kurzzeitgedächtnis geschaffen, welches dem neuronalen Netzwerk erlaubt mit Kontextinformationen zu arbeiten~\autocite{Olah2015}.
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption[Informationsfluss durch ein Recurrent Neural Network]{Informationsfluss durch ein Recurrent Neural Network dargestellt als Schlaufe (links) und als Sequenz (rechts)}
+    \caption{Informationsfluss durch ein Recurrent Neural Network}
     \label{rnn1}
     \centering
     \vspace{0.2cm}
@@ -160,7 +160,7 @@ In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist
 Ein Problem von RNN ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, gehen diese Informationen verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese Spezialform von Recurrent Neural Networks arbeitet mit sogenannten Gates, um zu regulieren, wie viel Kontextinformationen behalten oder vergessen werden sollen. Mit vier solchen Gates, bestehend aus einem Neural Network Layer und einer Pointwise Operation (vgl. Abbildung \ref{lstm1}), ist ein LSTM Netzwerk in der Lage, nicht nur ein Kurz- sondern auch ein Langzeitgedächtnis aufzubauen~\autocite{Olah2015}.
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption[Veranschaulichung des Informationsflusses eines LSTM Netzwerk]{Veranschaulichung des Informationsflusses eines LSTM Netzwerk mit seinen vier internen Schichten}
+    \caption{Informationsfluss eines LSTM Netzwerk}
     \label{lstm1}
     \centering
     \includegraphics[width=0.6\textwidth]{graphics/lstm.png}\\
@@ -201,11 +201,11 @@ Technisch gesehen ist ein Word embedding eine parametrierte Funktion, welche Wö
 
 Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014b} zwei verschiedene Möglichkeiten der Visualisierung heran.
 
-Die erste Visualisierung bedient sich dem t-SNE\todo{t-SNE erläutern} Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In einem solchen Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014b}.
+Die erste Visualisierung bedient sich dem t-SNE\footnote{t-Distributed Stochastic Neighbor Embedding (kurz t-SNE) ist eine Technik zur Reduktion von Dimensionen, welche besonders gut für Visualisierungen von hoch-dimensionalen Daten geeignet ist~\autocite{tSNE}} Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In einem solchen Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014b}.
 \begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
-    \caption[t-SNE Darstellung eines Word embeddings]{t-SNE Darstellung eines Word embeddings, um zu verdeutlichen, dass ähnliche Wörter ähnliche Vektoren aufweisen}
+    \caption{t-SNE Darstellung eines Word embeddings}
     \includegraphics[width=\textwidth]{graphics/wordmebeddingtsne.jpg}
     \caption*{Quelle: \textcite{Turian2010} in \textcite{Olah2014b}}
     \label{wordembeddingtsne}
@@ -215,7 +215,7 @@ Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddi
 \begin{table}[h!]
 \centering
     \captionsetup{width=.9\linewidth}
-    \caption[Ähnlichkeit von sechs Word-Embeddings]{Sechs Ausgangswörter mit den ihnen ähnlichsten Word embeddings, sprich mit den mathematisch nächsten Vektoren}
+    \caption{Sechs Ausgangswörter mit den ihnen ähnlichsten Word embeddings}
     \label{wordembeddingtable}
     \renewcommand{\arraystretch}{1.25}
     \setlength{\tabcolsep}{3pt}
@@ -332,7 +332,7 @@ Die Confusion Matrix in Abbildung \ref{cm-sample} zeigt ein Beispiel mit einer T
 \begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
-    \caption{Beispiel einer Confusion Matrix zur Veranschaulichung der Trefferquote}
+    \caption{Beispiel einer Confusion Matrix}
     \label{cm-sample}
     \def\arraystretch{1.5}
     \arrayrulecolor{black}
@@ -358,7 +358,7 @@ Die Genauigkeit bietet sich immer dann als gute Metrik an, wenn die Kosten eines
 \begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
-    \caption[Confusion Matrix als Veranschaulichung der Genauigkeit]{Confusion Matrix als Veranschaulichung der Genauigkeit. Die blau hervorgehobenen Elemente bilden die Grundlage zur Berechnung der Genauigkeit.}
+    \caption{Elemente zur Berechnung der Genauigkeit in einer Confusion Matrix}
     \label{cm-precision}
     \def\arraystretch{1.5}
     \begin{tabular}{llcc}
@@ -381,7 +381,7 @@ Die Sensitivität ist immer dann relevant, wenn die Auswirkungen durch ein False
 \begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
-    \caption[Confusion Matrix als Veranschaulichung der Sensitivität]{Confusion Matrix als Veranschaulichung der Sensitivität. Die blau hervorgehobenen Elemente bilden die Grundlage zur Berechnung der Sensitivität.}
+    \caption{Elemente zur Berechnung der Sensitivität in einer Confusion Matrix}
     \def\arraystretch{1.5}
     \begin{tabular}{llcc}
         \multicolumn{2}{l}{}                                                                                                & \multicolumn{2}{c}{\textbf{Vorhersage / Klassifizierung}}                                                                \\ \cline{3-4} 
@@ -416,7 +416,7 @@ Bei der Objekterkennung in Bildern ist dies aber nicht immer eindeutig zu sagen.
 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption{Beispiel einer tatsächlichen und vorhergesagten Position eines Objekts zur Veranschaulichung der Intersection over Union Metrik}
+    \caption{Beispiel einer tatsächlichen und vorhergesagten Position eines Objekts}
     \label{fig:iou-issue}
     \centering
     \includegraphics[width=0.6\textwidth]{graphics/iou/iou_issue.png}\\
@@ -476,7 +476,7 @@ Wird ein Modell zur Erkennung von fünf Katzen auf zehn Bildern angewendet, so s
 
 \begin{table}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption{Beispiel der Berechnung der Genauigkeit und Sensitivität als Grundlage zur Berechnung der Average Precision}
+    \caption{Beispiel der Berechnung der Genauigkeit und Sensitivität}
     \label{tab:ap-example}
     \centering
     \begin{tabular}{|l|l|l|l|} 
@@ -511,7 +511,7 @@ Die Abbildung \ref{fig:ap-pr} zeigt die sogenannte PR-Curve (Precision-Recall-Cu
 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
-    \caption{Beispiel einer PR-Curve, die die Genauigkeit bei der Sensitivität darstellt.}
+    \caption{Beispiel einer PR-Curve}
     \label{fig:ap-pr}
     \centering
     \includegraphics[scale=1]{graphics/matplot/ap__pr.pdf}\\

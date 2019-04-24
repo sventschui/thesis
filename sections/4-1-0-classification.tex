@@ -8,7 +8,7 @@ Der Ausgangspunkt für die Klassifizierung ist ein Bild einer Rechnung. Die Klas
 
 Es liegt nahe, die Klassifizierung der Rechnungen mit Bild-basierten Modellen aus dem Bereich der Computer Vision anzugehen. Dieser Ansatz wird im folgenden Kapitel erläutert.
 
-\todo{Lara: Gehört ins Kapitel 3}Nicht nur im Bereich der Computer Vision ist die Problematik der Klassifizierung ein viel behandeltes Themengebiet. Im Bereich des Natural Language Processing ist die Klassifizierung von Wörtern, Sätzen oder ganzen Texten eine bekannte Problemstellung. Die sogenannte Text Classification ist die Grundlage für viele Applikationen, welche mit Texten arbeiten. So verwenden beispielsweise Mail-Server Text Classification, um zu entscheiden, ob ein E-Mail Spam ist oder nicht~\autocite{GoogleTextClassification}
+Nicht nur im Bereich der Computer Vision ist die Problematik der Klassifizierung ein viel behandeltes Themengebiet. Im Bereich des Natural Language Processing ist die Klassifizierung von Wörtern, Sätzen oder ganzen Texten eine bekannte Problemstellung. Die sogenannte Text Classification ist die Grundlage für viele Applikationen, welche mit Texten arbeiten. So verwenden beispielsweise Mail-Server Text Classification, um zu entscheiden, ob ein E-Mail Spam ist oder nicht~\autocite{GoogleTextClassification}
 
 Im Kapitel \ref{chap:text-based-classification} wird die Text-basierte Klassifizierung der Rechnungen weiterverfolgt.
 
@@ -18,7 +18,7 @@ Der Datensatz musste auf 17'196 Rechnungen reduziert werden. Etwas mehr als 7'00
 
 Bei der Durchsicht der Rechnungen wurden 127 Rechnungen aufgrund mangelnder Qualität aussortiert. Diese Problematik wird durch die vor kurzem eingeführte Qualitätsprüfung (vgl. Abbildung \ref{prozessaxa}) nicht mehr vorkommen und ist deshalb für diese Arbeit nicht weiter relevant.
 
-Nach der Einteilung in die vier Klassen ist festzustellen, dass die 17'196 Rechnungen eine sehr unregelmässige Verteilung aufweisen (vgl. Abbildung. \ref{class-distribution}). Die Klasse Sportverein ist gegenüber den anderen Klassen mit nur 760 Rechnungen unterrepräsentiert. Die Klasse Andere ist hingegen mit 12751 Rechnungen überrepräsentiert. Es ist wichtig, diesem Umstand während dem Training eines Modells Rechnung zu tragen. Ansonsten würde die Voraussage des Modells zu oft in der überrepräsentierten Klasse Andere resultieren. Diese Problematik kann auf diverse Arten angegangen werden. In dieser Arbeit wird die Loss Funktion, welche das Modell trainiert, durch eine Gewichtung aufgrund der Klassenverteilung, diesem Umstand Rechnung tragen\todo{Lara: Komplizierter Satz}~\autocite{Buda2018}.
+Nach der Einteilung in die vier Klassen ist festzustellen, dass die 17'196 Rechnungen eine sehr unregelmässige Verteilung aufweisen (vgl. Abbildung. \ref{class-distribution}). Die Klasse Sportverein ist gegenüber den anderen Klassen mit nur 760 Rechnungen unterrepräsentiert. Die Klasse Andere ist hingegen mit 12751 Rechnungen überrepräsentiert. Es ist wichtig, diesem Umstand während dem Training eines Modells Rechnung zu tragen. Ansonsten würde die Voraussage des Modells zu oft in der überrepräsentierten Klasse Andere resultieren. Diese Problematik kann auf diverse Arten angegangen werden. In dieser Arbeit wird dazu eine, aufgrund der Klassenverteilung, gewichtete Loss Funktion verwendet~\autocite{Buda2018}.
 
 \begin{figure}[h]
     \captionsetup{width=.9\linewidth}

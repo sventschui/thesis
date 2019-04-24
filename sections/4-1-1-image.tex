@@ -16,7 +16,7 @@ Dieses Kapitel widmet sich einem Experiment, bei welchem Algorithmen und Modelle
 \begin{figure}[h]
 % \begin{wrapfigure}{r}{0.6\textwidth} 
     \captionsetup{width=.9\linewidth}
-    \caption[Vergleich des NASNet mit anderen Netzwerken zur Klassifizierung von Bildern]{Vergleich des vom Google Brain Team präsentierten NASNet mit älteren Netzwerken zur Klassifizierung von Bildern des ImageNet Datensatzes. Es wird die Trefferquote, der Prozentsatz richtig klassifizierter Bilder der Gesamtheit aller Bilder, der Anzahl benötigter Operationen, sprich die Komplexität des Netzwerks, gegenübergestellt.}
+    \caption{Vergleich des NASNet mit anderen Netzwerken zur Klassifizierung von Bildern}
     \label{nasnet-comparision}
     \centering
     \includegraphics[width=0.55\textwidth]{graphics/nasnet-comparision.jpg}
@@ -47,12 +47,12 @@ Um die Rechnungen zu klassifizieren wird Transfer Learning angewendet, indem die
 
 Nach dem Training auf dem ImageNet Datensatz werden die letzten Schichten des Netzwerks, jene die für die Klassifizierung zuständig sind, durch ein neues Klassifizierungsnetzwerk ersetzt. Dadurch wird der Trainingseffekt durch den ImageNet Datensatz beibehalten und die Klassifizierung so angepasst, dass sie die Einteilung in die vier vorliegenden Klassen erlaubt.
 
-Das Klassifizierungsnetzwerk (vgl. Abbildung \ref{image-classification-model}), welches zur Anwendung kommt, besteht aus einem Convolution Layer sowie drei Fully Connected Layer\footnote{Ein Fully Connected Layer ist die einfachste Schicht eines neuronalen Netzwerks. Die Schicht besteht aus einer variablen Anzahl an Neuronen (vgl. Kapitel \ref{chap:neuron}). Jedes einzelne Neuron ist mit allen Neuronen der vorherigen Schicht verbunden. Ein Beispiel einer solchen Schicht wurde im Kapitel \ref{chap:deep-neural-nets} erläutert.}. Zwischen den Fully Connected Layern sind zwei Dropout Layer zur Reduzierung des Overfitting eingeschoben. Im Falle des NASNet entfällt der Convolution Layer, da das Netzwerk bereits einen eindimensionalen Feature-Vektor als Ausgabe liefert.
+Die Abbildung \ref{image-classification-model} zeigt die Klassifizierungsmodelle, welche zur Anwendung kommen. Input ist jeweils der Feature-Vektor, welcher durch das ResNet, Inception-ResNet beziehungsweise NASNet Netzwerk erstellt wurde. Beim ResNet und Inception-ResNet wird dieser Feature-Vektor durch ein 2D-Convolution und ein Flatten Layer in einen eindimensionalen Vektor gebracht. Das NASNet liefert bereits einen eindimensionalen Feature-Vektor und die ersten zwei Schichten fallen somit weg. Durch zwei Hidden Layer wird der Vektor schlussendlich zu einem One-Hot Encoded Vektor für die vier Klassen reduziert. Zwischen den Hidden Layern sind zwei Dropout Layer zur Reduzierung des Overfitting eingeschoben.
 
 
 \begin{figure}[h!] 
   \captionsetup{width=.9\linewidth}
-  \caption[neuronale Netze, welche bei der Bild-basierten Klassifizierung zur Anwendung kommen]{neuronale Netze, welche bei der Bild-basierten Klassifizierung zur Anwendung kommen. Input ist jeweils der Feature-Vektor, welcher durch das ResNet, Inception-ResNet beziehungsweise NASNet Netzwerk erstellt wurde. Beim ResNet und Inception-ResNet wird dieser Feature-Vektor durch ein 2D-Convolution und ein Flatten Layer in einen eindimensionalen Vektor gebracht. Das NASNet liefert bereits einen eindimensionalen Feature-Vektor und die ersten zwei Schichten fallen somit weg. Durch zwei Hidden Layer wird der Vektor schlussendlich zu einem One-Hot Encoded Vektor für die vier Klassen reduziert.}
+  \caption{neuronale Netze, welche bei der Bild-basierten Klassifizierung zur Anwendung kommen}
   \label{image-classification-model} 
   \begin{subfigure}[b]{0.3\linewidth}
     \centering
@@ -84,7 +84,7 @@ Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle
 
 \begin{figure}[h!] 
   \captionsetup{width=.9\linewidth}
-  \caption[Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen]{Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen mit den ResNet, Inception-ResNetV2 und NASNet Netzwerken.}
+  \caption{Statistiken aus dem Training der Bild-basierten Klassifizierung von Rechnungen}
   \label{image-class-results} 
   \includegraphics[scale=1]{graphics/matplot/img-class__legend.pdf}
   \begin{subfigure}[b]{0.5\linewidth}

@@ -144,7 +144,7 @@
 % \newcommand{\sectionbreak}{\clearpage\vspace{30pt}}
 
 \definecolor{coloraaa}{HTML}{AAAAAA}
-\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\hsp}{\hspace{19pt}}
 \newcommand{\vsp}{\vspace{200pt}}
 \titleformat{\section}[hang]{\LARGE\bfseries}{\thesection\hsp\textcolor{coloraaa}{|}\hsp}{0pt}{\LARGE\bfseries}
 % \titleformat{\subsection}[hang]{\LARGE\bfseries}{\thesection}{0pt}{\Large\bfseries}
