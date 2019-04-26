@@ -6,24 +6,6 @@
 
 Dieses Kapitel widmet sich einem Experiment, bei welchem Algorithmen und Modelle aus dem Bereich der Computer Vision angewendet werden, um Rechnungen zu klassifizieren.
 
-\todo{Lara meint gehört in Kapitel 3}Auf dem Machine Learning Blog Towards Data Science beschreiben und vergleichen diverse Autoren verschiedenste Modelle im Bereich der Computer Vision. Der Blog bietet einen guten Überblick über die aktuellen Methoden zur Klassifizierung von Bildern. So werden im Juli 2017 die Residual Networks (kurz ResNet), entwickelt von \textcite{He2015}, als die bahnbrechendste Eingabe beim ImageNet LSVRC Wettbewerb\footnote{Die ImageNet Large Scale Visiual Recognition Competition (LSVRC) ist ein Wettbewerb der ImageNet Organisation, bei welcher hunderte Data Scientists ihre Modelle im Bereich der Computer Vision vergleichen.} der letzten Jahre bezeichnet~\autocite{Fungg2017ResNet}. Im September 2018 beschreibt \textcite{SHTsuang2018Inception} das InceptionV4 Netzwerk von Google, welches vom GoogLeNet abgeleitet und mit den Ideen aus dem ResNet erweitert wurde. Das Modell erzielt noch bessere Resultate als das ResNet selbst. Im gleichen Artikel wird auch das Inception-ResNet-V2 vorgestellt, welches im Vergleich zum InceptionV4 Netzwerk schneller trainiert werden kann und zugleich etwas bessere Resultate erzielt. 
-
-\todo{Lara meint gehört in Kapitel 3}In einem Blog Post auf dem Google AI Blog präsentieren Forscher aus dem Google Brain Team das NASNet. NASNet ist ein Modell zur Klassifizierung von Bildern, welches durch die Anwendung von Machine Learning designed wurde~\autocite{GoogleNasNet}. Unter dem Codename AutoML publiziert das Google Brain Team einen Ansatz, bei welchem ein neuronales Netzwerk ein anderes erstellt - eine künstliche Intelligenz, welche eine neue künstliche Intelligenz schafft. Mit diesem Ansatz kann das sehr aufwendige Design eines neuronalen Netzwerks vereinfacht beziehungsweise automatisiert werden~\autocite{GoogleAutoML}.
-
-
-\todo{Lara meint gehört in Kapitel 3}Als Teil des gleichen Blog Posts, in welchem das NASNet präsentiert wird, vergleichen die Forscher von Google das Modell mit anderen Netzwerken, wie dem ResNet und dem Inception-ResNet-V2. Der Abbildung \ref{nasnet-comparision} ist zu entnehmen, dass das vom Google Brain Team präsentierte NASNet, in der medium Ausprägung, trotz reduzierter Anzahl an benötigten Operationen, sprich reduzierter Komplexität, eine verbesserte Trefferquote als die bisherigen Netzwerke erzielt. In der large Ausprägung kann das NASNet durch eine erhöhte Komplexität eine noch bessere Trefferquote erzielen~\autocite{GoogleNasNet}.
-
-\begin{figure}[h]
-% \begin{wrapfigure}{r}{0.6\textwidth} 
-    \captionsetup{width=.9\linewidth}
-    \caption{Vergleich des NASNet mit anderen Netzwerken zur Klassifizierung von Bildern}
-    \label{nasnet-comparision}
-    \centering
-    \includegraphics[width=0.55\textwidth]{graphics/nasnet-comparision.jpg}
-    \caption*{Quelle: \textcite{GoogleNasNet}}
-\end{figure}
-%\end{wrapfigure}
-
 % ResNet Arxiv: https://arxiv.org/abs/1512.03385
 % ResNet: https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035
 % DRM Arxiv: https://arxiv.org/abs/1512.03385
@@ -80,7 +62,7 @@ Die Abbildung \ref{image-classification-model} zeigt die Klassifizierungsmodelle
 
 Die genannten Modelle werden mit 80\% der vorhandenen Daten trainiert, die übrigen 20\% werden benötigt, um den Trainingsfortschritt zu prüfen. Mit diesen 20\% Testdaten soll ein allfälliges Overfitting erkannt werden.
 
-Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle während 60 Trainingsepochen (Trainingseinheiten). \ref{image-class-results:a} und \ref{image-class-results:b} zeigen die Trefferquote respektive das Loss während dem Training.  \ref{image-class-results:c} und \ref{image-class-results:d} zeigen die Trefferquote respektive das Loss bei der Anwendung des Modells auf den Testdaten. 
+Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle während 60 Trainingsepochen (Trainingseinheiten). \ref{image-class-results:a} und \ref{image-class-results:b} zeigen die Trefferquote respektive das Loss während dem Training. \ref{image-class-results:c} und \ref{image-class-results:d} zeigen die Trefferquote respektive das Loss bei der Anwendung des Modells auf den Testdaten. 
 
 \begin{figure}[h!] 
   \captionsetup{width=.9\linewidth}

@@ -3,13 +3,12 @@
 %#############################
 % Forschungsstand zur künstlichen Intelligenz
 %#############################
-\cleardoublepage
 \section{Künstliche Intelligenz: Grundlagen und Ansätze in der Praxis}
 \label{chap:ai}
 
 % \todo[inline, color=igloo]{Vorschlag: Hier könntest Du mit dem Begriff KI beginnen und die Problematik ansprechen, dass zwar viele davon sprechen, aber (falls überhaupt) nur wenige wissen, was darunter zu verstehen ist. Vieles, was heute angeboten wird, basiert auf ML-Ansätzen, wie z.B. und dann kannst Du best practices aufweisen.}
 
-Die künstliche Intelligenz ist ein in der Literatur oft diskutiertes Themengebiet. Bereits 2009 geben \textcite{Russell2009} auf über 1000 Seiten einen noch immer aktuellen und sehr umfangreichen Überblick über dieses Themengebiet. Weiter vertiefen die beiden Autoren viele Teilgebiete der künstlichen Intelligenz und erläutern grundlegende Konzepte ausführlich.
+Die künstliche Intelligenz ist ein in der Literatur oft diskutiertes Themengebiet. Bereits 2009 geben \textcite{Russell2009} auf über 1000 Seiten einen noch immer aktuellen und sehr umfangreichen Überblick. Weiter vertiefen die beiden Autoren viele Teilgebiete der künstlichen Intelligenz und erläutern grundlegende Konzepte ausführlich.
 
 % Einen etwas mathematischeren Überblick über das Thema künstliche Intelligenz geben \textcite{Goodfellow2016}. Die Diskussion reicht von den absoluten Grundlagen, der linearen Algebra, bis hin zu Deep Generative Models, eine fortgeschrittene Anwendung der künstlichen Intelligenz~\autocite{Goodfellow2016}.
 
@@ -19,18 +18,20 @@ Dieses Kapitel gibt ein Überblick über das Themengebiet der künstlichen Intel
 
 \subsection{Natural Language Processing}
 
-Natural Language Processing (kurz NLP) beschreibt das Gebiet der Forschung und Anwendung von Computern um natürliche Sprache, in Wort und Schrift, zu verstehen und verarbeiten. NLP umfasst diverse Forschungsfelder wie beispielsweise die maschinelle Übersetzung, die Spracherkennung sowie die Informationsextraktion~\autocite{Chowdhury2003}. 
+Natural Language Processing (kurz NLP) beschreibt das Gebiet der Forschung und Anwendung von Computern um natürliche Sprache, in Wort und Schrift, zu verstehen und verarbeiten. NLP umfasst Forschungsfelder wie beispielsweise die maschinelle Übersetzung, die Spracherkennung sowie die Informationsextraktion~\autocite{Chowdhury2003}. 
 
 Für diese Arbeit ist das Themengebiet des Natural Language Processing insofern relevant, als dass es die Grundlage für die Verarbeitung von Rechnungen bildet. Mit Techniken aus diesem Gebiet werden die Inhalte der Rechnungen vom Computer verstanden und verarbeitet.
 
 \subsection{Neuronale Netzwerke}
 \label{chap:neuron}
 
-Abgesehen von Rechenaufgaben sind Menschen Leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des menschlichen Gehirns zu einem Computer ist der Fakt, dass unser Gehirn lernt, ohne eine Softwareaktualisierung zu erhalten. Wir brauchen nicht erst eine neue Software, um das Fahrradfahren zu erlernen~\autocite{Krogh2008}. Doch wie funktioniert das?
+Abgesehen von Rechenaufgaben sind Menschen leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des menschlichen Gehirns zu einem Computer ist der Fakt, dass unser Gehirn lernt, ohne eine Softwareaktualisierung zu erhalten. Wir brauchen nicht erst eine neue Software, um das Fahrradfahren zu erlernen~\autocite{Krogh2008}. Doch wie funktioniert das?
 
 Die Berechnungen des menschlichen Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale ein- oder ausgeschaltet werden. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Aus diesem Modell entstand das Konzept von neuronalen Netzwerken~\autocite{Krogh2008}.
 
-Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) modelliert, welche Eingabewerte anderer Units oder externer Quellen erhält. Die Threshold Unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Die Summe der Gewichte ist 1 $\sum_{i=1}^{N} w_i = 1$, dadurch liegt die Summe der gewichteten Eingangssignale $\sum_{i=1}^{N} w_i x_i = 1$ zwischen $0$ und $1$. Das Modell zeigt nun zwei verschiedene Arten, wie der Ausgabewert eines Neurons modelliert werden kann. Zum einen kann das Modell je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann ein kontinuierlicher Sigmoid (rote Linie) verwendet werden, um einen kontinuierlichen Ausgabewert zwischen $0$ und $1$ zu ermitteln.
+Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) modelliert, welche Eingabewerte anderer Units oder externer Quellen erhält. Die Threshold Unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Die Summe der Gewichte ist 1 $\sum_{i=1}^{N} w_i = 1$, dadurch liegt die Summe der gewichteten Eingangssignale $\sum_{i=1}^{N} w_i x_i = 1$ zwischen $0$ und $1$. 
+
+Das Modell zeigt nun zwei verschiedene Arten, wie der Ausgabewert eines Neurons modelliert werden kann. Zum einen kann das Modell je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann ein kontinuierlicher Sigmoid (rote Linie) verwendet werden, um einen kontinuierlichen Ausgabewert zwischen $0$ und $1$ zu ermitteln.
 
 %\begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h!]
@@ -43,10 +44,10 @@ Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) mod
 %\end{wrapfigure}
 \end{figure}
 
-Damit ein neuronales Netzwerk leistungsfähig werden kann, muss es ähnlich wie ein Mensch, erst lernen. Für das neuronale Netzwerk bedeutet Lernen, für die Gewichte und den Threshold geeignete Werte zu finden. Dieses computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die Stärke der Synapsen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Übungsaufgabe vom Netzwerk gelöst. Das Resultat des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Aufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert~\autocite{Krogh2008}.
-Dieses Training kann durch verschiedene Algorithmen implementiert werden. Einer davon wird im Kapitel \ref{chap:backpropagation} beschrieben.
+Damit ein neuronales Netzwerk leistungsfähig werden kann, muss es ähnlich wie ein Mensch, erst lernen. Für das neuronale Netzwerk bedeutet Lernen, für die Gewichte und den Threshold geeignete Werte zu finden. Dieses computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die Stärke der Synapsen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Übungsaufgabe vom Netzwerk gelöst. Das Resultat des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Aufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert~\autocite{Krogh2008}.\todo{Schichten erklären?! Fully Connected Layer}
+Dieses Training kann durch verschiedene Algorithmen implementiert werden. Einer solcher Algorithmus wird im Kapitel \ref{chap:backpropagation} beschrieben.
 
-Seit mehreren Jahren liefern neuronale Netzwerke bessere Resultate als klassische Techniken. Dabei werden neuronale Netzwerk vorwiegend für visuelle Aufgaben und immer häufiger auch zur Verarbeitung Natürlicher Sprache verwendet~\autocite{Olah2014b}.
+Seit mehreren Jahren liefern neuronale Netzwerke bessere Resultate als klassische Techniken. Dabei werden neuronale Netzwerk vorwiegend für visuelle Aufgaben und immer häufiger auch zur Verarbeitung natürlicher Sprache verwendet~\autocite{Olah2014b}.
 
 % \todo[inline]{Say a word on overfitting}
 
@@ -55,7 +56,7 @@ Seit mehreren Jahren liefern neuronale Netzwerke bessere Resultate als klassisch
 \subsection{Tiefe neuronale Netzwerke}
 \label{chap:deep-neural-nets}
 
-Neuronale Netzwerke finden oft bei Klassifizierungsproblemen Anwendung. Dabei soll aufgrund bestimmter Eingabewerte eine Klasse bestimmt werden. Ein Beispiel dafür ist die Klassifizierung eines Säugetiers in die Klasse Hund oder Katze aufgrund ihrer Merkmale~\autocite{Krogh2008}.
+Neuronale Netzwerke finden oftmals bei Klassifizierungsproblemen Anwendung. Dabei soll aufgrund bestimmter Eingabewerte eine Klasse bestimmt werden. Ein Beispiel dafür ist die Klassifizierung eines Säugetiers in die Klasse Hund oder Katze aufgrund ihrer Merkmale~\autocite{Krogh2008}.
 
 Einfache Netzwerke von Threshold Units können Klassifizierungsprobleme dann Lösen, wenn die Klassen linear separierbar sind. Die Abbildung \ref{krogh:b} veranschaulicht die lineare Separierung mit Hilfe einer Ebene in einem dreidimensionalen Raum. Die Ebene separiert die grünen und roten Punkte voneinander~\autocite{Krogh2008}.
 
@@ -72,7 +73,7 @@ Einfache Netzwerke von Threshold Units können Klassifizierungsprobleme dann Lö
 
 Der Abbildung \ref{krogh:b} ist zu entnehmen, dass die Problemstellung im abgebildeten Fall, wie die meisten Klassifizierungsprobleme, nicht linear separierbar ist. Die roten und grünen Kreuze markieren dabei Punkte, welche auf der falschen Seite der Ebene liegen. Eine Klassifizierung durch ein einfaches Netzwerk von Threshold Units würde die Klasse dieser Datensätze falsch vorhersagen~\autocite{Krogh2008}.
 
-Um das Modell zur Klassifizierung zu verbessern, können weitere Ebenen in den dreidimensionalen Raum eingesetzt werden. Durch eine weitere Ebene ist es dem Modell möglich, mehr Datensätze richtig zu klassifizieren. Neue Ebenen werden mit neuen Schichten von Threshold Units modelliert (vgl. Abbildung \ref{krogh:c}). Diese neuen Schichten, welche zwischen die Eingabe und Ausgabe Schichten platziert werden, werden versteckte Schichten (Hidden Layers) genannt. Ein Modell mit mindestens einer solcher versteckter Schicht wird als tiefes neuronales Netzwerk (Deep Neural Network) bezeichnet~\autocite{Krogh2008}.
+Um das Modell zur Klassifizierung zu verbessern, können zusätzliche Ebenen in den dreidimensionalen Raum eingesetzt werden. Durch eine weitere Ebene ist es dem Modell möglich, mehr Datensätze korrekt zu klassifizieren. Neue Ebenen werden mit neuen Schichten von Threshold Units modelliert (vgl. Abbildung \ref{krogh:c}). Diese neuen Schichten, welche sich zwischen den Eingabe und Ausgabe Schichten befinden, werden versteckte Schichten (Hidden Layers) genannt. Ein Modell mit mindestens einer solcher versteckter Schicht wird als tiefes neuronales Netzwerk (Deep Neural Network) bezeichnet~\autocite{Krogh2008}.
 
 % \begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h!]
@@ -98,7 +99,7 @@ Mit immer mehr verfügbarer Rechenkapazität und immer mehr Daten steigt die Pop
 %\end{wrapfigure}
 \end{figure}
 
-Ein tiefes neuronales Netzwerk stellt aber neue Anforderungen an das Training. Ein Netzwerk mit versteckten Schichten kann nicht mehr auf eine analytische Weise trainiert werden. Aus diesem Grund wird ein komplexerer Lernalgorithmus benötigt. Ein solcher Algorithmus wird im nächsten Kapitel erläutert~\autocite{Krogh2008}. 
+Ein tiefes neuronales Netzwerk stellt neue Anforderungen an das Training. Ein Netzwerk mit versteckten Schichten kann nicht mehr auf eine analytische Weise trainiert werden. Aus diesem Grund wird ein komplexerer Lernalgorithmus benötigt. Ein solcher Algorithmus wird im Kapitel \ref{chap:backpropagation} erläutert~\autocite{Krogh2008}. 
 
 Auch ist ein tiefes neuronales Netzwerk anfälliger auswendig zu lernen und birgt somit die Gefahr schlecht zu generalisieren. Dieses sogenannte Overfittig wird im Kapitel \ref{chap:overfitting} erläutert.
 
@@ -137,9 +138,63 @@ Die Problematik des Overfitting ist aus der Mathematik bekannt. Hat eine Funktio
 
 Während die Problematik des Overfitting aus anderen Bereichen bereits bekannt ist, scheinen neuronale Netzwerke besonders anfällig für eine solche Überparametrierung. Würden wir ein Modell entwickeln, welches anhand 20 Merkmalen (20 Eingabewerte) mit Hilfe einer verstecken Schicht von 10 Neuronen erkennen soll, ob es sich um einen Hund oder eine Katze handelt, so würden 221 Parameter geschaffen. Jeder der 20 Eingabewerte wird durch ein Gewicht mit den 10 Neuronen aus der versteckten Schicht verbunden ($10 * 20 = 200$ Parameter). Jedes dieser Neuronen hat einen Threshold (10 Parameter) und ist mit dem Ausgabeneuron verknüpft (10 Parameter). Das Ausgabeneuron selbst hat auch wieder einen Threshold (1 Parameter). Wird dieses Modell mit 221 Parametern nun mit Hilfe von nur 100 Trainingsdatensätzen trainiert, so kann es diese problemlos auswendig lernen. Das Modell kann auf neuen Datensätzen nicht oder nur schlecht generalisieren und wird somit eine hohe Varianz aufweisen~\autocite{Krogh2008}.
 
-Um ein solches Overfitting zu verhindert stehen diverse Techniken zur Verfügung. Eine beliebte Regularisierungstechnik ist es, eine sogenannte Dropout Schicht in das Netzwerk einzubringen. Diese Dropout Schicht deaktiviert während dem Training zufällige Neuronen. Dies hat zur Folge, dass während dem Training Teile des Netzwerks trainiert werden\footnote{Die genaue Funktionsweise einer Dropout Schicht ist für diese Arbeit nicht relevant, kann aber bei Bedarf in \textcite{Goodfellow2016} nachgelesen werden.}~\autocite{Goodfellow2016}.  
+Um ein solches Overfitting zu verhindert stehen diverse Techniken zur Verfügung. Eine beliebte Regularisierungstechnik ist es, eine sogenannte Dropout Schicht in das Netzwerk einzubringen. Diese Dropout Schicht deaktiviert während dem Training zufällige Neuronen. Dies hat zur Folge, dass während dem Training Teile des Netzwerks trainiert werden\footnote{Die genaue Funktionsweise einer Dropout Schicht ist für diese Arbeit nicht relevant, kann aber bei Bedarf in \textcite{Goodfellow2016} nachgelesen werden.}~\autocite{Goodfellow2016}.
 
 Um Over- respektive Underfitting zu erkennen, ist es also wichtig, ein neuronales Netzwerk an Daten zu testen, welche nicht zum Training verwendet wurden~\autocite{Krogh2008}.
+
+\subsection{Convolutional Neural Network}
+\label{chap:cnn}
+
+Convolutional Neural Network (kurz CNN) funktionieren ähnlich wie normale neuronale Netzwerke. Sie bestehend ebenfalls aus Neuronen mit trainierbaren Gewichten und Bias. Convolutional Neural Networks machen eine Annahme zu ihren Eingabewerten. Sie sind speziell für Bilder ausgelegt. Durch diese Annahme können gewisse Verhalten direkt in die Architektur einprogrammiert werden. Dadurch kann die Anzahl Neuronen gegenüber normalen neuronalen Netzwerken reduziert und die Performance erhöht werden~\autocite{CNN}.
+
+Die Eingabe in ein Convolutional Neural Network ist ein dreidimensionaler Vektor im Format Format $\textnormal{Breite} x \textnormal{Höhe} x 3$. Dieser Vektor hält die rohen Pixeldaten des Bildes. Ein Bild in einer Auflösung von 32x32 Pixeln wird durch einen Vektor der Grösse $32x32x3$ repräsentiert. Die dritte Dimension, auch Tiefe genannt, hält die Farbinformationen eines Pixels im RGB Format~\autocite{CNN}.
+
+Convolutional Neural Networks bestehen hauptsächlich aus den folgenden drei verschiedenen Typen von Schichten~\autocite{CNN}:
+
+\begin{itemize}
+    \item \textbf{Convolutional Layer}: Berechnen Ausgabewerte aufgrund von Verbindungen zu Ausschnitten aus der vorhergehenden Schicht, sprich Ausschnitten aus dem Bild, welches als Eingabewert verwendet wird~\autocite{CNN}.
+    \item \textbf{Pooling Layer}: Reduziert den mehrdimensionalen Vektor aus der vorhergehenden Schicht entlang der räumlichen Dimensionen (Breite und Höhe)~\autocite{CNN}.
+    \item \textbf{Fully Connected Layer}: Ein Fully Connected Layer aus Threshold Units, wie er aus dem normalen neuronalen Netzwerk bekannt ist~\autocite{CNN}.
+\end{itemize}
+
+\textbf{Convolution Layer}
+
+\nopagebreak
+
+Ein Convolution Layer besteht aus mehreren, trainierbaren Filtern. Diese Filter beziehen sich auf einen räumlich (Breite und Höhe) kleinen Teil der vorherigen Schicht. Die Filter haben die gleiche Tiefe (Grösse der dritten Dimension) wie die vorherige Schicht. Ein Filter einer ersten Schicht eines Convolutional Neural Network könnte beispielsweise die Grösse 5x5x3 aufweisen. In diesem Fall ist der Filter mit einem 5x5 Pixel grossen Ausschnitt des Eingabe-Bildes verknüpft. Dieser Filter wandert horizontal und vertikal über den Eingabe-Vektor. Dabei wird jeweils das Skalarprodukt der Werte des Filters und der Werte des Eingabe-Vektors berechnet. Es resultiert ein zwei-dimensionaler Aktivierungs-Vektor. Während dem Training erlernt das Netzwerk so Filter, welche durch bestimmte visuelle Merkmale (Kanten, Ecken, Häufungen von Farben) aktiviert werden. Jeder Convolution Layer hat mehrere solche Filter, damit das Netzwerk auf mehrere visuelle Merkmale reagieren kann. Pro Filter entsteht ein zwei-dimensionaler Aktivierungs-Vektor, welche gestapelt werden und dadurch den drei-dimensionalen Ausgabe-Vektor ergeben. Die Abbildung \ref{fig:conv:vis} veranschaulicht dieses Konzept. Auf der linken Seite ist der Eingabe-Vektor in blau dargestellt. Auf diesem Vektor wird der in rot dargestellte Filter angewendet. Dieser Filter deckt einen kleinen räumlichen Teil aber die gesamte Tiefe des Bildes ab. Die Aktivierung des Filters wird im grünen Ausgabe-Vektor abgelegt~\autocite{CNN}.
+
+%\begin{figure}[h!]
+%    \captionsetup{width=.9\linewidth}
+%    \caption{Eingabe-Vektor, Filter und Ausgabe-Vektor eines Convolution Layer}
+%    \label{fig:cnn:conv}
+%    \centering
+%    \includegraphics[width=0.4\textwidth]{graphics/cnn-conv.jpg}\\
+%    \caption*{Quelle: \textcite{CNN}}
+%\end{figure}
+
+\begin{figure}[h!]
+    \captionsetup{width=.9\linewidth}
+    \caption{Visualisierung eins Convolution Layer}
+    \label{fig:conv:vis}
+    \centering
+    \includegraphics[scale=0.5]{graphics/cnn-visual.pdf}\\
+    \caption*{Quelle: In Anlehnung an \textcite{CNN}}
+    \vspace*{0.5cm}
+\end{figure}
+
+Die Anzahl der Filter und die Art wie sich ein Filter über die räumlichen Dimensionen des Eingabe-Vektors bewegt, kann durch Hyperparameter\todo{Explain Hyperparam once in this thesis} konfiguriert werden. Mit der Anzahl an Filtern kann konfiguriert werden, wie viele verschiedene visuelle Merkmale der Convolution Layer erkennen kann. Die Anzahl an Filtern bestimmt die Tiefe des Ausgabe-Vektors. Die Abbildung \ref{fig:conv:vis} zeigt einen Convolution Layer mit zehn Filtern. Die dritte Dimension des Ausgabe-Vektor hat dadurch die Grösse zehn~\autocite{CNN}.
+
+Die Art wie sich ein Filter über die räumlichen Dimensionen bewegt, kann durch das sogenannte Zero-Padding und den Stride konfiguriert werden. Das Zero-Padding sagt aus, wie viele zusätzliche Neuronen um den Eingabe-Vektor herum gelegt werden sollen. Das Zero-Padding ermöglicht, dass die Filter auch visuelle Merkmale an den Rändern des Eingabe-Vektors erkennen können. Der Stride bestimmt die Anzahl Neuronen, um welche der Filter nach jeder Anwendung verschoben wird. Die Abbildung \ref{fig:conv:vis} zeigt ein Beispiel eines Convolution Layer mit einem Zero-Padding von eins und einem Stride von zwei. Durch diese Hyperparameter und die Grösse der ersten beiden Dimensionen des Eingabe-Vektors wird die Grösse der ersten beiden Dimensionen des Ausgabe-Vektors bestimmt. Bei der Wahl des Zero-Padding und des Strides muss darauf geachtet werden, dass die Filter genau auf den Eingabe-Vektor passen. Würde im Beispiel, welches in Abbildung \ref{fig:conv:vis} ersichtlich ist, ein Stride von drei anstatt zwei gewählt werden, so könnte der Filter nur 1.33 mal auf verschoben werden~\autocite{CNN}.
+
+Wird in einer solchen Schicht jeder Filter auf jeder Position einzeln trainiert, so entstehen enorm viele trainierbare Parameter. Dies zeigt ein Beispiel eines Bildes der Grösse 227x227 Pixel und 96 Filter der Grösse 11x11 bei einem Stride von vier und Zero-Padding von null. Jeder Filter kann auf $1+(227-11)/4 = 55$ horizontal und 55 vertikal unterschiedlichen Positionen auf dem Bild angewendet werden. In diesem Fall entsteht ein Ausgabe-Vektor der Grösse 55x55x96. Die $55*55*96 = 290'400$ Neuronen dieses Ausgabe-Vektors werden nun jeweils durch $11*11*3 = 363$ Gewichte und einen Bias berechnet. Dadurch entstehen $290'400*364 = 105'705'600$ trainierbare Parameter. Dieses Beispiel zeigt, dass dadurch bereits bei kleinen Bildern trotz hohem Stride eine grosse Anzahl an trainierbaren Parametern entsteht~\autocite{CNN}.
+
+Durch sogenanntes Parameter Sharing kann die Anzahl der trainierbaren Parameter stark reduziert werden. Das Parameter Sharing basiert auf der Annahme, dass wenn ein Filter an einer räumlichen Position (x,y) angewendet werden kann, um ein visuelles Merkmal zu erkennen, dies auch für eine andere Position (x2,y2) gilt. Durch diese Annahme können die Gewichte im oben genannten Beispiel auf eines anstelle $55*55 = 3'025$ pro Filter reduziert werden. Durch diese Annahme eignen sich Convolution Neural Networks besonders gut für Problemstellungen mit Bildern~\autocite{CNN}. 
+
+\textbf{Pooling Layer}
+
+Nach einem oder teilweise mehreren Convolution Layern ist es üblich, einen Pooling Layer anzubringen. Dieser Pooling Layer reduziert die räumliche Dimension des Eingabe-Vektors. Eine der häufigsten Anwendungen ist ein Max Pooling Layer der Grösse 2x2 mit einem Stride von zwei. Dieser Max Pooling Layer reduziert jeden betrachteten 2x2 Ausschnitt aus dem Eingabe-Vektor auf das grösste Neuron. Dadurch halbiert er den Eingabe-Vektor horizontal sowie vertikal und reduziert somit die Anzahl Neuronen um 75\%. Anstelle von Max Pooling Layern kommen auch andere Verfahren wie der Average Pooling Layer zur Anwendung. Der Max Pooling Layer liefert meist bessere Resultate als ein Average Pooling Layer~\autocite{CNN}.
+
+Pooling Layer kommen zur Anwendung, damit die Anzahl der trainierbaren Parametern und somit der Rechenaufwand tief gehalten werden kann. Pooling Layer helfen auch Overfitting zu vermeiden~\autocite{CNN}.
 
 \subsection{Long-Short-Term-Memory Netzwerke}
 
@@ -178,7 +233,7 @@ LSTM Netzwerke sind für diese Arbeit besonders zur Texterkennung und Rechtschre
 
 Ein wichtiger Bestandteil des Prototypen zur Indexierung von Rechnungen ist die Erkennung von Texten, in Druckbuchstaben oder Handschrift, auf Rechnungen. Die erkannten Texte bilden die Grundlage für jegliche digitale Verarbeitung der Rechnungen.
 
-Die herkömmliche Feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Fotografien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Convolutional Neural Network}\footnote{Ein Convolutional Neural Network ist eine Spezialform eines neuronalen Netzwerks bei welchen, etwas vereinfacht ausgedrückt, viele Kopien des gleichen Neurons zum Einsatz kommen\autocite{Olah2014}.} (CNN),  Long-Short-Term-Memory (LSTM) Netzwerke, Connectionist Temporal Classification\footnote{Connectionist Temporal Classification ist ein Konzept aus dem Training von neuronalen Netzwerken, welches vor allem in der Handschrifterkennung Verwendung findet. Dabei wird eine spezielle Trainingsfunktion verwendet, durch welche die Positionierung von Buchstaben generalisiert und somit der Lernprozess des neuronalen Netzwerks vereinfacht werden kann~\autocite{Scheidl2018}.} (CTC) und weitere~\autocite{Neuberg2017}.
+Die herkömmliche Feature-detection in Texterkennungssoftware wird immer mehr mit künstlicher Intelligenz ersetzt. \textcite{Neuberg2017} beschreibt wie Dropbox künstliche Intelligenz anwendet, um Texte aus Fotografien von Dokumenten durchsuchbar zu machen. Zur Anwendung kommen dabei verschiedene Techniken aus dem Bereich der künstlichen Intelligenz: \textit{Convolutional Neural Network}\footnote{Ein Convolutional Neural Network ist eine Spezialform eines neuronalen Netzwerks bei welchen, etwas vereinfacht ausgedrückt, viele Kopien des gleichen Neurons zum Einsatz kommen\autocite{Olah2014}.} (CNN), Long-Short-Term-Memory (LSTM) Netzwerke, Connectionist Temporal Classification\footnote{Connectionist Temporal Classification ist ein Konzept aus dem Training von neuronalen Netzwerken, welches vor allem in der Handschrifterkennung Verwendung findet. Dabei wird eine spezielle Trainingsfunktion verwendet, durch welche die Positionierung von Buchstaben generalisiert und somit der Lernprozess des neuronalen Netzwerks vereinfacht werden kann~\autocite{Scheidl2018}.} (CTC) und weitere~\autocite{Neuberg2017}.
 
 Auch die Texterkennungssoftware Tesseract, welche ursprünglich als Forschungsprojekt im HP Lab entwickelt wurde und seit 2005 als Open Source Software zur freien Verfügung steht, verwendet seit Version 4 künstliche Intelligenz~\autocite{Smith2007}. So wurde die Feature-detecion durch ein LSTM Netzwerk mit mehr als 100 Schichten ersetzt. Die Texterkennung konnte so nicht nur qualitativ stark verbessert werden, sondern ist auch schneller als zuvor. Doch auch nach den Verbesserungen sind die Ergebnisse nicht perfekt und müssen fallspezifisch optimiert werden~\autocite{O.V.2018, O.V.2018a}.
 
@@ -201,7 +256,7 @@ Technisch gesehen ist ein Word embedding eine parametrierte Funktion, welche Wö
 
 Um sich Word embeddings besser vorstellen zu können, zieht \textcite{Olah2014b} zwei verschiedene Möglichkeiten der Visualisierung heran.
 
-Die erste Visualisierung bedient sich dem t-SNE\footnote{t-Distributed Stochastic Neighbor Embedding (kurz t-SNE) ist eine Technik zur Reduktion von Dimensionen, welche besonders gut für Visualisierungen von hoch-dimensionalen Daten geeignet ist~\autocite{tSNE}} Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In einem solchen Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014b}.
+Die erste Visualisierung bedient sich dem t-SNE\footnote{t-Distributed Stochastic Neighbor Embedding (kurz t-SNE) ist eine Technik zur Reduktion von Dimensionen, welche besonders gut für Visualisierungen von hoch-dimensionalen Daten geeignet ist~\autocite{tSNE}.} Algorithmus um die hoch-dimensionalen Vektoren in einem zweidimensionalen Diagramm darzustellen. In einem solchen Diagramm ist klar zu erkennen, dass ähnliche Wörter nahe zusammen sind (vgl. Abbildung \ref{wordembeddingtsne})~\autocite{Olah2014b}.
 \begin{figure}[h!]
     \centering
     \captionsetup{width=.9\linewidth}
@@ -300,6 +355,52 @@ Die grösste Herausforderung beim PoS-Tagging sind Wörter welche verschiedenen 
 % Die Verwendung von PoS-Tagging kann bei Rechnungen mit einem Prosatext von Vorteil sein. Wie viele relevante Informationen in Prosatexten von Rechnungen verborgen sind, muss sich aber erst noch zeigen.
 
 % Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Implementierung eines Prototypen zur Rechnungsindexierung zu beginnen.
+
+\subsection{Klassifizierung von Bildern}
+\label{chap:object-detection}
+
+Die Klassifizierung von Bildern ist eine viel behandelte Problemstellung im Bereich der Computer Vision. Dabei geht es darum, ein Bilder einer bestimmten Klasse zuzuweisen. Ist auf dem Bild beispielsweise ein Hund zu sehen, so ist es der Klasse Hund zuzuweisen~\autocite{Goodfellow2016}.
+
+2012 gewann das AlexNet, eines der ersten Convolutional Neural Network basierten Modelle zur Klassifizierung von Bildern, mit einem grossen Abstand die ImageNet Large-Scale Visual Recognition Challenge\footnote{Die ImageNet Large Scale Visiual Recognition Competition (kurz ILSVRC) ist ein Wettbewerb der ImageNet Organisation, bei welcher hunderte Data Scientists ihre Modelle im Bereich der Computer Vision vergleichen.} (kurz ILSVRC). Seither sind tiefe neuronale Netzwerke die verbreitetste Methode zur Klassifizierung von Bildern. Diese tiefen neuronalen Netzwerke erreichen heute bessere Resultate als Menschen~\autocite{SSD}.
+
+Auf dem Machine Learning Blog Towards Data Science beschreiben und vergleichen diverse Autoren verschiedenste Modelle im Bereich der Computer Vision. Der Blog bietet einen guten Überblick über die aktuellen Methoden zur Klassifizierung von Bildern. So werden im Juli 2017 die Residual Networks (kurz ResNet), entwickelt von \textcite{He2015}, als die bahnbrechendste Eingabe beim ImageNet LSVRC Wettbewerb der letzten Jahre bezeichnet~\autocite{Fungg2017ResNet}. Im September 2018 beschreibt \textcite{SHTsuang2018Inception} das InceptionV4 Netzwerk von Google, welches vom GoogLeNet abgeleitet und mit den Ideen aus dem ResNet erweitert wurde. Das Modell erzielt noch bessere Resultate als das ResNet selbst. Im gleichen Artikel wird auch das Inception-ResNet-V2 vorgestellt, welches im Vergleich zum InceptionV4 Netzwerk schneller trainiert werden kann und zugleich etwas bessere Resultate erzielt. 
+
+In einem Blog Post auf dem Google AI Blog präsentieren Forscher aus dem Google Brain Team das NASNet. NASNet ist ein Modell zur Klassifizierung von Bildern, welches durch die Anwendung von Machine Learning designed wurde~\autocite{GoogleNasNet}. Unter dem Codename AutoML publiziert das Google Brain Team einen Ansatz, bei welchem ein neuronales Netzwerk ein anderes erstellt - eine künstliche Intelligenz, welche eine neue künstliche Intelligenz schafft. Mit diesem Ansatz kann das sehr aufwendige Design eines neuronalen Netzwerks vereinfacht beziehungsweise automatisiert werden~\autocite{GoogleAutoML}.
+
+Als Teil des gleichen Blog Posts, in welchem das NASNet präsentiert wird, vergleichen die Forscher von Google das Modell mit anderen Netzwerken, wie dem ResNet und dem Inception-ResNet-V2. Der Abbildung \ref{nasnet-comparision} ist zu entnehmen, dass das vom Google Brain Team präsentierte NASNet, in der medium Ausprägung, trotz reduzierter Anzahl an benötigten Operationen, sprich reduzierter Komplexität, eine verbesserte Trefferquote als die bisherigen Netzwerke erzielt. In der large Ausprägung kann das NASNet durch eine erhöhte Komplexität eine noch bessere Trefferquote erzielen~\autocite{GoogleNasNet}.
+
+\begin{figure}[h]
+% \begin{wrapfigure}{r}{0.6\textwidth} 
+    \captionsetup{width=.9\linewidth}
+    \caption{Vergleich des NASNet mit anderen Netzwerken zur Klassifizierung von Bildern}
+    \label{nasnet-comparision}
+    \centering
+    \includegraphics[width=0.55\textwidth]{graphics/nasnet-comparision.jpg}
+    \caption*{Quelle: \textcite{GoogleNasNet}}
+\end{figure}
+%\end{wrapfigure}
+
+\subsection{Objekterkennung in Bildern}
+\label{chap:object-detection}
+
+Die Objekterkennung ist neben der Klassifizierung ebenfalls eine viel behandelte Problemstellung. Dabei geht es darum, ein Bild nicht nur einer Klasse zuzuweisen, sondern zu erkennen, wo Objekte auf dem Bild sind. Die einzelnen Objekte werden dann einer Klasse zugewiesen. So könnte ein Bild beispielsweise mehrere Hunde und Katzen enthalten. Das Modell hat die Aufgabe, alle Hunde und Katzen zu umrahmen und zu erkennen, ob es sich um einen Hund oder eine Katze handelt~\autocite{Goodfellow2016}.
+
+Das R-CNN Modell ist eines der ersten Modelle, welche die Convolutional Neural Network Architektur nutzt, um nicht nur Bilder zu klassifizieren, sondern auch die Position von Objekten zu erkennen. Die Ausgabe des R-CNN Modells sind mehrere Rechtecke als Umrandungen von Objekten und eine zugehörige Klasse (vgl. Abbildung \ref{fig:rcnn})~\autocite{SSD}.
+
+\begin{figure}[h]
+% \begin{wrapfigure}{r}{0.6\textwidth} 
+    \captionsetup{width=.9\linewidth}
+    \caption{Resultate aus einem Modell zur Objekterkennung in Bildern}
+    \label{fig:rcnn}
+    \centering
+    \includegraphics[scale=0.5]{graphics/rcnn.png}
+    \caption*{Quelle: \textcite{SSD}}
+\end{figure}
+%\end{wrapfigure}
+
+Die Fast R-CNN und Faster R-CNN Modelle bieten Verbesserung in Hinblick auf die Geschwindigkeit und die Genauigkeit. Das Faster R-CNN Modell ist bis heute eines der exaktesten Modelle zur Objekterkennung in Bildern~\autocite{SSD}.
+
+Trotz der verbesserten Geschwindigkeit des Faster R-CNN Modells ist mit den auf dem R-CNN Modell basierenden Modellen keine Objekterkennung in Echtzeit möglich. Die Modelle sind hierfür nicht performant genug. Das Single-Shot Multibox Detector (kurz SSD) und das You Only Look Once Modell bieten mit anderen Architekturen eine bessere Performance. Single-Shot bedeutet, dass die Modelle mehrere Objekte in nur einem Feed-Forward Durchgang erkennen können. Durch diese Änderung in der Architektur und dadurch verbesserte Geschwindigkeit, wird an Genauigkeit eingebüsst~\autocite{SSD}.
 
 \subsection{Transfer Learning}
 \label{chap:transfer-learning}
@@ -419,7 +520,7 @@ Bei der Objekterkennung in Bildern ist dies aber nicht immer eindeutig zu sagen.
     \caption{Beispiel einer tatsächlichen und vorhergesagten Position eines Objekts}
     \label{fig:iou-issue}
     \centering
-    \includegraphics[width=0.6\textwidth]{graphics/iou/iou_issue.png}\\
+    \includegraphics[width=0.6\textwidth]{graphics/iou/iou_issue.jpg}\\
     \includegraphics[scale=1]{graphics/matplot/iou_issue_legend.pdf}
     \caption*{Quelle: \textcite{IoU}}
 \end{figure}
@@ -588,38 +689,20 @@ Im dritten Schritt muss eine \textbf{Zielmetrik} bestimmt werden. Das Kapitel \r
 
 Nachdem das Ziel bekannt ist, müssen die \textbf{Eingabedaten aufbereitet} werden. Dabei muss ein Weg gefunden werden, mit potentiell fehlenden oder unvollständigen Daten umzugehen. Alle Daten müssen in eine Form gebracht werden, welche das Modell verstehen kann. So müssen beispielsweise ordinale und nominale Daten in Ganzzahlen umgewandelt respektive codiert werden. Da die meisten Modelle mit gleich skalierten Daten am besten umgehen können, werden die Daten auf die Skala $[0:1]$ gebracht~\autocite{DesignML}.
 
-Lassen die Problemstellung und die Eingabedaten es zu, so ist es Ratsam nun eine \textbf{einfache Vorhersage}, beispielsweise basierenden auf k-Nearest-Neighbour\footnote{k-Nearest-Neighbour ist ein Algorithmus zur Klassifizierung eines Datensatzes aufgrund seiner k-nächsten Nachbarn, sprich k-ähnlichsten Datensätzen.} oder Naive Bayes\footnote{Naive Bayes ist ein Algorithmus zur Klassifizierung, welcher Datensätze aufgrund einer Kostenfunktion klassifiziert. Ein Datensatz wird jener Klasse zugewiesen, bei welcher die wenigsten Kosten entstehen.}, zu erstellen. Eine solche Vorhersage ermöglicht die Eingabedaten auf ihre Eignung zur Vorhersage des gesuchten Resultats zu prüfen. Weiter gibt diese Vorhersage eine Baseline, an welcher sich während der Erarbeitung des Machine Learning Modells gehalten werden kann.~\autocite{DesignMLSecondaryCite}
+Lassen die Problemstellung und die Eingabedaten es zu, so ist es Ratsam nun eine \textbf{einfache Vorhersage}, beispielsweise basierenden auf k-Nearest-Neighbor\footnote{k-Nearest-Neighbor ist ein Algorithmus zur Klassifizierung eines Datensatzes aufgrund seiner k-nächsten Nachbarn, sprich k-ähnlichsten Datensätzen.} oder Naive Bayes\footnote{Naive Bayes ist ein Algorithmus zur Klassifizierung, welcher Datensätze aufgrund einer Kostenfunktion klassifiziert. Ein Datensatz wird jener Klasse zugewiesen, bei welcher die kleinsten Kosten entstehen.}, zu erstellen. Eine solche Vorhersage ermöglicht die Eingabedaten auf ihre Eignung zur Vorhersage des gesuchten Resultats zu prüfen. Weiter gibt diese Vorhersage eine Baseline, an welcher sich während der Erarbeitung des Machine Learning Modells gehalten werden kann.~\autocite{DesignMLSecondaryCite}
 
-Nachdem alle Rahmenbedingungen geschaffen sind, geht es nun an die \textbf{Entwicklung des Modells}. Dabei ist Cross Validation, der Vergleich von bestehenden Modellen, und das anschliessende Optimieren des besten Kandidaten, ein oft angewendetes Vorgehen. Beim Cross Validation werden verschiedene Modelle auf den Eingabedaten angewendet und anhand der Zielmetrik bewertet. Das Modell mit dem besten Resultat wird anschliessend optimiert. Diese Optimierung ist die Anpassung der sogenannten Hyperparametern. Die Hyperparameter bezeichnen jene Parameter eines Machine Learning Modells, welche nicht während dem Training gelernt, sondern von aussen in das Modell hereingegeben werden. Die Hyperparameter können als Konfiguration eines Modells verstanden werden~\autocite{DesignML}.
+Nachdem alle Rahmenbedingungen geschaffen sind, geht es nun an die \textbf{Entwicklung des Modells}. Dabei ist die Cross Validation, der Vergleich von bestehenden Modellen, und das anschliessende Optimieren des besten Kandidaten, ein oft angewendetes Vorgehen. Bei der Cross Validation werden verschiedene Modelle auf den Eingabedaten angewendet und anhand der Zielmetrik bewertet. Das Modell mit dem besten Resultat wird anschliessend optimiert. Diese Optimierung ist die Anpassung der sogenannten Hyperparametern. Die Hyperparameter bezeichnen jene Parameter eines Machine Learning Modells, welche nicht während dem Training gelernt, sondern von aussen in das Modell hereingegeben werden. Die Hyperparameter können als Konfiguration eines Modells verstanden werden~\autocite{DesignML}.
 
-\todo[inline, color=red]{Rest dieses Kapitels zu Neural Network Design schreiben. Gute Quellen suchen
+% http://neuralnetworksanddeeplearning.com/chap1.html
+Um eine Problemstellung mit einem neuronalen Netzwerk zu lösen, muss erst ein solches entworfen werden. Für das Design eines neuronalen Netzwerks gibt es keine klaren Regeln, viel mehr ist es eine Kunst. Der Input sowie der Output Layer sind oftmals durch die Problemstellung gegeben. Die Eigenschaften der zu analysierenden Problemstellung, sogenannte Features, definieren die Form des Input Layers. Bei gewissen Problemstellungen ist die Repräsentation dieser Eigenschaften klar. Zahlen werden auf eine einheitliche Skala skaliert und jede Zahl wird durch ein Neuron im Input Layer repräsentiert. Andere Arten von Eigenschaften, beispielsweise Wörter oder Sätze, können auf verschiedene Arten abgebildet werden. Im Fall von Wörtern und Sätzen gibt das gewählte Word embedding die Form des Input Layer vor. Der Output Layer ist durch die gesuchte Lösung gegeben. Im Fall eines Klassifizierungsproblemes wird meist eine One-Hot encoded Vektor als Output Layer verwendet. Dabei werden so viele Neuronen wie Anzahl möglicher Klassen angelegt. Das Neuron, welches die grösste Aktivierung vorweist, bestimmt die vorhergesagte Klasse~\autocite{NNDesign}.
 
-- ftp://ftp.sas.com/pub/neural/FAQ3.html\#A\_hl
+Die Wahl der Anzahl, Art und Grösse der Hidden Layer ist die wahre Kunst beim Design eines neuronalen Netzwerks. Diese Entscheidungen ist meist eine Abwägung zwischen Trainingsaufwand und Genauigkeit des Modells. Für einfache Problemstellungen können viele versteckte Schichten schnell zum Overfitting führen. Bei komplexeren Problemstellungen sind dafür viele versteckte Schichten notwendig. Ein Modell mit nur einem einzigen Fully Connected Hidden Layer\footnote{Ein Fully Connected Layer beschreibt einen Layer, bei welchen jedes Neuron Eingaben von jedem Neuron aus der vorherigen Schicht erhält. Ein solcher Fully Connected Layer besteht somit aus mehreren Threshold Units, welche mit der vorherigen Schicht verbunden sind.} ist in der Lage eine handschriftliche Zahl zu erkennen. Ein Modell für eine komplette OCR Lösung, welche Wörter, Sätze und ganze Paragraphen erkennt, ist ein tieferes Modell mit komplexeren Arten von Schichten, wie LSTM Schichten, notwendig~\autocite{NNDesign}.
 
-Um eine Problemstellung mit einem neuronalen Netzwerk zu lösen, muss erst ein solches entworfen werden. Auch hier ist der Cross Validation Ansatz wohl der geeignetste, um möglichst schnell gute Resultate zu erzielen. Für viele Problemstellungen können Analogien gefunden werden, zu welchen bereits Modelle bestehen. Es gibt diverse Wettbewerbe, bei welchen Modelle, beispielsweise zur Objekterkennung auf Bildern, verglichen werden. Auch gibt es unzählige frei verfügbare Forschungsarbeiten und Open Source Modelle, welche Lösung zu einer breiten Variation von Problemstellungen präsentieren.
+\subsection{End-to-end Entwicklung von künstlicher Intelligenz}
+\label{chap:DAWN}
 
-Wird ein Modell selbst entworfen oder angepasst, so stellt sich oft die Frage, wie viele Hidden Layer ein solches Modell haben sollte und wie viele Neuronen diese beinhalten sollen. Für diese Frage gibt es keine klare Antwort. 
+Dank des grossen Fortschritts im Bereich der künstlichen Intelligenz, können mit einfachen Mitteln bereits Modelle erstellt und trainiert werden. Trotz dieses grossen Fortschrittes ist die end-to-end Entwicklung und der Betrieb eines solchen Modells noch immer sehr aufwendig. Aus diesem Grund haben \textcite{DAWN} das 5 Jahre dauernde DAWN Forschungsprojekt an der Stanford Universität ins Leben gerufen. DAWN steht für Data Analytics for What's Next. Das Forschungsprojekt hat nicht zum Ziel, die Algorithmen im Bereich der künstlichen Intelligenz zu verbessern, sondern diese einfacher nutzbar zu machen. Damit in Zukunft keine grossen, kostenintensiven Teams von Statistikerinnen und Statistikern und Ingenieurinnen und Ingenieuren mehr benötigt werden, um Erfolgreich eine künstliche Intelligenz zu Entwickeln und Betreiben, sind starke Verbesserungen im Bereich der Nutzbarkeit der Techniken rund um die künstliche Intelligenz notwendig~\autocite{DAWN}.
 
+Der Versuch, kleine Teams von Domänen Expertinnen und Experten zu befähigen, künstliche Intelligenz zu Entwickeln und zu Betreiben, vergleicht die Forschungsgruppe mit den Entwicklungen im Bereich der Suchmaschinen und Datenbanken. Während früher Suchmaschinen extrem komplex zu integrieren waren, kann eine solche heutzutage im Handumdrehen in eine Applikation integriert werden. Dabei liefert sie out-of-the-box bereits gute Ergebnisse. In den 1970er Jahren wurde durch die relationalen Datenbanken eine ähnliche Entwicklung angestossen. Vor den relationalen Datenbanken war der Betrieb und die Integration einer Datenbank komplex und aufwendig. Heute betreiben Unternehmen eine vielzahl von Applikationen, welche auf Datenbanken basieren~\autocite{DAWN}.
 
-Beim Entwurf eines solches Netzwerks stellt sich die Frage, was für Schichten und wie viele davon ein Netzwerk haben soll. Es gibt dafür in vielen Fällen keine klaren Regeln und es muss oft etwas experimentiert werden. Einige Faustregeln können dabei helfen, mit geringem Aufwand ein geeignetes Modell zu finden.
-}
-
-\subsection{Künstliche Intelligenz in produktiver Umgebung}
-
-\todo[inline, color=red]{
-- KI/ML beginnt oft mit Experimenten
-
-- KI Software in stetigem Wandel
-
-- Verschiedene ML Architekturen: https://towardsdatascience.com/five-not-well-known-machine-learning-architectures-that-will-help-you-move-from-pilot-to-production-a051eaae69ef
-
-- Uber hat mit Michelangelo eine extrem fortgeschrittene Pipeline, evtl. helfen Erkenntnise daraus
-
--- https://eng.uber.com/michelangelo/
-
--- Learning in production wird gemäss diesem Post auch bei Uber nicht gemacht. Lernen passiert aktuell immer offline
-
--- Lernen in Produktion muss extrem stark überwacht werden, da sonst das Modell Amok laufen könnte
-
-}
-
+Das Forschungsprojekt hat zum Ziel, in den nächsten Jahren einen Stack zu entwickeln, welcher von der Hardware bis zu den Interfaces die end-to-end Entwicklung einer künstlichen Intelligenz vereinfacht. Dabei legt das Projekt besonders viel Wert auf die Aufbereitung von Daten, Selektion und Extraktion von Featuren\footnote{Die Selektion und Extraktion von Featuren bezeichnet die Extraktion von Eigenschaften aus Daten. Features sind die Eingabe- und erwarteten Ausgabewerte für eine künstliche Intelligenz.} sowie den Produktiven Betrieb der künstlichen Intelligenz~\autocite{DAWN}.

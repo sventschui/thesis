@@ -51,8 +51,8 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
-\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-\renewcommand{\subsectionmark}[1]{\markright{#1}}
+%\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+%\renewcommand{\subsectionmark}[1]{\markright{#1}}
 \setlength{\headheight}{15pt}
 \fancyhf{}
 \fancyfoot[LE,RO]{\thepage}
@@ -135,7 +135,6 @@
 %#############################
 % Headings
 %#############################
-% TODO: Format as in Lara's Thesis, this looks cool :)
 \usepackage{titlesec}
 \usepackage[T1]{fontenc}
 
@@ -147,14 +146,27 @@
 \newcommand{\hsp}{\hspace{19pt}}
 \newcommand{\vsp}{\vspace{200pt}}
 \titleformat{\section}[hang]{\LARGE\bfseries}{\thesection\hsp\textcolor{coloraaa}{|}\hsp}{0pt}{\LARGE\bfseries}
-% \titleformat{\subsection}[hang]{\LARGE\bfseries}{\thesection}{0pt}{\Large\bfseries}
-% This command would work but still has ugly page header
-\newcommand{\mysection}[1]{
-    % \thispagestyle{plain}
-    \newpage
-    % \vspace*{100pt}
-    \section{#1}
-    % \vspace{40pt}
+
+% first page of a section should not have a header
+\fancypagestyle{section}{%
+  \fancyhf{}%
+  \fancyfoot[LE,RO]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+\usepackage{xparse}
+\let\originalsection\section
+\RenewDocumentCommand{\section}{som}{%
+  \cleardoublepage
+  \vspace*{75pt}
+  \IfBooleanTF{#1}
+    {\originalsection*{#3}}
+    {\IfNoValueTF{#2}
+      {\originalsection{#3}}
+      {\originalsection[#2]{#3}}%
+    }%
+  \vspace*{15pt}
+  \thispagestyle{section}%
 }
 
 %#############################
