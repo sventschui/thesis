@@ -16,36 +16,47 @@ Es kann gesagt werden, dass in der Grundlagenforschung zur künstlichen Intellig
 
 Dieses Kapitel gibt ein Überblick über das Themengebiet der künstlichen Intelligenz. Es werden für diese Arbeit relevante Techniken, Konzepte und Begriffe erläutert. Es werden Konzepte und Metriken vorgestellt, welche verwendet werden, um eine künstliche Intelligenz zu bewerten. Zum Schluss wird aufgezeigt, wie eine künstliche Intelligenz modelliert und die finale Architektur entsteht.
 
-\subsection{Natural Language Processing}
-
-Natural Language Processing (kurz NLP) beschreibt das Gebiet der Forschung und Anwendung von Computern um natürliche Sprache, in Wort und Schrift, zu verstehen und verarbeiten. NLP umfasst Forschungsfelder wie beispielsweise die maschinelle Übersetzung, die Spracherkennung sowie die Informationsextraktion~\autocite{Chowdhury2003}. 
-
-Für diese Arbeit ist das Themengebiet des Natural Language Processing insofern relevant, als dass es die Grundlage für die Verarbeitung von Rechnungen bildet. Mit Techniken aus diesem Gebiet werden die Inhalte der Rechnungen vom Computer verstanden und verarbeitet.
-
 \subsection{Neuronale Netzwerke}
 \label{chap:neuron}
 
 Abgesehen von Rechenaufgaben sind Menschen leistungsfähiger als Computer. Wir sind beispielsweise in der Lage, Gesichter zu erkennen oder in einem dunklen Raum Personen anhand Ihrer Stimme zu identifizieren. Der interessanteste Unterschied des menschlichen Gehirns zu einem Computer ist der Fakt, dass unser Gehirn lernt, ohne eine Softwareaktualisierung zu erhalten. Wir brauchen nicht erst eine neue Software, um das Fahrradfahren zu erlernen~\autocite{Krogh2008}. Doch wie funktioniert das?
 
-Die Berechnungen des menschlichen Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale ein- oder ausgeschaltet werden. Die Gewichtung der eingehenden Signale waren dabei die Synapsen. Aus diesem Modell entstand das Konzept von neuronalen Netzwerken~\autocite{Krogh2008}.
+Die Berechnungen des menschlichen Gehirn werden durch hoch vernetzte Neuronen gemacht. Dabei interagieren die Neuronen mit Stromimpulsen durch die neuronale Verkabelung, bestehend aus Nervensäulen, Synapsen und Zellfortsätzen. 1943 modellierten McCulloch und Pitts Neuronen als Schalter, welche aufgrund der eingehenden Signale ein- oder ausgeschaltet werden. Die Gewichtung der eingehenden Signale sind dabei die Synapsen. Aus diesem Modell entstand das Konzept von neuronalen Netzwerken~\autocite{Krogh2008}.
 
-Ein Neuron wird dabei als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) modelliert, welche Eingabewerte anderer Units oder externer Quellen erhält. Die Threshold Unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Die Summe der Gewichte ist 1 $\sum_{i=1}^{N} w_i = 1$, dadurch liegt die Summe der gewichteten Eingangssignale $\sum_{i=1}^{N} w_i x_i = 1$ zwischen $0$ und $1$. 
+Ein Neuron wurde von McCulloch und Pitts als eine Threshold Unit (vgl. Abbildung \ref{krogh:a}) modelliert, welche Eingabewerte anderer Units oder externer Quellen erhält. Die Threshold Unit erhält $N$ Eingangssignale $x_1, ..., x_N$. Diese Eingangssignale werden mit dem zugehörigen Gewicht $w_1, ..., w_N$ multipliziert und schlussendlich summiert. Dieses Summenprodukt kann auf zwei verschiedene Arten die Aktivierung des Neurons auslösen. Zum einen kann das Neuron je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann eine Aktivierungsfunktion verwendet werden. Das Modell von McCulloch und Pitts in Abbildung \ref{krogh:a} zeigt einen kontinuierlichen Sigmoiden $\sigma(x) = \frac{1}{1+e^{-x}}$ (rote Linie) als mögliche Aktivierungsfunktion~\autocite{Krogh2008}. 
 
-Das Modell zeigt nun zwei verschiedene Arten, wie der Ausgabewert eines Neurons modelliert werden kann. Zum einen kann das Modell je nach Erreichung eines Gewissen Threshold ($t$) mit $0$ oder $1$ aktiviert werden. Andererseits kann ein kontinuierlicher Sigmoid (rote Linie) verwendet werden, um einen kontinuierlichen Ausgabewert zwischen $0$ und $1$ zu ermitteln.
-
-%\begin{wrapfigure}{l}{0.4\textwidth} 
+%\begin{wrapfigure}{l}{0.6\textwidth} 
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{Modell eines Neurons nach McCulloch und Pitts}
     \label{krogh:a}
     \centering
-    \includegraphics[width=0.5\linewidth]{graphics/krogh/krogh_neural-network.png}
+    \includegraphics[width=0.5\textwidth]{graphics/krogh/krogh_neural-network.png}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{Krogh2008}}
 %\end{wrapfigure}
 \end{figure}
 
-Damit ein neuronales Netzwerk leistungsfähig werden kann, muss es ähnlich wie ein Mensch, erst lernen. Für das neuronale Netzwerk bedeutet Lernen, für die Gewichte und den Threshold geeignete Werte zu finden. Dieses computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die Stärke der Synapsen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Übungsaufgabe vom Netzwerk gelöst. Das Resultat des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Aufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert~\autocite{Krogh2008}.\todo{Schichten erklären?! Fully Connected Layer}
-Dieses Training kann durch verschiedene Algorithmen implementiert werden. Einer solcher Algorithmus wird im Kapitel \ref{chap:backpropagation} beschrieben.
+Neuere Modelle, welche heute in neuronalen Netzwerken zur Anwendung kommen, verwenden stets eine Aktivierungsfunktion anstelle eines Thresholds. Der Begriff Threshold Unit ist aus diesem Grund nicht mehr geläufig. Die Rectified Linear Unit (kurz ReLU) Aktivierungsfunktion ist aktuell die weit verbreitetste. Die ReLU Aktivierungfunktion bedient sich selbst auch an einem Threshold. Sie begrenzt das Summenprodukt aus den Eingangssignalen und Gewichten gegen unten auf 0 und wird als $f(x) = \textnormal{max}(0, x)$ definiert. Im Gegensatz zur Aktivierung aufgrund eines Thresholds kann der Ausgabewert somit einen kontinuierlichen Wert von 0 bis $\infty$ annehmen. Im Gegensatz zu einem kontinuierlichen Sigmoiden hat die ReLU Aktivierungsfunktion nicht nur den Vorteil, dass sie weniger rechenintensiv ist, sondern dass das neuronale Netzwerk bis zu sechs mal effektiver trainiert werden kann. Der Nachteil dabei ist, dass durch ein zu schnelles Training eines neuronalen Netzwerks Neuronen mit der ReLU Aktivierungsfunktion Gewichte erlernen können, durch welche sie immer 0 ausgeben. Solche Neuronen werden als tote Neuronen bezeichnet. Durch eine kleinere Learning Rate\footnote{Die Learning Rate definiert, wie stark die trainierbaren Parameter (beispielsweise die Gewichte) eines Neurons nach jedem Trainingsdurchgang angepasst werden. Die Learning Rate bestimmt somit die Geschwindigkeit, mit welcher ein neuronales Netzwerk lernt~\autocite{Goodfellow2016}.} kann dieses Phänomen vermindert werden~\autocite{cs231NN}.
+
+Neben den trainierbaren Gewichten wurden neuere Modelle von Neuronen auch um einen trainierbaren Bias erweitert. Dieser Bias wird zum Summenprodukt der Eingabesignale und der Gewichte addiert, bevor dieses der Aktivierungsfunktion übergeben wird. Ist die Aktivierungsfunktion $f$ gegeben, so wird der Ausgabewert eines Neurons als $f((\sum_{i}^{n}{w_{i}x_{i}})+b)$ definiert~\autocite{cs231NN}.
+
+Neuronale Netzwerke werden als eine Ansammlung von vernetzten Neuronen modelliert. Die Ausgabe eines Neurons fliesst als Eingabe in das nächste Neuron. Wichtig dabei ist, dass keine Schlaufen erlaubt sind, da dies in einer unendlichen Schlaufe resultieren würde. Die Neuronen sind nicht willkürlich angeordnet, sondern in Schichten organisiert. Für normale neuronale Netzwerke ist ein sogenannter Fully Connected Layer die verbreitetste Art von Schicht. Jedes Neuron einer solchen Schicht ist mit jedem Neuron aus der vorherigen Schicht verbunden. Die Neuronen dieser Schicht haben allerdings keine Verbindungen untereinander. Die Abbildung \ref{fig:cs231-nn} zeigt ein zweischichtiges neuronales Netzwerk mit drei Eingabewerten (rot), einer versteckten Schicht (englisch Hidden Layer) mit vier Neuronen (blau) und eine Ausgabe-Schicht mit zwei Neuronen (grün)~\autocite{cs231NN}.
+
+%\begin{wrapfigure}{l}{0.6\textwidth} 
+\begin{figure}[h!]
+    \captionsetup{width=.9\linewidth}
+    \caption{Modell eines neuronalen Netzwerks mit zwei Fully Connected Layer}
+    \label{fig:cs231-nn}
+    \centering
+    \includegraphics[width=0.4\textwidth]{graphics/cs231-nn.jpg}
+    \vspace*{0.3cm}
+    \caption*{Quelle: \textcite{cs231NN}}
+%\end{wrapfigure}
+\end{figure}
+
+Damit ein neuronales Netzwerk leistungsfähig werden kann, muss es ähnlich wie ein Mensch, erst lernen. Für das neuronale Netzwerk bedeutet Lernen, für die Gewichte und den Threshold geeignete Werte zu finden. Dieses computersimulierte Lernen, auch Machine Learning genannt, funktioniert dabei so, dass für die Gewichte der Verbindungen, sprich die Stärke der Synapsen, ein zufälliger Wert gewählt wird. Anschliessend wird eine Übungsaufgabe vom Netzwerk gelöst. Das Resultat des Netzwerks ist zu Beginn höchstwahrscheinlich falsch und die Gewichte im Netzwerk werden mit einem kleinen Schritt angepasst. Es werden dann immer weitere Aufgaben gelöst und die Gewichte entsprechend angepasst bis das Netzwerk die gewünschten Resultate liefert.
+Dieses Training kann durch verschiedene Algorithmen implementiert werden. Einer solcher Algorithmus wird im Kapitel \ref{chap:backpropagation} beschrieben~\autocite{Krogh2008}.
 
 Seit mehreren Jahren liefern neuronale Netzwerke bessere Resultate als klassische Techniken. Dabei werden neuronale Netzwerk vorwiegend für visuelle Aufgaben und immer häufiger auch zur Verarbeitung natürlicher Sprache verwendet~\autocite{Olah2014b}.
 
@@ -58,7 +69,7 @@ Seit mehreren Jahren liefern neuronale Netzwerke bessere Resultate als klassisch
 
 Neuronale Netzwerke finden oftmals bei Klassifizierungsproblemen Anwendung. Dabei soll aufgrund bestimmter Eingabewerte eine Klasse bestimmt werden. Ein Beispiel dafür ist die Klassifizierung eines Säugetiers in die Klasse Hund oder Katze aufgrund ihrer Merkmale~\autocite{Krogh2008}.
 
-Einfache Netzwerke von Threshold Units können Klassifizierungsprobleme dann Lösen, wenn die Klassen linear separierbar sind. Die Abbildung \ref{krogh:b} veranschaulicht die lineare Separierung mit Hilfe einer Ebene in einem dreidimensionalen Raum. Die Ebene separiert die grünen und roten Punkte voneinander~\autocite{Krogh2008}.
+Einfache Netzwerke von Neuronen können Klassifizierungsprobleme dann Lösen, wenn die Klassen linear separierbar sind. Die Abbildung \ref{krogh:b} veranschaulicht die lineare Separierung mit Hilfe einer Ebene in einem dreidimensionalen Raum. Die Ebene separiert die grünen und roten Punkte voneinander~\autocite{Krogh2008}.
 
 %\begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h!]
@@ -71,9 +82,9 @@ Einfache Netzwerke von Threshold Units können Klassifizierungsprobleme dann Lö
 %\end{wrapfigure}
 \end{figure}
 
-Der Abbildung \ref{krogh:b} ist zu entnehmen, dass die Problemstellung im abgebildeten Fall, wie die meisten Klassifizierungsprobleme, nicht linear separierbar ist. Die roten und grünen Kreuze markieren dabei Punkte, welche auf der falschen Seite der Ebene liegen. Eine Klassifizierung durch ein einfaches Netzwerk von Threshold Units würde die Klasse dieser Datensätze falsch vorhersagen~\autocite{Krogh2008}.
+Der Abbildung \ref{krogh:b} ist zu entnehmen, dass die Problemstellung im abgebildeten Fall, wie die meisten Klassifizierungsprobleme, nicht linear separierbar ist. Die roten und grünen Kreuze markieren dabei Punkte, welche auf der falschen Seite der Ebene liegen. Eine Klassifizierung durch ein einfaches Netzwerk von Neuronen würde die Klasse dieser Datensätze falsch vorhersagen~\autocite{Krogh2008}.
 
-Um das Modell zur Klassifizierung zu verbessern, können zusätzliche Ebenen in den dreidimensionalen Raum eingesetzt werden. Durch eine weitere Ebene ist es dem Modell möglich, mehr Datensätze korrekt zu klassifizieren. Neue Ebenen werden mit neuen Schichten von Threshold Units modelliert (vgl. Abbildung \ref{krogh:c}). Diese neuen Schichten, welche sich zwischen den Eingabe und Ausgabe Schichten befinden, werden versteckte Schichten (Hidden Layers) genannt. Ein Modell mit mindestens einer solcher versteckter Schicht wird als tiefes neuronales Netzwerk (Deep Neural Network) bezeichnet~\autocite{Krogh2008}.
+Um das Modell zur Klassifizierung zu verbessern, können zusätzliche Ebenen in den dreidimensionalen Raum eingesetzt werden. Durch eine weitere Ebene ist es dem Modell möglich, mehr Datensätze korrekt zu klassifizieren. Neue Ebenen werden mit neuen Schichten von Neuronen modelliert (vgl. Abbildung \ref{krogh:c}). Diese neuen Schichten, welche sich zwischen den Eingabe und Ausgabe Schichten befinden, werden versteckte Schichten (Hidden Layers) genannt. Ein Modell mit mindestens einer solcher versteckter Schicht wird als tiefes neuronales Netzwerk (Deep Neural Network) bezeichnet~\autocite{Krogh2008}.
 
 % \begin{wrapfigure}{l}{0.4\textwidth} 
 \begin{figure}[h!]
@@ -82,6 +93,7 @@ Um das Modell zur Klassifizierung zu verbessern, können zusätzliche Ebenen in 
     \label{krogh:c}
     \centering
     \includegraphics[width=0.4\linewidth]{graphics/krogh/krogh_deep-network.png}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{Krogh2008}}
 %\end{wrapfigure}
 \end{figure}
@@ -95,6 +107,7 @@ Mit immer mehr verfügbarer Rechenkapazität und immer mehr Daten steigt die Pop
     \label{scale-drives-ml-progress}
     \centering
     \includegraphics[width=0.4\linewidth]{graphics/scale-drives-ml-progress.png}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{MLYearning}}
 %\end{wrapfigure}
 \end{figure}
@@ -106,9 +119,9 @@ Auch ist ein tiefes neuronales Netzwerk anfälliger auswendig zu lernen und birg
 \subsection{Backpropagation}
 \label{chap:backpropagation}
 
-Da tiefe neuronale Netzwerke zu Komplex sind, um mit einem analytischen Ansatz trainiert zu werden, muss ein anderes Vorgehen gefunden werden. Das am meisten angewendete Vorgehen zum Training von tiefen neuronalen Netzwerken ist die sogenannte Backpropagation. Bei der Backpropagation werden zu Beginn zufällige Gewichte und Thresholds festgesetzt. Das Netzwerk löst mit diesen zufälligen Gewichten und Thresholds eine erste Übungsaufgabe. Die Abweichung vom erwarteten Resultat (der sogenannte Fehler) wird anschliessend quadriert. Ziel des Backpropagation ist es, diesen quadrierten Fehler zu minimieren. Dies wird erzielt, indem das Verfahren des steilsten Abstiegs, auch Gradientverfahren (englisch gradient descent), angewendet wird. Mit Hilfe dieses Verfahrens, zur Lösung allgemeiner Optimierungsprobleme aus der Numerik, werden nun die Gewichte und der Threshold so angepasst, dass der quadrierte Fehler minimiert werden kann. Dieses Vorgehen wird mit weiteren Übungsaufgaben wiederholt, bis sich der quadrierte Fehler nicht mehr verändert~\autocite{Krogh2008}.
+Da tiefe neuronale Netzwerke zu Komplex sind, um mit einem analytischen Ansatz trainiert zu werden, muss ein anderes Vorgehen gefunden werden. Das am meisten angewendete Vorgehen zum Training von tiefen neuronalen Netzwerken ist die sogenannte Backpropagation. Bei der Backpropagation werden zu Beginn zufällige Gewichte und Bias festgesetzt. Das Netzwerk löst mit diesen zufälligen Gewichten und Bias eine erste Übungsaufgabe. Die Abweichung vom erwarteten Resultat (der sogenannte Fehler) wird anschliessend quadriert. Ziel des Backpropagation ist es, diesen quadrierten Fehler zu minimieren. Dies wird erzielt, indem das Verfahren des steilsten Abstiegs, auch Gradientverfahren (englisch gradient descent), angewendet wird. Mit Hilfe dieses Verfahrens, zur Lösung allgemeiner Optimierungsprobleme aus der Numerik, werden nun die Gewichte und das Bias so angepasst, dass der quadrierte Fehler minimiert werden kann. Dieses Vorgehen wird mit weiteren Übungsaufgaben wiederholt, bis sich der quadrierte Fehler nicht mehr verändert~\autocite{Krogh2008}.
 
-Bei der Backpropagation müssen einige Herausforderungen beachtet werden. So kann durch das Gradientverfahren nur ein lokales Minimum gefunden werden. Ob dieses lokale Minimum dem globalen Minimum entspricht, ist nicht bekannt. Das Ergebnis des Trainings ist damit von den zufällig gewählten Startwerten der Gewichte und Thresholds abhängig~\autocite{Krogh2008}.
+Bei der Backpropagation müssen einige Herausforderungen beachtet werden. So kann durch das Gradientverfahren nur ein lokales Minimum gefunden werden. Ob dieses lokale Minimum dem globalen Minimum entspricht, ist nicht bekannt. Das Ergebnis des Trainings ist damit von den zufällig gewählten Startwerten der Gewichte und Bias abhängig~\autocite{Krogh2008}.
 
 Die grösste Problematik beim Trainieren von neuronalen Netzwerken, besonders von tiefen neuronalen Netzwerken, ist die Gefahr des sogenannten Overfitting oder Auswendiglernens~\autocite{Krogh2008}.
 
@@ -131,12 +144,13 @@ Die Problematik des Overfitting ist aus der Mathematik bekannt. Hat eine Funktio
     \caption{Over- und Underfitting dargestellt anhand von Graphen von Funktionen}
     \label{krogh:d}
     \centering
-    \includegraphics[width=0.6\linewidth]{graphics/krogh/krogh_overfitting.png}
+    \includegraphics[width=0.5\linewidth]{graphics/krogh/krogh_overfitting.png}
+    \vspace*{0.2cm}
     \caption*{Quelle: \textcite{Krogh2008}}
 %\end{wrapfigure}
 \end{figure}
 
-Während die Problematik des Overfitting aus anderen Bereichen bereits bekannt ist, scheinen neuronale Netzwerke besonders anfällig für eine solche Überparametrierung. Würden wir ein Modell entwickeln, welches anhand 20 Merkmalen (20 Eingabewerte) mit Hilfe einer verstecken Schicht von 10 Neuronen erkennen soll, ob es sich um einen Hund oder eine Katze handelt, so würden 221 Parameter geschaffen. Jeder der 20 Eingabewerte wird durch ein Gewicht mit den 10 Neuronen aus der versteckten Schicht verbunden ($10 * 20 = 200$ Parameter). Jedes dieser Neuronen hat einen Threshold (10 Parameter) und ist mit dem Ausgabeneuron verknüpft (10 Parameter). Das Ausgabeneuron selbst hat auch wieder einen Threshold (1 Parameter). Wird dieses Modell mit 221 Parametern nun mit Hilfe von nur 100 Trainingsdatensätzen trainiert, so kann es diese problemlos auswendig lernen. Das Modell kann auf neuen Datensätzen nicht oder nur schlecht generalisieren und wird somit eine hohe Varianz aufweisen~\autocite{Krogh2008}.
+Während die Problematik des Overfitting aus anderen Bereichen bereits bekannt ist, scheinen neuronale Netzwerke besonders anfällig für eine solche Überparametrierung. Würden wir ein Modell entwickeln, welches anhand 20 Merkmalen (20 Eingabewerte) mit Hilfe einer verstecken Schicht von 10 Neuronen erkennen soll, ob es sich um einen Hund oder eine Katze handelt, so würden 221 Parameter geschaffen. Jeder der 20 Eingabewerte wird durch ein Gewicht mit den 10 Neuronen aus der versteckten Schicht verbunden ($10 * 20 = 200$ Parameter). Jedes dieser Neuronen hat einen Bias (10 Parameter) und ist mit dem Ausgabeneuron verknüpft (10 Parameter). Das Ausgabeneuron selbst hat auch wieder einen Bias (1 Parameter). Wird dieses Modell mit 221 Parametern nun mit Hilfe von nur 100 Trainingsdatensätzen trainiert, so kann es diese problemlos auswendig lernen. Das Modell kann auf neuen Datensätzen nicht oder nur schlecht generalisieren und wird somit eine hohe Varianz aufweisen~\autocite{Krogh2008}.
 
 Um ein solches Overfitting zu verhindern stehen diverse Techniken zur Verfügung. Eine beliebte Regularisierungstechnik ist es, eine sogenannte Dropout Schicht in das Netzwerk einzubringen. Diese Dropout Schicht deaktiviert während dem Training zufällige Neuronen. Dies hat zur Folge, dass während dem Training Teile des Netzwerks trainiert werden\footnote{Die genaue Funktionsweise einer Dropout Schicht ist für diese Arbeit nicht relevant, kann aber bei Bedarf in \textcite{Goodfellow2016} nachgelesen werden.}~\autocite{Goodfellow2016}.
 
@@ -152,9 +166,9 @@ Die Eingabe in ein Convolutional Neural Network ist ein dreidimensionaler Vektor
 Convolutional Neural Networks bestehen hauptsächlich aus den folgenden drei verschiedenen Typen von Schichten~\autocite{CNN}:
 
 \begin{itemize}
-    \item \textbf{Convolutional Layer}: Berechnen Ausgabewerte aufgrund von Verbindungen zu Ausschnitten aus der vorhergehenden Schicht, sprich Ausschnitten aus dem Bild, welches als Eingabewert verwendet wird~\autocite{CNN}.
-    \item \textbf{Pooling Layer}: Reduziert den mehrdimensionalen Vektor aus der vorhergehenden Schicht entlang der räumlichen Dimensionen (Breite und Höhe)~\autocite{CNN}.
-    \item \textbf{Fully Connected Layer}: Ein Fully Connected Layer aus Threshold Units, wie er aus dem normalen neuronalen Netzwerk bekannt ist~\autocite{CNN}.
+    \item \textbf{Convolutional Layer}: Berechnen Ausgabewerte aufgrund von Verbindungen zu Ausschnitten aus der vorhergehenden Schicht, sprich Ausschnitten aus dem Bild, welches als Eingabewert verwendet wird.
+    \item \textbf{Pooling Layer}: Reduziert den mehrdimensionalen Vektor aus der vorhergehenden Schicht entlang der räumlichen Dimensionen (Breite und Höhe).
+    \item \textbf{Fully Connected Layer}: Ein Fully Connected Layer, wie er aus dem normalen neuronalen Netzwerk bekannt ist.
 \end{itemize}
 
 \textbf{Convolution Layer}
@@ -177,12 +191,12 @@ Ein Convolution Layer besteht aus mehreren, trainierbaren Filtern. Diese Filter 
     \caption{Visualisierung eins Convolution Layer}
     \label{fig:conv:vis}
     \centering
-    \includegraphics[scale=0.5]{graphics/cnn-visual.pdf}\\
+    \includegraphics[scale=0.49]{graphics/cnn-visual.pdf}\\
+    \vspace*{0.3cm}
     \caption*{Quelle: In Anlehnung an \textcite{CNN}}
-    \vspace*{0.5cm}
 \end{figure}
 
-Die Anzahl der Filter und die Art wie sich ein Filter über die räumlichen Dimensionen des Eingabe-Vektors bewegt, kann durch Hyperparameter\todo{Die Hyperparameter bezeichnen jene Parameter eines Machine Learning Modells, welche nicht während dem Training gelernt, sondern von aussen in das Modell hineingegeben werden. Die Hyperparameter können als Konfiguration eines Modells verstanden werden~\autocite{DesignML}.} konfiguriert werden. Mit der Anzahl an Filtern kann konfiguriert werden, wie viele verschiedene visuelle Merkmale der Convolution Layer erkennen kann. Die Anzahl an Filtern bestimmt die Tiefe des Ausgabe-Vektors. Die Abbildung \ref{fig:conv:vis} zeigt einen Convolution Layer mit zehn Filtern. Die dritte Dimension des Ausgabe-Vektor hat dadurch die Grösse zehn~\autocite{CNN}.
+Die Anzahl der Filter und die Art wie sich ein Filter über die räumlichen Dimensionen des Eingabe-Vektors bewegt, kann durch Hyperparameter\footnote{Als Hyperparameter werden jene Parameter eines Machine Learning Modells bezeichnet, welche nicht während dem Training gelernt, sondern von aussen in das Modell hineingegeben werden. Die Hyperparameter können als Konfiguration eines Modells verstanden werden~\autocite{DesignML}.} konfiguriert werden. Mit der Anzahl an Filtern kann konfiguriert werden, wie viele verschiedene visuelle Merkmale der Convolution Layer erkennen kann. Die Anzahl an Filtern bestimmt die Tiefe des Ausgabe-Vektors. Die Abbildung \ref{fig:conv:vis} zeigt einen Convolution Layer mit zehn Filtern. Die dritte Dimension des Ausgabe-Vektor hat dadurch die Grösse zehn~\autocite{CNN}.
 
 Die Art wie sich ein Filter über die räumlichen Dimensionen bewegt, kann durch das sogenannte Zero-Padding und den Stride konfiguriert werden. Das Zero-Padding sagt aus, wie viele zusätzliche Neuronen um den Eingabe-Vektor herum gelegt werden sollen. Das Zero-Padding ermöglicht, dass die Filter auch visuelle Merkmale an den Rändern des Eingabe-Vektors erkennen können. Der Stride bestimmt die Anzahl Neuronen, um welche der Filter nach jeder Anwendung verschoben wird. In Abbildung \ref{fig:conv:vis} ist ein Beispiel eines Convolution Layer mit einem Zero-Padding von eins und einem Stride von zwei zu sehen. Durch diese Hyperparameter und die Grösse der ersten beiden Dimensionen des Eingabe-Vektors wird die Grösse der ersten beiden Dimensionen des Ausgabe-Vektors bestimmt. Bei der Wahl des Zero-Padding und des Strides muss darauf geachtet werden, dass die Filter genau auf den Eingabe-Vektor passen. Würde im Beispiel, welches in Abbildung \ref{fig:conv:vis} ersichtlich ist, ein Stride von drei anstatt zwei gewählt werden, so könnte der Filter nur 1.33 mal verschoben werden~\autocite{CNN}.
 
@@ -214,7 +228,7 @@ In Abbildung \ref{rnn1} wird ein RNN mit einer Schlaufe dargestellt. Daneben ist
     \caption*{Quelle: \textcite{Olah2015}}
 \end{figure}
 
-Ein Problem von RNN ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, gehen diese Informationen verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese Spezialform von Recurrent Neural Networks arbeitet mit sogenannten Gates, um zu regulieren, wie viel Kontextinformationen behalten oder vergessen werden sollen. Mit vier solchen Gates, bestehend aus einem Neural Network Layer und einer Pointwise Operation (vgl. Abbildung \ref{lstm1}), ist ein LSTM Netzwerk in der Lage, nicht nur ein Kurz- sondern auch ein Langzeitgedächtnis aufzubauen~\autocite{Olah2015}.
+Ein Problem von Recurrent Neural Networks ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. Liegen Informationen länger zurück, sprich der Abstand zwischen den beiden relevanten Neuronen ist zu gross, gehen diese Informationen verloren. Eine Lösung für diese Problematik bieten Long-Short-Term-Memory (kurz LSTM) Netzwerke. Diese Spezialform von Recurrent Neural Networks arbeitet mit sogenannten Gates, um zu regulieren, wie viel Kontextinformationen behalten oder vergessen werden sollen. Mit vier solchen Gates, bestehend aus einem Neural Network Layer und einer Pointwise Operation (vgl. Abbildung \ref{lstm1}), ist ein LSTM Netzwerk in der Lage, nicht nur ein Kurz- sondern auch ein Langzeitgedächtnis aufzubauen~\autocite{Olah2015}.
 \begin{figure}[h!]
     \captionsetup{width=.9\linewidth}
     \caption{Informationsfluss eines LSTM Netzwerk}
@@ -223,7 +237,7 @@ Ein Problem von RNN ist, dass nur ein Kurzzeitgedächtnis zur Verfügung steht. 
     \includegraphics[width=0.6\textwidth]{graphics/lstm.png}\\
     \vspace{0.5cm}
     \includegraphics[width=0.6\textwidth]{graphics/lstm-notation.png}\\
-    \vspace{0.1cm}
+    \vspace{0.2cm}
     \caption*{Quelle: \textcite{Olah2015}}
 \end{figure}
 
@@ -265,6 +279,7 @@ Die erste Visualisierung bedient sich dem t-SNE\footnote{t-Distributed Stochasti
     \caption{t-SNE Darstellung eines Word embeddings}
     \includegraphics[width=\textwidth]{graphics/wordmebeddingtsne.jpg}
     \caption*{Quelle: \textcite{Turian2010} in \textcite{Olah2014b}}
+    \vspace*{0.3cm}
     \label{wordembeddingtsne}
 \end{figure}
 
@@ -293,6 +308,7 @@ Die zweite Visualisierung listet in einer Tabelle (vgl. Tabelle \ref{wordembeddi
     SWITZERLAND & GRACE & CAPCOM & YELLOWISH & RIPPED & AMPERES \\ \hline
     \end{tabular}
     % \vspace{8pt}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{Collobert2011} in \textcite{Olah2014b}}
 \end{table}
 
@@ -313,7 +329,7 @@ Trotz grossem Fortschritt, nicht zuletzt dank der Verwendung von künstlicher In
     \captionsetup{width=.9\linewidth}
     \caption{Vergleich der Erfolgsrate bei der Prüfung von 418 Textsnippets}
     \label{deepgrammar}
-    \includegraphics{graphics/matplot/grammar-tools.pdf}
+    \includegraphics[scale=0.9]{graphics/matplot/grammar-tools.pdf}
     \caption*{Quelle: \textcite{Mugan}}
 \end{figure} %wrapfigure}
 Nicht nur zur Korrektur von Rechtschreibfehlern ist ein neuronales Netzwerk anwendbar, sondern auch zur Grammatikprüfung. So kann unter deepgrammar.com ein Experiment gefunden werden, bei welchem ein neuronales Netzwerk zur Grammatikprüfung angewendet wird. Die Resultate, welche in der Abbildung \ref{deepgrammar} zu sehen sind, sind erstaunlich. Obwohl DeepGrammar erst seit einem Jahr existiert und dabei von nur einer Person entwickelt wurde, funktioniert das Netzwerk beinahe so gut wie \textit{Microsoft Word}\footnote{Microsoft Word ist ein Programm zur Textverarbeitung und Dokumenterstellung von Microsoft~\autocite{MicrosoftCorporation2018}.} oder \textit{Language Tool 3.1}\footnote{\enquote{LanguageTool ist eine Software zur Textprüfung [...]}~\autocite{LanguageTool2018}.} und sogar besser als \textit{Grammarly}\footnote{Grammarly verspricht präzise, kontextabhängige Korrekturen von Texten~\autocite{GrammarlyInc.2018}.} und \textit{Google Docs}\footnote{Google Docs ist eine Online-Lösung zur Textverarbeitung von Google~\autocite{GoogleLLC2018}.}~\autocite{Mugan}.
@@ -321,6 +337,12 @@ Nicht nur zur Korrektur von Rechtschreibfehlern ist ein neuronales Netzwerk anwe
 % TODO: Mugan erwähnt eine bessere Studie. In der Thesis diese verwenden, da Zahlen aus DeepGrammar nicht 100% korrekt sind https://arxiv.org/pdf/1807.01270.pdf
 
 Ein weiterer grosser Vorteil von neuronalen Netzwerken zur Fehlerkorrektur erwähnt \textcite{Mugan2018} in einer persönlichen Kommunikation mit dem Autoren dieser Arbeit. Das neuronale Netzwerk kann auf das Domänenspezifische Lexikon trainiert werden. Das Netzwerk kann beispielsweise mit medizinischen Begriffen aus den Rechnungen trainiert werden, so dass die Resultate des in dieser Arbeit entwickelten Prototypen noch besser werden~\autocite{Mugan2018}.
+
+\subsection{Natural Language Processing}
+
+Natural Language Processing (kurz NLP) beschreibt das Gebiet der Forschung und Anwendung von Computern um natürliche Sprache, in Wort und Schrift, zu verstehen und verarbeiten. NLP umfasst Forschungsfelder wie beispielsweise die maschinelle Übersetzung, die Spracherkennung sowie die Informationsextraktion~\autocite{Chowdhury2003}. 
+
+Für diese Arbeit ist das Themengebiet des Natural Language Processing insofern relevant, als dass es die Grundlage für die Verarbeitung von Rechnungen bildet. Mit Techniken aus diesem Gebiet werden die Inhalte der Rechnungen vom Computer verstanden und verarbeitet.
 
 \subsection{Informationsextraktion aus natürlichen Texten}
 \label{chap:ner}
@@ -356,8 +378,10 @@ Die grösste Herausforderung beim PoS-Tagging sind Wörter welche verschiedenen 
 
 % Die beschriebenen Techniken bieten eine gute Grundlage um damit eine erste Implementierung eines Prototypen zur Rechnungsindexierung zu beginnen.
 
+% newpage here to keep graphics in the following sections in place
+\newpage
 \subsection{Klassifizierung von Bildern}
-\label{chap:object-detection}
+\label{chap:image-classification}
 
 Die Klassifizierung von Bildern ist eine viel behandelte Problemstellung im Bereich der Computer Vision. Dabei geht es darum, ein Bild einer bestimmten Klasse zuzuweisen. Ist auf dem Bild beispielsweise ein Hund zu sehen, so ist es der Klasse Hund zuzuweisen~\autocite{Goodfellow2016}.
 
@@ -376,6 +400,7 @@ Als Teil des gleichen Blog Posts, in welchem das NASNet präsentiert wird, vergl
     \label{nasnet-comparision}
     \centering
     \includegraphics[width=0.55\textwidth]{graphics/nasnet-comparision.jpg}
+    \vspace*{0.2cm}
     \caption*{Quelle: \textcite{GoogleNasNet}}
 \end{figure}
 %\end{wrapfigure}
@@ -393,7 +418,8 @@ Das R-CNN Modell ist eines der ersten Modelle, welche die Convolutional Neural N
     \caption{Resultate aus einem Modell zur Objekterkennung in Bildern}
     \label{fig:rcnn}
     \centering
-    \includegraphics[scale=0.5]{graphics/rcnn.png}
+    \includegraphics[scale=0.4]{graphics/rcnn.png}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{SSD}}
 \end{figure}
 %\end{wrapfigure}
@@ -415,6 +441,8 @@ Wird ein Modell, welches bereits für eine Aufgabe trainiert wurde, für eine zw
 
 Ursprünglich kommt das Transfer Learning aus dem Bereich der Computer Vision. Im Jahr 2018 präsentierten \textcite{Howard2018} sowie \textcite{Devlin2018} mit ULMFiT\footnote{Universal Language Model Fine-tuning, kurz ULMFiT, ist ein Ansatz, bei welchem ein Modell auf einem sehr grossen Datensatz trainiert wird. Dieses Modell kann nun für diverse Aufgaben im Gebiet des Natural Language Processing verwendet werden und verspricht bessere Ergebnisse als Ansätze ohne Transfer Learning~\autocite{Howard2018}.} respektive BERT\footnote{Bidirectional Encoder Representations from Transformes, kurz BERT, ist eine neuartige Repräsentation von natürlicher Sprache. Mit diesem auf Transfer Learning basierten Ansatz konnte das Google AI Language Team in diversen NLP Aufgaben Bestresultate erzielen~\autocite{Devlin2018}.} Ansätze, das Transfer Learning auch für Aufgaben im Gebiet des Natural Language Processing anzuwenden. Beide Ansätze versprechen die Reduktion der Menge benötigter Traingsdatensätze sowie die Verbesserung der resultierenden Modelle.
 
+% newpage here to keep following pragraphs together, as it looks weird otherwise
+\newpage
 \subsection{Messkriterien zur Bewertung eines Systems mit künstlicher Intelligenz}
 \label{chap:metrices}
 
@@ -426,7 +454,9 @@ Die Trefferquote, englisch Accuracy (kurz acc), ist die Metrik, welche wohl am m
 
 Die Trefferquote gibt Auskunft darüber, wie viele der Vorhersagen eines Systems der Wirklichkeit entsprechen. Die Formell lautet wie folgt~\autocite{TDSAccuracy}: 
 
+\nopagebreak
 $$Accuracy = 1 - \frac{False Positive + False Negative}{Total Records}$$
+\vspace*{0.2cm}
 
 Die Confusion Matrix in Abbildung \ref{cm-sample} zeigt ein Beispiel mit einer Trefferquote von 0.99, respektive 99.9\%. Aus 1000 Datensätzen wurden 998 korrekt als Negativ klassifiziert. Ein Datensatz wurde korrekt als Positiv klassifiziert und ein Datensatz wurde fälschlicherweise als Negativ klassifiziert~\autocite{TDSAccuracy}.
 
@@ -443,6 +473,7 @@ Die Confusion Matrix in Abbildung \ref{cm-sample} zeigt ein Beispiel mit einer T
         \multicolumn{1}{l|}{\multirow{2}{*}{\textbf{Wirklichkeit}}} & \multicolumn{1}{l|}{Negativ} & \multicolumn{1}{c|}{998}    & \multicolumn{1}{c|}{0}       \\ \cline{2-4} 
         \multicolumn{1}{l|}{}                                       & \multicolumn{1}{l|}{Positiv} & \multicolumn{1}{c|}{1}       & \multicolumn{1}{c|}{1}       \\ \cline{2-4} 
     \end{tabular}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{TDSAccuracy}}
 \end{figure}
 
@@ -453,8 +484,8 @@ Eine Trefferquote von 99.9\% ist sehr gut. Das Modell könnte durchaus als sehr 
 Die Genauigkeit, englisch Precision, sagt aus, wie viele als positiv vorhergesagten Datensätze wirklich Positiv sind. Die Formell dazu lautet~\autocite{TDSAccuracy}: 
 
 \nopagebreak
-
 $$Precision = \frac{True Positive}{True Positive + False Positive} = \frac{True Positive}{Total Predicted Positive}$$
+\vspace*{0.2cm}
 
 Die Abbildung \ref{cm-precision} veranschaulicht die Elemente zur Berechnung der Genauigkeit in einer Confusion Matrix.
 
@@ -470,6 +501,7 @@ Die Abbildung \ref{cm-precision} veranschaulicht die Elemente zur Berechnung der
         \multicolumn{1}{l|}{}                                        & \multicolumn{1}{l|}{Negativ} & \multicolumn{1}{c|}{True Negative}  & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}False Positive} \\ \cline{2-4} 
         \multicolumn{1}{l|}{\multirow{-2}{*}{\textbf{Wirklichkeit}}} & \multicolumn{1}{l|}{Positiv} & \multicolumn{1}{c|}{False Negative} & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}True Positive}  \\ \cline{2-4} 
     \end{tabular}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{TDSAccuracy}}
 \end{figure}
 
@@ -482,6 +514,7 @@ Die Sensitivität, englisch Recall, sagt aus, wie viele wirklich positiven Daten
 \nopagebreak
 
 $$Precision = \frac{True Positive}{True Positive + False Negative} = \frac{True Positive}{Total Actual Positive}$$
+\vspace*{0.2cm}
 
 Die Abbildung \ref{cm-recall} veranschaulicht die Elemente zur Berechnung der Sensitivität in einer Confusion Matrix.
 
@@ -496,6 +529,7 @@ Die Abbildung \ref{cm-recall} veranschaulicht die Elemente zur Berechnung der Se
         \multicolumn{1}{l|}{}                                        & \multicolumn{1}{l|}{Negativ}                         & \multicolumn{1}{c|}{True Negative}                          & \multicolumn{1}{c|}{False Positive}                        \\ \cline{2-4} 
         \multicolumn{1}{l|}{\multirow{-2}{*}{\textbf{Wirklichkeit}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{B5D0EE}Positiv} & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}False Negative} & \multicolumn{1}{c|}{\cellcolor[HTML]{B5D0EE}True Positive} \\ \cline{2-4} 
     \end{tabular}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{TDSAccuracy}}
     \label{cm-recall}
 \end{figure}
@@ -510,6 +544,7 @@ Das F-Mass, englisch F\textsubscript{1}-Score, vereint die Genauigkeit und die S
 \nopagebreak
 
 $$F_1=2 * \frac{\textnormal{Genauigkeit} * \textnormal{Sensitivität}}{\textnormal{Genauigkeit} + \textnormal{Sensitivität}}$$
+\vspace*{0.2cm}
 
 Das F-Mass ist eine gute Verbindung der Genauigkeit und der Sensitivität. Aufgrund der Vernachlässigung der True Negatives ist das F-Mass besonders bei ungleichmässig verteilten Klassen, sprich übermässig vielen True Negatives, sinnvoll~\autocite{TDSAccuracy}.
 
@@ -542,6 +577,7 @@ $$IoU = \frac{
 }{
     \textnormal{Fläche der Vereinigung} \hspace{12pt} \includegraphics[width=20pt, align=t]{graphics/iou/union.pdf}
 }$$
+\vspace*{0.2cm}
 
 Die Beispiele aus Abbildung \ref{fig:iou-examples} verdeutlichen, dass das Mass gegen 1 tendiert, je exakter das vorhergesagte mit dem erwarteten Rechteck übereinstimmt. Es kann damit beurteilt werden, wie genau die Vorhersage ist. Wird nun noch ein Schwellenwert definiert, ab welchem eine Vorhersage als Korrekt angesehen wird, so kann die Korrektheit der Vorhersage ermittel werden. Die Wahl dieses Schwellenwerts ist sehr unterschiedlich. In Objekterkennungs-Wettbewerben sind Schwellenwerte zwischen 0.5 und 0.75 üblich. Auch wird teilweise ein Durchschnitt über mehrere Schwellenwerte verwendet~\autocite{IoU}.
 
@@ -615,6 +651,7 @@ Wird ein Modell zur Erkennung von fünf Katzen auf zehn Bildern angewendet, so s
     10   & Ja                  & 0.5         & 1.0           \\
     \hline
     \end{tabular}
+    \vspace*{0.3cm}
     \caption*{Quelle: \textcite{AP}}
 \end{table}
 
@@ -633,6 +670,7 @@ Wie erwähnt, wird als Average Precision der Durchschnitt aller Genauigkeiten be
 
 \nopagebreak 
 $$AP = \int_{0}^{1}p(r)dr$$
+\vspace*{0.2cm}
 
 Da sowohl die Genauigkeit als auch die Sensitivität zwischen 0 und 1 liegt, fällt auch die Average Precision zwischen 0 und 1~\autocite{AP}.
 
@@ -669,6 +707,7 @@ In anderen Fällen wird Mean Average Precision als der Durchschnitt der Average 
 
 \nopagebreak
 $$mAP = \frac{\sum_{i=0}^{n}AP_{i}}{n} = \frac{AP_{Hund}+AP_{Katze}}{2} = 0.6$$
+\vspace*{0.2cm}
 
 Die beiden Methoden werden oft kombiniert, um die Mean Average Precision über mehrere Intersection over Union Schwellenwerte und über mehrere Klassen zu berechnen. Dies ermöglicht, verschiedene Modelle mit nur einer Zahl zu vergleichen~\autocite{AP}.
 
@@ -688,7 +727,7 @@ Die Fehleranalyse ermöglicht die Ursachen einer falschen Klassifizierung zu fin
 %- Fehleranalyse hilft die Ursachen der Falschklassifizierung zu finden
 %- Kann helfen, unbekannte Gebiete durch ein iteratives vorgehen zu explorieren
 
-\subsubsection{Design eines Systems mit künstlicher Intelligenz}
+\subsection{Design eines Systems mit künstlicher Intelligenz}
 
 Die vorherigen Kapitel haben einen Einblick in einige der Grundbausteine von Machine Learning Modellen gegeben. Eine grosse Herausforderung ist nun, diese so anzuwenden, dass eine Problemstellung möglichst optimal gelöst werden kann. Dieses Kapitel soll einen Überblick darüber geben, wie ein Machine Learning Modell entwickelt werden kann, um eine Problemstellung anzugehen.
 

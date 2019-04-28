@@ -19,27 +19,30 @@
     
     Zur Untersuchung werden relevante Grundlagen des Forschungsgebietes der künstlichen Intelligenz erläutert. Darauf aufbauend wird in einem explorativen Teil ein Fallbeispiel erarbeitet. Dabei wird die Automatisierung des Prozesses zur Rechnungseinreichung bei der AXA Gesundheitsvorsorge mit Hilfe von künstlicher Intelligenz analysiert. Zur Analyse zweier Aspekte der Automatisierung des Prozesses werden zwei Modelle zur Klassifizierung der Rechnungen und eines zur Informationsextraktion implementiert respektive optimiert. 
     
-    Das erarbeitete, Text-basierte Modell zur Klassifizierung von Rechnungen erreicht eine Trefferquote von 98.4\%. Das Bild-basierte Modell zur Informationsextraktion erreicht auf Rechnungen von Fielmann eine Mean Average Precision (mAP@0.5) von 94\%. Diese guten Ergebnisse können durch das in der Arbeit aufgezeigte Optimierungspotential noch weiter verbessert werden. 
+    Zur Klassifizierung der Rechnungen wurde ein Bild-basiertes sowie ein Text-basiertes Modell implementiert und evaluiert. Das Text-basierte Modell erzielte dabei bessere Resultate. Es erreicht eine Trefferquote von 98.4\%. Im Rahmen der Fehleranalyse wurde Optimierungspotential im Bereich der OCR Erkennung und des Word embeddings aufgezeigt, durch welches die Trefferquote in Zukunft noch weiter erhöht werden kann.
     
-    Die Ergebnisse und das aufgezeigte Optimierungspotential belegen, dass eine Automatisierung des Prozesses möglich ist. Die Modelle müssen vor produktivem Einsatz weiter optimiert werden. Der Aufwand für die Optimierung darf nicht unterschätzt werden, denn gewisse Modelle müssen spezifisch für jeden Leistungserbringer trainiert werden. Der AXA Gesundheitsvorsorge wird empfohlen, weiter in die Automatisierung mit Hilfe von künstlicher Intelligenz zu investieren und einen inkrementellen Rollout eines Systems mit künstlicher Intelligenz anzustreben.
+    Zur Informationsextraktion aus den Rechnungen wurde ein Bild-basiertes Modell evaluiert. Das Modell erreicht auf einem Datensatz von 900 Rechnungen von Optikern gute, aber dennoch keine zufriedenstellende Resultate. Das Modell wurde erweitert, damit es alle relevanten Informationen zur Automatisierung einer Rechnung liefern kann. Des weiteren wurde das Modell auf Rechnungen eines Typs spezialisiert. Das Modell wurde auf Rechnungen von Fielmann trainiert, wobei es eine Mean Average Precision (mAP@0.5) von 94\% erreicht. Das Modell wurde ausserdem auf Rechnungen von Visilab trainiert. Das Modell erzielt hier aufgrund der geringen Zahl an Trainingsdaten eine etwas tiefere Mean Average Precision. Diese guten Ergebnisse können durch das in der Arbeit aufgezeigte Optimierungspotential noch weiter verbessert werden. 
     
-    Initiativen wie das DAWN Projekt, welche die künstliche Intelligenz immer zugänglicher machen und das Fallbeispiel zeigen, dass die künstlche Intelligenz auch von kleineren Unternehmen mit limitiertem Investitionskapital verwendet werden kann, um Geschäftsprozesse zu automatisieren. Trotz der noch immer hohen Investitionskosten ist es auch für kleinere Unternehmen ratsam, in die künstliche Intelligenz zu investieren, damit sie sich einen Wettbewerbsvorteil schaffen beziehungsweise einen solchen halten können.
+    Die Ergebnisse und das aufgezeigte Optimierungspotential belegen, dass eine Automatisierung des Prozesses möglich ist. Die Modelle müssen vor produktivem Einsatz weiter optimiert werden. Der Aufwand für die Optimierung darf nicht unterschätzt werden, denn das Modell zur Informationsextraktion muss spezifisch für jeden Leistungserbringer trainiert werden. Der AXA Gesundheitsvorsorge wird empfohlen, weiter in die Automatisierung mit Hilfe von künstlicher Intelligenz zu investieren und einen inkrementellen Rollout eines Systems mit künstlicher Intelligenz anzustreben.
+    
+    Initiativen wie das DAWN Projekt, welche die künstliche Intelligenz immer zugänglicher machen und die Ergebnisse aus dem Fallbeispiel zeigen, dass die künstlche Intelligenz auch von kleineren Unternehmen mit limitiertem Investitionskapital verwendet werden kann, um Geschäftsprozesse zu automatisieren. Trotz der noch immer hohen Investitionskosten ist es auch für kleinere Unternehmen ratsam, in die künstliche Intelligenz zu investieren, damit sie sich einen Wettbewerbsvorteil schaffen beziehungsweise einen solchen halten können.
 }
-
-\newpage
 
 %#############################
 % Table of contents
 %#############################
-\tableofcontents
-
+\newpage
+\null
 \cleardoublepage
+\tableofcontents
 
 %#############################
 % Declaration of authorship
 %#############################
+\newpage
+\null
+\cleardoublepage
 \makeDeclarationOfAuthorship{Winterthur}{2. Mai 2019}{Sven Tschui}
-
 \cleardoublepage
 
 %#############################

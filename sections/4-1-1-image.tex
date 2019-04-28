@@ -4,7 +4,7 @@
 
 % Analog der Klassifizierung von Objekten auf Fotos, ist es auch denkbar, Rechnung mit Hilfe diesem Bild-basiertem Vorgehen zu klassifizieren.
 
-Dieses Kapitel widmet sich einem Experiment, bei welchem Algorithmen und Modelle aus dem Bereich der Computer Vision angewendet werden, um Rechnungen zu klassifizieren.
+Dieses Kapitel erläutert ein Experiment, bei welchem Algorithmen und Modelle aus dem Bereich der Computer Vision angewendet werden, um Rechnungen zu klassifizieren.
 
 % ResNet Arxiv: https://arxiv.org/abs/1512.03385
 % ResNet: https://towardsdatascience.com/an-overview-of-resnet-and-its-variants-5281e2f56035
@@ -23,13 +23,13 @@ Dieses Kapitel widmet sich einem Experiment, bei welchem Algorithmen und Modelle
 
 Im Folgenden wird das ResNet, das Inception-ResNet-V2 sowie das NASNet large Netzwerk angewendet, um die bisher bei der AXA eingereichten Rechnung zu klassifizieren.
 
-Um Objekterkennungsmodelle mit Millionen von Parametern zu trainieren, werden viele Trainingsdaten und eine enorme Kapazität an Rechenleistung benötigt. Das Konzept des Transfer Learning bietet die Möglichkeit, diese beiden Problematiken zu Umgehen und dabei nur wenig oder keine Trefferquote einzubüssen (vgl. Kapitel \ref{chap:transfer-learning})~\autocite{TDSTransferLearning}. % \autocite{TensorflowImageRetraining}
+Um Objekterkennungsmodelle mit Millionen von Parametern zu trainieren, werden viele Trainingsdaten und eine enorme Kapazität an Rechenleistung benötigt. Das Konzept des Transfer Learning bietet die Möglichkeit, diese beiden Problematiken zu Umgehen und dabei nur wenige oder keine Einbussen bei der Trefferquote verzeichnen zu müssen (vgl. Kapitel \ref{chap:transfer-learning}). % \autocite{TensorflowImageRetraining}
 
 Um die Rechnungen zu klassifizieren wird Transfer Learning angewendet, indem die genannten Modelle auf dem ImageNet Datensatz trainiert werden, bevor die eigentliche Problemstellung angegangen wird.
 
 Nach dem Training auf dem ImageNet Datensatz werden die letzten Schichten des Netzwerks, jene die für die Klassifizierung zuständig sind, durch ein neues Klassifizierungsnetzwerk ersetzt. Dadurch wird der Trainingseffekt durch den ImageNet Datensatz beibehalten und die Klassifizierung so angepasst, dass sie die Einteilung in die vier vorliegenden Klassen erlaubt.
 
-Die Abbildung \ref{image-classification-model} zeigt die Klassifizierungsmodelle, welche zur Anwendung kommen. Input ist jeweils der Feature-Vektor, welcher durch das ResNet, Inception-ResNet beziehungsweise NASNet Netzwerk erstellt wurde. Beim ResNet und Inception-ResNet wird dieser Feature-Vektor durch ein 2D-Convolution und ein Flatten Layer in einen eindimensionalen Vektor gebracht. Das NASNet liefert bereits einen eindimensionalen Feature-Vektor und die ersten zwei Schichten fallen somit weg. Durch zwei Hidden Layer wird der Vektor schlussendlich zu einem One-Hot Encoded Vektor für die vier Klassen reduziert. Zwischen den Hidden Layern sind zwei Dropout Layer zur Reduzierung des Overfitting eingeschoben.
+Die Abbildung \ref{image-classification-model} zeigt die Klassifizierungsmodelle, welche zur Anwendung kommen. Input ist jeweils der Feature-Vektor, welcher durch das ResNet, Inception-ResNet beziehungsweise NASNet Netzwerk erstellt wurde. Beim ResNet und Inception-ResNet wird dieser Feature-Vektor durch ein Convolution und ein Flatten Layer in einen eindimensionalen Vektor gebracht. Das NASNet liefert bereits einen eindimensionalen Feature-Vektor und die ersten zwei Schichten entfallen. Durch zwei Hidden Layer wird der Vektor schlussendlich zu einem One-Hot Encoded Vektor für die vier Klassen reduziert. Zwischen den Hidden Layern sind zwei Dropout Layer zur Reduzierung des Overfitting eingeschoben.
 
 
 \begin{figure}[h!] 
@@ -102,11 +102,11 @@ Die Abbildung \ref{image-class-results} zeigt das Training der genannten Modelle
 
 % Das auf dem TODO TODO TODO\todo{TODO} basierende Modell hat mit einer Trefferquote von \todo{TODO}\% nach \todo{TODO} Epochen die höchste Trefferquote auf den Testdaten. 
 
-Auffällig ist das schlechte Resultate des NASNet Modells. Obwohl das NASNet als eines der genausten Klassifizierungsmodelle für Bilder gilt, schneidet es im vorliegenden Experiment mit Abstand am schlechtesten ab. Wie in Abbildung \ref{image-class-results:c} zeigt, lieft die Trefferquote ungefähr bei 0.8 und somit knapp 0.2 unter den beiden anderen Modellen.
+Auffällig ist das schlechte Resultat des NASNet Modells. Obwohl das NASNet als eines der genausten Klassifizierungsmodelle für Bilder gilt, schneidet es im vorliegenden Experiment mit Abstand am schlechtesten ab. Wie in Abbildung \ref{image-class-results:c} ersichtlich ist, liegt die Trefferquote ungefähr bei 0.8 und somit knapp 0.2 unter den beiden anderen Modellen.
 
-Eine fundierte Erklärung, weshalb das NASNet Modell so schlecht abschneidet, kann nicht gefunden werden. Eine mögliche Erklärung ist der mit Abstand kleinere Feature-Vektor des NASNets. Dieser ist mit nur 4032 Neuronen wesentlich kleiner als jener des ResNet (266240 Neuronen) und des Inception-ResNet-V2 (135168 Neuronen).
+Eine fundierte Erklärung, weshalb das NASNet Modell so schlecht abschneidet, kann nicht gefunden werden. Eine mögliche Erklärung ist der mit Abstand kleinere Feature-Vektor des NASNets. Dieser ist mit nur 4'032 Neuronen wesentlich kleiner als jener des ResNet (26'6240 Neuronen) und des Inception-ResNet-V2 (13'5168 Neuronen).
 
-Die Ergebnisse des ResNet und des Inception-ResNet-V2 sehen dagegen wesentlich besser aus. Während dem Training steigt die Trefferquote stetig an und das Loss sinkt stetig. Die Modelle weisen bereits nach 30 Epochen ein Bias von weniger als 5\% (ResNet) respektive weniger als 2\% (Inception-ResNet-V2) auf. Nach 60 Epochen Training weisen die beiden Modelle ein Bias von weniger als 1.5\% respektive 0.5\% auf. Dies zeigt, dass die gewählten Modelle lernen und grundsätzlich geeignet sind, die Problemstellung anzugehen. 
+Die Ergebnisse des ResNet und des Inception-ResNet-V2 sehen dagegen wesentlich besser aus. Die Modelle weisen bereits nach 30 Epochen ein Bias von weniger als 5\% (ResNet) respektive weniger als 2\% (Inception-ResNet-V2) auf. Nach 60 Epochen Training weisen die beiden Modelle ein Bias von weniger als 1.5\% respektive 0.5\% auf. Dies zeigt, dass die gewählten Modelle lernen und grundsätzlich geeignet sind, die Problemstellung anzugehen. 
 
 Neben der auch nach 60 Epochen noch leicht steigenden Trefferquote hat das Loss auf den Testdaten (vgl. Abbildung \ref{image-class-results:d}) bereits nach 25 (ResNet) respektive 15 (Inception-ResNet-V2) Epochen den Wendepunkt erreicht. Dies zeigt, dass das Modell zu wenig gut generalisiert. Die steigende Testgenauigkeit vermittelt zwar einen guten Eindruck, das steigende Loss zeigt jedoch, dass das Modell in seinen Entscheidungen immer unsicherer wird, das heisst die Wahrscheinlichkeit, mit welcher sich das Modell sicher ist, eine Rechnung einer bestimmten Klasse zuzuweisen, sinkt. Das Modell beginnt also nach nur wenigen Epochen auswendig zu lernen (Overfitting).
 

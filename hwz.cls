@@ -144,7 +144,6 @@
 
 \definecolor{coloraaa}{HTML}{AAAAAA}
 \newcommand{\hsp}{\hspace{19pt}}
-\newcommand{\vsp}{\vspace{200pt}}
 \titleformat{\section}[hang]{\LARGE\bfseries}{\thesection\hsp\textcolor{coloraaa}{|}\hsp}{0pt}{\LARGE\bfseries}
 
 % first page of a section should not have a header
@@ -158,14 +157,14 @@
 \let\originalsection\section
 \RenewDocumentCommand{\section}{som}{%
   \cleardoublepage
-  \vspace*{75pt}
+  \vspace*{63pt}
   \IfBooleanTF{#1}
     {\originalsection*{#3}}
     {\IfNoValueTF{#2}
       {\originalsection{#3}}
       {\originalsection[#2]{#3}}%
     }%
-  \vspace*{15pt}
+  \vspace*{10pt}
   \thispagestyle{section}%
 }
 

@@ -3,9 +3,9 @@
 
 In diesem Kapitel wird das Fallbeispiel erarbeitet, welches identifizieren soll, ob künstliche Intelligenz mit kleinem Budget und wenigen Ressourcen zur Automatisierung von Geschäftsprozessen angewendet werden kann. 
 
-Im Folgenden wird eine Einführung in das Fallbeispiel gegeben und der relevante Prozess im Detail erläutert. Es werden Anforderungen definiert, welche erfüllt werden müssen, damit der relevante Prozessschritt und somit der gesamte Prozess automatisiert werden kann.
+Im Folgenden wird eine Einführung in das Fallbeispiel gegeben und der relevante Prozess im Detail erläutert. Es werden Anforderungen zur Automatisierung des relevanten Prozessschrittes und somit des gesamten Prozesses definiert.
 
-Das Vorgehen und die Methodik dieses explorativen Teils werden im Kapitel \ref{chap:vorgehen} erläutert. Anhand dieses Vorgehens werden zwei für die Automatisierung des Prozesschrittes relevante Aspekte betrachtet. Zu beiden Aspekten werden jeweils zwei Experimente durchgeführt, mit welchen die Machbarkeit der Automatisierung des Aspektes identifiziert werden soll.
+Das Vorgehen und die Methodik dieses explorativen Teils werden im Kapitel \ref{chap:vorgehen} erläutert. Anhand diesem Vorgehen werden zwei für die Automatisierung des Prozesschrittes relevante Aspekte betrachtet. Zu beiden Aspekten werden jeweils zwei Experimente durchgeführt, mit welchen die Machbarkeit der Automatisierung identifiziert werden soll.
 
 Zu jedem Experiment werden die Ergebnisse diskutiert, mögliche Fehlerquellen analysiert und Optimierungspotential aufgezeigt.
 
@@ -16,18 +16,18 @@ Zu jedem Experiment werden die Ergebnisse diskutiert, mögliche Fehlerquellen an
 % Es wird erst ein Überblick über den Prozess gewährt, aus welchem anschliessend Aufgaben abgeleitet werden, welche mit Hilfe von künstlicher Intelligenz automatisiert werden sollen.
 
 \subsection{Einführung in das Fallbeispiel}
-In der Schweiz beliefen sich die Kosten für das Gesundheitswesens im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden von den Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz. Die übrigen 58\% werden durch den Staat, andere Sozial- oder Privatversicherungen sowie von selbstzahlenden Patienten getragen~\autocite{BfS2018}.
+In der Schweiz beliefen sich die Kosten für das Gesundheitswesen im Jahr 2015 auf 77.8 Milliarden Franken. Über 35\% dieser Kosten wurden durch die obligatorische Krankenversicherung gedeckt. Weitere knapp 7\% wurden von den Zusatzversicherungen übernommen. Die Krankenversicherer finanzierten also mit knapp 42\% einen beträchtlichen Teil des Gesundheitswesens in der Schweiz. Die übrigen 58\% werden durch den Staat, andere Sozial- oder Privatversicherungen sowie von selbstzahlenden Patienten getragen~\autocite{BfS2018}.
 
 Die Kosten des Gesundheitswesen steigen stetig an, so zeigen die Zahlen vom Jahr 2016 bereits Kosten von über 80 Milliarden Franken auf~\autocite{BfS2018}. Auch in den folgenden Jahren sollen die Kosten weiter steigen. \textcite{Kirchgassner2009} begründet diesen Anstieg unter anderem mit der Veränderung der Altersstruktur, dem steigenden Wohlstand sowie den neuen Möglichkeiten in der Diagnose und Behandlung durch technischen Fortschritt.
 
 Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Systemen, Tiers payant oder Tiers garant, vergütet (vgl. Tabelle \ref{tiers})~\autocite{EDI2017}. 
 
 % TODO: wraptable will mess up with list of numeration of table
-\begin{table}
+\begin{table}[h!]
 %\begin{wraptable}{l}{0.53\textwidth}
     \renewcommand{\arraystretch}{1.25}
     \setlength{\tabcolsep}{10pt}
-    \caption{Vergütungsmodelle bei den schweizer Krankenversicherern}
+    \caption{Vergütungsmodelle bei den Schweizer Krankenversicherern}
     \label{tiers}
     \begin{tabular}{| p{0.2\textwidth} | p{0.8\textwidth-41.2pt} |}
     % \begin{tabular}{| p{0.15\textwidth} | p{0.32\textwidth} |}
@@ -40,9 +40,9 @@ Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Syst
 %\end{wraptable}
 \end{table}
 
-Beim System Tiers payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, indem der Patient mit seiner Versichertenkarte bezahlt. Anhand dieser Versichertenkarte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt~\autocite{EDI2017}. 
+Beim System Tiers payant belastet der Leistungserbringer (bspw. Arzt oder Apotheke) die Kosten direkt dem Krankenversicherer. Dies geschieht, indem der Patient mit seiner Versichertenkarte bezahlt. Anhand der Versichertenkarte, welche vom Krankenversicherer ausgestellt wird, können Deckungen für den Patienten überprüft sowie die Rechnung direkt an den Krankenversicherer übermittelt werden. In diesem Fall wird die Rechnung bereits in digitaler, strukturierter Form übermittelt~\autocite{EDI2017}. 
 
-Werden Kosten, welche über Tiers payant abgerechnet wurden, nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung gar nicht versichert ist, verrechnet der Krankenversicherer die Kosten dem Patienten weiter \autocite{EDI2017}.
+Werden Kosten, welche über Tiers payant abgerechnet wurden, nicht vom Krankenversicherer getragen, weil beispielsweise ein Selbstbehalt vereinbart wurde, die Franchise noch nicht aufgebraucht ist oder der Patient für diese Behandlung nicht versichert ist, verrechnet der Krankenversicherer die Kosten dem Patienten weiter \autocite{EDI2017}.
 
 Das System Tiers payant wird häufig in Apotheken, beim Kauf von Medikamenten mit oder ohne ärztlichem Rezept, sowie bei allen stationären Behandlungen, gemäss KVG (Krankenversicherungsgesetz, Art. 42 Abs. 2 ), verwendet \autocite{EDI2017}.
 
@@ -52,9 +52,9 @@ Im Fall von Tiers garant stellt der Leistungserbringer die Rechnung direkt dem P
 
 Rechnungen, welche per Post oder digital beim Krankenversicherer zur Rückvergütung eingehen, erreichen diesen in verschiedenen Formen und unterschiedlichster Qualität. 
 
-Während einige Rechnungen nach dem TARMED Standard für Rückforderungsbelege strukturiert sind, sind andere formlos. Die Bandbreite dieser Formlosen Rechnungen ist gross. Von handgeschriebenen Rechnungen eines örtlichen Leistungserbringer bis hin zu strukturierten Rechnungen von grösseren Fitnessketten.
+Während einige Rechnungen nach dem TARMED Standard für Rückforderungsbelege strukturiert sind, sind andere formlos. Die Bandbreite dieser formlosen Rechnungen ist gross. Von handgeschriebenen Rechnungen eines örtlichen Leistungserbringer bis hin zu strukturierten Rechnungen von grösseren Fitnessketten.
 
-Bei der Einreichung per Post kann die Qualität durch Kaffee-Flecken, Verbleichung der Belege oder sonstige Beeinträchtigungen gemindert werden, der Krankenversicherer kann aber einiges dazu beitragen die Rechnung in hoher Qualität einzulesen. So kann er beispielsweise hochauflösende Scanner und eine optimale Beleuchtung einsetzen.
+Bei der Einreichung per Post kann die Qualität durch Kaffeeflecken, Verbleichung der Belege oder sonstige Beeinträchtigungen gemindert werden. Der Krankenversicherer kann aber einiges dazu beitragen, die Rechnung in hoher Qualität einzulesen. So kann er beispielsweise hochauflösende Scanner und eine optimale Beleuchtung einsetzen.
 
 Problematischer sind Rechnungen, welche von Kundinnen und Kunden digital, sprich als Foto, an den Krankenversicherer übermittelt werden. Wird ein Foto einer Rechnung über das Kundenportal eingereicht, so hat der Krankenversicherer nur noch sehr wenig Einfluss auf die Qualität der Aufnahme. Schlechte Belichtung, kleine Auflösung und abgeschnittene Rechnungen sind nur wenige der Probleme, mit welchen der Krankenversicherer zu kämpfen hat.
 
@@ -69,11 +69,11 @@ Egal wie und in welcher Qualität eine Rechnung einen Krankenversicherer erreich
 
 Die AXA, eine internationale Versicherungsgesellschaft, sieht sich, genau wie alle anderen Krankenversicherer, ebenfalls vor der Herausforderung der Indexierung von Rechnungen. Im Jahr 2017 lancierte die AXA eine Zusatzversicherung in der Branche der Gesundheitsvorsorge auf dem Schweizer Markt. Neben den Zusatzversicherungen selbst bietet die AXA ihren Kundinnen und Kunden einen Rechnungs-Weiterleitungs-Service an. Das bedeutet, alle Rechnungen können der AXA gesendet werden, auch wenn diese die Grundversicherung betreffen. Rechnungen beziehungsweise Rechnungspositionen, welche die Zusatzversicherung betreffen, werden von der AXA vergütet. Rechnungspositionen, welche die Grundversicherung betreffen, werden zur Vergütung an den Grundversicherer weitergeleitet \autocite{Finanzen.ch2017}.
 
-Gemäss einem Beitrag auf \textcite{Finanzen.ch2017} ist es das Ziel der AXA, bis im Jahr 2020 insgesamt 100'000 Versicherte für die Gesundheitsvorsorge zu gewinnen. Aus dem Geschäftsbericht der CSS Gruppe für das Jahr 2017 geht hervor, dass für knapp 1.7 Millionen Versicherte 16 Millionen Rechnungen geprüft wurden~\autocite{CSSGruppe2018}. Die Hochrechnung der durchschnittlich 9.5 Rechnungen pro Versicherten der CSS Gruppe auf die Zielgrösse von 100'000 Versicherten der AXA zeigt, dass die AXA im Jahr 2020 knapp 1 Million Rechnungen prüfen muss. Damit diese Menge an Rechnungen effizient verarbeitet werden kann, ist es für die AXA ein Anliegen, den Prozess der Indexierung möglichst automatisiert zu gestalten.
+Gemäss einem Beitrag auf \textcite{Finanzen.ch2017} ist es das Ziel der AXA, bis im Jahr 2020 insgesamt 100'000 Versicherte für die Gesundheitsvorsorge zu gewinnen. Aus dem Geschäftsbericht der CSS Gruppe für das Jahr 2017 geht hervor, dass für knapp 1.7 Millionen Versicherte 16 Millionen Rechnungen geprüft wurden~\autocite{CSSGruppe2018}. Die Hochrechnung der durchschnittlich 9.5 Rechnungen pro Versicherten der CSS Gruppe auf die Zielgrösse von 100'000 Versicherten der AXA zeigt, dass im Jahr 2020 knapp 1 Million Rechnungen prüfen muss. Damit diese Menge an Rechnungen effizient verarbeitet werden kann, ist es für die AXA ein Anliegen, den Prozess der Indexierung möglichst automatisiert zu gestalten.
 
-Um die Verwaltungskosten der Zusatzversicherung aufzuzeigen wird wiederum der Ge\-schäfts\-be\-richt der CSS Gruppe für das Jahr 2017 herangezogen. Der Kostensatz, welcher den Anteil der Gemeinkosten am Umsatz misst, betrug für die Grundversicherung lediglich 4\%. Im Geschäftsbereich der Zusatzversicherungen liegt dieser Kostensatz allerdings viel höher, nämlich bei 21\%~\autocite{CSSGruppe2018}. Welcher Anteil an diesen Kosten nun der Prüfung respektive der Indexierung eingehender Rechnungen zuzuschreiben ist, bleibt ein Betriebsgeheimnis. Da die Rechnungen, welche die Zusatzversicherungen betreffen, aufgrund der unterschiedlichen Leistungserbringer (Alternativmedizin, Fitness, Sportverein) viel diverser sind als jene die die Grundversicherung (meist ausgestellt durch Ärzte und Spitäler nach TARMED Standard) betreffen, liegt die Vermutung nahe, dass im Bereich der Zusatzversicherung ein hoher Anteil der Verwaltungskosten der Rechnungsprüfung zugeschrieben werden kann.
+Um die Verwaltungskosten der Zusatzversicherung aufzuzeigen wird wiederum der Ge\-schäfts\-be\-richt der CSS Gruppe für das Jahr 2017 herangezogen. Der Kostensatz, welcher den Anteil der administrativen Kosten am Umsatz misst, betrug für die Grundversicherung lediglich 4\%. Im Geschäftsbereich der Zusatzversicherungen liegt dieser Kostensatz allerdings viel höher, nämlich bei 21\%~\autocite{CSSGruppe2018}. Welcher Anteil an diesen Kosten nun der Prüfung respektive der Indexierung eingehender Rechnungen zuzuschreiben ist, bleibt ein Betriebsgeheimnis. Da die Rechnungen, welche die Zusatzversicherungen betreffen, aufgrund der unterschiedlichen Leistungserbringer (Alternativmedizin, Fitness, Sportverein) viel diverser sind als jene die die Grundversicherung (meist ausgestellt durch Ärzte und Spitäler nach TARMED Standard) betreffen, liegt die Vermutung nahe, dass im Bereich der Zusatzversicherung ein hoher Anteil der Verwaltungskosten der Rechnungsprüfung zugeschrieben werden kann.
 
-Die AXA profitiert aber bei einer automatisierten Indexierung von Rechnungen nicht nur von einer Kostensenkung, sondern kann damit auch einen Vorteil für ihre Kundinnen und Kunden generieren. Die Kundinnen und Kunden erhalten durch die automatisierte Verarbeitung der eingereichten Rechnungen schneller das geforderte Geld.
+Die AXA profitiert aber bei einer automatisierten Indexierung von Rechnungen nicht nur von einer Kostensenkung, sondern kann auch einen Vorteil für ihre Kundinnen und Kunden generieren. Die Kundinnen und Kunden erhalten durch die automatisierte Verarbeitung der eingereichten Rechnungen schneller das geforderte Geld.
 
 %Rechnungen, egal ob diese von der AXA selbst bezahlt oder an den Grundversicherer weitergeleitet werden, müssen indexiert werden um verarbeitet werden zu können. Die Indexierung wird aktuell von einem externen Provider übernommen und ist eine \todo[color=yellow]{erläutern}Blackbox. Es ist allerdings bekannt, dass ein grosser Teil der Arbeiten, nach einem automatisierten OCR Schritt, manuell gemacht werden. Die aktuelle Indexierung birgt folgende zwei Probleme:
 
@@ -96,7 +96,7 @@ Der Prozess der Rechnungseinreichung und -verarbeitung (vgl. Abbildung \ref{proz
 
 Im Kundenportal hat die Kundin oder der Kunde die Möglichkeit eine Rechnung hochzuladen. Dabei kann er entweder ein Dokument auf seinem Endgerät wählen oder die Kamera seines Geräts nutzen, um eine Rechnung zu fotografieren.
 
-Nach erfolgreichem Hochladen der Rechnung im Kundenportal durchläuft diese eine erste manuelle Qualitätsprüfung. Diese Qualitätsprüfung wurde eingeführt, da hochgeladene Rechnung teilweise ungenügende Qualität vorweisen. Entspricht die Rechnung nicht den Qualitätsanforderungen oder fehlt eine Seite oder eine ärztliche Verordnung, so wird die Kundin oder der Kunde gebeten, die vollständige Rechnung erneut hochzuladen.
+Nach erfolgreichem Hochladen der Rechnung im Kundenportal durchläuft diese eine erste manuelle Qualitätsprüfung. Diese Qualitätsprüfung wurde eingeführt, da hochgeladene Rechnung teilweise ungenügende Qualität vorwiesen. Entspricht die Rechnung nicht den Qualitätsanforderungen oder fehlt eine Seite oder eine ärztliche Verordnung, so wird die Kundin oder der Kunde gebeten, die vollständige Rechnung erneut hochzuladen.
 
 Nach erfolgreicher Qualitätsprüfung wird die Rechnung an den Scanning und Indexierungsdienstleister der AXA weitergeleitet.
 
@@ -110,7 +110,7 @@ Nach der erfolgreichen Verarbeitung der Rechnung wird die Kundin oder der Kunde 
 
 Hat die Kundin oder der Kunde die AXA bevollmächtigt, so wird die Rechnung, je nach Rechnungspositionen, automatisiert an die jeweilige Grundversicherung weitergeleitet.
 
-Ziel der AXA Gesundheitsvorsorge ist es, diesen Prozess für eingereichte Rechnungen, welche Fitnesscenter und Optiker betreffen, vollständig zu automatisieren. Dabei gibt es in diversen Bereichen Herausforderungen, welche aktuell angegangen werden. Diese Arbeit hat zum Ziel, die Herausforderungen im Bereich der Indexierung anzugehen. Es wird untersucht, ob die Anwendung künstlicher Intelligenz eine Automatisierung der Indexierung ermöglichen kann.
+Ziel der AXA Gesundheitsvorsorge ist es, diesen Prozess für eingereichte Rechnungen, welche Fitnesscenter und Optiker betreffen, vollständig zu automatisieren. Dabei gibt es in diversen Bereichen Herausforderungen, welche aktuell angegangen werden.
 
 Ausgangslage für den Arbeitsschritt der Indexierung ist eine digitalisierte Rechnung. Ziel der Indexierung ist es, aus dieser Rechnung strukturierte Informationen zu gewinnen und an das Kernsystem der AXA zu übermitteln. In dieser Arbeit wird die Extraktion dieser strukturierten Daten aus den digitalisierten Rechnungen mit Hilfe künstlicher Intelligenz behandelt. Das Übermitteln der strukturierten Informationen an das Kernsystem ist bereits gelöst und aus diesem Grund nicht Teil dieser Arbeit.
 
@@ -131,6 +131,7 @@ Um Rechnungen von Fitnesscenter und Optikern automatisiert verarbeiten zu könne
 
 Um eine Rechnung eines Optikers zu verarbeiten, sind folgende Informationen relevant:
 
+\nopagebreak
 \begin{itemize}
     \item \textbf{Leistungsbezüger}
     
@@ -169,8 +170,11 @@ Um eine Rechnung eines Optikers zu verarbeiten, sind folgende Informationen rele
 %    Die AXA anerkennt alle olympischen Sportarten. Das bedeutet, gewisse Sportarten sind nicht versichert. Es muss also die Sportart ermittelt werden, um die Versicherungsdeckung zu prüfen.
 %\end{itemize}
 
+% newpage here as the \nopagebreak below doesn't work
+\newpage
 Folgende Informationen sind notwendig, um eine Rechnung für ein Fitness-Abonnement zu verarbeiten:
 
+\nopagebreak
 \begin{itemize}
     \item \textbf{Leistungsbezüger}
     
@@ -190,12 +194,16 @@ Anhand dieser Informationen können Rechnungen automatisiert verarbeitet werden.
 \subsection{Vorgehen und Methodik}
 \label{chap:vorgehen}
 
-Wie in den Anforderungen an die Indexierung bereits angemerkt, müssen zwei Teilschritte, die Klassifizierung und die Extraktion von Informationen, analysiert werden. Dabei kommt ein explorativer Ansatz zur Anwendung. Für beide Teilschritte werden separate Experimente durchgeführt. Der Ablauf der Experimente ist dabei identisch. 
+Wie in den Anforderungen an die Indexierung bereits angemerkt, müssen zwei Teilschritte, die Klassifizierung und die Extraktion von Informationen, analysiert werden. Dabei kommt ein explorativer Ansatz zur Anwendung. Für beide Teilschritte werden separate Experimente durchgeführt. Der Ablauf der Experimente ist identisch. 
 
 Für die Experimente werden zuerst Testdaten aus dem System der AXA extrahiert und aufbereitet. Es wird in jedem Experiment mindestens eine künstliche Intelligenz geschaffen. Die Resultate der Experimente werden jeweils unabhängig voneinander diskutiert. Es wird das Potential der gewählten Ansätze sowie mögliche weitere Ansätze diskutiert.
 
-Aus den Diskussionen der Experimente werden Schlussfolgerungen für die Anwendbarkeit der künstlichen Intelligenz zur Indexierung von Rechnungen abgeleitet. Weiter werden Schlussfolgerungen in Bezug zur Forschungsfrage getroffen. Diese Schlussfolgerungen sind im Kapitel \ref{chap:summary} erläutert.
+Aus der Diskussion der Experimente werden Schlussfolgerungen für die Anwendbarkeit der künstlichen Intelligenz zur Indexierung von Rechnungen abgeleitet. Weiter werden Schlussfolgerungen in Bezug zur Forschungsfrage getroffen.
 
-Das explorative Vorgehen wurde gewählt, da Testdaten in Massen vorhanden sind. In diesem Fall kann mit einem explorativen Ansatz schnell evaluiert werden, ob ein bestimmter Ansatz erfolgversprechen ist oder nicht.
+Das explorative Vorgehen wurde gewählt, da unzählige Testdaten vorhanden sind. In diesem Fall kann mit einem explorativen Ansatz schnell evaluiert werden, ob ein bestimmter Ansatz erfolgversprechend ist oder nicht.
 
 Ein weiterer Grund für die Wahl des explorativen Vorgehens ist, dass sich der Autor während der Erstellung dieser Arbeit, im speziellen während der Durchführung der Experimente, das Wissen in diesem Bereich erst aneignen musste.
+
+
+
+
