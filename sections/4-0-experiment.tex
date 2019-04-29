@@ -5,7 +5,7 @@ In diesem Kapitel wird das Fallbeispiel erarbeitet, welches identifizieren soll,
 
 Im Folgenden wird eine Einführung in das Fallbeispiel gegeben und der relevante Prozess im Detail erläutert. Es werden Anforderungen zur Automatisierung des relevanten Prozessschrittes und somit des gesamten Prozesses definiert.
 
-Das Vorgehen und die Methodik dieses explorativen Teils werden im Kapitel \ref{chap:vorgehen} erläutert. Anhand diesem Vorgehen werden zwei für die Automatisierung des Prozesschrittes relevante Aspekte betrachtet. Zu beiden Aspekten werden jeweils zwei Experimente durchgeführt, mit welchen die Machbarkeit der Automatisierung identifiziert werden soll.
+Das Vorgehen und die Methodik dieses explorativen Teils werden im Kapitel \ref{chap:vorgehen} erläutert. Anhand diesem Vorgehen werden zwei für die Automatisierung des Prozesschrittes relevante Aspekte betrachtet. Zu beiden Aspekten werden jeweils Experimente durchgeführt, mit welchen die Machbarkeit der Automatisierung identifiziert werden soll.
 
 Zu jedem Experiment werden die Ergebnisse diskutiert, mögliche Fehlerquellen analysiert und Optimierungspotential aufgezeigt.
 
@@ -32,9 +32,9 @@ Die Kosten, welche die Krankenversicherer tragen, werden mit einem von zwei Syst
     \begin{tabular}{| p{0.2\textwidth} | p{0.8\textwidth-41.2pt} |}
     % \begin{tabular}{| p{0.15\textwidth} | p{0.32\textwidth} |}
         \hline
-         Tiers payant & Kosten werden vom Leistungserbringer direkt dem Kranken\-versicherer in Rechnung gestellt. \\
+         \cellcolor[HTML]{C0E5FD} Tiers payant & Kosten werden vom Leistungserbringer direkt dem Kranken\-versicherer in Rechnung gestellt. \\
         \hline
-         Tiers garant & Kosten werden vom Leistungserbringer dem Patienten in Rechnung gestellt, welcher die Rechnung dem Krankenversicherer zur Rückvergütung weiterleitet. \\
+         \cellcolor[HTML]{C0E5FD}Tiers garant & Kosten werden vom Leistungserbringer dem Patienten in Rechnung gestellt, welcher die Rechnung dem Krankenversicherer zur Rückvergütung weiterleitet. \\
         \hline
     \end{tabular}
 %\end{wraptable}
@@ -69,11 +69,11 @@ Egal wie und in welcher Qualität eine Rechnung einen Krankenversicherer erreich
 
 Die AXA, eine internationale Versicherungsgesellschaft, sieht sich, genau wie alle anderen Krankenversicherer, ebenfalls vor der Herausforderung der Indexierung von Rechnungen. Im Jahr 2017 lancierte die AXA eine Zusatzversicherung in der Branche der Gesundheitsvorsorge auf dem Schweizer Markt. Neben den Zusatzversicherungen selbst bietet die AXA ihren Kundinnen und Kunden einen Rechnungs-Weiterleitungs-Service an. Das bedeutet, alle Rechnungen können der AXA gesendet werden, auch wenn diese die Grundversicherung betreffen. Rechnungen beziehungsweise Rechnungspositionen, welche die Zusatzversicherung betreffen, werden von der AXA vergütet. Rechnungspositionen, welche die Grundversicherung betreffen, werden zur Vergütung an den Grundversicherer weitergeleitet \autocite{Finanzen.ch2017}.
 
-Gemäss einem Beitrag auf \textcite{Finanzen.ch2017} ist es das Ziel der AXA, bis im Jahr 2020 insgesamt 100'000 Versicherte für die Gesundheitsvorsorge zu gewinnen. Aus dem Geschäftsbericht der CSS Gruppe für das Jahr 2017 geht hervor, dass für knapp 1.7 Millionen Versicherte 16 Millionen Rechnungen geprüft wurden~\autocite{CSSGruppe2018}. Die Hochrechnung der durchschnittlich 9.5 Rechnungen pro Versicherten der CSS Gruppe auf die Zielgrösse von 100'000 Versicherten der AXA zeigt, dass im Jahr 2020 knapp 1 Million Rechnungen prüfen muss. Damit diese Menge an Rechnungen effizient verarbeitet werden kann, ist es für die AXA ein Anliegen, den Prozess der Indexierung möglichst automatisiert zu gestalten.
+Gemäss einem Beitrag auf \textcite{Finanzen.ch2017} ist es das Ziel der AXA, bis im Jahr 2020 insgesamt 100'000 Versicherte für die Gesundheitsvorsorge zu gewinnen. Aus dem Geschäftsbericht der CSS Gruppe für das Jahr 2017 geht hervor, dass für knapp 1.7 Millionen Versicherte 16 Millionen Rechnungen geprüft wurden~\autocite{CSSGruppe2018}. Die Hochrechnung der durchschnittlich 9.5 Rechnungen pro Versicherten der CSS Gruppe auf die Zielgrösse von 100'000 Versicherten der AXA zeigt, dass im Jahr 2020 knapp 1 Million Rechnungen verarbeitet werden müssen. Damit diese Menge an Rechnungen effizient verarbeitet werden kann, ist es für die AXA ein Anliegen, den Prozessschritt der Indexierung möglichst automatisiert zu gestalten.
 
 Um die Verwaltungskosten der Zusatzversicherung aufzuzeigen wird wiederum der Ge\-schäfts\-be\-richt der CSS Gruppe für das Jahr 2017 herangezogen. Der Kostensatz, welcher den Anteil der administrativen Kosten am Umsatz misst, betrug für die Grundversicherung lediglich 4\%. Im Geschäftsbereich der Zusatzversicherungen liegt dieser Kostensatz allerdings viel höher, nämlich bei 21\%~\autocite{CSSGruppe2018}. Welcher Anteil an diesen Kosten nun der Prüfung respektive der Indexierung eingehender Rechnungen zuzuschreiben ist, bleibt ein Betriebsgeheimnis. Da die Rechnungen, welche die Zusatzversicherungen betreffen, aufgrund der unterschiedlichen Leistungserbringer (Alternativmedizin, Fitness, Sportverein) viel diverser sind als jene die die Grundversicherung (meist ausgestellt durch Ärzte und Spitäler nach TARMED Standard) betreffen, liegt die Vermutung nahe, dass im Bereich der Zusatzversicherung ein hoher Anteil der Verwaltungskosten der Rechnungsprüfung zugeschrieben werden kann.
 
-Die AXA profitiert aber bei einer automatisierten Indexierung von Rechnungen nicht nur von einer Kostensenkung, sondern kann auch einen Vorteil für ihre Kundinnen und Kunden generieren. Die Kundinnen und Kunden erhalten durch die automatisierte Verarbeitung der eingereichten Rechnungen schneller das geforderte Geld.
+Die AXA profitiert bei einer automatisierten Indexierung von Rechnungen nicht nur von einer Kostensenkung, sondern kann auch einen Vorteil für ihre Kundinnen und Kunden generieren. Die Kundinnen und Kunden erhalten durch die automatisierte Verarbeitung der eingereichten Rechnungen schneller das geforderte Geld.
 
 %Rechnungen, egal ob diese von der AXA selbst bezahlt oder an den Grundversicherer weitergeleitet werden, müssen indexiert werden um verarbeitet werden zu können. Die Indexierung wird aktuell von einem externen Provider übernommen und ist eine \todo[color=yellow]{erläutern}Blackbox. Es ist allerdings bekannt, dass ein grosser Teil der Arbeiten, nach einem automatisierten OCR Schritt, manuell gemacht werden. Die aktuelle Indexierung birgt folgende zwei Probleme:
 
@@ -94,15 +94,15 @@ Der Prozess der Rechnungseinreichung und -verarbeitung (vgl. Abbildung \ref{proz
     \includegraphics[width=\textwidth]{graphics/rechnungseinreichung-bpmn.pdf}
 \end{figure}
 
-Im Kundenportal hat die Kundin oder der Kunde die Möglichkeit eine Rechnung hochzuladen. Dabei kann er entweder ein Dokument auf seinem Endgerät wählen oder die Kamera seines Geräts nutzen, um eine Rechnung zu fotografieren.
+Im Kundenportal hat die Kundin oder der Kunde die Möglichkeit eine Rechnung hochzuladen. Dabei kann entweder ein Dokument auf dem Endgerät gewählt oder die Kamera des Gerätes genutzt werden, um eine Rechnung zu fotografieren.
 
 Nach erfolgreichem Hochladen der Rechnung im Kundenportal durchläuft diese eine erste manuelle Qualitätsprüfung. Diese Qualitätsprüfung wurde eingeführt, da hochgeladene Rechnung teilweise ungenügende Qualität vorwiesen. Entspricht die Rechnung nicht den Qualitätsanforderungen oder fehlt eine Seite oder eine ärztliche Verordnung, so wird die Kundin oder der Kunde gebeten, die vollständige Rechnung erneut hochzuladen.
 
 Nach erfolgreicher Qualitätsprüfung wird die Rechnung an den Scanning und Indexierungsdienstleister der AXA weitergeleitet.
 
-Entscheidet sich die Kundin oder der Kunde für die Einreichung per Post, so wird sein Brief direkt an den Scanning und Indexierungsdienstleister der AXA weitergeleitet. Dieser Dienstleister scannt die weitergeleitete Rechnung ein.
+Entscheidet sich die Kundin oder der Kunde für die Einreichung per Post, so wird der Brief direkt an den Scanning und Indexierungsdienstleister der AXA weitergeleitet. Dieser Dienstleister scannt die weitergeleitete Rechnung ein.
 
-Nach beiden dieser Einstiegspunkten in den Prozess indexiert der Scanning und Indexierungsdienstleister die eingereichte Rechnung. Dieser Aufgabenschritt erfolgt teilweise automatisiert und teilweise manuell. Wie genau die Indexierung abläuft ist nicht bekannt. Der genaue Ablauf dieser eingekauften Dienstleistung wird als Geschäftsgeheimnis gewahrt.
+Nach beiden dieser Einstiegspunkte in den Prozess indexiert der Scanning und Indexierungsdienstleister die eingereichte Rechnung. Dieser Aufgabenschritt erfolgt teilweise automatisiert und teilweise manuell. Wie genau die Indexierung abläuft ist nicht bekannt. Der genaue Ablauf dieser eingekauften Dienstleistung wird als Geschäftsgeheimnis gewahrt.
 
 Nach der Indexierung werden die Scans sowie das strukturierte Resultat der Indexierung elektronisch an das Kernsystem der AXA Gesundheitsvorsorge übermittelt. Dieses Kern\-system verarbeitet die eingegangenen Rechnungen aufgrund eines Regelwerks. Kann die Rechnung nicht verarbeitet werden, weil diese nicht korrekt indexiert wurde oder Informationen fehlen, muss eine Fachspezialistin oder ein Fachspezialist eingreifen. Nach allfälligen Rückfragen und Korrekturen wird die Rechnung verarbeitet. 
 
@@ -127,7 +127,7 @@ Ausgangslage für den Arbeitsschritt der Indexierung ist eine digitalisierte Rec
 \subsection{Anforderungen}
 \label{chap:requirements}
 
-Um Rechnungen von Fitnesscenter und Optikern automatisiert verarbeiten zu können, müssen diese Rechnungen als solche klassifiziert und die notwendigen Informationen, welche nachfolgend genauer spezifiziert werden, extrahiert werden.
+Um Rechnungen von Fitnesscentern und Optikern automatisiert verarbeiten zu können, müssen diese Rechnungen als solche klassifiziert und die notwendigen Informationen, welche nachfolgend genauer spezifiziert werden, extrahiert werden.
 
 Um eine Rechnung eines Optikers zu verarbeiten, sind folgende Informationen relevant:
 
@@ -147,7 +147,7 @@ Um eine Rechnung eines Optikers zu verarbeiten, sind folgende Informationen rele
     
     \item \textbf{Hinweis auf eine ärztliche Verordnung}
     
-    Besteht eine ärztliche Verordnung, ist ein gewisser Betrag bei der Grundversicherung versichert. In diesem Fall wird dieser Betrag von der Rückvergütung der AXA abgezogen und die Rechnung an die Grundversicherung weitergeleitet.
+    Besteht eine ärztliche Verordnung, ist ein gewisser Betrag über die Grundversicherung versichert. In diesem Fall wird dieser Betrag von der Rückvergütung der AXA abgezogen und die Rechnung an die Grundversicherung weitergeleitet.
 \end{itemize}
 
 %\paragraph{
@@ -198,11 +198,11 @@ Wie in den Anforderungen an die Indexierung bereits angemerkt, müssen zwei Teil
 
 Für die Experimente werden zuerst Testdaten aus dem System der AXA extrahiert und aufbereitet. Es wird in jedem Experiment mindestens eine künstliche Intelligenz geschaffen. Die Resultate der Experimente werden jeweils unabhängig voneinander diskutiert. Es wird das Potential der gewählten Ansätze sowie mögliche weitere Ansätze diskutiert.
 
-Aus der Diskussion der Experimente werden Schlussfolgerungen für die Anwendbarkeit der künstlichen Intelligenz zur Indexierung von Rechnungen abgeleitet. Weiter werden Schlussfolgerungen in Bezug zur Forschungsfrage getroffen.
+Aus der Diskussion der Experimente werden Schlussfolgerungen für die Anwendbarkeit der künstlichen Intelligenz zur Indexierung von Rechnungen abgeleitet.
 
-Das explorative Vorgehen wurde gewählt, da unzählige Testdaten vorhanden sind. In diesem Fall kann mit einem explorativen Ansatz schnell evaluiert werden, ob ein bestimmter Ansatz erfolgversprechend ist oder nicht.
+Das explorative Vorgehen wurde gewählt, da unzählige Testdaten zur Verfügung stehen. In diesem Fall kann mit einem explorativen Ansatz schnell evaluiert werden, ob ein bestimmter Ansatz erfolgversprechend ist oder nicht.
 
-Ein weiterer Grund für die Wahl des explorativen Vorgehens ist, dass sich der Autor während der Erstellung dieser Arbeit, im speziellen während der Durchführung der Experimente, das Wissen in diesem Bereich erst aneignen musste.
+Ein weiterer Grund für die Wahl des explorativen Vorgehens ist, dass sich der Autor während der Erstellung dieser Arbeit, im speziellen während der Durchführung der Experimente, das Wissen im Bereich der künstlichen Intelligenz erst aneignen musste.
 
 
 
