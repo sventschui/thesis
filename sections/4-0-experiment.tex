@@ -129,24 +129,30 @@ Ausgangslage für den Arbeitsschritt der Indexierung ist eine digitalisierte Rec
 
 Um Rechnungen von Fitnesscentern und Optikern automatisiert verarbeiten zu können, müssen diese Rechnungen als solche klassifiziert und die notwendigen Informationen, welche nachfolgend genauer spezifiziert werden, extrahiert werden.
 
+\newpage
 Um eine Rechnung eines Optikers zu verarbeiten, sind folgende Informationen relevant:
 
 \nopagebreak
 \begin{itemize}
     \item \textbf{Leistungsbezüger}
     
+    \nopagebreak
     Es muss ermittelt werden, für wen die Rechnung ausgestellt wurde. Anhand dieser Information wird geprüft, ob und wie diese Person bei der AXA versichert ist. Auch wird damit geprüft, dass der maximal versicherte Betrag noch nicht ausgeschöpft ist.
     
+    \nopagebreak
     Ist der Leistungsbezüger minderjährig, so wird ein gewisser Betrag von der Grundversicherung übernommen. In diesem Fall wird dieser Betrag von der Rückvergütung der AXA abgezogen und die Rechnung an die Grundversicherung weitergeleitet.
-    
+        
     \item \textbf{Totalbetrag der Rechnung (inkl. Währung)}
     
+    \nopagebreak
     Dieser Betrag bildet die Grundlage zur Berechnung der geschuldeten Leistung an die Kundin oder den Kunden. 
     
+    \nopagebreak
     Einzelne Rechnungspositionen sind für Rechnungen von Optikern nicht relevant.
     
     \item \textbf{Hinweis auf eine ärztliche Verordnung}
     
+    \nopagebreak
     Besteht eine ärztliche Verordnung, ist ein gewisser Betrag über die Grundversicherung versichert. In diesem Fall wird dieser Betrag von der Rückvergütung der AXA abgezogen und die Rechnung an die Grundversicherung weitergeleitet.
 \end{itemize}
 
@@ -171,7 +177,6 @@ Um eine Rechnung eines Optikers zu verarbeiten, sind folgende Informationen rele
 %\end{itemize}
 
 % newpage here as the \nopagebreak below doesn't work
-\newpage
 Folgende Informationen sind notwendig, um eine Rechnung für ein Fitness-Abonnement zu verarbeiten:
 
 \nopagebreak
