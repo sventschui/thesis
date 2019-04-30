@@ -1,4 +1,4 @@
-# <title>
+# Automatisierung von Geschäftsprozessen durch künstliche Intelligenz: Eine explorative Untersuchung des Potentials am Beispiel der Rechnungseinreichung in der Krankenversicherung
 
 > Persönliche Bachelor Thesis zum Studiengang BSc in Wirtschaftsinformatik an der HWZ Hochschule für Wirtschaft Zürich.
 >
@@ -8,4 +8,20 @@
 
 # Abstract
 
-&lt;abstract&gt;
+Die künstliche Intelligenz prägt viele Hollywood Kassenschlager. Diese stellen die künstliche Intelligenz oft als Wesen mit menschlichen Zügen, die diesen überlegen sind, dar. Doch bezeichnet der Begriff künstliche Intelligenz Technologien, mit welchen Computern beigebracht wird, flexible und rationale Entscheidungen zu treffen. Es werden dem Computer dabei keine Regeln, sondern Eingabe- und erwartete Ausgabewerte vorgegeben. Der Computer soll anhand dieser Beispiele lernen, für neue Eingabewerte eine Antwort vorherzusagen.
+
+Heutige Anwendungen der künstlichen Intelligenz sind spezifisch für die zu lösende Aufgabe. Diese sogenannte aufgabenspezifische künstliche Intelligenz, die geschaffen wurde um die Aufgabe A zu lösen, ist im Gegensatz zu uns Menschen oder einer ganzheitlichen künstlichen Intelligenz, nicht geeignet die Aufgabe B zu lösen.
+
+Das Forschungsgebiet der künstlichen Intelligenz ist trotz seines Alters immer wieder von neuen Entwicklungen geprägt. Zur Zeit werden die Technologien aus diesem Gebiet meist nur von Technologie-Giganten und Start-Ups verwendet. Durch Initiativen wie www.fast.ai wird das Forschungsgebiet zugänglicher und es wird für die breiten Massen immer einfacher, Systeme mit künstlicher Intelligenz zu schaffen.
+
+Aufgrund dieser Entwicklungen setzt sich diese Arbeit zum Ziel, herauszufinden, ob Geschäftsprozesse in kleineren Unternehmen durch eigenentwickelte künstliche Intelligenz automatisiert werden können.
+
+Zur Untersuchung werden relevante Grundlagen des Forschungsgebietes der künstlichen Intelligenz erläutert. Darauf aufbauend wird in einem explorativen Teil ein Fallbeispiel erarbeitet. Dabei wird die Automatisierung des Prozesses zur Rechnungseinreichung bei der AXA Gesundheitsvorsorge mit Hilfe von künstlicher Intelligenz analysiert. Zur Analyse zweier Aspekte der Automatisierung des Prozesses werden zwei Modelle zur Klassifizierung der Rechnungen und eines zur Informationsextraktion implementiert respektive optimiert. 
+
+Zur Klassifizierung der Rechnungen wurde ein Bild-basiertes sowie ein Text-basiertes Modell implementiert und evaluiert. Das Text-basierte Modell erzielte dabei bessere Resultate. Es erreicht eine Trefferquote von 98.4\%. Im Rahmen der Fehleranalyse wurde Optimierungspotential im Bereich der OCR Erkennung und des Word embeddings aufgezeigt, durch welches die Trefferquote in Zukunft noch weiter erhöht werden kann.
+
+Zur Informationsextraktion aus den Rechnungen wurde ein Bild-basiertes Modell evaluiert. Das Modell erreicht auf einem Datensatz von 900 Rechnungen von Optikern gute, aber dennoch keine zufriedenstellende Resultate. Das Modell wurde erweitert, damit es alle relevanten Informationen zur Automatisierung einer Rechnung liefern kann. Des weiteren wurde das Modell auf Rechnungen eines Typs spezialisiert. Das Modell wurde auf Rechnungen von Fielmann trainiert, wobei es eine Mean Average Precision (mAP@0.5) von 94\% erreicht. Das Modell wurde ausserdem auf Rechnungen von Visilab trainiert. Das Modell erzielt hier aufgrund der geringen Zahl an Trainingsdaten eine etwas tiefere Mean Average Precision. Diese guten Ergebnisse können durch das in der Arbeit aufgezeigte Optimierungspotential noch weiter verbessert werden. 
+
+Die Ergebnisse und das aufgezeigte Optimierungspotential belegen, dass eine Automatisierung des Prozesses möglich ist. Die Modelle müssen vor produktivem Einsatz weiter optimiert werden. Der Aufwand für die Optimierung darf nicht unterschätzt werden, denn das Modell zur Informationsextraktion muss spezifisch für jeden Leistungserbringer trainiert werden. Der AXA Gesundheitsvorsorge wird empfohlen, weiter in die Automatisierung mit Hilfe von künstlicher Intelligenz zu investieren und einen inkrementellen Rollout eines Systems mit künstlicher Intelligenz anzustreben.
+
+Initiativen wie das DAWN Projekt, welche die künstliche Intelligenz immer zugänglicher machen, und die Ergebnisse aus dem Fallbeispiel zeigen, dass die künstlche Intelligenz auch von kleineren Unternehmen mit limitiertem Investitionskapital verwendet werden kann, um Geschäftsprozesse zu automatisieren. Trotz der noch immer hohen Investitionskosten ist es auch für kleinere Unternehmen ratsam, in die künstliche Intelligenz zu investieren, damit sie sich einen Wettbewerbsvorteil schaffen beziehungsweise einen solchen halten können.
